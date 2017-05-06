@@ -1,4 +1,0 @@
-D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Mappers\bin\Debug\ProArch.FieldOrbit.Mappers.dll
-D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Mappers\bin\Debug\ProArch.FieldOrbit.Mappers.pdb
-D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Mappers\obj\Debug\ProArch.FieldOrbit.Mappers.dll
-D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Mappers\obj\Debug\ProArch.FieldOrbit.Mappers.pdb
