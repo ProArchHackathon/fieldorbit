@@ -4,7 +4,7 @@
 
 *.cache
 *.user
-*.suo
+*.vs
 /ProArch.FieldOrbit.DataLayer/bin
 /ProArch.FieldOrbit.DataLayer/obj
 /ProArch.FieldOrbit.DataContracts/bin
