@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProArch.FieldOrbit.Contracts.Interfaces;
 using ProArch.FieldOrbit.Models;
+using ProArch.FieldOrbit.DataContracts.Interfaces;
 
 namespace ProArch.FieldOrbit.BusinessLayer.Services
 {
@@ -13,6 +14,13 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
     /// </summary>
     public class DeviceService : IDeviceService
     {
+
+        private IDeviceRepository _deviceRepository;
+        public DeviceService(IDeviceRepository deviceRepository)
+        {
+            this._deviceRepository = deviceRepository;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -27,9 +35,9 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<Content> GetAllDevices()
+        public IEnumerable<Device> GetAllDevices()
         {
-            throw new NotImplementedException();
+            return this._deviceRepository.GetAllDevices().ToList();
         }
 
         /// <summary>

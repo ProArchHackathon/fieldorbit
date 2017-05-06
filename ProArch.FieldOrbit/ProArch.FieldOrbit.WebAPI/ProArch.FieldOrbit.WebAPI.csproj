@@ -113,6 +113,7 @@
     <Compile Include="Common\ILogComplexType.cs" />
     <Compile Include="Common\TraceLogContractResolver.cs" />
     <Compile Include="Configuration\AutofacConfig.cs" />
+    <Compile Include="Controllers\DeviceController.cs" />
     <Compile Include="Controllers\LoginOperationsController.cs" />
     <Compile Include="Controllers\ServiceRequestController.cs" />
     <Compile Include="Controllers\WorkRequestController.cs" />

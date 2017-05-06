@@ -81,6 +81,13 @@ namespace ProArch.FieldOrbit.DataLayer
             return true;
         }
 
+        public IEnumerable<Device> GetAllDevices(string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            return _database.GetCollection<Device>(collectionName).AsQueryable().ToList();            
+        }
+
         public bool UpdateWorkRequest(BsonDocument doc, string collectionName)
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);

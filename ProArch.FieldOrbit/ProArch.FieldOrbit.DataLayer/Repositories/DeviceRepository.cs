@@ -24,9 +24,9 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<Content> GetAllDevices()
+        public IEnumerable<Device> GetAllDevices()
         {
-            throw new NotImplementedException();
+            return new MongoRepository().GetAllDevices("device");
         }
 
         /// <summary>

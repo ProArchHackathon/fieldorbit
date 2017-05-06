@@ -38,7 +38,7 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// Get all devices
         /// </summary>
         /// <returns></returns>
-        List<Content> GetAllDevices();
+        IEnumerable<Device> GetAllDevices();
 
         /// <summary>
         /// Get expert by device id
