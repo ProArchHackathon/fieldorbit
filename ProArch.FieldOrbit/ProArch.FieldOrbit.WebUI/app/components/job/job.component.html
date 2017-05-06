@@ -1,32 +1,33 @@
-﻿<div>
-    <h4 style="background-color: powderblue">Create Job</h4>
-</div>
+﻿
 <form class="example-form">
     <md-card>
         <div>
-            <md-input-container class="example-full-width">
+            <h4 style="background-color: powderblue">Create Job</h4>
+        </div>
+        <div>
+            <md-input-container>
                 <input mdInput placeholder="JobID" required [(ngModel)]="JobID" name="JobID">
             </md-input-container>
         </div>
         <div>
-            <md-input-container class="example-full-width">
+            <md-input-container>
                 <textarea mdInput [(ngModel)]="jobDesc" placeholder="Job Description" name="jobDesc"></textarea>
             </md-input-container>
         </div>
         <div>
             <div>
-                <md-input-container class="example-full-width">
+                <md-input-container>
                     <input type="datetime-local" mdInput placeholder="Start Date" [(ngModel)]="fromDate" name="fromDate">
                 </md-input-container>
             </div>
             <div>
-                <md-input-container class="example-full-width">
+                <md-input-container>
                     <input type="datetime-local" mdInput placeholder="End Date" [(ngModel)]="toDate" name="toDate">
                 </md-input-container>
             </div>
         </div>
         <div>
-            <md-input-container class="example-full-width">
+            <md-input-container>
                 <input mdInput placeholder="Estimated Duration" [(ngModel)]="estTime" name="estTime">
             </md-input-container>
 
@@ -36,7 +37,7 @@
                 </md-option>
             </md-select>
         </div>
-        <div class="example-full-width">
+        <div>
             <md-select placeholder="Priority" [(ngModel)]="jobPriority" name="jobPriority">
                 <md-option *ngFor="let priorValue of Priority" [value]="priorValue.value">
                     {{ priorValue.viewValue }}
@@ -52,12 +53,12 @@
         </div>
 
         <div>
-            <md-input-container class="example-full-width">
+            <md-input-container>
                 <textarea mdInput placeholder="Comments" [(ngModel)]="comments" name="comments"></textarea>
             </md-input-container>
         </div>
         <div>
-            <md-input-container class="example-full-width">
+            <md-input-container>
                 <textarea mdInput placeholder="Observations" [(ngModel)]="observations" name="observations"></textarea>
             </md-input-container>
         </div>

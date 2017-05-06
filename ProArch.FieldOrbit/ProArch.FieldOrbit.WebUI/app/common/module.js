@@ -19,6 +19,7 @@ var fileupload_component_1 = require("../components/fileupload/fileupload.compon
 var fileuploaddetails_component_1 = require("../components/fileupload/fileuploaddetails.component");
 var serviceRequest_component_1 = require("../components/serviceRequest/serviceRequest.component");
 var workrequest_component_1 = require("../components/workrequest/workrequest.component");
+var sidenav_1 = require("./material/sidenav");
 //import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -59,7 +60,7 @@ AppModule = __decorate([
         ],
         declarations: [
             app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent, fileupload_component_1.FileUploadComponent,
-            fileuploaddetails_component_1.FileUploadDetailsComponent, serviceRequest_component_1.ServiceRequestComponent, workrequest_component_1.WorkRequestComponent
+            fileuploaddetails_component_1.FileUploadDetailsComponent, serviceRequest_component_1.ServiceRequestComponent, workrequest_component_1.WorkRequestComponent, sidenav_1.SidenavComponent
         ],
         exports: [
             material_1.MaterialModule

@@ -8,13 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
+        this.navLinks = [{ route: 'servicerequest', label: 'Service Request' },
+            { route: 'workrequest', label: 'Work Request' },
+            { route: 'job', label: 'Job' },
+            { route: 'fileupload', label: 'File Upload' }];
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'msg-app',
-        template: '<router-outlet></router-outlet>'
+        template: "<nav class=\"tab-background\" md-tab-nav-bar>\n  <a md-tab-link *ngFor=\"let link of navLinks\"\n     [routerLink]=\"link.route\"\n     routerLinkActive #rla=\"routerLinkActive\"\n     [active]=\"rla.isActive\">\n    {{link.label}}\n  </a>\n</nav>\n<router-outlet></router-outlet>"
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

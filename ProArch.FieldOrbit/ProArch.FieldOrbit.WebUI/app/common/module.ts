@@ -12,6 +12,7 @@ import { FileUploadComponent } from '../components/fileupload/fileupload.compone
 import { FileUploadDetailsComponent } from '../components/fileupload/fileuploaddetails.component';
 import { ServiceRequestComponent } from '../components/serviceRequest/serviceRequest.component';
 import { WorkRequestComponent } from '../components/workrequest/workrequest.component';
+import { SidenavComponent } from './material/sidenav';
 //import 'hammerjs';
 @NgModule({
     imports: [
@@ -46,7 +47,7 @@ import { WorkRequestComponent } from '../components/workrequest/workrequest.comp
     ],
     declarations: [
         AppComponent, JobComponent, LoginComponent, FileUploadComponent,
-        FileUploadDetailsComponent, ServiceRequestComponent, WorkRequestComponent
+        FileUploadDetailsComponent, ServiceRequestComponent, WorkRequestComponent, SidenavComponent
 
     ],
     exports: [

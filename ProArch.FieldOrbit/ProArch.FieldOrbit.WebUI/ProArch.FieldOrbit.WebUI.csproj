@@ -92,6 +92,8 @@
   <ItemGroup>
     <Content Include="app\common\login\login.component.css" />
     <Content Include="app\common\login\login.component.html" />
+    <Content Include="app\common\material\sidenav.css" />
+    <Content Include="app\common\material\sidenav.html" />
     <Content Include="app\components\fileupload\fileupload.component.css" />
     <Content Include="app\components\fileupload\fileupload.component.html" />
     <Content Include="app\components\fileupload\fileuploaddetails.component.html" />
@@ -140,6 +142,7 @@
     <TypeScriptCompile Include="app\common\app.cookieManager.ts" />
     <TypeScriptCompile Include="app\common\login\login.component.ts" />
     <TypeScriptCompile Include="app\common\login\login.service.ts" />
+    <TypeScriptCompile Include="app\common\material\sidenav.ts" />
     <TypeScriptCompile Include="app\common\module.ts" />
     <TypeScriptCompile Include="app\components\fileupload\DataService.ts" />
     <TypeScriptCompile Include="app\components\fileupload\fileupload.component.ts" />
