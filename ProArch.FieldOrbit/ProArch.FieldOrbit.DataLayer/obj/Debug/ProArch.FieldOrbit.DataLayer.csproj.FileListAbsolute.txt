@@ -16,8 +16,6 @@ D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debu
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataContracts.pdb
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataContracts.dll.config
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.csprojResolveAssemblyReference.cache
-D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.dll
-D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.pdb
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataLayer.dll
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataLayer.pdb
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Bson.dll
@@ -32,3 +30,5 @@ D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbi
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Bson.xml
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Driver.xml
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Driver.Core.xml
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.dll
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.pdb

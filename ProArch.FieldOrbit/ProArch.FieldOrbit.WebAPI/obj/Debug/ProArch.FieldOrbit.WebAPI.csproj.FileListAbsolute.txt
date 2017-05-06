@@ -113,6 +113,7 @@ D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\MongoDB
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\ProArch.FieldOrbit.DataContracts.dll
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\ProArch.FieldOrbit.DataContracts.pdb
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\ProArch.FieldOrbit.DataContracts.dll.config
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\obj\Debug\ProArch.FieldOrbit.WebAPI.csprojResolveAssemblyReference.cache
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\roslyn\csc.exe
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\roslyn\csc.exe.config
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\roslyn\csc.rsp
@@ -183,6 +184,5 @@ D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbi
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\ProArch.FieldOrbit.DataContracts.dll.config
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\MongoDB.Driver.Core.xml
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\MongoDB.Bson.xml
-D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\obj\Debug\ProArch.FieldOrbit.WebAPI.csprojResolveAssemblyReference.cache
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\obj\Debug\ProArch.FieldOrbit.WebAPI.dll
 D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\obj\Debug\ProArch.FieldOrbit.WebAPI.pdb

@@ -65,8 +65,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProArch.FieldOrbit.Conracts\ProArch.FieldOrbit.DataContracts.csproj">
-      <Project>{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}</Project>
+    <ProjectReference Include="..\ProArch.FieldOrbit.DataContracts\ProArch.FieldOrbit.DataContracts.csproj">
+      <Project>{7b960eac-0feb-41af-99e7-9e06aed481db}</Project>
       <Name>ProArch.FieldOrbit.DataContracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProArch.FieldOrbit.Models\ProArch.FieldOrbit.Models.csproj">

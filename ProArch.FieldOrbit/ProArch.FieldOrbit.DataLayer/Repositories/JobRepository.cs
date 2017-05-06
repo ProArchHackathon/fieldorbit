@@ -1,11 +1,8 @@
-﻿using System;
+﻿using ProArch.FieldOrbit.DataContracts.Interfaces;
+using ProArch.FieldOrbit.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProArch.FieldOrbit.DataContracts.Interfaces;
-using ProArch.FieldOrbit.Models;
 
 namespace ProArch.FieldOrbit.DataLayer.Repositories
 {

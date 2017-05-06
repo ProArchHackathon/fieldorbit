@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D877ECFF-0827-4D76-ABCC-1CCEA0F19056}"
 EndProject
@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.DataLaye
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{D1B7D8F0-AF53-4B1C-9A4D-A0CDA8886675}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.DataContracts", "ProArch.FieldOrbit.Conracts\ProArch.FieldOrbit.DataContracts.csproj", "{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.DataContracts", "ProArch.FieldOrbit.DataContracts\ProArch.FieldOrbit.DataContracts.csproj", "{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,16 @@
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Conracts\obj\Debug\ProArch.FieldOrbit.DataContracts.csprojResolveAssemblyReference.cache
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Conracts\bin\Debug\ProArch.FieldOrbit.Models.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Conracts\bin\Debug\ProArch.FieldOrbit.Models.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Conracts\bin\Debug\ProArch.FieldOrbit.DataContracts.dll.config
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Conracts\bin\Debug\ProArch.FieldOrbit.DataContracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Conracts\bin\Debug\ProArch.FieldOrbit.DataContracts.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Conracts\obj\Debug\ProArch.FieldOrbit.DataContracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Conracts\obj\Debug\ProArch.FieldOrbit.DataContracts.pdb
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataContracts\bin\Debug\ProArch.FieldOrbit.DataContracts.dll.config
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataContracts\bin\Debug\ProArch.FieldOrbit.DataContracts.dll
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataContracts\bin\Debug\ProArch.FieldOrbit.DataContracts.pdb
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataContracts\bin\Debug\ProArch.FieldOrbit.Models.dll
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataContracts\bin\Debug\ProArch.FieldOrbit.Models.pdb
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataContracts\obj\Debug\ProArch.FieldOrbit.DataContracts.csprojResolveAssemblyReference.cache
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataContracts\obj\Debug\ProArch.FieldOrbit.DataContracts.dll
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataContracts\obj\Debug\ProArch.FieldOrbit.DataContracts.pdb

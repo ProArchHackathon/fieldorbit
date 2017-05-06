@@ -5,22 +5,22 @@
 *.cache
 *.user
 *.suo
-/ProArch.FieldOrbit/ProArch.FieldOrbit.DataLayer/bin
-/ProArch.FieldOrbit/ProArch.FieldOrbit.DataLayer/obj
-/ProArch.FieldOrbit/ProArch.FieldOrbit.DataContracts/bin
-/ProArch.FieldOrbit/ProArch.FieldOrbit.DataContracts/obj
-/ProArch.FieldOrbit/ProArch.FieldOrbit.BusinessLayer/bin
-/ProArch.FieldOrbit/ProArch.FieldOrbit.BusinessLayer/obj
-/ProArch.FieldOrbit/ProArch.FieldOrbit.Conracts/bin
-/ProArch.FieldOrbit/ProArch.FieldOrbit.Conracts/obj
-/ProArch.FieldOrbit/ProArch.FieldOrbit.Mappers/bin
-/ProArch.FieldOrbit/ProArch.FieldOrbit.Mappers/obj
-/ProArch.FieldOrbit/ProArch.FieldOrbit.Models/bin
-/ProArch.FieldOrbit/ProArch.FieldOrbit.Models/obj
-/ProArch.FieldOrbit/ProArch.FieldOrbit.WebAPI/bin
-/ProArch.FieldOrbit/ProArch.FieldOrbit.WebAPI/obj
-/ProArch.FieldOrbit/ProArch.FieldOrbit.WebUI/bin
-/ProArch.FieldOrbit/ProArch.FieldOrbit.WebUI/obj
+/ProArch.FieldOrbit.DataLayer/bin
+/ProArch.FieldOrbit.DataLayer/obj
+/ProArch.FieldOrbit.DataContracts/bin
+/ProArch.FieldOrbit.DataContracts/obj
+/ProArch.FieldOrbit.BusinessLayer/bin
+/ProArch.FieldOrbit.BusinessLayer/obj
+/ProArch.FieldOrbit.Conracts/bin
+/ProArch.FieldOrbit.Conracts/obj
+/ProArch.FieldOrbit.Mappers/bin
+/ProArch.FieldOrbit.Mappers/obj
+/ProArch.FieldOrbit.Models/bin
+/ProArch.FieldOrbit.Models/obj
+/ProArch.FieldOrbit.WebAPI/bin
+/ProArch.FieldOrbit.WebAPI/obj
+/ProArch.FieldOrbit.WebUI/bin
+/ProArch.FieldOrbit.WebUI/obj
 
 
 
