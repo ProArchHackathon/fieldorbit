@@ -1,0 +1,5 @@
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Contracts\bin\Debug\ProArch.FieldOrbit.Contracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Contracts\bin\Debug\ProArch.FieldOrbit.Contracts.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Contracts\obj\Debug\ProArch.FieldOrbit.Contracts.csprojResolveAssemblyReference.cache
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Contracts\obj\Debug\ProArch.FieldOrbit.Contracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Contracts\obj\Debug\ProArch.FieldOrbit.Contracts.pdb

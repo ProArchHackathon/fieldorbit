@@ -1,0 +1,14 @@
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataLayer.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataLayer.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Bson.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Driver.Core.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Driver.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Bson.xml
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Driver.xml
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Driver.Core.xml
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.csprojResolveAssemblyReference.cache
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.Contracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.Contracts.pdb

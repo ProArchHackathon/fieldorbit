@@ -1,0 +1,11 @@
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.BusinessLayer.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.BusinessLayer.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\obj\Debug\ProArch.FieldOrbit.BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\obj\Debug\ProArch.FieldOrbit.BusinessLayer.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\obj\Debug\ProArch.FieldOrbit.BusinessLayer.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.BusinessLayer.dll.config
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\JWT.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\Newtonsoft.Json.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.Models.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.Models.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\Newtonsoft.Json.xml
