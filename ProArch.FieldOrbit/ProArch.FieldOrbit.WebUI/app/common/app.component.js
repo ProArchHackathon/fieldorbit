@@ -6,29 +6,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var User = (function () {
-    function User(username, password) {
-        this.username = username;
-        this.password = password;
+var AppComponent = (function () {
+    function AppComponent() {
     }
-    return User;
+    return AppComponent;
 }());
-exports.User = User;
-var LoginComponent = (function () {
-    function LoginComponent() {
-        this.login = {
-            username: "",
-            password: ""
-        };
-    }
-    LoginComponent.prototype.OnSubmit = function (login) {
-    };
-    return LoginComponent;
-}());
-LoginComponent = __decorate([
+AppComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/common/login/login.component.html'
+        selector: 'msg-app',
+        template: '<router-outlet></router-outlet>'
     })
-], LoginComponent);
-exports.LoginComponent = LoginComponent;
-//# sourceMappingURL=login.component.js.map
+], AppComponent);
+exports.AppComponent = AppComponent;
+//# sourceMappingURL=app.component.js.map

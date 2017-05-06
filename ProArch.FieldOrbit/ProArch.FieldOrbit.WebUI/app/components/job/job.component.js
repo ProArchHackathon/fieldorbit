@@ -9,7 +9,25 @@ var core_1 = require("@angular/core");
 var JobComponent = (function () {
     function JobComponent() {
         this.message = 'This is Job Component';
+        this.Status = [
+            { value: 'Open', viewValue: 'Open' },
+            { value: 'Close', viewValue: 'Close' },
+            { value: 'Unscheduled', viewValue: 'Unscheduled' }
+        ];
+        this.Priority = [
+            { value: 'High', viewValue: 'High' },
+            { value: 'Medium', viewValue: 'Medium' },
+            { value: 'Low', viewValue: 'Low' }
+        ];
+        this.Category = [
+            { value: 'High', viewValue: 'High' },
+            { value: 'Medium', viewValue: 'Medium' },
+            { value: 'Low', viewValue: 'Low' }
+        ];
     }
+    JobComponent.prototype.onSubmit = function () {
+        alert(this.JobID + this.jobDesc + this.fromDate + this.toDate + this.estTime + this.selectedCountry + this.jobStatus + this.jobPriority + this.comments + this.observations);
+    };
     return JobComponent;
 }());
 JobComponent = __decorate([

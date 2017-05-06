@@ -1,1 +1,72 @@
-﻿<router-outlet></router-outlet>
+﻿<div>
+    <h4 style="background-color: powderblue">Create Job</h4>
+</div>
+<form class="example-form">
+    <md-card>
+        <div>
+            <md-input-container class="example-full-width">
+                <input mdInput placeholder="JobID" required [(ngModel)]="JobID" name="JobID">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="example-full-width">
+                <textarea mdInput [(ngModel)]="jobDesc" placeholder="Job Description" name="jobDesc"></textarea>
+            </md-input-container>
+        </div>
+        <div>
+            <div>
+                <md-input-container class="example-full-width">
+                    <input type="datetime-local" mdInput placeholder="Start Date" [(ngModel)]="fromDate" name="fromDate">
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container class="example-full-width">
+                    <input type="datetime-local" mdInput placeholder="End Date" [(ngModel)]="toDate" name="toDate">
+                </md-input-container>
+            </div>
+        </div>
+        <div>
+            <md-input-container class="example-full-width">
+                <input mdInput placeholder="Estimated Duration" [(ngModel)]="estTime" name="estTime">
+            </md-input-container>
+
+            <md-select placeholder="Status" [(ngModel)]="jobStatus" name="jobStatus">
+                <md-option *ngFor="let priorValue of Status" [value]="priorValue.value">
+                    {{ priorValue.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+        <div class="example-full-width">
+            <md-select placeholder="Priority" [(ngModel)]="jobPriority" name="jobPriority">
+                <md-option *ngFor="let priorValue of Priority" [value]="priorValue.value">
+                    {{ priorValue.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+        <div>
+            <md-select placeholder="Category" [(ngModel)]="jobCategory" name="jobCategory">
+                <md-option *ngFor="let statusValue of Status" [value]="statusValue.value">
+                    {{ statusValue.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+
+        <div>
+            <md-input-container class="example-full-width">
+                <textarea mdInput placeholder="Comments" [(ngModel)]="comments" name="comments"></textarea>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="example-full-width">
+                <textarea mdInput placeholder="Observations" [(ngModel)]="observations" name="observations"></textarea>
+            </md-input-container>
+        </div>
+        <br />
+        <br />
+        <p style="text-align: right">
+            <button class="mdl-button mdl-button--raised mdl-button--primary" md-raised-button>Close</button>
+            <button class="mdl-button mdl-button--raised mdl-button--primary" md-raised-button (click)="onSubmit()">Create</button>
+        </p>
+    </md-card>
+
+</form>

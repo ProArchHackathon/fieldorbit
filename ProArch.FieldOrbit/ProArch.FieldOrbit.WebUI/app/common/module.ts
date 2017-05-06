@@ -1,12 +1,15 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { JobComponent } from '../components/job/job.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
-import { LoginComponent } from '../common/login/login.component';
 import { HttpModule } from '@angular/http';
+import { JobComponent } from '../components/job/job.component';
+import { LoginComponent } from '../common/login/login.component';
+import { AppComponent } from '../common/app.component';
+import { FileUploadComponent } from '../components/fileupload/fileupload.component';
+import { FileUploadDetailsComponent } from '../components/fileupload/fileuploaddetails.component';
 
 //import 'hammerjs';
 @NgModule({
@@ -18,6 +21,14 @@ import { HttpModule } from '@angular/http';
                 path: 'login',
                 component: LoginComponent
             }, {
+                path: 'fileupload',
+                component: FileUploadComponent
+            },
+            {
+                path: 'job',
+                component: JobComponent
+            },
+            {
                 path: '',
                 redirectTo: '/login',
                 pathMatch: 'full'
@@ -25,12 +36,12 @@ import { HttpModule } from '@angular/http';
         ], { useHash: true })
     ],
     declarations: [
-        JobComponent, LoginComponent
+        AppComponent, JobComponent, LoginComponent, FileUploadComponent, FileUploadDetailsComponent
 
     ],
     exports: [
         MaterialModule
     ],
-    bootstrap: [JobComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
