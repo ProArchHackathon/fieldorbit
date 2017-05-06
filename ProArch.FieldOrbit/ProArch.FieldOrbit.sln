@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.Models", "ProArch.FieldOrbit.Models\ProArch.FieldOrbit.Models.csproj", "{67D6569F-E491-466A-8621-AFB278B24C51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.BusinessLayer", "ProArch.FieldOrbit.BusinessLayer\ProArch.FieldOrbit.BusinessLayer.csproj", "{69C83FDA-C874-4E4E-AAB0-C1FEF9B95CCF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F4F0C548-DB7D-405F-AFD2-804A786F5E10} = {F4F0C548-DB7D-405F-AFD2-804A786F5E10}
+		{7B960EAC-0FEB-41AF-99E7-9E06AED481DB} = {7B960EAC-0FEB-41AF-99E7-9E06AED481DB}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.Contracts", "ProArch.FieldOrbit.Contracts\ProArch.FieldOrbit.Contracts.csproj", "{8EF71713-11CD-4423-B95D-7C6FDEB076DB}"
 EndProject
