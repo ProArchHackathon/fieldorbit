@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<<<<<<< HEAD
              x:Class="ProArch.FieldOrbit.Mobile.Views.TimeSheetsPage" Title="TimeSheets" BackgroundColor="#cfe4f8">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -69,4 +70,53 @@
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
+=======
+             x:Class="ProArch.FieldOrbit.Mobile.Views.TimeSheetsPage" Title="TimeSheets">
+    <ScrollView>
+        <StackLayout>
+            <Label x:Name="lblCrewID" Text="Crew ID:"></Label>
+            <Entry x:Name="txtCrewID" />
+
+            <Label x:Name="lblCustomerID" Text="Customer ID:"></Label>
+            <Entry x:Name="txtCustomerID" />
+
+            <Label x:Name="lblJobID" Text="Job ID:"></Label>
+            <Entry x:Name="txtJobID" />
+
+            <Label x:Name="lblJobDesc" Text="Job Description:"></Label>
+            <Entry x:Name="txtJobDesc" />
+
+
+            <Label x:Name="lblStartDate" Text="Start Date:"></Label>
+            <DatePicker x:Name="dtCompletedDate" />
+            <Label x:Name="lblEndDate" Text="End Date:"></Label>
+            <DatePicker x:Name="dtEndDate" />
+
+            <Label x:Name="lblWorkDate" Text="Work Date:"></Label>
+            <DatePicker x:Name="dtWorkDate" />
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label x:Name="lblHours" Text="No of Hours:" Grid.Column="0"></Label>
+                <Picker x:Name="cboHours" Grid.Column="1" SelectedIndex="1"></Picker>
+                <Picker x:Name="cboMinutes" Grid.Column="2" SelectedIndex="1"></Picker>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Text="Reset" Grid.Column="0"/>
+                <Button Text="Submit" Grid.Column="1"/>
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+>>>>>>> Initial commit
 </ContentPage>

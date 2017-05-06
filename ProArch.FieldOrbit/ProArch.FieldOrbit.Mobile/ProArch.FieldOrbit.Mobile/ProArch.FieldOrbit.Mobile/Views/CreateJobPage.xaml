@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProArch.FieldOrbit.Mobile.Views.CreateJobPage"
+<<<<<<< HEAD
              Title="Create Job" BackgroundColor="#cfe4f8"
              >
     <ContentPage.Resources>
@@ -26,6 +27,13 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="5" Padding="5" BackgroundColor="White">
+=======
+             Title="Create Job"
+             >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout >
+>>>>>>> Initial commit
                 <Label x:Name="lblName" Text="Name"></Label>
                 <Entry x:Name="txtName" />
 

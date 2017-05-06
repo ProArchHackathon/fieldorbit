@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<<<<<<< HEAD
              x:Class="ProArch.FieldOrbit.Mobile.Views.JobDetailsPage" Title="Details" BackgroundColor="#cfe4f8">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -35,11 +36,25 @@
                 <Label x:Name="lblJobDescription" Text="Job Description:" ></Label>
                 <Entry x:Name="txtJobDescription" />
                 <Label x:Name="lblCustomerInfo" Text="Customer Info:"  ></Label>
+=======
+             x:Class="ProArch.FieldOrbit.Mobile.Views.JobDetailsPage" Title="Details">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="0">
+
+                <Label x:Name="lblJobNumber" Text="Job Number:"></Label>
+                <Label x:Name="lblJobNumberValue" Text="12345" Style=""></Label>
+
+                <Label x:Name="lblJobDescription" Text="Job Description:"></Label>
+                <Entry x:Name="txtJobDescription" />
+
+>>>>>>> Initial commit
                 <Grid>
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
+<<<<<<< HEAD
                     </Grid.ColumnDefinitions>
                     
                     <Entry x:Name="txtCustomerInfo" Grid.Column="0" />
@@ -47,6 +62,21 @@
                 </Grid>
 
                 <Label x:Name="lblLocation" Text="Location:" TextColor="Black"></Label>
+=======
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblCustomerInfo" Text="Customer Info:" Grid.Column="0" ></Label>
+                    <Entry x:Name="txtCustomerInfo" Grid.Column="1" />
+                    <Button x:Name="btnShowCustomer" Text="Customer Info" Clicked="btnShowCustomer_Clicked" Grid.Column="2"/>
+                </Grid>
+                
+                
+                
+                    
+                
+                
+                <Label x:Name="lblLocation" Text="Location:"></Label>
+>>>>>>> Initial commit
                 <Entry x:Name="txtLocation" />
 
                 <Label x:Name="lblWRNumber" Text="WR Number:"></Label>
@@ -83,9 +113,15 @@
 
                     <Button x:Name="btnCreateJob" Text="Create Job" Clicked="btnCreateJob_Clicked"  Grid.Column="2" />
 
+<<<<<<< HEAD
                     <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0" />
 
                     <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1" />
+=======
+                    <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0"/>
+
+                    <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1"/>
+>>>>>>> Initial commit
 
                 </Grid>
 

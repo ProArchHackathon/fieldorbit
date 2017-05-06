@@ -37,10 +37,13 @@ namespace ProArch.FieldOrbit.Mobile.Views
             if (viewModel.Jobs.Count == 0)
                 viewModel.LoadJobsCommand.Execute(null);
         }
+<<<<<<< HEAD
 
         private void test_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new JobDetailsPage());
         }
+=======
+>>>>>>> Initial commit
     }
 }

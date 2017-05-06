@@ -3,13 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProArch.FieldOrbit.Mobile.Views.JobsPage"
               Title="{Binding Title}"
+<<<<<<< HEAD
              x:Name="BrowseJobsPage" BackgroundColor="#cfe4f8">
+=======
+             x:Name="BrowseJobsPage">
+>>>>>>> Initial commit
   <ContentPage.ToolbarItems>
   	<!--<ToolbarItem Text="Add Item" Clicked="AddItem_Clicked" />-->
   </ContentPage.ToolbarItems>
   <ContentPage.Content>
+<<<<<<< HEAD
         <StackLayout Margin="5" Padding="5" BackgroundColor="White">
             <ListView x:Name="JobsListView"
+=======
+    <StackLayout>
+      <ListView x:Name="JobsListView"
+>>>>>>> Initial commit
 				ItemsSource="{Binding Jobs}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
@@ -18,6 +27,7 @@
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement"
 				ItemSelected="OnItemSelected">
+<<<<<<< HEAD
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -36,5 +46,25 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout> 
+=======
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout Padding="10">
+                <Label Text="{Binding Text}"
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="16"/>
+                <Label Text="{Binding Description}"
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13"/>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout> 
+>>>>>>> Initial commit
   </ContentPage.Content>
 </ContentPage>

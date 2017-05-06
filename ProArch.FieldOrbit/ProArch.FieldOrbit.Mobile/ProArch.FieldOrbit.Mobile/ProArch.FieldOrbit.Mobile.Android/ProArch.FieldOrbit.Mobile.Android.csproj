@@ -3,7 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< HEAD
     <ProjectGuid>{9652AA1B-4086-447F-8724-39996EBCD8FE}</ProjectGuid>
+=======
+    <ProjectGuid>{3BF4B460-1104-4305-94CC-F8A8BB4A6685}</ProjectGuid>
+>>>>>>> Initial commit
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>ProArch.FieldOrbit.Mobile.Droid</RootNamespace>
@@ -111,18 +115,25 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProArch.FieldOrbit.Mobile\ProArch.FieldOrbit.Mobile.csproj">
+<<<<<<< HEAD
       <Project>{2ee1b7e0-c238-4cb4-9def-734a7f83b021}</Project>
+=======
+      <Project>{733635a0-438f-4317-89b4-6b66986d4745}</Project>
+>>>>>>> Initial commit
       <Name>ProArch.FieldOrbit.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\login.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AndroidResource>
   </ItemGroup>
+=======
+>>>>>>> Initial commit
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
