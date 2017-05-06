@@ -45,7 +45,7 @@ namespace ProArch.FieldOrbit.BusinessLayer.Security
                 }
                 else
                 {
-                    UserInformation userInfo = Utilities.Users.FirstOrDefault(c => c.UserName.Equals(userName) && c.Password.Equals(password));
+                    User userInfo = Utilities.Users.FirstOrDefault(c => c.UserName.Equals(userName) && c.Password.Equals(password));
                     if (userInfo != null)
                     {
                         return Security.TokenManager.GenerateToken(new EmployeeToken() { Id = userInfo.EmployeeId, Type = userInfo.Type, UserName = userInfo.UserName, Active = true });
