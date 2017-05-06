@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProArch.FieldOrbit.Mobile.Views.CreateJobPage"
+             Title="Create Job"
+             >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout >
+                <Label x:Name="lblName" Text="Name"></Label>
+                <Entry x:Name="txtName" />
+
+                <Label x:Name="lblDescription" Text="Description"></Label>
+                <Editor x:Name="txtDescription"  />
+
+                <Label x:Name="lblStartDate" Text="Start Date"></Label>
+                <DatePicker x:Name="dtStartDate" ></DatePicker>
+
+                <Label x:Name="lblEndDate" Text="End Date"></Label>
+                <DatePicker x:Name="dtEndDate" ></DatePicker>
+
+                <Label x:Name="lblStatus" Text="Status"></Label>
+                <Picker x:Name="cboStatus" SelectedIndexChanged="cboStatus_SelectedIndexChanged">
+                </Picker>
+
+                <Label x:Name="lblPriority" Text="Priority"></Label>
+                <Picker x:Name="cboPriority" SelectedIndexChanged="cboPriority_SelectedIndexChanged">
+                </Picker>
+
+                <Label x:Name="lblCategory" Text="Category"></Label>
+                <Picker x:Name="cboCategory" SelectedIndexChanged="cboCategory_SelectedIndexChanged">
+                </Picker>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Reset" Grid.Column="0"/>
+                    <Button Text="Create" Grid.Column="1"/>
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
