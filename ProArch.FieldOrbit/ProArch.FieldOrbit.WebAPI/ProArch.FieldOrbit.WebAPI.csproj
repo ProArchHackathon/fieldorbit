@@ -127,6 +127,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Device.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Manufacturer.cs" />
     <Compile Include="Models\Name.cs" />
     <Compile Include="Models\ServiceRequest.cs" />

@@ -57,10 +57,10 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// <param name="serviceRequest"></param>
         /// <param name="SRNumber"></param>
         /// <returns></returns>
-        public bool UpdateServiceRequest(Models.ServiceRequest serviceRequest, int serviceRequestNbr)
+        public bool UpdateServiceRequest(Models.ServiceRequest serviceRequest)
         {
             serviceRequest.VerifyObjectNull();
-            return this.serviceRequestRepository.UpdateServiceRequest(serviceRequest, serviceRequestNbr);
+            return this.serviceRequestRepository.UpdateServiceRequest(serviceRequest);
         }
     }
 }
