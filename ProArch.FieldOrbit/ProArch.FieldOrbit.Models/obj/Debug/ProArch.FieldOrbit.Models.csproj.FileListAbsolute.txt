@@ -2,3 +2,7 @@ D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Models\bin\Debug\P
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Models\bin\Debug\ProArch.FieldOrbit.Models.pdb
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Models\obj\Debug\ProArch.FieldOrbit.Models.dll
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Models\obj\Debug\ProArch.FieldOrbit.Models.pdb
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Models\bin\Debug\ProArch.FieldOrbit.Models.dll
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Models\bin\Debug\ProArch.FieldOrbit.Models.pdb
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Models\obj\Debug\ProArch.FieldOrbit.Models.dll
+D:\DATA\ProArch\Hackathon\Source\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.Models\obj\Debug\ProArch.FieldOrbit.Models.pdb

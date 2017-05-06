@@ -16,9 +16,9 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="deviceModel"></param>
+        /// <param name="content"></param>
         /// <returns></returns>
-        public bool AddDeviceInfo(DeviceModel deviceModel)
+        public bool AddDeviceInfo(Content content)
         {
             throw new NotImplementedException();
         }
@@ -27,7 +27,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<DeviceModel> GetAllDevices()
+        public List<Content> GetAllDevices()
         {
             throw new NotImplementedException();
         }
@@ -35,9 +35,9 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="DeviceID"></param>
+        /// <param name="deviceId"></param>
         /// <returns></returns>
-        public Device GetDeviceByID(int DeviceID)
+        public Device GetDeviceByID(int deviceId)
         {
             throw new NotImplementedException();
         }
@@ -55,10 +55,10 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="deviceModel"></param>
-        /// <param name="DeviceID"></param>
+        /// <param name="content"></param>
+        /// <param name="deviceId"></param>
         /// <returns></returns>
-        public bool UpdateDeviceInfo(DeviceModel deviceModel, int DeviceID)
+        public bool UpdateDeviceInfo(Content content, int deviceId)
         {
             throw new NotImplementedException();
         }

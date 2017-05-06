@@ -15,36 +15,36 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="deviceModel"></param>
+        /// <param name="content"></param>
         /// <returns></returns>
-        bool AddDeviceInfo(DeviceModel deviceModel);
+        bool AddDeviceInfo(Content content);
 
         /// <summary>
         /// Update device information
         /// </summary>
-        /// <param name="deviceModel"></param>
-        /// <param name="DeviceID"></param>
+        /// <param name="content"></param>
+        /// <param name="deviceId"></param>
         /// <returns></returns>
-        bool UpdateDeviceInfo(DeviceModel deviceModel, int DeviceID);
+        bool UpdateDeviceInfo(Content content, int deviceId);
 
         /// <summary>
         /// Get Device by device id
         /// </summary>
-        /// <param name="DeviceID"></param>
+        /// <param name="deviceId"></param>
         /// <returns></returns>
-        Device GetDeviceByID(int DeviceID);
+        Device GetDeviceByID(int deviceId);
 
         /// <summary>
         /// Get all devices
         /// </summary>
         /// <returns></returns>
-        List<DeviceModel> GetAllDevices();
+        List<Content> GetAllDevices();
 
         /// <summary>
         /// Get expert by device id
         /// </summary>
-        /// <param name="DeviceID"></param>
+        /// <param name="deviceId"></param>
         /// <returns></returns>
-        string GetExpert(int DeviceID);
+        string GetExpert(int deviceId);
     }
 }
