@@ -1,1 +1,76 @@
-﻿<h1> {{message}} </h1> 
+﻿<div>
+    <h4 style="background-color: powderblue">Create Job</h4>
+</div>
+<form class="example-form">
+    <md-card>
+        <div>
+            <md-input-container class="example-full-width">
+                <input mdInput placeholder="JobID" required>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="example-full-width">
+                <textarea mdInput placeholder="Job Description"></textarea>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="space-around center">
+            <div>
+                <md-input-container class="example-full-width">
+                    <input type="datetime-local" mdInput placeholder="Start Date">
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container class="example-full-width">
+                    <input type="datetime-local" mdInput placeholder="End Date">
+                </md-input-container>
+            </div>
+        </div>
+        <div>
+            <md-input-container class="example-full-width">
+                <input mdInput placeholder="Estimated Duration">
+            </md-input-container>
+
+            <md-select placeholder="Status">
+                <md-option *ngFor="let priorValue of Status" [value]="priorValue.value">
+                    {{ priorValue.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+        <div class="example-full-width">
+            <md-select placeholder="Priority">
+                <md-option *ngFor="let priorValue of Priority" [value]="priorValue.value">
+                    {{ priorValue.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+        <div>
+            <md-select placeholder="Category">
+                <md-option *ngFor="let statusValue of Status" [value]="statusValue.value">
+                    {{ statusValue.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+
+        <div>
+            <md-input-container class="example-full-width">
+                <textarea mdInput placeholder="Comments"></textarea>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="example-full-width">
+                <textarea mdInput placeholder="Observations"></textarea>
+            </md-input-container>
+        </div>
+        <br />
+        <br />
+        <p style="text-align: right">
+            <button class="mdl-button mdl-button--raised mdl-button--primary" md-raised-button (click)="onSubmit()">Close</button>
+            <button class="mdl-button mdl-button--raised mdl-button--primary" md-raised-button (click)="onSubmit()" >Create</button>
+        </p>
+    </md-card>
+
+</form>
+
+<!-- Copyright 2016 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

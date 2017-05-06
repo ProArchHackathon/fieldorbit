@@ -9,6 +9,21 @@ var core_1 = require("@angular/core");
 var JobComponent = (function () {
     function JobComponent() {
         this.message = 'This is Job Component';
+        this.Status = [
+            { value: 'Open', viewValue: 'Open' },
+            { value: 'Close', viewValue: 'Close' },
+            { value: 'Unscheduled', viewValue: 'Unscheduled' }
+        ];
+        this.Priority = [
+            { value: 'High', viewValue: 'High' },
+            { value: 'Medium', viewValue: 'Medium' },
+            { value: 'Low', viewValue: 'Low' }
+        ];
+        this.Category = [
+            { value: 'High', viewValue: 'High' },
+            { value: 'Medium', viewValue: 'Medium' },
+            { value: 'Low', viewValue: 'Low' }
+        ];
     }
     return JobComponent;
 }());
