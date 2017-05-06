@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProArch.FieldOrbit.Mobile.Views.CustomerDetailsPage">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Label Text="First Name"></Label>
+            <Label Grid.Column="1" Text="Abdul"></Label>
+
+            <Label  Grid.Row="1" Text="Middle Name"></Label>
+            <Label Grid.Row="1" Grid.Column="1" Text="Kalam"></Label>
+
+            <Label  Grid.Row="2" Text="Last Name"></Label>
+            <Label Grid.Row="2" Grid.Column="1" Text="A.P.J"></Label>
+
+            <Label  Grid.Row="3" Text="Address"></Label>
+            <Editor Grid.Row="3" Grid.Column="1" HeightRequest="5" MinimumHeightRequest="5" Margin="5,5,5,5"></Editor>
+
+            <Label  Grid.Row="4" Text="SSN"></Label>
+            <Label Grid.Row="4" Grid.Column="1" Text="00000"></Label>
+
+            <Label  Grid.Row="5" Text="Email"></Label>
+            <Label Grid.Row="5" Grid.Column="1" Text="Proarch@praorch.com"></Label>
+
+            <Label  Grid.Row="6" Text="Active"></Label>
+            <Label Grid.Row="6" Grid.Column="1" Text="True"></Label>
+
+            <Button Grid.Row="7" Text="View History" Grid.ColumnSpan="2" Margin="5,5,5,5"></Button>
+        </Grid>
+    </ContentPage.Content>
+
+
+</ContentPage>

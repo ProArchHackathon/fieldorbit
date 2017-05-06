@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProArch.FieldOrbit.Mobile.Views.JobDetailsPage" Title="Details">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="0">
+
+                <Label x:Name="lblJobNumber" Text="Job Number:"></Label>
+                <Label x:Name="lblJobNumberValue" Text="12345" Style=""></Label>
+
+                <Label x:Name="lblJobDescription" Text="Job Description:"></Label>
+                <Entry x:Name="txtJobDescription" />
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblCustomerInfo" Text="Customer Info:" Grid.Column="0" ></Label>
+                    <Entry x:Name="txtCustomerInfo" Grid.Column="1" />
+                    <Button x:Name="btnShowCustomer" Text="Customer Info" Clicked="btnShowCustomer_Clicked" Grid.Column="2"/>
+                </Grid>
+                
+                
+                
+                    
+                
+                
+                <Label x:Name="lblLocation" Text="Location:"></Label>
+                <Entry x:Name="txtLocation" />
+
+                <Label x:Name="lblWRNumber" Text="WR Number:"></Label>
+                <Entry x:Name="txtWRNumber" />
+
+                <Label x:Name="lblRequestedDate" Text="Requested Date:"></Label>
+                <DatePicker x:Name="dtRequestedDate" />
+
+                <Label x:Name="lblScheduledDate" Text="Scheduled Date:"></Label>
+                <DatePicker x:Name="dtScheduledDate" />
+
+                <Label x:Name="lblCompletedDate" Text="Completed Date:"></Label>
+                <DatePicker x:Name="dtCompletedDate" />
+
+                <Label x:Name="lblComments" Text="Comments:"></Label>
+                <Entry x:Name="txtComments" />
+
+                <Label x:Name="lblStatus" Text="Status"></Label>
+                <Picker x:Name="cboStatus" SelectedIndexChanged="cboStatus_SelectedIndexChanged">
+                </Picker>
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+
+                    <Button x:Name="btnCreateJob" Text="Create Job" Clicked="btnCreateJob_Clicked"  Grid.Column="2" />
+
+                    <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0"/>
+
+                    <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1"/>
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
