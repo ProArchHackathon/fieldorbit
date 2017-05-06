@@ -105,12 +105,17 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutoMapperConfig.cs" />
+    <Compile Include="App_Start\Profiles\BaseProfile.cs" />
+    <Compile Include="App_Start\Profiles\FieldOrbitProfile.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\IComplexTypeCustomSerializer.cs" />
     <Compile Include="Common\ILogComplexType.cs" />
     <Compile Include="Common\TraceLogContractResolver.cs" />
     <Compile Include="Configuration\AutofacConfig.cs" />
     <Compile Include="Controllers\LoginOperationsController.cs" />
+    <Compile Include="Controllers\ServiceRequestController.cs" />
+    <Compile Include="Controllers\WorkRequestController.cs" />
     <Compile Include="Filters\BasicAuthenticationIdentity.cs" />
     <Compile Include="Filters\ExceptionHandlerFilterAttribute.cs" />
     <Compile Include="Filters\FieldOrbitAuthorizeAttribute.cs" />
@@ -118,6 +123,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Device.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Manufacturer.cs" />
+    <Compile Include="Models\Name.cs" />
+    <Compile Include="Models\ServiceRequest.cs" />
+    <Compile Include="Models\Timesheet.cs" />
+    <Compile Include="Models\WorkRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -132,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProArch.FieldOrbit.BusinessLayer\ProArch.FieldOrbit.BusinessLayer.csproj">
@@ -142,6 +155,10 @@
     <ProjectReference Include="..\ProArch.FieldOrbit.Contracts\ProArch.FieldOrbit.Contracts.csproj">
       <Project>{8ef71713-11cd-4423-b95d-7c6fdeb076db}</Project>
       <Name>ProArch.FieldOrbit.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProArch.FieldOrbit.DataContracts\ProArch.FieldOrbit.DataContracts.csproj">
+      <Project>{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}</Project>
+      <Name>ProArch.FieldOrbit.DataContracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProArch.FieldOrbit.DataLayer\ProArch.FieldOrbit.DataLayer.csproj">
       <Project>{f4f0c548-db7d-405f-afd2-804a786f5e10}</Project>

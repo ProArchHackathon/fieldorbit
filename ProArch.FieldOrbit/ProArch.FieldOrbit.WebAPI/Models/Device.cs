@@ -1,17 +1,15 @@
-﻿using ProArch.FieldOrbit.Models.Enums;
+﻿using System;
 using System.Collections.Generic;
-using MongoDB.Bson.Serialization.Attributes;
+using System.Linq;
+using System.Web;
+using ProArch.FieldOrbit.Models.Enums;
 
-namespace ProArch.FieldOrbit.Models
+namespace ProArch.FieldOrbit.WebAPI.Models
 {
-    [BsonIgnoreExtraElements]
-    public class Device : ModelBase
+    public class Device
     {
-        [BsonElement("deviceid")]
         public int DeviceId { get; set; }
-        [BsonElement("devicetype")]
         public DeviceType DeviceType { get; set; }
-        [BsonElement("serialno")]
         public double ModelNumber { get; set; }
         public decimal Cost { get; set; }
         public int YearOfPurchase { get; set; }

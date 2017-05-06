@@ -65,6 +65,10 @@
       <Project>{8ef71713-11cd-4423-b95d-7c6fdeb076db}</Project>
       <Name>ProArch.FieldOrbit.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProArch.FieldOrbit.DataContracts\ProArch.FieldOrbit.DataContracts.csproj">
+      <Project>{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}</Project>
+      <Name>ProArch.FieldOrbit.DataContracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProArch.FieldOrbit.DataLayer\ProArch.FieldOrbit.DataLayer.csproj">
       <Project>{f4f0c548-db7d-405f-afd2-804a786f5e10}</Project>
       <Name>ProArch.FieldOrbit.DataLayer</Name>

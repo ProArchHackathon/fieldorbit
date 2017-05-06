@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using ProArch.FieldOrbit.WebAPI.App_Start;
 
 namespace ProArch.FieldOrbit.WebAPI
 {
@@ -14,6 +15,7 @@ namespace ProArch.FieldOrbit.WebAPI
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AutofacConfig.Initialize();
+            AutoMapperConfig.Configure();
         }
     }
 }

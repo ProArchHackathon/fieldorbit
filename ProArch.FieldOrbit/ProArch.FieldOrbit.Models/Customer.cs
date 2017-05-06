@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace ProArch.FieldOrbit.Models
 {
+    [BsonIgnoreExtraElements]
     public class Customer : ModelBase
     {
-        [Required]
+        [BsonElement("customerid")]
         public int CustomerId { get; set; }
         public Name Name { get; set; }
         public Address Address { get; set; }

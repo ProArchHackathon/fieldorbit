@@ -1,6 +1,7 @@
 ﻿using ProArch.FieldOrbit.DataContracts.Interfaces;
 using ProArch.FieldOrbit.Models;
 using System;
+using MongoDB.Bson;
 
 namespace ProArch.FieldOrbit.DataLayer.Repositories
 {
@@ -16,7 +17,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public bool CreateWorkRequest(WorkRequest workRequest)
         {
-            throw new NotImplementedException();
+            return new MongoRepository().Create(GetWorkRequestDocument(workRequest), "workorder");
         }
 
         /// <summary>
@@ -26,7 +27,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public WorkRequest GetWorkRequestByID(int WRNumber)
         {
-            throw new NotImplementedException();
+            return new MongoRepository().GetWorkRequestById(WRNumber, "workorder");
         }
 
         /// <summary>
@@ -38,6 +39,42 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         public bool UpdateWorkRequest(WorkRequest workRequest, int WRNumber)
         {
             throw new NotImplementedException();
+        }
+
+        internal BsonDocument GetWorkRequestDocument(WorkRequest workRequest)
+        {
+            return new BsonDocument
+            {
+                {"workorderid", new MongoRepository().GetCount("workorder") },
+                {"description", workRequest.Description},
+                {"startdate", workRequest.StartDate},
+                {"enddate", workRequest.EndDate.Value},
+                {"servicerequest", new BsonDocument
+                    {
+                        { "createddate", workRequest.ServiceRequest.CreatedDate },
+                        { "startdate", workRequest.ServiceRequest.StartDate },
+                        { "servicetype", workRequest.ServiceRequest.ServiceType.ToString() },
+                        { "requesttype", workRequest.ServiceRequest.RequestType.ToString() },
+                        { "customer", new BsonDocument { { "customerid", workRequest.ServiceRequest.Customer.CustomerId } }},
+                        { "device", new BsonDocument
+                            {
+                                { "deviceid", workRequest.ServiceRequest.Device.DeviceId },
+                                { "devicetype", workRequest.ServiceRequest.Device.DeviceType.ToString() },
+                                { "serialno", workRequest.ServiceRequest.Device.ModelNumber }
+                            }
+                        },
+                        { "location", workRequest.ServiceRequest.Location },
+                        { "closedate", workRequest.ServiceRequest.EndDate.Value },
+                        { "closedby", new BsonDocument
+                            {
+                                {"employeeid", workRequest.ServiceRequest.ClosedBy.EmployeeId}
+                            }
+                        },
+                        { "status", workRequest.ServiceRequest.Status.ToString() }
+                    }
+                },
+                { "status", workRequest.Status }
+            };
         }
     }
 }

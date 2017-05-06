@@ -30,12 +30,12 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// <summary>
         /// get service request by service request number
         /// </summary>
-        /// <param name="SRNumber"></param>
+        /// <param name="serviceRequestId"></param>
         /// <returns></returns>
-        ServiceRequest GetServiceRequestBySRNumber(int SRNumber);
-
+        ServiceRequest GetServiceRequestBySRNumber(int serviceRequestId);
+        
         /// <summary>
-        /// Get all srvice requests
+        /// Get All Service Requests
         /// </summary>
         /// <returns></returns>
         IEnumerable<ServiceRequest> GetAllServiceRequests();
