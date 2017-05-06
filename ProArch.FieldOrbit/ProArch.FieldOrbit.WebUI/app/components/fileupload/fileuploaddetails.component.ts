@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { DataService } from "./DataService";
-import { Configuration } from "./Configuration";
+import { Configuration } from "../../common/app.constants";
 //import { NoteItem } from "./noteModel";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -21,8 +21,8 @@ export class FileUploadDetailsComponent implements OnInit {
 
     ngOnInit() {
         this._dataService
-            .getAll()
-            .subscribe((data: {})=> this.myItems = data,
+            .getAllDeviceDetails()
+            .subscribe((data: {}) => this.myItems = data,
             error => console.log(error),
             () => console.log("getAllItems() complete from init"));
     }

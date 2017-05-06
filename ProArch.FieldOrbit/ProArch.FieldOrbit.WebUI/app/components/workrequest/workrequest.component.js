@@ -13,56 +13,50 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/toPromise");
-var JobComponent = (function () {
-    function JobComponent(http) {
+var WorkRequestComponent = (function () {
+    function WorkRequestComponent(http) {
         this.http = http;
-        this.message = 'This is Job Component';
-        this.Status = [
-            { value: 'Open', viewValue: 'Open' },
-            { value: 'Close', viewValue: 'Close' },
-            { value: 'Unscheduled', viewValue: 'Unscheduled' }
+        this.ServiceRequestType = "Electric";
+        this.status = "";
+        this.serviceTypes = [
+            { value: 'electric-0', viewValue: 'Electric' },
+            { value: 'water-1', viewValue: 'Water' },
+            { value: 'gas-2', viewValue: 'Gas' }
         ];
-        this.Priority = [
-            { value: 'High', viewValue: 'High' },
-            { value: 'Medium', viewValue: 'Medium' },
-            { value: 'Low', viewValue: 'Low' }
-        ];
-        this.Category = [
-            { value: 'High', viewValue: 'High' },
-            { value: 'Medium', viewValue: 'Medium' },
-            { value: 'Low', viewValue: 'Low' }
+        this.workStatus = [
+            { value: 'open-0', viewValue: 'Open' },
+            { value: 'reopen-1', viewValue: 'Re-Open' },
+            { value: 'close-2', viewValue: 'Close' }
         ];
     }
-    JobComponent.prototype.onSubmit = function () {
-        alert(this.JobID + this.jobDesc + this.fromDate + this.toDate + this.estTime + this.selectedCountry + this.jobStatus + this.jobPriority + this.comments + this.observations);
+    ;
+    WorkRequestComponent.prototype.onUpdate = function () {
         var data = {
-            JobID: this.JobID,
-            jobDesc: this.jobDesc,
-            fromDate: this.fromDate,
-            toDate: this.toDate,
-            estTime: this.estTime,
-            selectedCountry: this.selectedCountry,
-            jobStatus: this.jobStatus,
-            jobPriority: this.jobPriority,
-            comments: this.comments,
-            observations: this.observations
+            WorkOrderId: this.WorkOrderId,
+            ServiceRequestId: this.ServiceRequestId,
+            Description: this.Description,
+            StartDate: this.StartDate,
+            EndDate: this.EndDate,
+            ServiceRequestType: this.ServiceRequestType,
+            status: this.status,
         };
         this.result = {};
+        console.log(data);
         var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
         var opt = new http_1.RequestOptions({ headers: headers });
         this.http.post('http://192.168.19.12/webapi/api/home/detailspost', JSON.stringify(data), opt)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
-        alert(this.result);
+        // alert(this.result);
     };
     ;
-    JobComponent.prototype.extractData = function (res) {
+    WorkRequestComponent.prototype.extractData = function (res) {
         var body = res.json();
         return body.data || {};
     };
     ;
-    JobComponent.prototype.handleError = function (error) {
+    WorkRequestComponent.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         var errMsg;
         if (error instanceof http_1.Response) {
@@ -76,14 +70,17 @@ var JobComponent = (function () {
         console.error(errMsg);
         return Promise.reject(errMsg);
     };
-    return JobComponent;
+    WorkRequestComponent.prototype.onLoad = function () {
+        this.WorkOrderId = "12345";
+    };
+    return WorkRequestComponent;
 }());
-JobComponent = __decorate([
+WorkRequestComponent = __decorate([
     core_1.Component({
-        selector: 'msg-app',
-        templateUrl: 'app/components/job/job.component.html'
+        selector: 'work-request',
+        templateUrl: 'app/components/workrequest/workrequest.component.html'
     }),
     __metadata("design:paramtypes", [http_1.Http])
-], JobComponent);
-exports.JobComponent = JobComponent;
-//# sourceMappingURL=job.component.js.map
+], WorkRequestComponent);
+exports.WorkRequestComponent = WorkRequestComponent;
+//# sourceMappingURL=workrequest.component.js.map

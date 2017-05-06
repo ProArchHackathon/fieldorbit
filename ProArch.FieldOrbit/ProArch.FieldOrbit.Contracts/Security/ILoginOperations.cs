@@ -9,7 +9,7 @@ namespace ProArch.FieldOrbit.Contracts.Security
 {
     public interface ILoginOperations
     {
-        TokenHolder Validate();
+        TokenHolder Validate(string username, string password);
         bool ValidateToken(string token);
         EmployeeToken DecodeToken(string token);
     }

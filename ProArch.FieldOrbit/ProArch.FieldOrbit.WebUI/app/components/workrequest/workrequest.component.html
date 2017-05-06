@@ -1,0 +1,49 @@
+﻿<form class="example-form" (load)="onLoad()">
+    <md-card>
+        <md-card-title>Work Request</md-card-title>
+        <div class="example-full-width" cellspacing="0" flex>
+            <md-input-container class="example-full-width">
+                <input #workOrderId mdInput [(ngModel)]="WorkOrderId" name="workOrderId" placeholder="WorkOrder Id" [disabled]="true">
+            </md-input-container>
+            <md-input-container class="example-full-width">
+                <input #serviceRequestId mdInput [(ngModel)]="ServiceRequestId" name="ServiceRequestId" placeholder="ServiceRequestId" [disabled]="true">
+            </md-input-container>
+        </div>
+
+
+        <div class="example-full-width" cellspacing="0">
+
+            <label>Service Request:</label>
+            <md-select placeholder="Service Type Id">
+                <md-option *ngFor="let servicerequestype of serviceTypes" [value]="servicerequestype.value">
+                    {{servicerequestype.viewValue}}
+                </md-option>
+            </md-select>
+        </div>
+        <div>
+            <md-input-container class="example-full-width">
+                <input type="date" #startDate mdInput [(ngModel)]="StartDate" name="StartDate" placeholder="StartDate">
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container class="example-full-width">
+                <input type="date" #endDate mdInput [(ngModel)]="EndDate" name="EndDate" placeholder="EndDate">
+            </md-input-container>
+        </div>
+
+
+
+        <label>Work Request Status:</label>
+        <md-select placeholder="Work Request Status">
+            <md-option *ngFor="let workstatus of workStatus" [value]="workstatus.value">
+                {{workstatus.viewValue}}
+            </md-option>
+        </md-select>
+
+        <md-input-container class="example-full-width">
+            <textarea #description mdInput [(ngModel)]="Description" name="Description" placeholder="Description"></textarea>
+        </md-input-container>
+        <button class="mdl-button mdl-button--raised mdl-button--primary" (click)="onUpdate()" md-primary-button md-raised-button>Update</button>
+        <button class="mdl-button mdl-button--raised mdl-button--primary" md-raised-button>Close</button>
+    </md-card>
+</form>

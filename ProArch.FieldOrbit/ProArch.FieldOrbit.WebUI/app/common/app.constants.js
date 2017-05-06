@@ -8,13 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var Configuration = (function () {
     function Configuration() {
-        this.ApiServer = "http://localhost/webapi/"; // when you run with IIS
-        // if you run the project with IIS express, please use the address http://localhost:51214/
-        this.GetApiUrl = "api/Home";
-        this.PostApiUrl = "api/Home/detailspost";
-        // public ServerWithApiUrl: string = this.ApiServer + this.ApiUrl;
-        this.ServerWithApiUrlGet = this.ApiServer + this.GetApiUrl;
-        this.ServerWithApiUrlPost = this.ApiServer + this.PostApiUrl;
+        this.ApiServer = "http://localhost/fieldorbitApi/";
+        this.GetAllDevicesApiUrl = "api/Home";
+        this.FileUploadApiUrl = "api/Home/detailspost";
+        this.LoginApiUrl = "api/LoginOperations/Validate";
     }
     return Configuration;
 }());
@@ -22,4 +19,4 @@ Configuration = __decorate([
     core_1.Injectable()
 ], Configuration);
 exports.Configuration = Configuration;
-//# sourceMappingURL=Configuration.js.map
+//# sourceMappingURL=app.constants.js.map

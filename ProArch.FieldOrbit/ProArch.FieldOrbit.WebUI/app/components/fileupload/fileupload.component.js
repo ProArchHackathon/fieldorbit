@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var DataService_1 = require("./DataService");
-var Configuration_1 = require("./Configuration");
+var app_constants_1 = require("../../common/app.constants");
 //import { NoteItem } from "./noteModel";
 //import { Product } from "./Product";
 require("rxjs/add/operator/map");
@@ -22,7 +22,7 @@ var FileUploadComponent = (function () {
     }
     FileUploadComponent.prototype.onSubmit = function () {
         this._dataService
-            .postSomething(this.model);
+            .fileUpload(this.model);
     };
     return FileUploadComponent;
 }());
@@ -32,7 +32,7 @@ FileUploadComponent = __decorate([
         moduleId: module.id,
         // templateUrl: 'app/components/fileupload/fileupload.component.html',
         templateUrl: 'fileupload.component.html',
-        providers: [DataService_1.DataService, Configuration_1.Configuration],
+        providers: [DataService_1.DataService, app_constants_1.Configuration]
     }),
     __metadata("design:paramtypes", [DataService_1.DataService])
 ], FileUploadComponent);

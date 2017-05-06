@@ -24,10 +24,9 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilterAttribute]
-        [Route("api/LoginOperations/Validate")]
-        public HttpResponseMessage Validate()
+        public HttpResponseMessage Validate([FromUri]string username, [FromUri]string password)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, loginOperations.Validate());
+            return Request.CreateResponse(HttpStatusCode.OK, loginOperations.Validate(username, password));
         }
     }
 }

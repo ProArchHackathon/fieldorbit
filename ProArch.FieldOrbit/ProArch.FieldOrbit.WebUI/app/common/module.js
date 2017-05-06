@@ -17,6 +17,8 @@ var login_component_1 = require("../common/login/login.component");
 var app_component_1 = require("../common/app.component");
 var fileupload_component_1 = require("../components/fileupload/fileupload.component");
 var fileuploaddetails_component_1 = require("../components/fileupload/fileuploaddetails.component");
+var serviceRequest_component_1 = require("../components/serviceRequest/serviceRequest.component");
+var workrequest_component_1 = require("../components/workrequest/workrequest.component");
 //import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -41,6 +43,14 @@ AppModule = __decorate([
                     component: job_component_1.JobComponent
                 },
                 {
+                    path: 'servicerequest',
+                    component: serviceRequest_component_1.ServiceRequestComponent
+                },
+                {
+                    path: 'workrequest',
+                    component: workrequest_component_1.WorkRequestComponent
+                },
+                {
                     path: '',
                     redirectTo: '/login',
                     pathMatch: 'full'
@@ -48,7 +58,8 @@ AppModule = __decorate([
             ], { useHash: true })
         ],
         declarations: [
-            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent, fileupload_component_1.FileUploadComponent, fileuploaddetails_component_1.FileUploadDetailsComponent
+            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent, fileupload_component_1.FileUploadComponent,
+            fileuploaddetails_component_1.FileUploadDetailsComponent, serviceRequest_component_1.ServiceRequestComponent, workrequest_component_1.WorkRequestComponent
         ],
         exports: [
             material_1.MaterialModule

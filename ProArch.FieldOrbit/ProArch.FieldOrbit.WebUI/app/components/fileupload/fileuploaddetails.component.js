@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var DataService_1 = require("./DataService");
-var Configuration_1 = require("./Configuration");
+var app_constants_1 = require("../../common/app.constants");
 //import { NoteItem } from "./noteModel";
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
@@ -21,7 +21,7 @@ var FileUploadDetailsComponent = (function () {
     FileUploadDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._dataService
-            .getAll()
+            .getAllDeviceDetails()
             .subscribe(function (data) { return _this.myItems = data; }, function (error) { return console.log(error); }, function () { return console.log("getAllItems() complete from init"); });
     };
     return FileUploadDetailsComponent;
@@ -29,7 +29,7 @@ var FileUploadDetailsComponent = (function () {
 FileUploadDetailsComponent = __decorate([
     core_1.Component({
         selector: 'fileupload-details',
-        providers: [DataService_1.DataService, Configuration_1.Configuration],
+        providers: [DataService_1.DataService, app_constants_1.Configuration],
         moduleId: module.id,
         // templateUrl: 'app/components/fileupload/fileupload.component.html',
         templateUrl: 'fileuploaddetails.component.html',

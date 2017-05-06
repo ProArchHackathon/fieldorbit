@@ -10,7 +10,8 @@ import { LoginComponent } from '../common/login/login.component';
 import { AppComponent } from '../common/app.component';
 import { FileUploadComponent } from '../components/fileupload/fileupload.component';
 import { FileUploadDetailsComponent } from '../components/fileupload/fileuploaddetails.component';
-
+import { ServiceRequestComponent } from '../components/serviceRequest/serviceRequest.component';
+import { WorkRequestComponent } from '../components/workrequest/workrequest.component';
 //import 'hammerjs';
 @NgModule({
     imports: [
@@ -29,6 +30,14 @@ import { FileUploadDetailsComponent } from '../components/fileupload/fileuploadd
                 component: JobComponent
             },
             {
+                path: 'servicerequest',
+                component: ServiceRequestComponent
+            },
+            {
+                path: 'workrequest',
+                component: WorkRequestComponent
+            },
+            {
                 path: '',
                 redirectTo: '/login',
                 pathMatch: 'full'
@@ -36,7 +45,8 @@ import { FileUploadDetailsComponent } from '../components/fileupload/fileuploadd
         ], { useHash: true })
     ],
     declarations: [
-        AppComponent, JobComponent, LoginComponent, FileUploadComponent, FileUploadDetailsComponent
+        AppComponent, JobComponent, LoginComponent, FileUploadComponent,
+        FileUploadDetailsComponent, ServiceRequestComponent, WorkRequestComponent
 
     ],
     exports: [

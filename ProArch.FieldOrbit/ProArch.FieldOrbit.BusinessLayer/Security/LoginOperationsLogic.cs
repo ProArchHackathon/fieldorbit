@@ -33,12 +33,12 @@ namespace ProArch.FieldOrbit.BusinessLayer.Security
             }
         }
 
-        public TokenHolder Validate()
+        public TokenHolder Validate(string userName, string password)
         {
             if (IdentityHelper.Identity != null && IdentityHelper.Identity.Headers != null)
             {
-                string userName = IdentityHelper.Identity.Headers["username"];
-                string password = IdentityHelper.Identity.Headers["password"];
+                //string userName = IdentityHelper.Identity.Headers["username"];
+                //string password = IdentityHelper.Identity.Headers["password"];
                 if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password) || !Utilities.Users.Any(c => c.UserName.Equals(userName) && c.Password.Equals(password)))
                 {
                     throw new EditException() { Edits = (new List<Edit>() { new Edit() { FieldName = "authentication", Message = "Invalid username or password." } }) };
