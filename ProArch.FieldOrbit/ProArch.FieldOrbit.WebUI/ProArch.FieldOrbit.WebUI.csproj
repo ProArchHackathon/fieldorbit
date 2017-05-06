@@ -92,6 +92,8 @@
   <ItemGroup>
     <Content Include="app\components\job\job.component.css" />
     <Content Include="app\components\job\job.component.html" />
+    <Content Include="Content\deeppurple-amber.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="systemjs.config.js" />
     <Content Include="Web.config" />
