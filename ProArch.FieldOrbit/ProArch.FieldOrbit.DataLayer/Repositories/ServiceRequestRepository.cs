@@ -32,15 +32,15 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 {"createddate", serviceRequest.CreatedDate},
                 {"startdate" ,serviceRequest.StartDate},
                 {"servicetype",serviceRequest.ServiceType.ToString()},
-                {"requesttype",serviceRequest.RequestType.ToString()},
-                {"customer", new BsonDocument
+                {"requesttype", serviceRequest.RequestType.ToString()},
+                {"customer",serviceRequest.Customer==null? new BsonDocument() : new BsonDocument
                     {
-                        { "customerid" ,serviceRequest.Customer.CustomerId }
+                        { "customerid", serviceRequest.Customer.CustomerId }
                     }
                 },
                 { "location",serviceRequest.Location },
                 { "enddate",serviceRequest.EndDate.HasValue? serviceRequest.EndDate: null },
-                { "closedby", new BsonDocument
+                { "closedby", serviceRequest.ClosedBy==null? new BsonDocument() : new BsonDocument
                     {
                         {"employeeid",serviceRequest.ClosedBy.EmployeeId },
                         {"name", new BsonDocument
@@ -108,7 +108,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
 
         public IEnumerable<ServiceRequest> GetAllServiceRequests()
         {
-            throw new NotImplementedException();
+            return new MongoRepository().GetAllServiceRequests("servicerequest");
         }
     }
 }

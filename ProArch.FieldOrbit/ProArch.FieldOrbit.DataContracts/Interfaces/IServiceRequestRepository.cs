@@ -25,7 +25,7 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// <param name="serviceRequest"></param>
         /// <param name="SRNumber"></param>
         /// <returns></returns>
-        bool UpdateServiceRequest(ServiceRequest serviceRequest, int SRNumber);
+        bool UpdateServiceRequest(ServiceRequest serviceRequest, int serviceRequestId);
 
         /// <summary>
         /// get service request by service request number

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using ProArch.FieldOrbit.DataLayer.Common;
 using ProArch.FieldOrbit.Models;
 
@@ -50,17 +51,14 @@ namespace ProArch.FieldOrbit.DataLayer
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-            var serviceReq = _database.GetCollection<ServiceRequest>(collectionName);
-            //return serviceReq;
-            return null;
+            return _database.GetCollection<ServiceRequest>(collectionName).AsQueryable().ToList();
         }
 
         public ServiceRequest GetServiceRequestBySRNumber(int serviceRequestId, string collectionName)
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-            ServiceRequest wrequest = _database.GetCollection<ServiceRequest>(collectionName).Find(id => id.ServiceRequestId == serviceRequestId).SingleOrDefault();
-            return wrequest;
+            return _database.GetCollection<ServiceRequest>(collectionName).Find(id => id.ServiceRequestId == serviceRequestId).SingleOrDefault();
         }
     }
 }

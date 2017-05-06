@@ -38,7 +38,7 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// <returns></returns>
         public IEnumerable<Models.ServiceRequest> GetAllServiceRequests()
         {
-            throw new NotImplementedException();
+            return this.serviceRequestRepository.GetAllServiceRequests();
         }
 
         /// <summary>
@@ -46,9 +46,9 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// </summary>
         /// <param name="SRNumber"></param>
         /// <returns></returns>
-        public Models.ServiceRequest GetServiceRequestBySRNumber(int SRNumber)
+        public Models.ServiceRequest GetServiceRequestBySRNumber(int serviceRequestId)
         {
-            throw new NotImplementedException();
+            return this.serviceRequestRepository.GetServiceRequestBySRNumber(serviceRequestId);
         }
 
         /// <summary>
@@ -57,10 +57,10 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// <param name="serviceRequest"></param>
         /// <param name="SRNumber"></param>
         /// <returns></returns>
-        public bool UpdateServiceRequest(Models.ServiceRequest serviceRequest, int SRNumber)
+        public bool UpdateServiceRequest(Models.ServiceRequest serviceRequest, int serviceRequestNbr)
         {
             serviceRequest.VerifyObjectNull();
-            return this.serviceRequestRepository.UpdateServiceRequest(serviceRequest,SRNumber);
+            return this.serviceRequestRepository.UpdateServiceRequest(serviceRequest, serviceRequestNbr);
         }
     }
 }

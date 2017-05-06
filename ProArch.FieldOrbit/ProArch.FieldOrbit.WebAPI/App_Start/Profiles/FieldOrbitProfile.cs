@@ -20,9 +20,11 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
         {
             //View models to Models
             MapWorkRequestViewModelToModel();
+            MapServiceRequestViewModelToModel();
 
             //Models to View models
             MapWorkRequestModelToViewModel();
+            MapServiceRequestModelToViewModel();
         }
 
         private void MapWorkRequestViewModelToModel()
@@ -76,6 +78,96 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
                     ModelNumber = src.ServiceRequest.Device.ModelNumber
                 }
             }));
+        }
+
+        public void MapServiceRequestViewModelToModel()
+        {
+            var serviceRequestMap = CreateMap<ViewModels.ServiceRequest, DomainModels.ServiceRequest>();
+            serviceRequestMap.ForAllMembers(opt => opt.Ignore());
+            serviceRequestMap.ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(src => src.CreatedDate))
+                .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate))
+                .ForMember(dest => dest.Location, opt => opt.MapFrom(src => src.Location))
+                .ForMember(dest => dest.RequestType, opt => opt.MapFrom(src => src.RequestType))
+                .ForMember(dest => dest.ServiceRequestId, opt => opt.MapFrom(src => src.ServiceRequestId))
+                .ForMember(dest => dest.ServiceType, opt => opt.MapFrom(src => src.ServiceType))
+                .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.StartDate))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
+                .ForMember(dest => dest.ClosedBy, opt => opt.MapFrom(src => new DomainModels.Employee()
+                {
+                    EmployeeId = src.ClosedBy.EmployeeId,
+                    Name = new DomainModels.Name()
+                    {
+                        FirstName = src.ClosedBy.Name.FirstName,
+                        MiddleName = src.ClosedBy.Name.MiddleName,
+                        LastName = src.ClosedBy.Name.LastName
+                    }
+                }))
+                .ForMember(dest => dest.Customer, opt => opt.MapFrom(src => new DomainModels.Customer()
+                {
+                    Active = src.Customer.Active,
+                    CustomerId = src.Customer.CustomerId,
+                    Email = src.Customer.Email,
+                    Phone = src.Customer.Phone,
+                    SSN = src.Customer.SSN,
+                    Address = new DomainModels.Address()
+                    {
+                        City = src.Customer.Address.City,
+                        State = src.Customer.Address.State,
+                        Street = src.Customer.Address.Street,
+                        Zip = src.Customer.Address.Zip
+                    },
+                    Name = new DomainModels.Name()
+                    {
+                        FirstName = src.Customer.Name.FirstName,
+                        MiddleName = src.Customer.Name.MiddleName,
+                        LastName = src.Customer.Name.LastName
+                    }
+                }));
+        }
+
+        public void MapServiceRequestModelToViewModel()
+        {
+            var serviceRequestMap = CreateMap<DomainModels.ServiceRequest, ViewModels.ServiceRequest>();
+            serviceRequestMap.ForAllMembers(opt => opt.Ignore());
+            serviceRequestMap.ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(src => src.CreatedDate))
+                .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate))
+                .ForMember(dest => dest.Location, opt => opt.MapFrom(src => src.Location))
+                .ForMember(dest => dest.RequestType, opt => opt.MapFrom(src => src.RequestType))
+                .ForMember(dest => dest.ServiceRequestId, opt => opt.MapFrom(src => src.ServiceRequestId))
+                .ForMember(dest => dest.ServiceType, opt => opt.MapFrom(src => src.ServiceType))
+                .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.StartDate))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
+                .ForMember(dest => dest.ClosedBy, opt => opt.MapFrom(src => new ViewModels.Employee()
+                {
+                    EmployeeId = src.ClosedBy == null ? 0 : src.ClosedBy.EmployeeId,
+                    Name = new ViewModels.Name()
+                    {
+                        FirstName = src.ClosedBy == null ? string.Empty : src.ClosedBy.Name.FirstName,
+                        MiddleName = src.ClosedBy == null ? string.Empty : src.ClosedBy.Name.MiddleName,
+                        LastName = src.ClosedBy == null ? string.Empty : src.ClosedBy.Name.LastName
+                    }
+                }))
+                .ForMember(dest => dest.Customer, opt => opt.MapFrom(src => new ViewModels.Customer()
+                {
+                    Active = src.Customer.Active,
+                    CustomerId = src.Customer.CustomerId,
+                    Email = src.Customer.Email,
+                    Phone = src.Customer.Phone,
+                    SSN = src.Customer.SSN,
+                    Address = new ViewModels.Address()
+                    {
+                        City = src.Customer.Address == null ? string.Empty : src.Customer.Address.City,
+                        State = src.Customer.Address == null ? string.Empty : src.Customer.Address.State,
+                        Street = src.Customer.Address == null ? string.Empty : src.Customer.Address.Street,
+                        Zip = src.Customer.Address == null ? string.Empty : src.Customer.Address.Zip
+                    },
+                    Name = new ViewModels.Name()
+                    {
+                        FirstName = src.Customer.Name == null ? string.Empty : src.Customer.Name.FirstName,
+                        MiddleName = src.Customer.Name == null ? string.Empty : src.Customer.Name.MiddleName,
+                        LastName = src.Customer.Name == null ? string.Empty : src.Customer.Name.LastName
+                    }
+                }));
         }
 
         private void MapWorkRequestModelToViewModel()

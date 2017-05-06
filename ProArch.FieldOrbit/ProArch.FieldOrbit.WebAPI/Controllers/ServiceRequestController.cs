@@ -6,8 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using ProArch.FieldOrbit.Contracts.Interfaces;
-using ProArch.FieldOrbit.Models;
 using ProArch.FieldOrbit.WebApi.Filters;
+using ProArch.FieldOrbit.WebAPI.Models;
+using AutoMapper;
 
 namespace ProArch.FieldOrbit.WebAPI.Controllers
 {
@@ -23,29 +24,31 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage Post()
+        [TraceLogActionFilter]
+        public bool Post(ServiceRequest serviceRequest)
         {
-            ServiceRequest serviceRequest = new ServiceRequest();
-            serviceRequest.CreatedDate = DateTime.Now;
-            serviceRequest.EndDate = DateTime.Now.AddDays(15);
-            serviceRequest.ClosedBy = serviceRequest.ClosedBy ?? new Employee() { EmployeeId = 1002 };
-            serviceRequest.Customer = serviceRequest.Customer ?? new Customer() { CustomerId = 2 };
-            serviceRequest.ServiceType = ProArch.FieldOrbit.Models.Enums.ServiceType.Electric;
-            serviceRequest.RequestType = ProArch.FieldOrbit.Models.Enums.RequestType.Connect;
-            serviceRequest.Device = serviceRequest.Device ?? new Device() { DeviceId = 2, DeviceType = ProArch.FieldOrbit.Models.Enums.DeviceType.Amplifier, ModelNumber = 456 };
-            serviceRequest.Location = "abc123";
-            serviceRequest.Status = ProArch.FieldOrbit.Models.Enums.ServiceRequestStatus.Open;
+            return this.serviceRequest.CreateServiceRequest(Mapper.Map<ProArch.FieldOrbit.Models.ServiceRequest>(serviceRequest));
+        }
 
-            var isSuccess = this.serviceRequest.CreateServiceRequest(serviceRequest);
-            //var isSuccess = this.serviceRequest.UpdateServiceRequest(serviceRequest,15);
-            return Request.CreateResponse(HttpStatusCode.OK, isSuccess);
+        [HttpPut]
+        [TraceLogActionFilter]
+        public bool Update(ServiceRequest serviceRequest, int serviceRequestNbr)
+        {
+            return this.serviceRequest.UpdateServiceRequest(Mapper.Map<ProArch.FieldOrbit.Models.ServiceRequest>(serviceRequest), serviceRequestNbr);
         }
 
         [HttpGet]
-        public HttpResponseMessage GetServiceRequest(int serviceRequestId)
+        [TraceLogActionFilter]
+        public ServiceRequest GetServiceRequest(int serviceRequestId)
         {
-            var isSuccess = this.serviceRequest.GetServiceRequestBySRNumber(serviceRequestId);
-            return Request.CreateResponse(HttpStatusCode.OK, isSuccess);
+            return Mapper.Map<ServiceRequest>(this.serviceRequest.GetServiceRequestBySRNumber(serviceRequestId));
+        }
+
+        [HttpGet]
+        [TraceLogActionFilter]
+        public IEnumerable<ServiceRequest> GetAllServiceRequest()
+        {
+            return Mapper.Map<IEnumerable<ServiceRequest>>(this.serviceRequest.GetAllServiceRequests());
         }
     }
 }

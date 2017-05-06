@@ -25,6 +25,8 @@ namespace ProArch.FieldOrbit.WebAPI.Configuration
             builder.RegisterType<LoginOperationsLogic>().As<ILoginOperations>().InstancePerRequest();
             builder.RegisterType<WorkRequestService>().As<IWorkRequestService>().InstancePerRequest();
             builder.RegisterType<WorkRequestRepository>().As<IWorkRequestRepository>().InstancePerRequest();
+            builder.RegisterType<ServiceRequestService>().As<IServiceRequestService>().InstancePerRequest();
+            builder.RegisterType<ServiceRequestRepository>().As<IServiceRequestRepository>().InstancePerRequest();
 
             var container = builder.Build();
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
