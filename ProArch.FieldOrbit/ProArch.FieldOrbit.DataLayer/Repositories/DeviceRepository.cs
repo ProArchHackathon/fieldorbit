@@ -6,12 +6,12 @@ using System.Collections.Generic;
 namespace ProArch.FieldOrbit.DataLayer.Repositories
 {
     /// <summary>
-    /// 
+    /// Device Repository
     /// </summary>
     public class DeviceRepository : IDeviceRepository
     {
         /// <summary>
-        /// 
+        /// add device info
         /// </summary>
         /// <param name="content"></param>
         /// <returns></returns>
@@ -21,7 +21,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         }
 
         /// <summary>
-        /// 
+        /// get all devices
         /// </summary>
         /// <returns></returns>
         public IEnumerable<Device> GetAllDevices()
@@ -30,27 +30,27 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         }
 
         /// <summary>
-        /// 
+        /// get device by id
         /// </summary>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        public Device GetDeviceByID(int deviceId)
+        public Device GetDeviceById(int deviceId)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// 
+        /// get expert
         /// </summary>
-        /// <param name="DeviceID"></param>
+        /// <param name="deviceId"></param>
         /// <returns></returns>
-        public string GetExpert(int DeviceID)
+        public DeviceExpert GetExpert(string deviceId)
         {
-            throw new NotImplementedException();
+            return new MongoRepository().GetExpert(deviceId, "deviceexpert");
         }
 
         /// <summary>
-        /// 
+        /// update device info
         /// </summary>
         /// <param name="content"></param>
         /// <param name="deviceId"></param>
@@ -58,6 +58,17 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         public bool UpdateDeviceInfo(Content content, int deviceId)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// get video path
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="videoType"></param>
+        /// <returns></returns>
+        public string GetVideoPath(string deviceId, string videoType)
+        {
+            return new MongoRepository().GetVideoPath(deviceId, videoType, "content");
         }
     }
 }

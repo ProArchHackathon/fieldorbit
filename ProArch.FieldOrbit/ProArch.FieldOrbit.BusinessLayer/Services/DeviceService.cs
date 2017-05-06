@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProArch.FieldOrbit.BusinessLayer.Streaming;
 using ProArch.FieldOrbit.Contracts.Interfaces;
-using ProArch.FieldOrbit.Models;
 using ProArch.FieldOrbit.DataContracts.Interfaces;
+using ProArch.FieldOrbit.Models;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace ProArch.FieldOrbit.BusinessLayer.Services
 {
@@ -14,11 +14,11 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
     /// </summary>
     public class DeviceService : IDeviceService
     {
+        public IDeviceRepository _deviceRepository;
 
-        private IDeviceRepository _deviceRepository;
         public DeviceService(IDeviceRepository deviceRepository)
         {
-            this._deviceRepository = deviceRepository;
+            _deviceRepository = deviceRepository;
         }
 
         /// <summary>
@@ -43,9 +43,9 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="DeviceID"></param>
+        /// <param name="deviceId"></param>
         /// <returns></returns>
-        public Models.Device GetDeviceByID(int DeviceID)
+        public Models.Device GetDeviceById(int deviceId)
         {
             throw new NotImplementedException();
         }
@@ -53,11 +53,11 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="DeviceID"></param>
+        /// <param name="deviceId"></param>
         /// <returns></returns>
-        public string GetExpert(int DeviceID)
+        public DeviceExpert GetExpert(string deviceId)
         {
-            throw new NotImplementedException();
+            return _deviceRepository.GetExpert(deviceId);
         }
 
         /// <summary>
@@ -70,5 +70,29 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         {
             throw new NotImplementedException();
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="URL"></param>
+        /// <returns></returns>
+        public Stream GetVideoContent(string URL)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// get video path
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="videoType"></param>
+        /// <returns></returns>
+        public string GetVideoPath(string deviceId, string videoType)
+        {
+            string filename = _deviceRepository.GetVideoPath(deviceId, videoType);
+            return ContentService.GetVideoPath(filename);
+        }
+
     }
 }

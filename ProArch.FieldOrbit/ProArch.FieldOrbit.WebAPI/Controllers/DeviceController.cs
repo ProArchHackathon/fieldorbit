@@ -1,14 +1,10 @@
-﻿using System;
+﻿using AutoMapper;
+using ProArch.FieldOrbit.Contracts.Interfaces;
+using ProArch.FieldOrbit.Models;
+using ProArch.FieldOrbit.WebApi.Filters;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using ProArch.FieldOrbit.Contracts.Interfaces;
-using ProArch.FieldOrbit.WebApi.Filters;
-using ProArch.FieldOrbit.WebAPI.Models;
-using AutoMapper;
 
 namespace ProArch.FieldOrbit.WebAPI.Controllers
 {
@@ -16,41 +12,72 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
     [ExceptionHandlerFilterAttribute]
     public class DeviceController : ApiController
     {
-        readonly IDeviceService _DeviceService;
+        public IDeviceService _deviceService;
 
-        public DeviceController(IDeviceService DeviceService)
+        public DeviceController(IDeviceService deviceService)
         {
-            this._DeviceService = DeviceService;
+            _deviceService = deviceService;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="content"></param>
+        /// <returns></returns>
         [HttpPost]
-        [TraceLogActionFilterAttribute]
-        public bool Post(Device Device)
+        [TraceLogActionFilter]
+        public bool AddDeviceInfo(Content content)
         {
-            //return this._DeviceService.CreateDevice(Mapper.Map<ProArch.FieldOrbit.Models.Device>(Device));
-            return true;
+            return _deviceService.AddDeviceInfo(content);
         }
 
-        [HttpPut]
-        [TraceLogActionFilterAttribute]
-        public bool Put(Device Device, int DeviceNumber)
-        {
-            //return this._DeviceService.UpdateDevice(Mapper.Map<ProArch.FieldOrbit.Models.Device>(Device), DeviceNumber);
-            return true;
-        }
-
-        [TraceLogActionFilterAttribute]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>      
+		[TraceLogActionFilterAttribute]
         [Route("api/Device/GetAllDevices")]
         public IEnumerable<Device> GetAllDevices()
         {
-            return Mapper.Map<IEnumerable<Device>>(this._DeviceService.GetAllDevices());
+            return Mapper.Map<IEnumerable<Device>>(_deviceService.GetAllDevices());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <returns></returns>
         [HttpGet]
-        [TraceLogActionFilterAttribute]
-        public Device Get(int DeviceNumber)
+        [TraceLogActionFilter]
+        [ActionName("getdevicebyid")]
+        public Device GetDeviceById(int deviceId)
         {
-            return Mapper.Map<Device>(this._DeviceService.GetDeviceByID(DeviceNumber));
+            return _deviceService.GetDeviceById(deviceId);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <returns></returns>
+        [TraceLogActionFilter]
+        [Route("api/Device/GetExpert")]
+        public DeviceExpert GetExpert(string deviceId)
+        {
+            return _deviceService.GetExpert(deviceId);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="content"></param>
+        /// <param name="deviceId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [TraceLogActionFilter]
+        public bool UpdateDeviceInfo(Content content, int deviceId)
+        {
+            return _deviceService.UpdateDeviceInfo(content, deviceId);
         }
     }
 }

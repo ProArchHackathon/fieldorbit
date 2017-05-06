@@ -9,6 +9,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using ProArch.FieldOrbit.DataLayer.Common;
 using ProArch.FieldOrbit.Models;
+using ProArch.FieldOrbit.Models.Enums;
 
 namespace ProArch.FieldOrbit.DataLayer
 {
@@ -18,10 +19,14 @@ namespace ProArch.FieldOrbit.DataLayer
         /// This is only for test purpose we remove once we started coding.
         /// </summary>
         /// <returns></returns>
+
+        public IMongoClient _client;
+        public IMongoDatabase _database;
+
         public bool IsConnected()
         {
-            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
-            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            _client = new MongoClient(Utilities.MongoServerUrl);
+            _database = _client.GetDatabase(Utilities.MongoServerDB);
             return true;
         }
 
@@ -85,7 +90,7 @@ namespace ProArch.FieldOrbit.DataLayer
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-            return _database.GetCollection<Device>(collectionName).AsQueryable().ToList();            
+            return _database.GetCollection<Device>(collectionName).AsQueryable().ToList();
         }
 
         public bool UpdateWorkRequest(BsonDocument doc, string collectionName)
@@ -102,6 +107,43 @@ namespace ProArch.FieldOrbit.DataLayer
                                                          Set("status", workRequest.Status);
             collection.UpdateOne(filter, update);
             return true;
+        }
+        public DeviceExpert GetExpert(string deviceId, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+
+            var data = _database.GetCollection<DeviceExpert>(collectionName).AsQueryable().ToList();
+
+            //var filter = Builders<DeviceExpert>.Filter.Eq("servicerequestid", serviceRequest.ServiceRequestId);
+
+            //db.job.find({ "workrequest.servicerequest.customer.customerid":1001}).sort({ "jobid":1}).pretty()
+
+            return _database.GetCollection<DeviceExpert>(collectionName).Find(item => item.Devices.Find(d => d.DeviceId == deviceId) != null).SingleOrDefault();
+        }
+
+        public string GetVideoPath(string deviceId, string videoType, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            Content content = _database.GetCollection<Content>(collectionName).Find(item => item.Device.DeviceId == deviceId).SingleOrDefault();
+            string path = string.Empty;
+            switch (videoType)
+            {
+                case "install":
+                    path = content.Path.InstallPath;
+                    break;
+                case "repairpath":
+                    path = content.Path.InstallPath;
+                    break;
+                case "configpath":
+                    path = content.Path.InstallPath;
+                    break;
+                default:
+                    path = content.Path.InstallPath;
+                    break;
+            }
+            return path;
         }
     }
 }

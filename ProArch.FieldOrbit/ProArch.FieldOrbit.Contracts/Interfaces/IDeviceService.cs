@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProArch.FieldOrbit.Models;
+using System.IO;
 
 namespace ProArch.FieldOrbit.Contracts.Interfaces
 {
@@ -32,7 +33,7 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// </summary>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        Device GetDeviceByID(int deviceId);
+        Device GetDeviceById(int deviceId);
 
         /// <summary>
         /// Get all devices
@@ -45,6 +46,21 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// </summary>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        string GetExpert(int deviceId);
+        DeviceExpert GetExpert(string deviceId);
+
+        /// <summary>
+        /// Get video path
+        /// </summary>
+        /// <param name="VideoID"></param>
+        /// <param name="VideoType"></param>
+        /// <returns></returns>
+        string GetVideoPath(string VideoID, string VideoType);
+
+        /// <summary>
+        /// Get video content
+        /// </summary>
+        /// <param name="URL"></param>
+        /// <returns></returns>
+        Stream GetVideoContent(string URL);
     }
 }
