@@ -1,0 +1,9 @@
+﻿<form (ngSubmit)="OnSubmit()">
+    <md-input-container>
+        <input mdInput placeholder="UserName" [(ngModel)]="login.username" name="UserName" focus>
+    </md-input-container>
+    <md-input-container>
+        <input mdInput placeholder="Password" [(ngModel)]="login.password" name="Password">
+    </md-input-container>
+    <button class="mat-button mat-primary" md-raised-button>Login</button>
+</form>
