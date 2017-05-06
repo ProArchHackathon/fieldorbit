@@ -11,6 +11,8 @@ var forms_1 = require("@angular/forms");
 var job_component_1 = require("../components/job/job.component");
 var animations_1 = require("@angular/platform-browser/animations");
 var material_1 = require("@angular/material");
+var router_1 = require("@angular/router");
+var login_component_1 = require("../common/login/login.component");
 //import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -21,10 +23,20 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            forms_1.FormsModule, animations_1.BrowserAnimationsModule, material_1.MaterialModule.forRoot()
+            forms_1.FormsModule, animations_1.BrowserAnimationsModule, material_1.MaterialModule.forRoot(),
+            router_1.RouterModule.forRoot([
+                {
+                    path: 'login',
+                    component: login_component_1.LoginComponent
+                }, {
+                    path: '',
+                    redirectTo: '/login',
+                    pathMatch: 'full'
+                }
+            ], { useHash: true })
         ],
         declarations: [
-            job_component_1.JobComponent
+            job_component_1.JobComponent, login_component_1.LoginComponent
         ],
         exports: [
             material_1.MaterialModule

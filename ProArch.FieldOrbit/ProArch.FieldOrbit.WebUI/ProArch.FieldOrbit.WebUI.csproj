@@ -90,9 +90,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\common\login\login.component.css" />
+    <Content Include="app\common\login\login.component.html" />
     <Content Include="app\components\job\job.component.css" />
     <Content Include="app\components\job\job.component.html" />
     <Content Include="Content\deeppurple-amber.css" />
+    <Content Include="Content\indigo-pink.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="systemjs.config.js" />
@@ -126,6 +129,7 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="app\common\login\login.component.ts" />
     <TypeScriptCompile Include="app\common\module.ts" />
     <TypeScriptCompile Include="app\components\job\job.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
