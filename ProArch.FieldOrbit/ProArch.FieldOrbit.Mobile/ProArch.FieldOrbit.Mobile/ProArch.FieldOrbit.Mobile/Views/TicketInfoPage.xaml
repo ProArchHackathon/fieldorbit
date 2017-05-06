@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProArch.FieldOrbit.Mobile.Views.TicketInfoPage" Title="Ticket Info">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Ticket ID:"></Label>
+                <Entry />
+
+
+                <Label Text="Status:"></Label>
+                <Entry />
+
+
+                <Label Text="Priority:"></Label>
+                <Entry />
+
+                <Label Text="Category:"></Label>
+                <Entry />
+
+                <Label Text="Job Description:"></Label>
+                <Entry />
+
+
+                <Label Text="Description:"></Label>
+                <Entry />
+
+
+                <Label Text="Start Time:"></Label>
+                <Entry />
+
+
+                <Label Text="End Time:"></Label>
+                <Entry />
+
+
+
+                <Label Text="Comments:"></Label>
+                <Entry />
+
+
+                <Label Text="observations:"></Label>
+                <Entry />
+
+
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                
+                
+                <Button x:Name="btnCreateJob" Text="Create Job" Clicked="btnCreateJob_Clicked" Grid.Column="2" />
+
+                <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked" Grid.Column="0"/>
+
+                <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked" Grid.ColumnSpan="3" Grid.Row="1"/>
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
