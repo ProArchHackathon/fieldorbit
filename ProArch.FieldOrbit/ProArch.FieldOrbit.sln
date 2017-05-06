@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D877ECFF-0827-4D76-ABCC-1CCEA0F19056}"
 EndProject
@@ -22,6 +22,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.Contracts", "ProArch.FieldOrbit.Contracts\ProArch.FieldOrbit.Contracts.csproj", "{8EF71713-11CD-4423-B95D-7C6FDEB076DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.DataLayer", "ProArch.FieldOrbit.DataLayer\ProArch.FieldOrbit.DataLayer.csproj", "{F4F0C548-DB7D-405F-AFD2-804A786F5E10}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{D1B7D8F0-AF53-4B1C-9A4D-A0CDA8886675}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.DataContracts", "ProArch.FieldOrbit.Conracts\ProArch.FieldOrbit.DataContracts.csproj", "{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +57,10 @@ Global
 		{F4F0C548-DB7D-405F-AFD2-804A786F5E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4F0C548-DB7D-405F-AFD2-804A786F5E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4F0C548-DB7D-405F-AFD2-804A786F5E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +71,7 @@ Global
 		{67D6569F-E491-466A-8621-AFB278B24C51} = {D877ECFF-0827-4D76-ABCC-1CCEA0F19056}
 		{69C83FDA-C874-4E4E-AAB0-C1FEF9B95CCF} = {D877ECFF-0827-4D76-ABCC-1CCEA0F19056}
 		{8EF71713-11CD-4423-B95D-7C6FDEB076DB} = {D877ECFF-0827-4D76-ABCC-1CCEA0F19056}
-		{F4F0C548-DB7D-405F-AFD2-804A786F5E10} = {D877ECFF-0827-4D76-ABCC-1CCEA0F19056}
+		{F4F0C548-DB7D-405F-AFD2-804A786F5E10} = {D1B7D8F0-AF53-4B1C-9A4D-A0CDA8886675}
+		{7B960EAC-0FEB-41AF-99E7-9E06AED481DB} = {D1B7D8F0-AF53-4B1C-9A4D-A0CDA8886675}
 	EndGlobalSection
 EndGlobal

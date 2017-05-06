@@ -10,7 +10,8 @@ D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debu
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Driver.xml
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\MongoDB.Driver.Core.xml
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\obj\Debug\ProArch.FieldOrbit.DataLayer.csprojResolveAssemblyReference.cache
-D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.Contracts.dll
-D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.Contracts.pdb
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.Models.dll
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.Models.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataContracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataContracts.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.DataLayer\bin\Debug\ProArch.FieldOrbit.DataContracts.dll.config

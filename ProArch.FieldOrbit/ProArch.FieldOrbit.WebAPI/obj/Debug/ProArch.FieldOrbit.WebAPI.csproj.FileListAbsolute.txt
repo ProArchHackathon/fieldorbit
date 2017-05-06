@@ -110,3 +110,6 @@ D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\ProArch
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\MongoDB.Driver.xml
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\MongoDB.Driver.Core.xml
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\MongoDB.Bson.xml
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\ProArch.FieldOrbit.DataContracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\ProArch.FieldOrbit.DataContracts.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebAPI\bin\ProArch.FieldOrbit.DataContracts.dll.config

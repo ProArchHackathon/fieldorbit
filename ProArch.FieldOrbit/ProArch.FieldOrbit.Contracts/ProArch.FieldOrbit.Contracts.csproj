@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDeviceService.cs" />
+    <Compile Include="Interfaces\IJobService.cs" />
+    <Compile Include="Interfaces\IServiceRequestService.cs" />
+    <Compile Include="Interfaces\IWorkRequestService.cs" />
     <Compile Include="MongoTestConnection\IMongoTestConnectivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\ILoginOperations.cs" />

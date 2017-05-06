@@ -1,5 +1,4 @@
-﻿using ProArch.FieldOrbit.Contracts.MongoTestConnection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +9,7 @@ using ProArch.FieldOrbit.DataLayer.Common;
 
 namespace ProArch.FieldOrbit.DataLayer
 {
-    public class MongoRepository : IMongoTestConnectivity
+    public class MongoRepository
     {
         /// <summary>
         /// This is only for test purpose we remove once we started coding.

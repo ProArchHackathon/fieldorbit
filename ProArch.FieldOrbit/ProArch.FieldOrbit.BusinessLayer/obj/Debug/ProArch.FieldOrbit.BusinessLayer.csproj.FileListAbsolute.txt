@@ -20,3 +20,6 @@ D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Driver.xml
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Driver.Core.xml
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Bson.xml
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.DataContracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.DataContracts.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.DataContracts.dll.config
