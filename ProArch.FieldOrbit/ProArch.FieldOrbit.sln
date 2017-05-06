@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D877ECFF-0827-4D76-ABCC-1CCEA0F19056}"
 EndProject
@@ -14,6 +14,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.WebAPI", "ProArch.FieldOrbit.WebAPI\ProArch.FieldOrbit.WebAPI.csproj", "{EB7A156F-5886-47B9-BC89-66C282C701AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.WebUI", "ProArch.FieldOrbit.WebUI\ProArch.FieldOrbit.WebUI.csproj", "{6207DA44-4258-4E64-9944-D97D2623E051}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Artifacts", "Artifacts", "{D64A8EFB-76C0-4FF0-B8A8-110D347BE47D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestCases", "TestCases", "{A22FE162-BBF0-41AD-8C4D-082B85B2DE08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseScripts", "DatabaseScripts", "{A360F5B2-A76A-4525-8653-CA5DBB47A660}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{6EC5E778-0573-434C-ABB4-2E69A208E929}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{76B0B5C4-4DDC-400B-8B7C-074F7AED64C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +46,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{EB7A156F-5886-47B9-BC89-66C282C701AE} = {D877ECFF-0827-4D76-ABCC-1CCEA0F19056}
 		{6207DA44-4258-4E64-9944-D97D2623E051} = {24FA8FC6-BD88-45F3-949D-10A593BDFC71}
+		{A22FE162-BBF0-41AD-8C4D-082B85B2DE08} = {D64A8EFB-76C0-4FF0-B8A8-110D347BE47D}
+		{A360F5B2-A76A-4525-8653-CA5DBB47A660} = {D64A8EFB-76C0-4FF0-B8A8-110D347BE47D}
+		{6EC5E778-0573-434C-ABB4-2E69A208E929} = {D64A8EFB-76C0-4FF0-B8A8-110D347BE47D}
 	EndGlobalSection
 EndGlobal
