@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using ProArch.FieldOrbit.BusinessLayer.Security;
+using ProArch.FieldOrbit.Contracts.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,7 @@ namespace ProArch.FieldOrbit.WebAPI.Configuration
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
-            //Initiate
+            builder.RegisterType<LoginOperationsLogic>().As<ILoginOperations>().InstancePerRequest();
 
             var container = builder.Build();
             GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);

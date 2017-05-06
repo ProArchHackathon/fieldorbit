@@ -59,6 +59,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.2.3\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -87,9 +90,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -110,8 +110,8 @@
     <Compile Include="Common\ILogComplexType.cs" />
     <Compile Include="Common\TraceLogContractResolver.cs" />
     <Compile Include="Configuration\AutofacConfig.cs" />
+    <Compile Include="Controllers\LoginOperationsController.cs" />
     <Compile Include="Filters\BasicAuthenticationIdentity.cs" />
-    <Compile Include="Filters\Class1.cs" />
     <Compile Include="Filters\ExceptionHandlerFilterAttribute.cs" />
     <Compile Include="Filters\TraceLogActionFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -121,6 +121,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="NLog.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -130,10 +131,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProArch.FieldOrbit.BusinessLayer\ProArch.FieldOrbit.BusinessLayer.csproj">
+      <Project>{69c83fda-c874-4e4e-aab0-c1fef9b95ccf}</Project>
+      <Name>ProArch.FieldOrbit.BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProArch.FieldOrbit.Contracts\ProArch.FieldOrbit.Contracts.csproj">
       <Project>{8ef71713-11cd-4423-b95d-7c6fdeb076db}</Project>
       <Name>ProArch.FieldOrbit.Contracts</Name>

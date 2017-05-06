@@ -9,3 +9,14 @@ D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.Models.dll
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.Models.pdb
 D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\Newtonsoft.Json.xml
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.Contracts.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.DataLayer.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Driver.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Driver.Core.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Bson.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.Contracts.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\ProArch.FieldOrbit.DataLayer.pdb
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Driver.xml
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Driver.Core.xml
+D:\Hackathon\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.BusinessLayer\bin\Debug\MongoDB.Bson.xml

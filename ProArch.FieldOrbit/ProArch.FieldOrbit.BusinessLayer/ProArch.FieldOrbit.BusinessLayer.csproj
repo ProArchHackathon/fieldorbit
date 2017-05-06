@@ -33,12 +33,12 @@
     <Reference Include="JWT, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JWT.2.4.1\lib\net35\JWT.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Extensions\ObjectNullExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\LoginOperationsLogic.cs" />
     <Compile Include="Security\TokenManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +57,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ProArch.FieldOrbit.Contracts\ProArch.FieldOrbit.Contracts.csproj">
+      <Project>{8ef71713-11cd-4423-b95d-7c6fdeb076db}</Project>
+      <Name>ProArch.FieldOrbit.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProArch.FieldOrbit.DataLayer\ProArch.FieldOrbit.DataLayer.csproj">
+      <Project>{f4f0c548-db7d-405f-afd2-804a786f5e10}</Project>
+      <Name>ProArch.FieldOrbit.DataLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProArch.FieldOrbit.Models\ProArch.FieldOrbit.Models.csproj">
       <Project>{67d6569f-e491-466a-8621-afb278b24c51}</Project>
       <Name>ProArch.FieldOrbit.Models</Name>

@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\EmployeeToken.cs" />
+    <Compile Include="Common\IdentityHelper.cs" />
     <Compile Include="Common\TokenHolder.cs" />
     <Compile Include="ContentPath.cs" />
     <Compile Include="Customer.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="ServiceRequest.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="Timesheet.cs" />
+    <Compile Include="UserInformation.cs" />
     <Compile Include="ValidationHelper\Edit.cs" />
     <Compile Include="ValidationHelper\EditException.cs" />
     <Compile Include="WorkRequest.cs" />

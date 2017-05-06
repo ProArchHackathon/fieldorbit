@@ -65,6 +65,10 @@
       <Project>{8ef71713-11cd-4423-b95d-7c6fdeb076db}</Project>
       <Name>ProArch.FieldOrbit.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProArch.FieldOrbit.Models\ProArch.FieldOrbit.Models.csproj">
+      <Project>{67d6569f-e491-466a-8621-afb278b24c51}</Project>
+      <Name>ProArch.FieldOrbit.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
