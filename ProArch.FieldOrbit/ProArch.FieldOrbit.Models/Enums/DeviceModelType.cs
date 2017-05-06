@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProArch.FieldOrbit.Models.Enums
+﻿namespace ProArch.FieldOrbit.Models.Enums
 {
-    public enum DeviceModelType
+    public enum ContentType
     {
-        PDF,
         Video,
-        TwoDimension,
-        ThreeDimension
+        Image,
+        Manual
     }
 }
