@@ -76,7 +76,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         {
             var document = new BsonDocument
             {
-                {"servicerequestid", new MongoRepository().GetCount("servicerequest")},
+                {"servicerequestid", serviceRequest.ServiceRequestId},
                 {"createddate", serviceRequest.CreatedDate},
                 {"startdate" ,serviceRequest.StartDate},
                 {"servicetype",serviceRequest.ServiceType.ToString()},

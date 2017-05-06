@@ -32,9 +32,9 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpPut]
         [TraceLogActionFilterAttribute]
-        public bool Put(WorkRequest workRequest, int workRequestNumber)
+        public bool Put(WorkRequest workRequest)
         {
-            return this._WorkRequestService.UpdateWorkRequest(Mapper.Map<ProArch.FieldOrbit.Models.WorkRequest>(workRequest), workRequestNumber);
+            return this._WorkRequestService.UpdateWorkRequest(Mapper.Map<ProArch.FieldOrbit.Models.WorkRequest>(workRequest));
         }
 
         [HttpGet]

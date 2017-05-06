@@ -49,11 +49,10 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// 
         /// </summary>
         /// <param name="workRequest"></param>
-        /// <param name="WRNumber"></param>
         /// <returns></returns>
-        public bool UpdateWorkRequest(Models.WorkRequest workRequest, int WRNumber)
+        public bool UpdateWorkRequest(Models.WorkRequest workRequest)
         {
-            return this._WorkRequestRepository.UpdateWorkRequest(workRequest, WRNumber);
+            return this._WorkRequestRepository.UpdateWorkRequest(workRequest);
         }
     }
 }

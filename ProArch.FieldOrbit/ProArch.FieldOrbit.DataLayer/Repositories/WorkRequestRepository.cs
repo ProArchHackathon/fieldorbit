@@ -34,13 +34,12 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// 
         /// </summary>
         /// <param name="workRequest"></param>
-        /// <param name="WRNumber"></param>
         /// <returns></returns>
-        public bool UpdateWorkRequest(WorkRequest workRequest, int WRNumber)
+        public bool UpdateWorkRequest(WorkRequest workRequest)
         {
             var document = new BsonDocument
             {
-                {"workorderid", new MongoRepository().GetCount("workorder") },
+                {"workorderid", workRequest.WorkRequestId },
                 {"description", workRequest.Description},
                 {"startdate", workRequest.StartDate},
                 {"enddate", workRequest.EndDate.Value},

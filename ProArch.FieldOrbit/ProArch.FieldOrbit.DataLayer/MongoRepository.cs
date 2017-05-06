@@ -71,6 +71,7 @@ namespace ProArch.FieldOrbit.DataLayer
             var serviceRequest = BsonSerializer.Deserialize<ServiceRequest>(doc);
             var filter = Builders<ServiceRequest>.Filter.Eq("servicerequestid", serviceRequest.ServiceRequestId);
             var update = Builders<ServiceRequest>.Update.Set("location", serviceRequest.Location).
+                                                         Set("startdate", serviceRequest.StartDate).
                                                          Set("servicetype", serviceRequest.ServiceType).
                                                          Set("requesttype", serviceRequest.RequestType).
                                                          Set("enddate", serviceRequest.EndDate).

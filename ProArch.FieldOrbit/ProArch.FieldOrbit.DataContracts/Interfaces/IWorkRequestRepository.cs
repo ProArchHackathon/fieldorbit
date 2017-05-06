@@ -23,9 +23,8 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// Update work request
         /// </summary>
         /// <param name="workRequest"></param>
-        /// <param name="WRNumber"></param>
         /// <returns></returns>
-        bool UpdateWorkRequest(WorkRequest workRequest, int WRNumber);
+        bool UpdateWorkRequest(WorkRequest workRequest);
 
         /// <summary>
         /// Get work request by work request id
