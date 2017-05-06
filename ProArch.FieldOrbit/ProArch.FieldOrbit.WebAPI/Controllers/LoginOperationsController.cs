@@ -1,5 +1,6 @@
 ﻿using ProArch.FieldOrbit.Contracts.Security;
 using ProArch.FieldOrbit.WebApi.Filters;
+using ProArch.FieldOrbit.WebAPI.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilterAttribute]
+        [Route("api/LoginOperations/Validate")]
         public HttpResponseMessage Validate()
         {
             return Request.CreateResponse(HttpStatusCode.OK, loginOperations.Validate());
