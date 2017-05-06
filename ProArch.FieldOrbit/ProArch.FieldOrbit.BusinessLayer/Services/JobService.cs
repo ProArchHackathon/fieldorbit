@@ -37,16 +37,6 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="JobID"></param>
-        /// <returns></returns>
-        public Models.Job GetJobDetails(int JobID)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="EmployeeID"></param>
         /// <returns></returns>
         public List<Models.Job> GetUserJob(int EmployeeID)
@@ -57,31 +47,9 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="URL"></param>
-        /// <returns></returns>
-        public Stream GetVideoContent(string URL)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="VideoID"></param>
-        /// <param name="VideoType"></param>
-        /// <returns></returns>
-        public string GetVideoPath(string VideoID, string VideoType)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="job"></param>
-        /// <param name="Id"></param>
         /// <returns></returns>
-        public bool UpdateJob(Models.Job job, int Id)
+        public bool UpdateJob(Models.Job job)
         {
             throw new NotImplementedException();
         }
