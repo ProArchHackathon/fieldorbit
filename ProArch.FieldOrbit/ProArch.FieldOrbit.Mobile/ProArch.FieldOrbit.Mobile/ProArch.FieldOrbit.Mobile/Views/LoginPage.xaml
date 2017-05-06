@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProArch.FieldOrbit.Mobile.Views.LoginPage">
+    <ContentPage.Content>
+        <StackLayout Padding="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="lblUserName" Text="User Name:" Grid.Row="0" Grid.Column="0"></Label>
+                <Entry x:Name="txtUserName" Grid.Row="0" Grid.Column="1"/>
+
+                <Label x:Name="lblPassword" Text="Password:" Grid.Row="1" Grid.Column="0"></Label>
+                <Entry x:Name="txtPassword" Grid.Row="1" Grid.Column="1"/>
+
+                <Button x:Name="btnLogin" Text="Login" Clicked="btnLogin_Clicked" Grid.Row="2" Grid.Column="0" />
+                <Button x:Name="btnCancel" Text="Cancel" Clicked="btnCancel_Clicked" Grid.Row="2" Grid.Column="1"/>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
