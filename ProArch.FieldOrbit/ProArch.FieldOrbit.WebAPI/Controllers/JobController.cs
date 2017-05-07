@@ -63,5 +63,18 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
             return _jobService.GetUserJob(userInfo.Id);
         }
 
+        [HttpGet]
+        [TraceLogActionFilter]
+        public IEnumerable<Job> GetUserJob(int employeeId)
+        {
+            return _jobService.GetUserJob(employeeId);
+        }
+
+        [HttpGet]
+        [TraceLogActionFilter]
+        public bool EnterTimeSheet(Job job, Timesheet timeSheet)
+        {
+            return _jobService.EnterTimeSheet(job, timeSheet);
+        }
     }
 }

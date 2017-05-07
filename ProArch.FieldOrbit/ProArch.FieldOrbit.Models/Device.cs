@@ -15,7 +15,7 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("cost")]
         public decimal Cost { get; set; }
         [BsonElement("createddate")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         [BsonElement("yearofpurchase")]
         public int YearOfPurchase { get; set; }
         [BsonElement("manufacturer")]

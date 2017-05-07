@@ -10,7 +10,7 @@ namespace ProArch.FieldOrbit.Models
         public int TimesheetId { get; set; }
 
         [BsonElement("Workdate")]
-        public DateTime WorkDate { get; set; }
+        public DateTime? WorkDate { get; set; }
 
         [BsonElement("hours")]
         public int Hours { get; set; }

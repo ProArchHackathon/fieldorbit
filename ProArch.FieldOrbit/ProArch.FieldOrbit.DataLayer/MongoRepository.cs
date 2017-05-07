@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
@@ -188,6 +189,34 @@ namespace ProArch.FieldOrbit.DataLayer
                 }
             }
             return path;
+        }
+
+        public bool EnterTimeSheet(Job job, Timesheet timeSheet)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            try
+            {
+                if (job.Employee.EmployeeId > 0)
+                {
+                    var collection = _database.GetCollection<BsonDocument>("job");
+                    var builder = Builders<BsonDocument>.Filter;
+                    var filter = builder.Eq("workrequest.employee", job.Employee.EmployeeId);
+                    var update = Builders<BsonDocument>.Update
+                        .Set("cuisine", "Category To Be Determined")
+                        .CurrentDate("lastModified");
+                    collection.UpdateManyAsync(filter, update);
+                }
+                else
+                {
+
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public List<Job> GetJobByEmployee(int employeeId, string collectionName)

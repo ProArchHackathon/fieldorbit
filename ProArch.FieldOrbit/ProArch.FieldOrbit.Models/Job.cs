@@ -20,7 +20,7 @@ namespace ProArch.FieldOrbit.Models
         public string JobDescription { get; set; }
 
         [BsonElement("startdate")]
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
 
         [BsonElement("enddate")]
         public DateTime? EndTime { get; set; }

@@ -11,9 +11,9 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("servicerequestid")]
         public int ServiceRequestId { get; set; }
         [BsonElement("createddate")]
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         [BsonElement("startdate")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         [BsonElement("servicetype")]
         public string ServiceType { get; set; }
         [BsonElement("requesttype")]

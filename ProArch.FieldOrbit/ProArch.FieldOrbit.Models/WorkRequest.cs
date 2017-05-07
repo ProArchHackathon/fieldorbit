@@ -11,7 +11,7 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("description")]
         public string Description { get; set; }
         [BsonElement("startdate")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         [BsonElement("enddate")]
         public DateTime? EndDate { get; set; }
         [BsonElement("servicerequest")]

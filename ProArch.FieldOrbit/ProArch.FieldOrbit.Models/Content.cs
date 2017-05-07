@@ -22,6 +22,6 @@ namespace ProArch.FieldOrbit.Models
         public Employee UploadedBy { get; set; }
 
         [BsonElement("uploadedon")]
-        public DateTime UploadedOn { get; set; }
+        public DateTime? UploadedOn { get; set; }
     }
 }

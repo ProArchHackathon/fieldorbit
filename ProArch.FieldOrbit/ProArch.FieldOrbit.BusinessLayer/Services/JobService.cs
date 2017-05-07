@@ -34,6 +34,11 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
             return this.jobRepository.CreateJob(job);
         }
 
+        public bool EnterTimeSheet(Job job, Timesheet timeSheet)
+        {
+            return this.jobRepository.EnterTimeSheet(job, timeSheet);
+        }
+
         /// <summary>
         /// 
         /// </summary>

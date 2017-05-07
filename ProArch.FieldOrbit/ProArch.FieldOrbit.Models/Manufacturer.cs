@@ -10,8 +10,8 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("name")]
         public string Name { get; set; }
         [BsonElement("manufacturedate")]
-        public DateTime ManufactureDate { get; set; }
+        public DateTime? ManufactureDate { get; set; }
         [BsonElement("expirydate")]
-        public DateTime ExpiryDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
     }
 }

@@ -9,8 +9,8 @@ namespace ProArch.FieldOrbit.WebAPI.Models
     public class ServiceRequest
     {
         public int ServiceRequestId { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public string ServiceType { get; set; }
         public string RequestType { get; set; }
 
