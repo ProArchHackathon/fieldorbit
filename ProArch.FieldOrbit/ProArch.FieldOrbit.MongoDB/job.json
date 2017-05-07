@@ -1,0 +1,782 @@
+[
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655ed"), 
+    "jobid" : NumberInt(1), 
+    "status" : "closed", 
+    "priority" : "high", 
+    "jobdescription" : "device repair", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observations", 
+    "workrequest" : {
+        "workorderid" : NumberInt(1), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(1), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "electric", 
+            "requesttype" : "miscellaneous", 
+            "customer" : {
+                "customerid" : NumberInt(1001), 
+                "name" : {
+                    "firstname" : "eva", 
+                    "middlename" : "c", 
+                    "lastname" : "green"
+                }, 
+                "address" : [
+                    {
+                        "street" : "dodson woods dr", 
+                        "city" : "fairburn", 
+                        "state" : "ga", 
+                        "zip" : "302130000"
+                    }
+                ], 
+                "phone" : "7706589744", 
+                "email" : "ercgreen@yahoo.com"
+            }, 
+            "device" : {
+                "deviceid" : "D0001", 
+                "devicetype" : "meter", 
+                "modelno" : "MR1234"
+            }, 
+            "location" : "xyz", 
+            "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+            "closedby" : {
+                "employeeid" : NumberInt(1003), 
+                "name" : {
+                    "firstname" : "michael", 
+                    "middlename" : "w", 
+                    "lastname" : "howell"
+                }
+            }, 
+            "status" : "closed"
+        }, 
+        "status" : "closed"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1001), 
+        "name" : {
+            "firstname" : "eva", 
+            "middlename" : "c", 
+            "lastname" : "green"
+        }, 
+        "phone" : "7706589744", 
+        "email" : "ercgreen@yahoo.com", 
+        "active" : true, 
+        "voicecalluserid" : "ercgreen", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655ee"), 
+    "jobid" : NumberInt(2), 
+    "status" : "Closed", 
+    "priority" : "High", 
+    "jobdescription" : "device repair", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observatinos", 
+    "workrequest" : {
+        "workorderid" : NumberInt(2), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(2), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "electric", 
+            "requesttype" : "miscellaneous", 
+            "customer" : {
+                "customerid" : NumberInt(1002), 
+                "name" : {
+                    "firstname" : "leonard", 
+                    "middlename" : "e", 
+                    "lastname" : "gray"
+                }, 
+                "address" : [
+                    {
+                        "street" : "second", 
+                        "city" : "highland park", 
+                        "state" : "mi", 
+                        "zip" : "482030000"
+                    }
+                ], 
+                "phone" : "3134128236", 
+                "email" : "earllg13@gmail.com"
+            }, 
+            "device" : {
+                "deviceid" : "D0002", 
+                "devicetype" : "transformer", 
+                "modelno" : "TR1235"
+            }, 
+            "location" : "xyz", 
+            "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+            "closedby" : {
+
+            }, 
+            "status" : "open"
+        }, 
+        "status" : "open"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1002), 
+        "name" : {
+            "firstname" : "leonard", 
+            "middlename" : "e", 
+            "lastname" : "gray"
+        }, 
+        "phone" : "3134128236", 
+        "email" : "earllg13@gmail.com", 
+        "active" : true, 
+        "voicecalluserid" : "earllg13", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655ef"), 
+    "jobid" : NumberInt(3), 
+    "status" : "closed", 
+    "priority" : "High", 
+    "jobdescription" : "device install", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "testcomments", 
+    "observations" : "testobservation", 
+    "workrequest" : {
+        "workorderid" : NumberInt(3), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(3), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "electric", 
+            "requesttype" : "miscellaneous", 
+            "customer" : {
+                "customerid" : NumberInt(1003), 
+                "name" : {
+                    "firstname" : "michael", 
+                    "middlename" : "w", 
+                    "lastname" : "howell"
+                }, 
+                "address" : [
+                    {
+                        "street" : "bear", 
+                        "city" : "douglasville", 
+                        "state" : "ga", 
+                        "zip" : "301350000"
+                    }
+                ], 
+                "phone" : "4044526289", 
+                "email" : "mikehowell1776@gmail.com"
+            }, 
+            "device" : {
+                "deviceid" : "D0003", 
+                "devicetype" : "amplifier", 
+                "modelno" : "AR1236"
+            }, 
+            "location" : "newjersy", 
+            "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+            "closedby" : {
+                "employeeid" : NumberInt(1046), 
+                "name" : {
+                    "firstname" : "steven", 
+                    "middlename" : "c", 
+                    "lastname" : "hardy"
+                }
+            }, 
+            "status" : "closed"
+        }, 
+        "status" : "closed"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1003), 
+        "name" : {
+            "firstname" : "michael", 
+            "middlename" : "w", 
+            "lastname" : "howell"
+        }, 
+        "phone" : "4044526289", 
+        "email" : "mikehowell1776@gmail.com", 
+        "active" : true, 
+        "voicecalluserid" : "mikehowell1776", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655f0"), 
+    "jobid" : NumberInt(4), 
+    "status" : "inprogress", 
+    "priority" : "high", 
+    "jobdescription" : "device reinstall", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observatinos", 
+    "workrequest" : {
+        "workorderid" : NumberInt(4), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(4), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "electric", 
+            "requesttype" : "miscellaneous", 
+            "customer" : {
+                "customerid" : NumberInt(1004), 
+                "name" : {
+                    "firstname" : "test test test test test tes", 
+                    "middlename" : "test test test test", 
+                    "lastname" : "test test test test test tes"
+                }, 
+                "address" : [
+                    {
+                        "street" : "lalbazar", 
+                        "city" : "city city", 
+                        "state" : "ak", 
+                        "zip" : "123450000"
+                    }
+                ], 
+                "phone" : "1234567890", 
+                "email" : "chandratest12345@test.com "
+            }, 
+            "device" : {
+                "deviceid" : "D0004", 
+                "devicetype" : "electricwires", 
+                "modelno" : "EW1211"
+            }, 
+            "location" : "xyz", 
+            "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+            "closedby" : {
+
+            }, 
+            "status" : "inprogress"
+        }, 
+        "status" : "inprogress"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1004), 
+        "name" : {
+            "firstname" : "Michel", 
+            "middlename" : "Y", 
+            "lastname" : "john"
+        }, 
+        "phone" : "1234567890", 
+        "email" : "chandratest12345@test.com               ", 
+        "active" : true, 
+        "voicecalluserid" : "chandratest", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655f1"), 
+    "jobid" : NumberInt(5), 
+    "status" : "closed", 
+    "priority" : "high", 
+    "jobdescription" : "device reinstall", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observatinos", 
+    "workrequest" : {
+        "workorderid" : NumberInt(5), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(5), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "electric", 
+            "requesttype" : "disconnect", 
+            "customer" : {
+                "customerid" : NumberInt(1005), 
+                "name" : {
+                    "firstname" : "test test test test test", 
+                    "middlename" : "middle name middle name", 
+                    "lastname" : "lalbazar lalbazar lalbazar"
+                }, 
+                "address" : [
+                    {
+                        "street" : "12345", 
+                        "city" : "city city", 
+                        "state" : "al", 
+                        "zip" : "123450000"
+                    }
+                ], 
+                "phone" : "1234567890", 
+                "email" : "proarchtest12345@test.com"
+            }, 
+            "device" : {
+                "deviceid" : "D0005", 
+                "devicetype" : "inductor", 
+                "modelno" : "IR1328"
+            }, 
+            "location" : "xyz", 
+            "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+            "closedby" : {
+                "employeeid" : NumberInt(1046), 
+                "name" : {
+                    "firstname" : "steven", 
+                    "middlename" : "c", 
+                    "lastname" : "hardy"
+                }
+            }, 
+            "status" : "closed"
+        }, 
+        "status" : "closed"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1005), 
+        "name" : {
+            "firstname" : "john", 
+            "middlename" : "H", 
+            "lastname" : "smith"
+        }, 
+        "phone" : "1234567890", 
+        "email" : "proarchtest12345@test.com", 
+        "active" : true, 
+        "voicecalluserid" : "proarchtest", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655f2"), 
+    "jobid" : NumberInt(6), 
+    "status" : "Closed", 
+    "priority" : "high", 
+    "jobdescription" : "device install", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observatinos", 
+    "workrequest" : {
+        "workorderid" : NumberInt(6), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(6), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "electric", 
+            "requesttype" : "connect", 
+            "customer" : {
+                "customerid" : NumberInt(1006), 
+                "name" : {
+                    "firstname" : "kathleen pineda", 
+                    "middlename" : "kathleen pineda", 
+                    "lastname" : "boozer"
+                }, 
+                "address" : [
+                    {
+                        "street" : "", 
+                        "city" : "", 
+                        "state" : "", 
+                        "zip" : ""
+                    }
+                ], 
+                "phone" : "", 
+                "email" : ""
+            }, 
+            "device" : {
+                "deviceid" : "D0003", 
+                "devicetype" : "amplifier", 
+                "modelno" : "AR1236"
+            }, 
+            "location" : "uys", 
+            "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+            "closedby" : {
+                "employeeid" : NumberInt(1046), 
+                "name" : {
+                    "firstname" : "steven", 
+                    "middlename" : "c", 
+                    "lastname" : "hardy"
+                }
+            }, 
+            "status" : "closed"
+        }, 
+        "status" : "closed"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1006), 
+        "name" : {
+            "firstname" : "kathleen", 
+            "middlename" : "pineda", 
+            "lastname" : "boozer"
+        }, 
+        "phone" : "", 
+        "email" : "kathleen@proarch.com", 
+        "active" : true, 
+        "voicecalluserid" : "kathleen", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655f3"), 
+    "jobid" : NumberInt(7), 
+    "status" : "open", 
+    "priority" : "high", 
+    "jobdescription" : "device install", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observatinos", 
+    "workrequest" : {
+        "workorderid" : NumberInt(7), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(7), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "electric", 
+            "requesttype" : "connect", 
+            "customer" : {
+                "customerid" : NumberInt(1007), 
+                "name" : {
+                    "firstname" : "kathleen pineda", 
+                    "middlename" : "kathleen pineda", 
+                    "lastname" : "boozer"
+                }, 
+                "address" : [
+                    {
+                        "street" : "", 
+                        "city" : "", 
+                        "state" : "", 
+                        "zip" : ""
+                    }
+                ], 
+                "phone" : "", 
+                "email" : ""
+            }, 
+            "device" : {
+                "deviceid" : "D0003", 
+                "devicetype" : "amplifier", 
+                "modelno" : "AR1236"
+            }, 
+            "location" : "asd", 
+            "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+            "closedby" : {
+                "employeeid" : NumberInt(1046), 
+                "name" : {
+                    "firstname" : "steven", 
+                    "middlename" : "c", 
+                    "lastname" : "hardy"
+                }
+            }, 
+            "status" : "closed"
+        }, 
+        "status" : "closed"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1007), 
+        "name" : {
+            "firstname" : "kathleen pineda", 
+            "middlename" : "K", 
+            "lastname" : "boozer"
+        }, 
+        "phone" : "", 
+        "email" : "pinedak@proarch.com", 
+        "active" : true, 
+        "voicecalluserid" : "pinedak", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655f4"), 
+    "jobid" : NumberInt(8), 
+    "status" : "open", 
+    "priority" : "high", 
+    "jobdescription" : "device install", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observatinos", 
+    "workrequest" : {
+        "workorderid" : NumberInt(8), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(8), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "gas", 
+            "requesttype" : "connect", 
+            "customer" : {
+                "customerid" : NumberInt(1008), 
+                "name" : {
+                    "firstname" : "shirley", 
+                    "middlename" : "shirley", 
+                    "lastname" : "bradicich"
+                }, 
+                "address" : [
+                    {
+                        "street" : "12345, north east", 
+                        "city" : "central alabama", 
+                        "state" : "ga", 
+                        "zip" : "78945612"
+                    }
+                ], 
+                "phone" : "986574123", 
+                "email" : ""
+            }, 
+            "device" : {
+                "deviceid" : "D0003", 
+                "devicetype" : "amplifier", 
+                "modelno" : "AR1236"
+            }, 
+            "location" : "asd", 
+            "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+            "closedby" : {
+                "employeeid" : NumberInt(1003), 
+                "name" : {
+                    "firstname" : "michael", 
+                    "middlename" : "w", 
+                    "lastname" : "howell"
+                }
+            }, 
+            "status" : "closed"
+        }, 
+        "status" : "closed"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1008), 
+        "name" : {
+            "firstname" : "shirley", 
+            "middlename" : "shirley", 
+            "lastname" : "bradicich"
+        }, 
+        "phone" : "986574123", 
+        "email" : "shirley@proarch.com", 
+        "active" : true, 
+        "voicecalluserid" : "shirley", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655f5"), 
+    "jobid" : NumberInt(9), 
+    "status" : "open", 
+    "priority" : "high", 
+    "jobdescription" : "device install", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observatinos", 
+    "workrequest" : {
+        "workorderid" : NumberInt(9), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(9), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "water", 
+            "requesttype" : "disconnect", 
+            "customer" : {
+                "customerid" : NumberInt(1009), 
+                "name" : {
+                    "firstname" : "kenneth", 
+                    "middlename" : "kenneth", 
+                    "lastname" : "rehfeldt"
+                }, 
+                "address" : [
+                    {
+                        "street" : "", 
+                        "city" : "", 
+                        "state" : "", 
+                        "zip" : ""
+                    }
+                ], 
+                "phone" : "", 
+                "email" : ""
+            }, 
+            "device" : {
+                "deviceid" : "D0003", 
+                "devicetype" : "amplifier", 
+                "modelno" : "AR1236"
+            }, 
+            "location" : "iyt", 
+            "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+            "closedby" : {
+                "employeeid" : NumberInt(1003), 
+                "name" : {
+                    "firstname" : "michael", 
+                    "middlename" : "w", 
+                    "lastname" : "howell"
+                }
+            }, 
+            "status" : "closed"
+        }, 
+        "status" : "closed"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1010), 
+        "name" : {
+            "firstname" : "nelson", 
+            "middlename" : "m", 
+            "lastname" : "buckland"
+        }, 
+        "phone" : "", 
+        "email" : "nelson@proarch.com", 
+        "active" : true, 
+        "voicecalluserid" : "nelson", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+},
+{ 
+    "_id" : ObjectId("590e872e9085e0832b7655f6"), 
+    "jobid" : NumberInt(10), 
+    "status" : "open", 
+    "priority" : "high", 
+    "jobdescription" : "device install", 
+    "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+    "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+    "comments" : "employee comments", 
+    "observations" : "device observatinos", 
+    "workrequest" : {
+        "workorderid" : NumberInt(10), 
+        "description" : "description", 
+        "startdate" : ISODate("2016-01-02T06:01:17.171+0000"), 
+        "enddate" : ISODate("2016-01-09T06:01:17.171+0000"), 
+        "servicerequest" : {
+            "servicerequestid" : NumberInt(10), 
+            "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+            "servicetype" : "electric", 
+            "requesttype" : "miscellaneous", 
+            "customer" : {
+                "customerid" : NumberInt(1010), 
+                "name" : {
+                    "firstname" : "nelson", 
+                    "middlename" : "m", 
+                    "lastname" : "buckland"
+                }, 
+                "address" : [
+                    {
+                        "street" : "", 
+                        "city" : "", 
+                        "state" : "", 
+                        "zip" : ""
+                    }
+                ], 
+                "phone" : "", 
+                "email" : ""
+            }, 
+            "device" : {
+                "deviceid" : "D0003", 
+                "devicetype" : "amplifier", 
+                "modelno" : "AR1236"
+            }, 
+            "location" : "lox", 
+            "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+            "closedby" : {
+                "employeeid" : NumberInt(1003), 
+                "name" : {
+                    "firstname" : "michael", 
+                    "middlename" : "w", 
+                    "lastname" : "howell"
+                }
+            }, 
+            "status" : "closed"
+        }, 
+        "status" : "closed"
+    }, 
+    "employee" : {
+        "employeeid" : NumberInt(1010), 
+        "name" : {
+            "firstname" : "nelson", 
+            "middlename" : "m", 
+            "lastname" : "buckland"
+        }, 
+        "phone" : "", 
+        "email" : "nelson@proarch.com", 
+        "active" : true, 
+        "voicecalluserid" : "nelson", 
+        "timesheet" : [
+            {
+                "timesheetid" : NumberInt(1), 
+                "workdate" : "", 
+                "hours" : NumberInt(0), 
+                "comments" : ""
+            }
+        ]
+    }
+}
+]

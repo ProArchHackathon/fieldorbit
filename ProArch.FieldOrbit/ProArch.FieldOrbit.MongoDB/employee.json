@@ -1,0 +1,1152 @@
+[
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d12"), 
+    "employeeid" : NumberInt(1001), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "eva", 
+        "middlename" : "c", 
+        "lastname" : "green"
+    }, 
+    "address" : [
+        {
+            "street" : "dodson woods dr", 
+            "city" : "fairburn", 
+            "state" : "ga", 
+            "zip" : "302130000"
+        }
+    ], 
+    "phone" : "7706589744", 
+    "ssn" : "000000000", 
+    "email" : "ercgreen@yahoo.com", 
+    "active" : true, 
+    "voicecalluserid" : "ercgreen"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d13"), 
+    "employeeid" : NumberInt(1002), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "leonard", 
+        "middlename" : "e", 
+        "lastname" : "gray"
+    }, 
+    "address" : [
+        {
+            "street" : "second", 
+            "city" : "highland park", 
+            "state" : "mi", 
+            "zip" : "482030000"
+        }
+    ], 
+    "phone" : "3134128236", 
+    "ssn" : "000000000", 
+    "email" : "earllg13@gmail.com", 
+    "active" : true, 
+    "voicecalluserid" : "earllg13"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d14"), 
+    "employeeid" : NumberInt(1003), 
+    "employeetype" : "Csr", 
+    "name" : {
+        "firstname" : "michael", 
+        "middlename" : "w", 
+        "lastname" : "howell"
+    }, 
+    "address" : [
+        {
+            "street" : "bear", 
+            "city" : "douglasville", 
+            "state" : "ga", 
+            "zip" : "301350000"
+        }
+    ], 
+    "phone" : "4044526289", 
+    "ssn" : "000000000", 
+    "email" : "mikehowell1776@gmail.com", 
+    "active" : true, 
+    "voicecalluserid" : "mikehowell1776"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d15"), 
+    "employeeid" : NumberInt(1004), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "Michel", 
+        "middlename" : "Y", 
+        "lastname" : "john"
+    }, 
+    "address" : [
+        {
+            "street" : "lalbazar", 
+            "city" : "city city", 
+            "state" : "ak", 
+            "zip" : "123450000"
+        }
+    ], 
+    "phone" : "1234567890", 
+    "ssn" : "123456789", 
+    "email" : "chandratest12345@test.com               ", 
+    "active" : true, 
+    "voicecalluserid" : "chandratest"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d16"), 
+    "employeeid" : NumberInt(1005), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "john", 
+        "middlename" : "H", 
+        "lastname" : "smith"
+    }, 
+    "address" : [
+        {
+            "street" : "12345", 
+            "city" : "city city", 
+            "state" : "al", 
+            "zip" : "123450000"
+        }
+    ], 
+    "phone" : "1234567890", 
+    "ssn" : "123456789", 
+    "email" : "proarchtest12345@test.com", 
+    "active" : true, 
+    "voicecalluserid" : "proarchtest"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d17"), 
+    "employeeid" : NumberInt(1006), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "kathleen", 
+        "middlename" : "pineda", 
+        "lastname" : "boozer"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "54678"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "kathleen@proarch.com", 
+    "active" : true, 
+    "voicecalluserid" : "kathleen"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d18"), 
+    "employeeid" : NumberInt(1007), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "kathleen pineda", 
+        "middlename" : "K", 
+        "lastname" : "boozer"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "98745"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "pinedak@proarch.com", 
+    "active" : true, 
+    "voicecalluserid" : "pinedak"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d19"), 
+    "employeeid" : NumberInt(1008), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "shirley", 
+        "middlename" : "shirley", 
+        "lastname" : "bradicich"
+    }, 
+    "address" : [
+        {
+            "street" : "12345, north east", 
+            "city" : "central alabama", 
+            "state" : "ga", 
+            "zip" : "78945612"
+        }
+    ], 
+    "phone" : "986574123", 
+    "ssn" : "", 
+    "email" : "shirley@proarch.com", 
+    "active" : true, 
+    "voicecalluserid" : "shirley"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d1a"), 
+    "employeeid" : NumberInt(1009), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "kenneth", 
+        "middlename" : "kenneth", 
+        "lastname" : "rehfeldt"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "98745"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "kenneth@proarch.com", 
+    "active" : true, 
+    "voicecalluserid" : "kenneth"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d1b"), 
+    "employeeid" : NumberInt(1010), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "nelson", 
+        "middlename" : "m", 
+        "lastname" : "buckland"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "458741", 
+            "zip" : "458741"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "nelson@proarch.com", 
+    "active" : true, 
+    "voicecalluserid" : "nelson"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d1c"), 
+    "employeeid" : NumberInt(1011), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "test", 
+        "middlename" : "test", 
+        "lastname" : "test"
+    }, 
+    "address" : [
+        {
+            "street" : "test", 
+            "city" : "test", 
+            "state" : "ak", 
+            "zip" : "987654321"
+        }
+    ], 
+    "phone" : "9876543219", 
+    "ssn" : "987654321", 
+    "email" : "test@test.test", 
+    "active" : true, 
+    "voicecalluserid" : "test"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d1d"), 
+    "employeeid" : NumberInt(1012), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "ppm", 
+        "middlename" : "ppm", 
+        "lastname" : "ppm"
+    }, 
+    "address" : [
+        {
+            "street" : "ppm", 
+            "city" : "ppm", 
+            "state" : "ak", 
+            "zip" : "987654321"
+        }
+    ], 
+    "phone" : "9876543219", 
+    "ssn" : "987654321", 
+    "email" : "ppm@ppm.com", 
+    "active" : true, 
+    "voicecalluserid" : "ppm"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d1e"), 
+    "employeeid" : NumberInt(1013), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "james", 
+        "middlename" : "james", 
+        "lastname" : "speer"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "24567"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d1f"), 
+    "employeeid" : NumberInt(1014), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "ray", 
+        "middlename" : "malone", 
+        "lastname" : "camp"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "54875"
+        }
+    ], 
+    "phone" : "4072420106", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "ray"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d20"), 
+    "employeeid" : NumberInt(1015), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "allison", 
+        "middlename" : "r", 
+        "lastname" : "koons"
+    }, 
+    "address" : [
+        {
+            "street" : "highway 92", 
+            "city" : "douglasville", 
+            "state" : "ga", 
+            "zip" : "301350000"
+        }
+    ], 
+    "phone" : "7706954321", 
+    "ssn" : "000000000", 
+    "email" : "allison.koons@yahoo.com", 
+    "active" : true, 
+    "voicecalluserid" : "allison.koons"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d21"), 
+    "employeeid" : NumberInt(1016), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "keith", 
+        "middlename" : "m", 
+        "lastname" : "kazanjian"
+    }, 
+    "address" : [
+        {
+            "street" : "highland falls", 
+            "city" : "hiram", 
+            "state" : "ga", 
+            "zip" : "301410000"
+        }
+    ], 
+    "phone" : "6784015986", 
+    "ssn" : "000000000", 
+    "email" : "keith7470@comcast.net", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d22"), 
+    "employeeid" : NumberInt(1017), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "payment", 
+        "middlename" : "payment", 
+        "lastname" : "payment"
+    }, 
+    "address" : [
+        {
+            "street" : "payment", 
+            "city" : "payment", 
+            "state" : "ak", 
+            "zip" : "987654321"
+        }
+    ], 
+    "phone" : "9876543219", 
+    "ssn" : "987654321", 
+    "email" : "payment@payment.payment", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d23"), 
+    "employeeid" : NumberInt(1018), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "maria", 
+        "middlename" : "inez", 
+        "lastname" : "arjona"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "78945"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d24"), 
+    "employeeid" : NumberInt(1019), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "barbara", 
+        "middlename" : "barbara", 
+        "lastname" : "dennard"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "54789"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d25"), 
+    "employeeid" : NumberInt(1020), 
+    "employeetype" : "Csr", 
+    "name" : {
+        "firstname" : "jessi", 
+        "middlename" : "l", 
+        "lastname" : "sumner"
+    }, 
+    "address" : [
+        {
+            "street" : "mason creek", 
+            "city" : "winston", 
+            "state" : "ga", 
+            "zip" : "301870000"
+        }
+    ], 
+    "phone" : "3343132724", 
+    "ssn" : "000000000", 
+    "email" : "jessisumner@yahoo.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d26"), 
+    "employeeid" : NumberInt(1021), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "richard", 
+        "middlename" : "lee", 
+        "lastname" : "dobbs"
+    }, 
+    "address" : [
+        {
+            "street" : "470 wagon trl cir", 
+            "city" : "dallas", 
+            "state" : "ga", 
+            "zip" : "301320000"
+        }
+    ], 
+    "phone" : "6789141849", 
+    "ssn" : "000000000", 
+    "email" : "leedobbs39@gmail.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d27"), 
+    "employeeid" : NumberInt(1022), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "nicholas", 
+        "middlename" : "a", 
+        "lastname" : "parker"
+    }, 
+    "address" : [
+        {
+            "street" : "amberlily", 
+            "city" : "dallas", 
+            "state" : "ga", 
+            "zip" : "301320000"
+        }
+    ], 
+    "phone" : "6782876684", 
+    "ssn" : "000000000", 
+    "email" : "briannacourtney2@aol.com                ", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d28"), 
+    "employeeid" : NumberInt(1023), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "claudius", 
+        "middlename" : "claudius", 
+        "lastname" : "prince"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "12456"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d29"), 
+    "employeeid" : NumberInt(1024), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "jody w", 
+        "middlename" : "jody w", 
+        "lastname" : "willis"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "87459"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d2a"), 
+    "employeeid" : NumberInt(1025), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "jaryl", 
+        "middlename" : "harper", 
+        "lastname" : "holmes"
+    }, 
+    "address" : [
+        {
+            "street" : "pointer way", 
+            "city" : "douglasville", 
+            "state" : "ga", 
+            "zip" : "301350000"
+        }
+    ], 
+    "phone" : "7703742138", 
+    "ssn" : "000000000", 
+    "email" : "jarylevette@yahoo.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d2b"), 
+    "employeeid" : NumberInt(1026), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "louise", 
+        "middlename" : "louise", 
+        "lastname" : "fernander"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "12345", 
+            "zip" : "12456"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d2c"), 
+    "employeeid" : NumberInt(1027), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "jaryl", 
+        "middlename" : "harper", 
+        "lastname" : "holmes"
+    }, 
+    "address" : [
+        {
+            "street" : "old harris", 
+            "city" : "dallas", 
+            "state" : "ga", 
+            "zip" : "301570000"
+        }
+    ], 
+    "phone" : "7703093362", 
+    "ssn" : "000000000", 
+    "email" : "holmesjay75@gmail.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d2d"), 
+    "employeeid" : NumberInt(1028), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "joshua", 
+        "middlename" : "w", 
+        "lastname" : "wheeler"
+    }, 
+    "address" : [
+        {
+            "street" : "calm waters", 
+            "city" : "hiram", 
+            "state" : "ga", 
+            "zip" : "301410000"
+        }
+    ], 
+    "phone" : "7705429937", 
+    "ssn" : "000000000", 
+    "email" : "joshwheeler@inglett-stubbs.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d2e"), 
+    "employeeid" : NumberInt(1029), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "corey", 
+        "middlename" : "bernard", 
+        "lastname" : "lewis"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "89745"
+        }
+    ], 
+    "phone" : "2292339069", 
+    "ssn" : "000000000", 
+    "email" : "clewis4666@yahoo.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d2f"), 
+    "employeeid" : NumberInt(1030), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "test", 
+        "middlename" : "test", 
+        "lastname" : "test"
+    }, 
+    "address" : [
+        {
+            "street" : "test", 
+            "city" : "test", 
+            "state" : "ak", 
+            "zip" : "987654321"
+        }
+    ], 
+    "phone" : "9876543219", 
+    "ssn" : "987654321", 
+    "email" : "test@test.test                          ", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d30"), 
+    "employeeid" : NumberInt(1031), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "jureata", 
+        "middlename" : "smith", 
+        "lastname" : "bostick"
+    }, 
+    "address" : [
+        {
+            "street" : "butler ind", 
+            "city" : "dallas", 
+            "state" : "ga", 
+            "zip" : "301320000"
+        }
+    ], 
+    "phone" : "4049218744", 
+    "ssn" : "000000000", 
+    "email" : "ms.reata04@gmail.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d31"), 
+    "employeeid" : NumberInt(1032), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "darlene", 
+        "middlename" : "darlene", 
+        "lastname" : "florence"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "987465"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d32"), 
+    "employeeid" : NumberInt(1033), 
+    "employeetype" : "Csr", 
+    "name" : {
+        "firstname" : "larry", 
+        "middlename" : "anthony", 
+        "lastname" : "feltus"
+    }, 
+    "address" : [
+        {
+            "street" : "clairidge", 
+            "city" : "hiram", 
+            "state" : "ga", 
+            "zip" : "301410000"
+        }
+    ], 
+    "phone" : "7709125628", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d33"), 
+    "employeeid" : NumberInt(1034), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "capus", 
+        "middlename" : "lee", 
+        "lastname" : "hansard"
+    }, 
+    "address" : [
+        {
+            "street" : "119 stone gate way", 
+            "city" : "mableton", 
+            "state" : "ga", 
+            "zip" : "301260000"
+        }
+    ], 
+    "phone" : "7703783314", 
+    "ssn" : "000000000", 
+    "email" : "leeroyliddell@aol.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d34"), 
+    "employeeid" : NumberInt(1035), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "dorothy mae", 
+        "middlename" : "dorothy mae", 
+        "lastname" : "fuller"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "21456"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d35"), 
+    "employeeid" : NumberInt(1036), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "rebecca", 
+        "middlename" : "j", 
+        "lastname" : "hughes"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "65478"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d36"), 
+    "employeeid" : NumberInt(1037), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "rebecca", 
+        "middlename" : "j", 
+        "lastname" : "hughes"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "21456"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d37"), 
+    "employeeid" : NumberInt(1038), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "rebecca", 
+        "middlename" : "j", 
+        "lastname" : "hughes"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "12456"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "rebecca"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d38"), 
+    "employeeid" : NumberInt(1039), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "evelyn", 
+        "middlename" : "evelyn", 
+        "lastname" : "hadley"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "14562"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d39"), 
+    "employeeid" : NumberInt(1040), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "keith", 
+        "middlename" : "allen", 
+        "lastname" : "shuler"
+    }, 
+    "address" : [
+        {
+            "street" : "hiram acworth", 
+            "city" : "dallas", 
+            "state" : "ga", 
+            "zip" : "301570000"
+        }
+    ], 
+    "phone" : "7703108136", 
+    "ssn" : "000000000", 
+    "email" : "keith@proarch.com", 
+    "active" : true, 
+    "voicecalluserid" : "keith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d3a"), 
+    "employeeid" : NumberInt(1041), 
+    "employeetype" : "Csr", 
+    "name" : {
+        "firstname" : "smith", 
+        "middlename" : "ppm", 
+        "lastname" : "john"
+    }, 
+    "address" : [
+        {
+            "street" : "ppm", 
+            "city" : "ppm", 
+            "state" : "ak", 
+            "zip" : "987654321"
+        }
+    ], 
+    "phone" : "9876543219", 
+    "ssn" : "987654321", 
+    "email" : "johnsmith@ppm.ppm", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d3b"), 
+    "employeeid" : NumberInt(1042), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "carnita", 
+        "middlename" : "renee", 
+        "lastname" : "burnett"
+    }, 
+    "address" : [
+        {
+            "street" : "440 townsend rd", 
+            "city" : "villa rica", 
+            "state" : "ga", 
+            "zip" : "301800000"
+        }
+    ], 
+    "phone" : "9805857954", 
+    "ssn" : "000000000", 
+    "email" : "msgirl6@me.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d3c"), 
+    "employeeid" : NumberInt(1043), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "ronald", 
+        "middlename" : "m", 
+        "lastname" : "baer"
+    }, 
+    "address" : [
+        {
+            "street" : "cooper oaks", 
+            "city" : "smyrna", 
+            "state" : "ga", 
+            "zip" : "300820000"
+        }
+    ], 
+    "phone" : "9512333722", 
+    "ssn" : "000000000", 
+    "email" : "ps139v2324@live.com", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d3d"), 
+    "employeeid" : NumberInt(1044), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "linda d", 
+        "middlename" : "linda d", 
+        "lastname" : "johnson"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "32145"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d3e"), 
+    "employeeid" : NumberInt(1045), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "linda d", 
+        "middlename" : "linda d", 
+        "lastname" : "johnson"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "12456"
+        }
+    ], 
+    "phone" : "1234567890", 
+    "ssn" : "", 
+    "email" : "linda@proarch.com", 
+    "active" : true, 
+    "voicecalluserid" : "linda"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d3f"), 
+    "employeeid" : NumberInt(1046), 
+    "employeetype" : "Csr", 
+    "name" : {
+        "firstname" : "steven", 
+        "middlename" : "c", 
+        "lastname" : "hardy"
+    }, 
+    "address" : [
+        {
+            "street" : "oakwood", 
+            "city" : "dallas", 
+            "state" : "ga", 
+            "zip" : "301570000"
+        }
+    ], 
+    "phone" : "4043751294", 
+    "ssn" : "000000000", 
+    "email" : "stevenhardy1@bellsouth.net              ", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d40"), 
+    "employeeid" : NumberInt(1047), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "arnetta lashone", 
+        "middlename" : "arnetta lashone", 
+        "lastname" : "amey"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "65412"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d41"), 
+    "employeeid" : NumberInt(1048), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "sue", 
+        "middlename" : "sue", 
+        "lastname" : "lindeman"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "87945"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d42"), 
+    "employeeid" : NumberInt(1049), 
+    "employeetype" : "WorkMen", 
+    "name" : {
+        "firstname" : "qwyn", 
+        "middlename" : "qwyn", 
+        "lastname" : "lindsey"
+    }, 
+    "address" : [
+        {
+            "street" : "", 
+            "city" : "", 
+            "state" : "", 
+            "zip" : "12345"
+        }
+    ], 
+    "phone" : "", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+},
+{ 
+    "_id" : ObjectId("590e90fe45ddefa1a8078d43"), 
+    "employeeid" : NumberInt(1050), 
+    "employeetype" : "Csrsr", 
+    "name" : {
+        "firstname" : "carolyn", 
+        "middlename" : "e", 
+        "lastname" : "cribb"
+    }, 
+    "address" : [
+        {
+            "street" : "conners", 
+            "city" : "villa rica", 
+            "state" : "ga", 
+            "zip" : "301800000"
+        }
+    ], 
+    "phone" : "4048035991", 
+    "ssn" : "000000000", 
+    "email" : "", 
+    "active" : true, 
+    "voicecalluserid" : "johnsmith"
+}
+]

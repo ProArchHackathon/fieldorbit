@@ -1,0 +1,72 @@
+[
+{ 
+    "_id" : ObjectId("590e83489085e0832b7655cf"), 
+    "deviceid" : "D0001", 
+    "devicetype" : "meter", 
+    "modelno" : "MR1234", 
+    "cost" : 1000.5, 
+    "yearofpurchase" : NumberInt(2017), 
+    "manufacturer" : {
+        "manufacturerid" : NumberInt(1001), 
+        "name" : "MGM", 
+        "manufacturedate" : ISODate("2016-12-19T06:01:17.171+0000"), 
+        "expirydate" : ISODate("2022-12-19T06:01:17.171+0000")
+    }
+},
+{ 
+    "_id" : ObjectId("590e83489085e0832b7655d0"), 
+    "deviceid" : "D0002", 
+    "devicetype" : "transformer", 
+    "modelno" : "TR1235", 
+    "cost" : 2000.5, 
+    "yearofpurchase" : NumberInt(2017), 
+    "manufacturer" : {
+        "manufacturerid" : NumberInt(1001), 
+        "name" : "MGM", 
+        "manufacturedate" : ISODate("2016-12-19T06:01:17.171+0000"), 
+        "expirydate" : ISODate("2022-12-19T06:01:17.171+0000")
+    }
+},
+{ 
+    "_id" : ObjectId("590e83489085e0832b7655d1"), 
+    "deviceid" : "D0003", 
+    "devicetype" : "amplifier", 
+    "modelno" : "AR1236", 
+    "cost" : 1100.5, 
+    "yearofpurchase" : NumberInt(2017), 
+    "manufacturer" : {
+        "manufacturerid" : NumberInt(1001), 
+        "name" : "MGM", 
+        "manufacturedate" : ISODate("2016-12-19T06:01:17.171+0000"), 
+        "expirydate" : ISODate("2022-12-19T06:01:17.171+0000")
+    }
+},
+{ 
+    "_id" : ObjectId("590e83489085e0832b7655d2"), 
+    "deviceid" : "D0004", 
+    "devicetype" : "electricwires", 
+    "modelno" : "EW1211", 
+    "cost" : 3000.5, 
+    "yearofpurchase" : NumberInt(2017), 
+    "manufacturer" : {
+        "manufacturerid" : NumberInt(1001), 
+        "name" : "MGM", 
+        "manufacturedate" : ISODate("2016-12-19T06:01:17.171+0000"), 
+        "expirydate" : ISODate("2022-12-19T06:01:17.171+0000")
+    }
+},
+{ 
+    "_id" : ObjectId("590e83489085e0832b7655d3"), 
+    "deviceid" : "D0005", 
+    "devicetype" : "inductor", 
+    "modelno" : "IR1328", 
+    "cost" : 3100.5, 
+    "yearofpurchase" : NumberInt(2017), 
+    "manufacturer" : {
+        "manufacturerid" : NumberInt(1001), 
+        "name" : "MGM", 
+        "manufacturedate" : ISODate("2016-12-19T06:01:17.171+0000"), 
+        "expirydate" : ISODate("2022-12-19T06:01:17.171+0000")
+    }
+}
+]

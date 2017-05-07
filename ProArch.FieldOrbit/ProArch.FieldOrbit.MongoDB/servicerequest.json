@@ -1,0 +1,512 @@
+[
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655d9"), 
+    "servicerequestid" : NumberInt(1), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Electric", 
+    "requesttype" : "Miscellaneous", 
+    "customer" : {
+        "customerid" : NumberInt(1001), 
+        "name" : {
+            "firstname" : "eva", 
+            "middlename" : "c", 
+            "lastname" : "green"
+        }, 
+        "address" : [
+            {
+                "street" : "dodson woods dr", 
+                "city" : "fairburn", 
+                "state" : "ga", 
+                "zip" : "302130000"
+            }
+        ], 
+        "phone" : "7706589744", 
+        "email" : "ercgreen@yahoo.com"
+    }, 
+    "device" : {
+        "deviceid" : "D0001", 
+        "devicetype" : "meter", 
+        "modelno" : "MR1234"
+    }, 
+    "location" : "xyz", 
+    "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+    "closedby" : {
+        "employeeid" : NumberInt(1003), 
+        "name" : {
+            "firstname" : "michael", 
+            "middlename" : "w", 
+            "lastname" : "howell"
+        }
+    }, 
+    "status" : "closed"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655da"), 
+    "servicerequestid" : NumberInt(2), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Electric", 
+    "requesttype" : "Miscellaneous", 
+    "customer" : {
+        "customerid" : NumberInt(1002), 
+        "name" : {
+            "firstname" : "leonard", 
+            "middlename" : "e", 
+            "lastname" : "gray"
+        }, 
+        "address" : [
+            {
+                "street" : "second", 
+                "city" : "highland park", 
+                "state" : "mi", 
+                "zip" : "482030000"
+            }
+        ], 
+        "phone" : "3134128236", 
+        "email" : "earllg13@gmail.com"
+    }, 
+    "device" : {
+        "deviceid" : "D0002", 
+        "devicetype" : "transformer", 
+        "modelno" : "TR1235"
+    }, 
+    "location" : "xyz", 
+    "enddate" : "", 
+    "closedby" : {
+
+    }, 
+    "status" : "open"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655db"), 
+    "servicerequestid" : NumberInt(3), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Electric", 
+    "requesttype" : "Miscellaneous", 
+    "customer" : {
+        "customerid" : NumberInt(1003), 
+        "name" : {
+            "firstname" : "michael", 
+            "middlename" : "w", 
+            "lastname" : "howell"
+        }, 
+        "address" : [
+            {
+                "street" : "bear", 
+                "city" : "douglasville", 
+                "state" : "ga", 
+                "zip" : "301350000"
+            }
+        ], 
+        "phone" : "4044526289", 
+        "email" : "mikehowell1776@gmail.com"
+    }, 
+    "device" : {
+        "deviceid" : "D0003", 
+        "devicetype" : "amplifier", 
+        "modelno" : "AR1236"
+    }, 
+    "location" : "newjersy", 
+    "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+    "closedby" : {
+        "employeeid" : NumberInt(1046), 
+        "name" : {
+            "firstname" : "steven", 
+            "middlename" : "c", 
+            "lastname" : "hardy"
+        }
+    }, 
+    "status" : "closed"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655dc"), 
+    "servicerequestid" : NumberInt(4), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Electric", 
+    "requesttype" : "Miscellaneous", 
+    "customer" : {
+        "customerid" : NumberInt(1004), 
+        "name" : {
+            "firstname" : "test test test test test tes", 
+            "middlename" : "test test test test", 
+            "lastname" : "test test test test test tes"
+        }, 
+        "address" : [
+            {
+                "street" : "lalbazar", 
+                "city" : "city city", 
+                "state" : "ak", 
+                "zip" : "123450000"
+            }
+        ], 
+        "phone" : "1234567890", 
+        "email" : "chandratest12345@test.com "
+    }, 
+    "device" : {
+        "deviceid" : "D0004", 
+        "devicetype" : "electricwires", 
+        "modelno" : "EW1211"
+    }, 
+    "location" : "xyz", 
+    "enddate" : " ", 
+    "closedby" : {
+
+    }, 
+    "status" : "inprogress"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655dd"), 
+    "servicerequestid" : NumberInt(5), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Electric", 
+    "requesttype" : "Disconnect", 
+    "customer" : {
+        "customerid" : NumberInt(1005), 
+        "name" : {
+            "firstname" : "test test test test test", 
+            "middlename" : "middle name middle name", 
+            "lastname" : "lalbazar lalbazar lalbazar"
+        }, 
+        "address" : {
+            "street" : "12345", 
+            "city" : "city city", 
+            "state" : "al", 
+            "zip" : "123450000"
+        }, 
+        "phone" : "1234567890", 
+        "email" : "proarchtest12345@test.com"
+    }, 
+    "device" : {
+        "deviceid" : "D0005", 
+        "devicetype" : "inductor", 
+        "modelno" : "IR1328"
+    }, 
+    "location" : "xyz", 
+    "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+    "closedby" : {
+        "employeeid" : NumberInt(1046), 
+        "name" : {
+            "firstname" : "steven", 
+            "middlename" : "c", 
+            "lastname" : "hardy"
+        }
+    }, 
+    "status" : "closed"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655de"), 
+    "servicerequestid" : NumberInt(6), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Electric", 
+    "requesttype" : "Connect", 
+    "customer" : {
+        "customerid" : NumberInt(1006), 
+        "name" : {
+            "firstname" : "kathleen pineda", 
+            "middlename" : "kathleen pineda", 
+            "lastname" : "boozer"
+        }, 
+        "address" : [
+            {
+                "street" : "", 
+                "city" : "", 
+                "state" : "", 
+                "zip" : ""
+            }
+        ], 
+        "phone" : "", 
+        "email" : ""
+    }, 
+    "device" : {
+        "deviceid" : "D0003", 
+        "devicetype" : "amplifier", 
+        "modelno" : "AR1236"
+    }, 
+    "location" : "uys", 
+    "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+    "closedby" : {
+        "employeeid" : NumberInt(1046), 
+        "name" : {
+            "firstname" : "steven", 
+            "middlename" : "c", 
+            "lastname" : "hardy"
+        }
+    }, 
+    "status" : "closed"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655df"), 
+    "servicerequestid" : NumberInt(7), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Electric", 
+    "requesttype" : "Connect", 
+    "customer" : {
+        "customerid" : NumberInt(1007), 
+        "name" : {
+            "firstname" : "kathleen pineda", 
+            "middlename" : "kathleen pineda", 
+            "lastname" : "boozer"
+        }, 
+        "address" : [
+            {
+                "street" : "", 
+                "city" : "", 
+                "state" : "", 
+                "zip" : ""
+            }
+        ], 
+        "phone" : "", 
+        "email" : ""
+    }, 
+    "device" : {
+        "deviceid" : "D0003", 
+        "devicetype" : "amplifier", 
+        "modelno" : "AR1236"
+    }, 
+    "location" : "asd", 
+    "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+    "closedby" : {
+        "employeeid" : NumberInt(1046), 
+        "name" : {
+            "firstname" : "steven", 
+            "middlename" : "c", 
+            "lastname" : "hardy"
+        }
+    }, 
+    "status" : "closed"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655e0"), 
+    "servicerequestid" : NumberInt(8), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Gas", 
+    "requesttype" : "Connect", 
+    "customer" : {
+        "customerid" : NumberInt(1008), 
+        "name" : {
+            "firstname" : "shirley", 
+            "middlename" : "shirley", 
+            "lastname" : "bradicich"
+        }, 
+        "address" : [
+            {
+                "street" : "12345, north east", 
+                "city" : "central alabama", 
+                "state" : "ga", 
+                "zip" : "78945612"
+            }
+        ], 
+        "phone" : "986574123", 
+        "email" : ""
+    }, 
+    "device" : {
+        "deviceid" : "D0003", 
+        "devicetype" : "amplifier", 
+        "modelno" : "AR1236"
+    }, 
+    "location" : "asd", 
+    "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+    "closedby" : {
+        "employeeid" : NumberInt(1003), 
+        "name" : {
+            "firstname" : "michael", 
+            "middlename" : "w", 
+            "lastname" : "howell"
+        }
+    }, 
+    "status" : "closed"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655e1"), 
+    "servicerequestid" : NumberInt(9), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Water", 
+    "requesttype" : "Disconnect", 
+    "customer" : {
+        "customerid" : NumberInt(1009), 
+        "name" : {
+            "firstname" : "kenneth", 
+            "middlename" : "kenneth", 
+            "lastname" : "rehfeldt"
+        }, 
+        "address" : [
+            {
+                "street" : "", 
+                "city" : "", 
+                "state" : "", 
+                "zip" : ""
+            }
+        ], 
+        "phone" : "", 
+        "email" : ""
+    }, 
+    "device" : {
+        "deviceid" : "D0003", 
+        "devicetype" : "amplifier", 
+        "modelno" : "AR1236"
+    }, 
+    "location" : "iyt", 
+    "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+    "closedby" : {
+        "employeeid" : NumberInt(1003), 
+        "name" : {
+            "firstname" : "michael", 
+            "middlename" : "w", 
+            "lastname" : "howell"
+        }
+    }, 
+    "status" : "closed"
+},
+{ 
+    "_id" : ObjectId("590e87159085e0832b7655e2"), 
+    "servicerequestid" : NumberInt(10), 
+    "createddate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "startdate" : ISODate("2016-01-01T06:01:17.171+0000"), 
+    "servicetype" : "Electric", 
+    "requesttype" : "Miscellaneous", 
+    "customer" : {
+        "customerid" : NumberInt(1010), 
+        "name" : {
+            "firstname" : "nelson", 
+            "middlename" : "m", 
+            "lastname" : "buckland"
+        }, 
+        "address" : [
+            {
+                "street" : "", 
+                "city" : "", 
+                "state" : "", 
+                "zip" : ""
+            }
+        ], 
+        "phone" : "", 
+        "email" : ""
+    }, 
+    "device" : {
+        "deviceid" : "D0003", 
+        "devicetype" : "amplifier", 
+        "modelno" : "AR1236"
+    }, 
+    "location" : "lox", 
+    "enddate" : ISODate("2016-01-10T06:01:17.171+0000"), 
+    "closedby" : {
+        "employeeid" : NumberInt(1003), 
+        "name" : {
+            "firstname" : "michael", 
+            "middlename" : "w", 
+            "lastname" : "howell"
+        }
+    }, 
+    "status" : "closed"
+},
+{ 
+    "_id" : ObjectId("590ec9415b177d2b48a3a0d0"), 
+    "servicerequestid" : NumberLong(11), 
+    "createddate" : ISODate("2017-05-02T18:30:00.000+0000"), 
+    "startdate" : ISODate("2017-05-04T18:30:00.000+0000"), 
+    "servicetype" : "0", 
+    "requesttype" : "1", 
+    "customer" : {
+        "customerid" : NumberInt(34234)
+    }, 
+    "location" : "hyd", 
+    "enddate" : null, 
+    "closedby" : {
+
+    }, 
+    "status" : "Open"
+},
+{ 
+    "_id" : ObjectId("590ecb918085da90200dcdf7"), 
+    "servicerequestid" : NumberLong(12), 
+    "createddate" : ISODate("2017-05-01T18:30:00.000+0000"), 
+    "startdate" : ISODate("2017-05-09T18:30:00.000+0000"), 
+    "servicetype" : "Electricity", 
+    "requesttype" : "Disconnect", 
+    "customer" : {
+        "customerid" : NumberInt(3434)
+    }, 
+    "location" : "hyd", 
+    "enddate" : null, 
+    "closedby" : {
+
+    }, 
+    "status" : "Hold"
+},
+{ 
+    "_id" : ObjectId("590ecba55538e60c74aa9723"), 
+    "servicerequestid" : NumberLong(13), 
+    "createddate" : ISODate("2017-05-01T18:30:00.000+0000"), 
+    "startdate" : ISODate("2017-05-09T18:30:00.000+0000"), 
+    "servicetype" : "Electricity", 
+    "requesttype" : "Disconnect", 
+    "customer" : {
+        "customerid" : NumberInt(3434)
+    }, 
+    "location" : "hyd", 
+    "enddate" : null, 
+    "closedby" : {
+
+    }, 
+    "status" : "Hold"
+},
+{ 
+    "_id" : ObjectId("590ecbaf8085da90200dcdf8"), 
+    "servicerequestid" : NumberLong(14), 
+    "createddate" : ISODate("2017-05-01T18:30:00.000+0000"), 
+    "startdate" : ISODate("2017-05-09T18:30:00.000+0000"), 
+    "servicetype" : "Electricity", 
+    "requesttype" : "Disconnect", 
+    "customer" : {
+        "customerid" : NumberInt(3434)
+    }, 
+    "location" : "hyd", 
+    "enddate" : null, 
+    "closedby" : {
+
+    }, 
+    "status" : "Hold"
+},
+{ 
+    "_id" : ObjectId("590ecc605b177f2b48398aa8"), 
+    "servicerequestid" : NumberLong(15), 
+    "createddate" : ISODate("2017-05-01T18:30:00.000+0000"), 
+    "startdate" : ISODate("2017-05-03T18:30:00.000+0000"), 
+    "servicetype" : "Water", 
+    "requesttype" : "Reconnect", 
+    "customer" : {
+        "customerid" : NumberInt(43434)
+    }, 
+    "location" : "asdf", 
+    "enddate" : null, 
+    "closedby" : {
+
+    }, 
+    "status" : "Closed"
+},
+{ 
+    "_id" : ObjectId("590ecd125b177f2b48398aa9"), 
+    "servicerequestid" : NumberLong(16), 
+    "createddate" : ISODate("0001-01-01T00:00:00.000+0000"), 
+    "startdate" : ISODate("0001-01-01T00:00:00.000+0000"), 
+    "servicetype" : "Gas", 
+    "requesttype" : "Disconnect", 
+    "customer" : {
+        "customerid" : NumberInt(3434)
+    }, 
+    "location" : "ssddsf", 
+    "enddate" : null, 
+    "closedby" : {
+
+    }, 
+    "status" : "Hold"
+}
+]
