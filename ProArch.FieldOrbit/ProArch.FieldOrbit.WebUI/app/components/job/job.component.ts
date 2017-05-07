@@ -1,23 +1,40 @@
 ﻿import { Component } from '@angular/core';
-import { Http, Response, Headers, RequestOptions, ResponseOptions } from '@angular/http';
+import { Http, Response, Headers, RequestOptions, ResponseOptions, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { Configuration } from '../../common/app.constants';
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { DialogResultDialog } from '../../common/dialog/dialog';
+export class WorkRequest {
+    constructor(
+        public WorkRequestId: number) {
+
+    }
+}
+
 
 @Component({
     selector: 'msg-app',
-    templateUrl: 'app/components/job/job.component.html'
+    templateUrl: 'app/components/job/job.component.html',
+    styleUrls: ['app/components/job/job.component.css'],
+    providers: [Configuration]
 })
 
 export class JobComponent {
-    constructor(private http: Http) { }
+
+    constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
+        this.WorkRequest = {
+            WorkRequestId: 0
+        }
+    }
     message = 'This is Job Component';
-    Status = [
+    Statuses = [
         { value: 'Open', viewValue: 'Open' },
         { value: 'Close', viewValue: 'Close' },
         { value: 'Unscheduled', viewValue: 'Unscheduled' }
     ];
-    Priority = [
+    Priorities = [
         { value: 'High', viewValue: 'High' },
         { value: 'Medium', viewValue: 'Medium' },
         { value: 'Low', viewValue: 'Low' }
@@ -27,46 +44,82 @@ export class JobComponent {
         { value: 'Medium', viewValue: 'Medium' },
         { value: 'Low', viewValue: 'Low' }
     ];
-    JobID: number;
-    jobDesc: string;
-    fromDate: Date;
-    toDate: Date;
-    estTime: string;
-    selectedCountry: string;
-    jobStatus: string;
-    jobPriority: string;
-    jobCategory: string;
-    comments: string;
-    observations: string;
-    result: any;
+
+    //Properties......
+    public JobId: number;
+    public WorkRequest: WorkRequest;
+    public JobDescription: string;
+    public StartTime: Date;
+    public EndTime: Date;
+    public Status: string;
+    public Priority: string;
+    public jobCategory: string;
+    public Comments: string;
+    public Observations: string;
+    public result: any;
+    public showError: boolean;
+    public showhighError: boolean;
+    public showdateError: boolean;
+
+    //validating the Date here
+    validateDate() {
+        if (this.EndTime <= this.StartTime) {
+            this.showhighError = true;
+        }
+        if (this.StartTime == undefined) {
+            this.showdateError = true;
+        }
+    }
+
+    openDialog() {
+        let dialogRef = this.dialog.open(DialogResultDialog);
+        dialogRef.afterClosed().subscribe(result => {
+        });
+    }
 
     onSubmit() {
-        alert(this.JobID + this.jobDesc + this.fromDate + this.toDate + this.estTime + this.selectedCountry + this.jobStatus + this.jobPriority + this.comments + this.observations);
-
 
         var data =
             {
-                JobID: this.JobID,
-                jobDesc: this.jobDesc,
-                fromDate: this.fromDate,
-                toDate: this.toDate,
-                estTime: this.estTime,
-                selectedCountry: this.selectedCountry,
-                jobStatus: this.jobStatus,
-                jobPriority: this.jobPriority,
-                comments: this.comments,
-                observations: this.observations
+                JobId: this.JobId,
+                WorkRequest: this.WorkRequest,
+                JobDescription: this.JobDescription,
+                StartTime: this.StartTime,
+                EndTime: this.EndTime,
+                Status: this.Status,
+                Priority: this.Priority,
+                Comments: this.Comments,
+                Observations: this.Observations
+
             };
-        this.result = {};
-        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
-        let opt = new RequestOptions({ headers: headers });
 
-        this.http.post('http://192.168.19.12/webapi/api/home/detailspost', JSON.stringify(data), opt)
+
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('workRequestNumber', this.WorkRequest.WorkRequestId.toString());
+
+        let requestOptions = new RequestOptions();
+        requestOptions.search = params;
+
+        this.http.get(this._configuration.ApiServer + this._configuration.GetWorkRequestById, requestOptions)
             .toPromise()
-            .then(this.extractData)
-            .catch(this.handleError);
+            .then((response: Response) => {
+                let res = response.json();
+                data.WorkRequest = res;
+                let headers = new Headers({ 'Content-Type': 'application/json' });
+                let opt = new RequestOptions({ headers: headers });
 
-        alert(this.result);
+                this.http.post(this._configuration.ApiServer + this._configuration.AddJob, JSON.stringify(data), opt)
+                    .toPromise()
+                    .then((response: Response) => {
+                        this.openDialog();
+                    })
+                    .catch((errors: any) => {
+
+                    });
+            })
+            .catch((errors: any) => {
+
+            });
     };
 
     private extractData(res: Response) {
@@ -96,3 +149,4 @@ export class JobComponent {
 
 
 }
+

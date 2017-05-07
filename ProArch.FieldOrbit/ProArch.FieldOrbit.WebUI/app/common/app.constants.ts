@@ -22,4 +22,9 @@ export class Configuration {
 
     public UpdateWorkRequest: string = "api/WorkRequest/Put";
 
+    //Job
+    public GetJobById: string = "api/Job/GetJobById";
+
+    public AddJob: string = "api/Job/Post";
+
 }

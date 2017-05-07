@@ -124,6 +124,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
+    <Content Include="app\common\dialog\dialog.component.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -141,6 +142,7 @@
     <TypeScriptCompile Include="app\common\app.component.ts" />
     <TypeScriptCompile Include="app\common\app.constants.ts" />
     <TypeScriptCompile Include="app\common\app.cookieManager.ts" />
+    <TypeScriptCompile Include="app\common\dialog\dialog.ts" />
     <TypeScriptCompile Include="app\common\login\login.component.ts" />
     <TypeScriptCompile Include="app\common\login\login.service.ts" />
     <TypeScriptCompile Include="app\common\material\sidenav.ts" />

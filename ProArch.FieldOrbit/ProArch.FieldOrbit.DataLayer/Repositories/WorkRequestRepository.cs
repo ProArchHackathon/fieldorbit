@@ -17,7 +17,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public bool CreateWorkRequest(WorkRequest workRequest)
         {
-            return new MongoRepository().Create(GetWorkRequestDocument(workRequest), "workrequest");
+            return new MongoRepository().Create(GetWorkRequestDocument(workRequest), "workorder");
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public WorkRequest GetWorkRequestByID(int WRNumber)
         {
-            return new MongoRepository().GetWorkRequestById(WRNumber, "workrequest");
+            return new MongoRepository().GetWorkRequestById(WRNumber, "workorder");
         }
 
         /// <summary>
@@ -70,14 +70,14 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 { "status", workRequest.Status }
             };
 
-            return new MongoRepository().UpdateWorkRequest(document, "workrequest");
+            return new MongoRepository().UpdateWorkRequest(document, "workorder");
         }
 
         internal BsonDocument GetWorkRequestDocument(WorkRequest workRequest)
         {
             return new BsonDocument
             {
-                {"workrequestid", new MongoRepository().GetCount("workrequest") },
+                {"workorderid", new MongoRepository().GetCount("workorder") },
                 {"description", workRequest.Description},
                 {"startdate", workRequest.StartDate},
                 {"enddate", workRequest.EndDate.Value},
@@ -96,7 +96,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                             }
                         },
                         { "location", workRequest.ServiceRequest.Location },
-                        { "closedate", workRequest.ServiceRequest.EndDate.Value },
+                        { "closedate",workRequest.ServiceRequest.EndDate.HasValue ? workRequest.ServiceRequest.EndDate : null },
                         { "closedby", new BsonDocument
                             {
                                 {"employeeid", workRequest.ServiceRequest.ClosedBy.EmployeeId}

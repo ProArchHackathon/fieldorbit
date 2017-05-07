@@ -21,6 +21,8 @@ var serviceRequest_component_1 = require("../components/serviceRequest/serviceRe
 var workrequest_component_1 = require("../components/workrequest/workrequest.component");
 var sidenav_1 = require("./material/sidenav");
 var srlist_component_1 = require("../components/servicelist/srlist.component");
+var dialog_1 = require("./dialog/dialog");
+var material_2 = require("@angular/material");
 //import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -30,7 +32,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [
-            platform_browser_1.BrowserModule,
+            platform_browser_1.BrowserModule, material_2.MdDialogModule,
             forms_1.FormsModule, http_1.HttpModule, animations_1.BrowserAnimationsModule, material_1.MaterialModule.forRoot(),
             router_1.RouterModule.forRoot([
                 {
@@ -57,13 +59,14 @@ AppModule = __decorate([
             ], { useHash: true })
         ],
         declarations: [
-            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent, srlist_component_1.ServiceRequestListComponent,
+            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent, srlist_component_1.ServiceRequestListComponent, dialog_1.DialogResultDialog,
             serviceRequest_component_1.ServiceRequestComponent, workrequest_component_1.WorkRequestComponent, sidenav_1.SidenavComponent
         ],
         exports: [
             material_1.MaterialModule
         ],
-        bootstrap: [app_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent],
+        entryComponents: [dialog_1.DialogResultDialog]
     })
 ], AppModule);
 exports.AppModule = AppModule;

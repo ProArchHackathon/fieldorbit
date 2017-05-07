@@ -1,12 +1,19 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Http, Response, Headers, RequestOptions, ResponseOptions } from '@angular/http';
+import { Http, RequestOptions, Headers, Response, URLSearchParams } from "@angular/http";
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Configuration } from '../../common/app.constants';
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { DialogResultDialog } from '../../common/dialog/dialog';
 
+export class ServiceRequest {
+    constructor(
+        public ServiceRequestId: number) {
 
+    }
+}
 
 @Component({
     selector: 'work-request',
@@ -17,7 +24,7 @@ import { Configuration } from '../../common/app.constants';
 export class WorkRequestComponent implements OnInit {
 
     WorkRequestId: string;
-    ServiceRequestId: string;
+    ServiceRequest: ServiceRequest;
     Description: string;
     StartDate: Date;
     EndDate: Date;
@@ -25,8 +32,10 @@ export class WorkRequestComponent implements OnInit {
     ServiceRequestType: string = "Electric";
     status: string = "";
     result: any;
-    constructor(private http: Http, private _configuration: Configuration) {
-
+    constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
+        this.ServiceRequest = {
+            ServiceRequestId: 0
+        }
     };
 
     ngOnInit() {
@@ -36,7 +45,7 @@ export class WorkRequestComponent implements OnInit {
         var data =
             {
                 WorkRequestId: this.WorkRequestId,
-                ServiceRequestId: this.ServiceRequestId,
+                ServiceRequest: this.ServiceRequest,
                 Description: this.Description,
                 StartDate: this.StartDate,
                 EndDate: this.EndDate,
@@ -46,21 +55,43 @@ export class WorkRequestComponent implements OnInit {
         this.result = {};
         console.log(data);
 
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let opt = new RequestOptions({ headers: headers });
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('serviceRequestId', this.ServiceRequest.ServiceRequestId.toString());
 
-        this.http.post(this._configuration.ApiServer + this._configuration.AddWorkRequest, JSON.stringify(data), opt)
+        let requestOptions = new RequestOptions();
+        requestOptions.search = params;
+
+        this.http.get(this._configuration.ApiServer + this._configuration.GetServiceRequestById, requestOptions)
             .toPromise()
-            .then(this.extractData)
-            .catch(this.handleError);
+            .then((response: Response) => {
+                let res = response.json();
+                data.ServiceRequest = res;
+                let headers = new Headers({ 'Content-Type': 'application/json' });
+                let opt = new RequestOptions({ headers: headers });
 
-        // alert(this.result);
+                this.http.post(this._configuration.ApiServer + this._configuration.AddWorkRequest, JSON.stringify(data), opt)
+                    .toPromise()
+                    .then((response: Response) => {
+                        this.openDialog();
+                    })
+                    .catch((errors: any) => {
+
+                    });
+            })
+            .catch((errors: any) => {
+
+            });
     };
     private extractData(res: Response) {
         let body = res.json();
         return body.data || {};
     };
 
+    openDialog() {
+        let dialogRef = this.dialog.open(DialogResultDialog);
+        dialogRef.afterClosed().subscribe(result => {
+        });
+    }
 
     private handleError(error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure

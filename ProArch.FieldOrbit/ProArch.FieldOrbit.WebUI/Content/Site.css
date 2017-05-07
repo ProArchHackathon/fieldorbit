@@ -9,6 +9,7 @@ md-input-container {
    * The .md-input class is added to the input/textarea
    */
 }
+
 md-card {
     box-sizing: border-box;
     display: -webkit-box;
@@ -29,4 +30,71 @@ md-card {
 
 .tab-background {
     background-color: white !important;
+}
+
+.table {
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+.table, pre {
+    margin-bottom: 1rem;
+}
+
+table {
+    background-color: transparent;
+    border-collapse: collapse;
+    font-family: Roboto,sans-serif;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #eceeef;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef;
+}
+
+.table th {
+    font-size: 16px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef;
+}
+
+tr:hover, tr.alt:hover {
+    background-color: #d9edf7 !important;
+    font-size: 15px;
+}
+
+.mat-input-container {
+    min-width: 20%;
+}
+
+.mat-select {
+    min-width: 20%;
+}
+
+.mat-input-element:disabled {
+    background-color: lightgray;
 }

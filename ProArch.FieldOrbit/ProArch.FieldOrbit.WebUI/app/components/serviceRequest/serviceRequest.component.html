@@ -7,7 +7,7 @@
                 <input #srNumber mdInput [(ngModel)]="SrNumber" name="SrNumber" placeholder="SR Number" [disabled]="true">
             </md-input-container>
             <md-input-container class="example-full-width">
-                <input #requestedBy mdInput [(ngModel)]="RequestedBy" name="RequestedBy" placeholder="Requested By">
+                <input #requestedBy mdInput [(ngModel)]="RequestedBy" autofocus name="RequestedBy" placeholder="Requested By">
             </md-input-container>
         </div>
         <div class="example-full-width" cellspacing="0">
@@ -36,7 +36,7 @@
                 <input type="date" #createdDate mdInput [(ngModel)]="CreatedDate" name="CreatedDate" placeholder="Created Date">
             </md-input-container>
             <md-input-container class="example-full-width">
-                <input type="date" #startDate mdInput [(ngModel)]="StartDate" name="StartDate" placeholder="Start Date">
+                <input type="date" #startDate mdInput [(ngModel)]="StartDate" value="" name="StartDate" placeholder="Start Date">
             </md-input-container>
             <md-input-container class="example-full-width">
                 <input type="date" #endDate mdInput [(ngModel)]="EndDate" name="EndDate" placeholder="End Date">
@@ -51,12 +51,11 @@
         </div>
         <p style="text-align: right">
             <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>Update</button>
-            <button class="mat-button mat-primary" md-raised-button>Close</button>
         </p>
     </md-card>
     <md-card>
-        <table style="width:100%; border:1px solid black;cursor:pointer;">
-            <tr style="text-align:left">
+        <table class="table" style="width:100%;cursor:pointer;">
+            <tr>
                 <th>Customer Id</th>
                 <th>Service Type</th>
                 <th>Status</th>
@@ -64,7 +63,7 @@
                 <th>Start Date</th>
                 <th>End Date</th>
             </tr>
-            <tr *ngFor="let sr of serviceRequestList" style="text-align:left">
+            <tr *ngFor="let sr of serviceRequestList" (click)="onSelectedRow(sr)">
                 <td>{{sr.Customer.CustomerId }} </td>
                 <td>{{sr.ServiceType}} </td>
                 <td>{{sr.Status}} </td>

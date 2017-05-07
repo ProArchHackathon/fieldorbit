@@ -3,11 +3,11 @@
         <md-card-title>Work Request</md-card-title>
         <div>
             <md-input-container>
-                <input #serviceRequestId mdInput [(ngModel)]="ServiceRequestId" name="ServiceRequestId" placeholder="ServiceRequestId">
+                <input #serviceRequestId mdInput [(ngModel)]="ServiceRequest.ServiceRequestId" name="ServiceRequestId" placeholder="ServiceRequestId">
             </md-input-container>
-            <md-input-container>
+            <!--<md-input-container>
                 <input #workOrderId mdInput [(ngModel)]="WorkRequestId" name="WorkRequestId" placeholder="WorkRequestId">
-            </md-input-container>
+            </md-input-container>-->
         </div>
         <div cellspacing="0">
 
@@ -39,27 +39,6 @@
 
         <div style="text-align:right;">
             <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>Update</button>
-            <button class="mat-button mat-primary" md-raised-button>Close</button>
         </div>
-    </md-card>
-    <md-card>
-        <table style="width:100%; border:1px solid black;cursor:pointer;">
-            <tr style="text-align:left">
-                <th>Customer Id</th>
-                <th>Service Type</th>
-                <th>Status</th>
-                <th>Created Date</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-            </tr>
-            <tr *ngFor="let sr of serviceRequestList" style="text-align:left">
-                <td>{{sr.Customer.CustomerId }} </td>
-                <td>{{sr.ServiceType}} </td>
-                <td>{{sr.Status}} </td>
-                <td>{{sr.CreatedDate | date: 'dd-MMM-yyyy'}} </td>
-                <td>{{sr.StartDate| date: 'dd-MMM-yyyy'}} </td>
-                <td>{{sr.EndDate| date: 'dd-MMM-yyyy'}} </td>
-            </tr>
-        </table>
     </md-card>
 </form>
