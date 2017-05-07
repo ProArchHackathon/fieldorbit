@@ -1,0 +1,24 @@
+﻿<md-card>
+    <form>
+        <table style="width:100%; border:1px solid black;cursor:pointer;">
+            <tr style="text-align:left">
+                <th>Device ID</th>
+                <th>Device Name</th>
+                <th>Model</th>
+                <th>View</th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor="let device of devices" style="text-align:left" (click)="onSelectRow(device)">
+                <td>{{device.DeviceId }} </td>
+                <td>{{device.DeviceName }} </td>
+                <td>{{device.Model}} </td>
+                <td>
+                    <md-icon>home</md-icon>
+                </td>
+                <td>
+                    <md-icon>delete</md-icon>
+                </td>
+            </tr>
+        </table>
+    </form>
+</md-card>

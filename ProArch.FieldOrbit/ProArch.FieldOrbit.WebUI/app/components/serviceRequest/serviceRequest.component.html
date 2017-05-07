@@ -1,0 +1,57 @@
+﻿
+<form class="example-form" (load)="onLoad()">
+    <md-card>
+        <md-card-title>Service Request</md-card-title>
+        <div class="example-full-width" cellspacing="0">
+            <!--<md-input-container class="example-full-width" flex>
+                <input #srNumber mdInput [(ngModel)]="SrNumber" name="SrNumber" placeholder="SR Number" [disabled]="true">
+            </md-input-container>-->
+            <md-input-container class="example-full-width">
+                <input #requestedBy mdInput [(ngModel)]="RequestedBy" name="RequestedBy" placeholder="Requested By">
+            </md-input-container>
+        </div>
+        <div class="example-full-width" cellspacing="0">
+            <md-select name="ServiceType" placeholder="Service Type" [(ngModel)]="ServiceType">
+                <md-option *ngFor="let type of serviceType" [value]="type.value">
+                    {{ type.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+        <br>
+        <div class="example-full-width" cellspacing="0">
+
+            <md-select placeholder="Request Type" name="RequestType"  [(ngModel)]="RequestType">
+                <md-option *ngFor="let RType of requestType" [value]="RType.value">
+                    {{ RType.viewValue }}
+                </md-option>
+            </md-select>
+            <md-input-container class="example-full-width">
+                <input #customerId mdInput [(ngModel)]="CustomerId" name="CustomerId" placeholder="Customer ID">
+            </md-input-container>
+            
+
+        </div>
+        <div class="example-full-width" cellspacing="0">
+            <md-input-container class="example-full-width">
+                <input type="date" #createdDate mdInput [(ngModel)]="CreatedDate" name="CreatedDate" placeholder="Created Date">
+            </md-input-container>
+            <md-input-container class="example-full-width">
+                <input type="date" #startDate mdInput [(ngModel)]="StartDate" name="StartDate" placeholder="Start Date">
+            </md-input-container>
+            <md-input-container class="example-full-width">
+                <input type="date" #endDate mdInput [(ngModel)]="EndDate" name="EndDate" placeholder="End Date">
+            </md-input-container>
+        </div>
+        <div class="example-full-width" cellspacing="0">
+            <md-select name="Status" placeholder="Status" [(ngModel)]="Status">
+                <md-option *ngFor="let Status of statusList" [value]="Status.value">
+                    {{ Status.viewValue }}
+                </md-option>
+            </md-select>
+        </div>
+        <p style="text-align: right">
+            <button class="mat-button mat-primary"(click)="onUpdate()" md-primary-button md-raised-button>Update</button>
+            <button class="mat-button mat-primary" md-raised-button>Close</button>
+        </p>
+    </md-card>
+</form>

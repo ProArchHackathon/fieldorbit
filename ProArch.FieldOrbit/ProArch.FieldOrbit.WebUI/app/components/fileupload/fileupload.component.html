@@ -1,0 +1,47 @@
+﻿<!--<form class="example-form"> -->
+
+<md-card>
+    <md-card-title>
+        Device Info
+    </md-card-title>
+    <form>
+        <div flex>
+            <div flex-xs="50" flex-sm="50" flex-md="50" flex-gt-md="50">
+                <md-input-container flex class="md-block">
+                    <input #deviceId [(ngModel)]="model.Id" name="DeviceId" mdInput placeholder="Device Id" maxlength="3">
+                </md-input-container>
+            </div>
+            <div flex-xs="50" flex-sm="50" flex-md="50" flex-gt-md="50">
+                <md-input-container flex class="md-block">
+                    <input #deviceName [(ngModel)]="model.Name" name="DeviceName" mdInput placeholder="Device Name" maxlength="28">
+                </md-input-container>
+            </div>
+        </div>
+        <div>
+            <md-radio-group>
+                Model:
+                <md-radio-button>2D</md-radio-button>
+                <span size="50px;">&nbsp;</span>
+                <md-radio-button>3D</md-radio-button>
+            </md-radio-group>
+        </div>
+        <div>&nbsp;</div>
+        <div>
+            <label>Upload Videos:</label>
+            <input type="file" />
+        </div>
+        <div>&nbsp;</div>
+        <div>
+            Recommend:
+            <md-radio-button value="yes">Yes</md-radio-button>
+            <span size="50px;">&nbsp;</span>
+            <md-radio-button value="no">No</md-radio-button>
+        </div>
+        <div>&nbsp;</div>
+        <button class="mdl-button mdl-button--raised mdl-button--primary" (click)="onSubmit()" md-raised-button>ADD/CHANGE</button>
+        <!-- <button class="mdl-button mdl-button--raised mdl-button--primary" md-raised-button>CHANGE</button>-->
+    </form>
+</md-card>
+
+<fileupload-details></fileupload-details>
+
