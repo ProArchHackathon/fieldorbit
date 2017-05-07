@@ -19,6 +19,9 @@ var Configuration = (function () {
         this.GetWorkRequestById = "api/WorkRequest/Get";
         this.AddWorkRequest = "api/WorkRequest/Post";
         this.UpdateWorkRequest = "api/WorkRequest/Put";
+        //Job
+        this.GetJobById = "api/Job/GetJobById";
+        this.AddJob = "api/Job/Post";
     }
     return Configuration;
 }());

@@ -117,9 +117,9 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
             return new BsonDocument
             {
                 { "jobid", new MongoRepository().GetCount("job")},
-                { "status", job.Status.ToString() },
-                { "priority", job.Priority.ToString() },
-                { "jobdescription", job.JobDescription },
+                { "status", job.Status.ValidateData() },
+                { "priority", job.Priority.ValidateData() },
+                { "jobdescription", job.JobDescription.ValidateData() },
                 { "starttime", job.StartTime },
                 { "endtime", job.EndTime },
                 { "comments", job.Comments.ValidateData() },

@@ -2,7 +2,7 @@
 
 @Injectable()
 export class Configuration {
-    public ApiServer: string = "http://localhost/fieldorbitapi/";
+    public ApiServer: string = "http://localhost/test-fieldorbit-api";
 
     public LoginApiUrl: string = "api/LoginOperations/Validate"
 
@@ -21,5 +21,10 @@ export class Configuration {
     public AddWorkRequest: string = "api/WorkRequest/Post";
 
     public UpdateWorkRequest: string = "api/WorkRequest/Put";
+
+    //Job
+    public GetJobById: string = "api/Job/GetJobById";
+
+    public AddJob: string = "api/Job/Post";
 
 }

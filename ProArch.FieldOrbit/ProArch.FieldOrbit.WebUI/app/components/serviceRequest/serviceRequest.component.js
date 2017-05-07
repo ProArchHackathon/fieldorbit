@@ -15,6 +15,8 @@ require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/toPromise");
 var app_constants_1 = require("../../common/app.constants");
+var material_1 = require("@angular/material");
+var dialog_1 = require("../../common/dialog/dialog");
 var Customer = (function () {
     function Customer(CustomerId) {
         this.CustomerId = CustomerId;
@@ -23,12 +25,13 @@ var Customer = (function () {
 }());
 exports.Customer = Customer;
 var ServiceRequestComponent = (function () {
-    function ServiceRequestComponent(http, _configuration) {
+    function ServiceRequestComponent(http, _configuration, dialog) {
         var _this = this;
         this.http = http;
         this._configuration = _configuration;
+        this.dialog = dialog;
         this.serviceType = [
-            { value: 'Electricity', viewValue: 'Electricity ' },
+            { value: 'Electric', viewValue: 'Electric' },
             { value: 'Gas', viewValue: 'Gas' },
             { value: 'Water', viewValue: 'Water' },
         ];
@@ -56,7 +59,13 @@ var ServiceRequestComponent = (function () {
         });
     }
     ;
+    ServiceRequestComponent.prototype.openDialog = function () {
+        var dialogRef = this.dialog.open(dialog_1.DialogResultDialog);
+        dialogRef.afterClosed().subscribe(function (result) {
+        });
+    };
     ServiceRequestComponent.prototype.onUpdate = function () {
+        var _this = this;
         var data = {
             SrNumber: this.SrNumber,
             RequestedBy: this.RequestedBy,
@@ -85,13 +94,10 @@ var ServiceRequestComponent = (function () {
         var opt = new http_1.RequestOptions({ headers: headers });
         this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
             .toPromise()
-            .then(this.extractData)
+            .then(function (response) {
+            _this.openDialog();
+        })
             .catch(this.handleError);
-    };
-    ;
-    ServiceRequestComponent.prototype.extractData = function (res) {
-        var body = res.json();
-        return body.data || {};
     };
     ;
     ServiceRequestComponent.prototype.handleError = function (error) {
@@ -108,6 +114,18 @@ var ServiceRequestComponent = (function () {
         console.error(errMsg);
         return Promise.reject(errMsg);
     };
+    ServiceRequestComponent.prototype.onSelectedRow = function (serviceRequest) {
+        this.SrNumber = serviceRequest.ServiceRequestId;
+        this.RequestedBy = serviceRequest.RequestedBy;
+        this.ServiceType = serviceRequest.ServiceType;
+        this.RequestType = serviceRequest.RequestType;
+        this.Customer.CustomerId = serviceRequest.Customer.CustomerId;
+        this.Location = serviceRequest.Location;
+        this.CreatedDate = new Date(serviceRequest.CreatedDate);
+        this.StartDate = serviceRequest.StartDate;
+        this.EndDate = serviceRequest.EndDate;
+        this.Status = serviceRequest.Status;
+    };
     ServiceRequestComponent.prototype.onLoad = function () {
     };
     return ServiceRequestComponent;
@@ -118,7 +136,7 @@ ServiceRequestComponent = __decorate([
         templateUrl: 'app/components/serviceRequest/serviceRequest.component.html',
         providers: [app_constants_1.Configuration]
     }),
-    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration])
+    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
 ], ServiceRequestComponent);
 exports.ServiceRequestComponent = ServiceRequestComponent;
 //# sourceMappingURL=serviceRequest.component.js.map

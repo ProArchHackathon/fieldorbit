@@ -13,16 +13,28 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/toPromise");
+var app_constants_1 = require("../../common/app.constants");
+var material_1 = require("@angular/material");
+var dialog_1 = require("../../common/dialog/dialog");
+var WorkRequest = (function () {
+    function WorkRequest(WorkRequestId) {
+        this.WorkRequestId = WorkRequestId;
+    }
+    return WorkRequest;
+}());
+exports.WorkRequest = WorkRequest;
 var JobComponent = (function () {
-    function JobComponent(http) {
+    function JobComponent(http, _configuration, dialog) {
         this.http = http;
+        this._configuration = _configuration;
+        this.dialog = dialog;
         this.message = 'This is Job Component';
-        this.Status = [
+        this.Statuses = [
             { value: 'Open', viewValue: 'Open' },
             { value: 'Close', viewValue: 'Close' },
             { value: 'Unscheduled', viewValue: 'Unscheduled' }
         ];
-        this.Priority = [
+        this.Priorities = [
             { value: 'High', viewValue: 'High' },
             { value: 'Medium', viewValue: 'Medium' },
             { value: 'Low', viewValue: 'Low' }
@@ -32,29 +44,58 @@ var JobComponent = (function () {
             { value: 'Medium', viewValue: 'Medium' },
             { value: 'Low', viewValue: 'Low' }
         ];
-    }
-    JobComponent.prototype.onSubmit = function () {
-        alert(this.JobID + this.jobDesc + this.fromDate + this.toDate + this.estTime + this.selectedCountry + this.jobStatus + this.jobPriority + this.comments + this.observations);
-        var data = {
-            JobID: this.JobID,
-            jobDesc: this.jobDesc,
-            fromDate: this.fromDate,
-            toDate: this.toDate,
-            estTime: this.estTime,
-            selectedCountry: this.selectedCountry,
-            jobStatus: this.jobStatus,
-            jobPriority: this.jobPriority,
-            comments: this.comments,
-            observations: this.observations
+        this.WorkRequest = {
+            WorkRequestId: 0
         };
-        this.result = {};
-        var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
-        var opt = new http_1.RequestOptions({ headers: headers });
-        this.http.post('http://192.168.19.12/webapi/api/home/detailspost', JSON.stringify(data), opt)
+    }
+    //validating the Date here
+    JobComponent.prototype.validateDate = function () {
+        if (this.EndTime <= this.StartTime) {
+            this.showhighError = true;
+        }
+        if (this.StartTime == undefined) {
+            this.showdateError = true;
+        }
+    };
+    JobComponent.prototype.openDialog = function () {
+        var dialogRef = this.dialog.open(dialog_1.DialogResultDialog);
+        dialogRef.afterClosed().subscribe(function (result) {
+        });
+    };
+    JobComponent.prototype.onSubmit = function () {
+        var _this = this;
+        var data = {
+            JobId: this.JobId,
+            WorkRequest: this.WorkRequest,
+            JobDescription: this.JobDescription,
+            StartTime: this.StartTime,
+            EndTime: this.EndTime,
+            Status: this.Status,
+            Priority: this.Priority,
+            Comments: this.Comments,
+            Observations: this.Observations
+        };
+        var params = new http_1.URLSearchParams();
+        params.set('workRequestNumber', this.WorkRequest.WorkRequestId.toString());
+        var requestOptions = new http_1.RequestOptions();
+        requestOptions.search = params;
+        this.http.get(this._configuration.ApiServer + this._configuration.GetWorkRequestById, requestOptions)
             .toPromise()
-            .then(this.extractData)
-            .catch(this.handleError);
-        alert(this.result);
+            .then(function (response) {
+            var res = response.json();
+            data.WorkRequest = res;
+            var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+            var opt = new http_1.RequestOptions({ headers: headers });
+            _this.http.post(_this._configuration.ApiServer + _this._configuration.AddJob, JSON.stringify(data), opt)
+                .toPromise()
+                .then(function (response) {
+                _this.openDialog();
+            })
+                .catch(function (errors) {
+            });
+        })
+            .catch(function (errors) {
+        });
     };
     ;
     JobComponent.prototype.extractData = function (res) {
@@ -81,9 +122,11 @@ var JobComponent = (function () {
 JobComponent = __decorate([
     core_1.Component({
         selector: 'msg-app',
-        templateUrl: 'app/components/job/job.component.html'
+        templateUrl: 'app/components/job/job.component.html',
+        styleUrls: ['app/components/job/job.component.css'],
+        providers: [app_constants_1.Configuration]
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
 ], JobComponent);
 exports.JobComponent = JobComponent;
 //# sourceMappingURL=job.component.js.map

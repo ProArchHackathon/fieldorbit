@@ -14,11 +14,13 @@ import { ServiceRequestComponent } from '../components/serviceRequest/serviceReq
 import { WorkRequestComponent } from '../components/workrequest/workrequest.component';
 import { SidenavComponent } from './material/sidenav';
 import { ServiceRequestListComponent } from '../components/servicelist/srlist.component';
+import { DialogResultDialog } from './dialog/dialog';
+import { MdDialogModule } from '@angular/material';
 
 //import 'hammerjs';
 @NgModule({
     imports: [
-        BrowserModule,
+        BrowserModule, MdDialogModule,
         FormsModule, HttpModule, BrowserAnimationsModule, MaterialModule.forRoot(),
         RouterModule.forRoot([
             {
@@ -45,13 +47,14 @@ import { ServiceRequestListComponent } from '../components/servicelist/srlist.co
         ], { useHash: true })
     ],
     declarations: [
-        AppComponent, JobComponent, LoginComponent, ServiceRequestListComponent,
+        AppComponent, JobComponent, LoginComponent, ServiceRequestListComponent, DialogResultDialog,
         ServiceRequestComponent, WorkRequestComponent, SidenavComponent
 
     ],
     exports: [
         MaterialModule
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [DialogResultDialog]
 })
 export class AppModule { }

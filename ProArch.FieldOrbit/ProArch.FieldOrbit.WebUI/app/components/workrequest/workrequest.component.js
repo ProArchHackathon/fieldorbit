@@ -14,10 +14,20 @@ require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/toPromise");
 var app_constants_1 = require("../../common/app.constants");
+var material_1 = require("@angular/material");
+var dialog_1 = require("../../common/dialog/dialog");
+var ServiceRequest = (function () {
+    function ServiceRequest(ServiceRequestId) {
+        this.ServiceRequestId = ServiceRequestId;
+    }
+    return ServiceRequest;
+}());
+exports.ServiceRequest = ServiceRequest;
 var WorkRequestComponent = (function () {
-    function WorkRequestComponent(http, _configuration) {
+    function WorkRequestComponent(http, _configuration, dialog) {
         this.http = http;
         this._configuration = _configuration;
+        this.dialog = dialog;
         this.ServiceRequestType = "Electric";
         this.status = "";
         this.sTypes = [
@@ -30,14 +40,18 @@ var WorkRequestComponent = (function () {
             { value: 'reopen-1', viewValue: 'Re-Open' },
             { value: 'close-2', viewValue: 'Close' }
         ];
+        this.ServiceRequest = {
+            ServiceRequestId: 0
+        };
     }
     ;
     WorkRequestComponent.prototype.ngOnInit = function () {
     };
     WorkRequestComponent.prototype.onUpdate = function () {
+        var _this = this;
         var data = {
             WorkRequestId: this.WorkRequestId,
-            ServiceRequestId: this.ServiceRequestId,
+            ServiceRequest: this.ServiceRequest,
             Description: this.Description,
             StartDate: this.StartDate,
             EndDate: this.EndDate,
@@ -46,13 +60,27 @@ var WorkRequestComponent = (function () {
         };
         this.result = {};
         console.log(data);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var opt = new http_1.RequestOptions({ headers: headers });
-        this.http.post(this._configuration.ApiServer + this._configuration.AddWorkRequest, JSON.stringify(data), opt)
+        var params = new http_1.URLSearchParams();
+        params.set('serviceRequestId', this.ServiceRequest.ServiceRequestId.toString());
+        var requestOptions = new http_1.RequestOptions();
+        requestOptions.search = params;
+        this.http.get(this._configuration.ApiServer + this._configuration.GetServiceRequestById, requestOptions)
             .toPromise()
-            .then(this.extractData)
-            .catch(this.handleError);
-        // alert(this.result);
+            .then(function (response) {
+            var res = response.json();
+            data.ServiceRequest = res;
+            var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+            var opt = new http_1.RequestOptions({ headers: headers });
+            _this.http.post(_this._configuration.ApiServer + _this._configuration.AddWorkRequest, JSON.stringify(data), opt)
+                .toPromise()
+                .then(function (response) {
+                _this.openDialog();
+            })
+                .catch(function (errors) {
+            });
+        })
+            .catch(function (errors) {
+        });
     };
     ;
     WorkRequestComponent.prototype.extractData = function (res) {
@@ -60,6 +88,11 @@ var WorkRequestComponent = (function () {
         return body.data || {};
     };
     ;
+    WorkRequestComponent.prototype.openDialog = function () {
+        var dialogRef = this.dialog.open(dialog_1.DialogResultDialog);
+        dialogRef.afterClosed().subscribe(function (result) {
+        });
+    };
     WorkRequestComponent.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure
         var errMsg;
@@ -85,7 +118,7 @@ WorkRequestComponent = __decorate([
         templateUrl: 'app/components/workrequest/workrequest.component.html',
         providers: [app_constants_1.Configuration]
     }),
-    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration])
+    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
 ], WorkRequestComponent);
 exports.WorkRequestComponent = WorkRequestComponent;
 //# sourceMappingURL=workrequest.component.js.map
