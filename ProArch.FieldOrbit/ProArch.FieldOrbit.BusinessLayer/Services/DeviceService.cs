@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Web;
 
 namespace ProArch.FieldOrbit.BusinessLayer.Services
 {
@@ -73,13 +74,13 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
 
 
         /// <summary>
-        /// 
+        /// getvideocontent
         /// </summary>
         /// <param name="URL"></param>
         /// <returns></returns>
         public Stream GetVideoContent(string URL)
         {
-            throw new NotImplementedException();
+            return ContentService.GetVideoContent(URL);
         }
 
         /// <summary>
@@ -97,6 +98,11 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         public List<Job> GetCustomerDevices(int customerId)
         {
             return _deviceRepository.GetCustomerDevices(customerId);
+        }
+
+        public bool UploadFiles(HttpFileCollectionBase files)
+        {
+            return ContentService.UploadFiles(files);
         }
     }
 }

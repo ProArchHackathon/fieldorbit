@@ -3,6 +3,8 @@ using ProArch.FieldOrbit.Contracts.Interfaces;
 using ProArch.FieldOrbit.Models;
 using ProArch.FieldOrbit.WebApi.Filters;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -26,6 +28,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [TraceLogActionFilter]
+        [Route("api/Device/AddDeviceInfo")]
         public bool AddDeviceInfo(Content content)
         {
             return _deviceService.AddDeviceInfo(content);
@@ -39,18 +42,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         [Route("api/Device/GetAllDevices")]
         public IEnumerable<Device> GetAllDevices()
         {
-            return Mapper.Map<IEnumerable<Device>>(this._deviceService.GetAllDevices());
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>      
-		[TraceLogActionFilterAttribute]
-        [Route("api/Device/GetDeviceById")]
-        public Device GetAllDevices(string deviceId)
-        {
-            return Mapper.Map<Device>(_deviceService.GetDeviceById(deviceId));            
+            return Mapper.Map<IEnumerable<Device>>(_deviceService.GetAllDevices());
         }
 
         /// <summary>
@@ -60,7 +52,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [TraceLogActionFilter]
-        [ActionName("getdevicebyid")]
+        [ActionName("GetDeviceById")]
         public Device GetDeviceById(string deviceId)
         {
             return _deviceService.GetDeviceById(deviceId);
@@ -86,6 +78,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [TraceLogActionFilter]
+        [Route("api/Device/UpdateDeviceInfo")]
         public bool UpdateDeviceInfo(Content content, int deviceId)
         {
             return _deviceService.UpdateDeviceInfo(content, deviceId);
@@ -97,16 +90,42 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         /// <param name="deviceId"></param>
         /// <param name="videoType"></param>
         /// <returns></returns>
+        [TraceLogActionFilter]
         [Route("api/Device/GetVideoPath")]
         public string GetVideoPath(string deviceId, string videoType)
         {
             return _deviceService.GetVideoPath(deviceId, videoType);
         }
 
+        [TraceLogActionFilter]
         [Route("api/Device/GetCustomerDevices")]
         public List<Job> GetCustomerDevices(int customerId)
         {
             return _deviceService.GetCustomerDevices(customerId);
+        }
+
+        /// <summary>
+        /// uploadfiles
+        /// </summary>
+        /// <param name="files"></param>
+        /// <returns></returns>
+        [TraceLogActionFilter]
+        [Route("api/Device/UploadFiles")]
+        public bool UploadFiles(HttpRequestBase request)
+        {
+            return _deviceService.UploadFiles(request.Files);
+        }
+
+        /// <summary>
+        /// getvideocontent
+        /// </summary>
+        /// <param name="URL"></param>
+        /// <returns></returns>
+        [TraceLogActionFilter]
+        [Route("api/Device/GetVideoContent")]
+        public Stream GetVideoContent(string url)
+        {
+            return _deviceService.GetVideoContent(url);
         }
     }
 }
