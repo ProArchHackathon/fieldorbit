@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using Xamarin.Forms;
 =======
 ﻿using System;
@@ -9,6 +10,9 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 >>>>>>> Initial commit
+=======
+﻿using Xamarin.Forms;
+>>>>>>> Complete solution with UWP
 using Xamarin.Forms.Xaml;
 
 namespace ProArch.FieldOrbit.Mobile.Views

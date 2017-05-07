@@ -4,10 +4,14 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ProjectGuid>{241F7D42-5521-430B-829C-1E054B66BFFA}</ProjectGuid>
 =======
     <ProjectGuid>{B69ECAA7-3BD5-4BB2-93CA-51141D22E6C4}</ProjectGuid>
 >>>>>>> Initial commit
+=======
+    <ProjectGuid>{241F7D42-5521-430B-829C-1E054B66BFFA}</ProjectGuid>
+>>>>>>> Complete solution with UWP
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>ProArch.FieldOrbit.Mobile.iOS</RootNamespace>
@@ -119,10 +123,14 @@
   <ItemGroup>
     <ProjectReference Include="..\ProArch.FieldOrbit.Mobile\ProArch.FieldOrbit.Mobile.csproj">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Project>{f835623e-f000-448d-9857-77d730d5e6dd}</Project>
 =======
       <Project>{f779851e-5cf0-4a37-ac27-aa57ebdb05e8}</Project>
 >>>>>>> Initial commit
+=======
+      <Project>{f835623e-f000-448d-9857-77d730d5e6dd}</Project>
+>>>>>>> Complete solution with UWP
       <Name>ProArch.FieldOrbit.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
@@ -152,14 +160,20 @@
     <BundleResource Include="Resources\tab_feed%403x.png" />
   </ItemGroup>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Complete solution with UWP
   <ItemGroup>
     <BundleResource Include="Resources\Icon 2.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\login.png" />
   </ItemGroup>
+<<<<<<< HEAD
 =======
 >>>>>>> Initial commit
+=======
+>>>>>>> Complete solution with UWP
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.224\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

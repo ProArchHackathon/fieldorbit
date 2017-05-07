@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Complete solution with UWP
              x:Class="ProArch.FieldOrbit.Mobile.Views.TimeSheetsPage" Title="TimeSheets" BackgroundColor="#cfe4f8">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -70,6 +73,7 @@
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
+<<<<<<< HEAD
 =======
              x:Class="ProArch.FieldOrbit.Mobile.Views.TimeSheetsPage" Title="TimeSheets">
     <ScrollView>
@@ -119,4 +123,6 @@
         </StackLayout>
     </ScrollView>
 >>>>>>> Initial commit
+=======
+>>>>>>> Complete solution with UWP
 </ContentPage>

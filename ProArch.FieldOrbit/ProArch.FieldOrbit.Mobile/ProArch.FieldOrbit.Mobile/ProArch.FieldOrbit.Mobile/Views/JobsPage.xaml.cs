@@ -38,12 +38,18 @@ namespace ProArch.FieldOrbit.Mobile.Views
                 viewModel.LoadJobsCommand.Execute(null);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Complete solution with UWP
 
         private void test_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new JobDetailsPage());
         }
+<<<<<<< HEAD
 =======
 >>>>>>> Initial commit
+=======
+>>>>>>> Complete solution with UWP
     }
 }

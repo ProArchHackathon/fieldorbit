@@ -4,14 +4,19 @@
              x:Class="ProArch.FieldOrbit.Mobile.Views.JobsPage"
               Title="{Binding Title}"
 <<<<<<< HEAD
+<<<<<<< HEAD
              x:Name="BrowseJobsPage" BackgroundColor="#cfe4f8">
 =======
              x:Name="BrowseJobsPage">
 >>>>>>> Initial commit
+=======
+             x:Name="BrowseJobsPage" BackgroundColor="#cfe4f8">
+>>>>>>> Complete solution with UWP
   <ContentPage.ToolbarItems>
   	<!--<ToolbarItem Text="Add Item" Clicked="AddItem_Clicked" />-->
   </ContentPage.ToolbarItems>
   <ContentPage.Content>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <StackLayout Margin="5" Padding="5" BackgroundColor="White">
             <ListView x:Name="JobsListView"
@@ -19,6 +24,10 @@
     <StackLayout>
       <ListView x:Name="JobsListView"
 >>>>>>> Initial commit
+=======
+        <StackLayout Margin="5" Padding="5" BackgroundColor="White">
+            <ListView x:Name="JobsListView"
+>>>>>>> Complete solution with UWP
 				ItemsSource="{Binding Jobs}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
@@ -28,11 +37,15 @@
                 CachingStrategy="RecycleElement"
 				ItemSelected="OnItemSelected">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Complete solution with UWP
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Text}"
+<<<<<<< HEAD
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemTextStyle}"
                        FontSize="16"/>
@@ -52,13 +65,16 @@
             <ViewCell>
               <StackLayout Padding="10">
                 <Label Text="{Binding Text}"
+=======
+>>>>>>> Complete solution with UWP
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemTextStyle}"
                        FontSize="16"/>
-                <Label Text="{Binding Description}"
+                                <Label Text="{Binding Description}"
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemDetailTextStyle}"
                        FontSize="13"/>
+<<<<<<< HEAD
               </StackLayout>
             </ViewCell>
           </DataTemplate>
@@ -66,5 +82,13 @@
       </ListView>
     </StackLayout> 
 >>>>>>> Initial commit
+=======
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout> 
+>>>>>>> Complete solution with UWP
   </ContentPage.Content>
 </ContentPage>
