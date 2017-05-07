@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D877ECFF-0827-4D76-ABCC-1CCEA0F19056}"
 EndProject
@@ -30,6 +30,19 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{D1B7D8F0-AF53-4B1C-9A4D-A0CDA8886675}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProArch.FieldOrbit.DataContracts", "ProArch.FieldOrbit.DataContracts\ProArch.FieldOrbit.DataContracts.csproj", "{7B960EAC-0FEB-41AF-99E7-9E06AED481DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MongoDB Scripts", "MongoDB Scripts", "{2BF6B56A-693A-486E-B0BC-0C75C172EE74}"
+	ProjectSection(SolutionItems) = preProject
+		ProArch.FieldOrbit.MongoDB\content.json = ProArch.FieldOrbit.MongoDB\content.json
+		ProArch.FieldOrbit.MongoDB\counters.json = ProArch.FieldOrbit.MongoDB\counters.json
+		ProArch.FieldOrbit.MongoDB\customer.json = ProArch.FieldOrbit.MongoDB\customer.json
+		ProArch.FieldOrbit.MongoDB\device.json = ProArch.FieldOrbit.MongoDB\device.json
+		ProArch.FieldOrbit.MongoDB\deviceexpert.json = ProArch.FieldOrbit.MongoDB\deviceexpert.json
+		ProArch.FieldOrbit.MongoDB\employee.json = ProArch.FieldOrbit.MongoDB\employee.json
+		ProArch.FieldOrbit.MongoDB\job.json = ProArch.FieldOrbit.MongoDB\job.json
+		ProArch.FieldOrbit.MongoDB\servicerequest.json = ProArch.FieldOrbit.MongoDB\servicerequest.json
+		ProArch.FieldOrbit.MongoDB\workrequest.json = ProArch.FieldOrbit.MongoDB\workrequest.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
