@@ -142,6 +142,16 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="JobId"></param>
+        /// <returns></returns>
+        public VRJob GetVRJobByID(int JobId)
+        {
+            return new MongoRepository().GetVRJobByID(JobId, "job");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="employeeID"></param>
         /// <returns></returns>
         public List<Job> GetUserJob(int employeeID)

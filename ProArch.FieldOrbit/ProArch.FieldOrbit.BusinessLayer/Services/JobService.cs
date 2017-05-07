@@ -52,6 +52,16 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="JobId"></param>
+        /// <returns></returns>
+        public Models.VRJob GetVRJobByID(int JobId)
+        {
+            return this.jobRepository.GetVRJobByID(JobId);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="EmployeeID"></param>
         /// <returns></returns>
         public List<Models.Job> GetUserJob(int EmployeeID)

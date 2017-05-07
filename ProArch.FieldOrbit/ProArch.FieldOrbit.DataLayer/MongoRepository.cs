@@ -148,6 +148,13 @@ namespace ProArch.FieldOrbit.DataLayer
             return true;
         }
 
+        public VRJob GetVRJobByID(int jobId, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            return _database.GetCollection<VRJob>(collectionName).Find(id => id.JobId == jobId).FirstOrDefault();
+        }
+
         public Job GetJobByID(int jobId, string collectionName)
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);

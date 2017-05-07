@@ -9,11 +9,11 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("timesheetid")]
         public int TimesheetId { get; set; }
 
-        [BsonElement("Workdate")]
+        [BsonElement("workdate")]
         public DateTime? WorkDate { get; set; }
 
         [BsonElement("hours")]
-        public int Hours { get; set; }
+        public int? Hours { get; set; }
 
         [BsonElement("comments")]
         public string Comments { get; set; }
