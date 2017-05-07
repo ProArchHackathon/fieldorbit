@@ -14,7 +14,7 @@ namespace ProArch.FieldOrbit.Models
         public Device Device { get; set; }
 
         [BsonElement("contenttype")]
-        public ContentType ContentType { get; set; }
+        public string ContentType { get; set; }
 
         [BsonElement("contentpath")]
         public ContentPath Path { get; set; }

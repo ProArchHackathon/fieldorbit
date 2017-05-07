@@ -39,7 +39,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         [Route("api/Device/GetAllDevices")]
         public IEnumerable<Device> GetAllDevices()
         {
-            return Mapper.Map<IEnumerable<Device>>(_deviceService.GetAllDevices());
+            return Mapper.Map<IEnumerable<Device>>(this._deviceService.GetAllDevices());
         }
 
         /// <summary>
@@ -78,6 +78,18 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         public bool UpdateDeviceInfo(Content content, int deviceId)
         {
             return _deviceService.UpdateDeviceInfo(content, deviceId);
+        }
+
+        /// <summary>
+        /// get video path
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="videoType"></param>
+        /// <returns></returns>
+        [Route("api/Device/GetVideoPath")]
+        public string GetVideoPath(string deviceId, string videoType)
+        {
+            return _deviceService.GetVideoPath(deviceId, videoType);
         }
     }
 }

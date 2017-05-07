@@ -108,18 +108,42 @@ namespace ProArch.FieldOrbit.DataLayer
             collection.UpdateOne(filter, update);
             return true;
         }
+
+        public bool UpdateJobRequest(BsonDocument doc, string collectionName, bool isForComments)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            var collection = _database.GetCollection<Job>(collectionName);
+
+            Job job = BsonSerializer.Deserialize<Job>(doc);
+            var filter = Builders<Job>.Filter.Eq("jobid", job.JobId);
+            var update = Builders<Job>.Update.Set("status", job.Status).
+                                                         Set("priority", job.Priority).
+                                                         Set("starttime", job.StartTime).
+                                                         Set("endtime", job.EndTime.HasValue ? job.EndTime : null);
+            if (isForComments)
+            {
+                update.Set("comments", job.Comments).
+                    Set("observations", job.Observations);
+            }
+            collection.UpdateOne(filter, update);
+            return true;
+        }
+
+        public Job GetJobByID(int jobId, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            return _database.GetCollection<Job>(collectionName).Find(id => id.JobId == jobId).FirstOrDefault();
+        }
+
         public DeviceExpert GetExpert(string deviceId, string collectionName)
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-
-            var data = _database.GetCollection<DeviceExpert>(collectionName).AsQueryable().ToList();
-
-            //var filter = Builders<DeviceExpert>.Filter.Eq("servicerequestid", serviceRequest.ServiceRequestId);
-
-            //db.job.find({ "workrequest.servicerequest.customer.customerid":1001}).sort({ "jobid":1}).pretty()
-
-            return _database.GetCollection<DeviceExpert>(collectionName).Find(item => item.Devices.Find(d => d.DeviceId == deviceId) != null).SingleOrDefault();
+            var collection = _database.GetCollection<DeviceExpert>(collectionName);
+            var filter = Builders<DeviceExpert>.Filter.Eq("device.deviceid", deviceId);
+            return collection.Find(filter).SingleOrDefault();
         }
 
         public string GetVideoPath(string deviceId, string videoType, string collectionName)
@@ -128,20 +152,23 @@ namespace ProArch.FieldOrbit.DataLayer
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
             Content content = _database.GetCollection<Content>(collectionName).Find(item => item.Device.DeviceId == deviceId).SingleOrDefault();
             string path = string.Empty;
-            switch (videoType)
+            if (content != null)
             {
-                case "install":
-                    path = content.Path.InstallPath;
-                    break;
-                case "repairpath":
-                    path = content.Path.InstallPath;
-                    break;
-                case "configpath":
-                    path = content.Path.InstallPath;
-                    break;
-                default:
-                    path = content.Path.InstallPath;
-                    break;
+                switch (videoType)
+                {
+                    case "install":
+                        path = content.Path.InstallPath;
+                        break;
+                    case "repairpath":
+                        path = content.Path.InstallPath;
+                        break;
+                    case "configpath":
+                        path = content.Path.InstallPath;
+                        break;
+                    default:
+                        path = content.Path.InstallPath;
+                        break;
+                }
             }
             return path;
         }

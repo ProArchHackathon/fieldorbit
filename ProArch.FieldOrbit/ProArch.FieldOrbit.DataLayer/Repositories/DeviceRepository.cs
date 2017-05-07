@@ -62,6 +62,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
 
         /// <summary>
         /// get video path
+        /// 
         /// </summary>
         /// <param name="deviceId"></param>
         /// <param name="videoType"></param>

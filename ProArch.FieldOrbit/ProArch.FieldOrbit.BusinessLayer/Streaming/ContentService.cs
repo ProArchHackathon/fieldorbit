@@ -28,11 +28,11 @@ namespace ProArch.FieldOrbit.BusinessLayer.Streaming
         {
             CloudBlobContainer blobContainer = GetContainer();
 
-             blobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+            blobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
             var blob = blobContainer.GetBlockBlobReference(filename);
 
-            return blob.Uri.AbsolutePath;
+            return blob.Uri.AbsoluteUri;
         }
 
         public static async Task<bool> UploadFiles(HttpFileCollectionBase files)

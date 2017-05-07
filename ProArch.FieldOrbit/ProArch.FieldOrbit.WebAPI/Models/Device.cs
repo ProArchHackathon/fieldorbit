@@ -9,7 +9,7 @@ namespace ProArch.FieldOrbit.WebAPI.Models
     public class Device
     {
         public string DeviceId { get; set; }
-        public DeviceType DeviceType { get; set; }
+        public string DeviceType { get; set; }
         public int ModelNumber { get; set; }
         public decimal Cost { get; set; }
         public DateTime CreatedDate { get; set; }

@@ -11,7 +11,7 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("deviceid")]
         public string DeviceId { get; set; }
         [BsonElement("devicetype")]
-        public DeviceType DeviceType { get; set; }
+        public string DeviceType { get; set; }
         [BsonElement("modelno")]
         public int ModelNumber { get; set; }
         [BsonElement("cost")]
