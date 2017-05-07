@@ -1,10 +1,10 @@
-﻿using MongoDB.Bson;
+﻿using System.Collections.Generic;
+using System.Linq;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using ProArch.FieldOrbit.DataLayer.Common;
 using ProArch.FieldOrbit.Models;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ProArch.FieldOrbit.DataLayer
 {
@@ -101,7 +101,7 @@ namespace ProArch.FieldOrbit.DataLayer
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-            return _database.GetCollection<Device>(collectionName).AsQueryable().ToList();            
+            return _database.GetCollection<Device>(collectionName).AsQueryable().ToList();
         }
 
         public bool UpdateWorkRequest(BsonDocument doc, string collectionName)
@@ -128,16 +128,22 @@ namespace ProArch.FieldOrbit.DataLayer
 
             Job job = BsonSerializer.Deserialize<Job>(doc);
             var filter = Builders<Job>.Filter.Eq("jobid", job.JobId);
-            var update = Builders<Job>.Update.Set("status", job.Status).
-                                                         Set("priority", job.Priority).
-                                                         Set("starttime", job.StartTime).
-                                                         Set("endtime", job.EndTime.HasValue ? job.EndTime : null);
+
             if (isForComments)
             {
-                update.Set("comments", job.Comments).
-                    Set("observations", job.Observations);
+                var update = Builders<Job>.Update.Set("status", job.Status).
+                                                  Set("comments", job.Comments).
+                                                  Set("observations", job.Observations);
+                collection.UpdateOne(filter, update);
             }
-            collection.UpdateOne(filter, update);
+            else
+            {
+                var update = Builders<Job>.Update.Set("status", job.Status).
+                                                  Set("priority", job.Priority).
+                                                  Set("starttime", job.StartTime).
+                                                  Set("endtime", job.EndTime.HasValue ? job.EndTime : null);
+                collection.UpdateOne(filter, update);
+            }
             return true;
         }
 

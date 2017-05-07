@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using AutoMapper;
 using ProArch.FieldOrbit.Contracts.Interfaces;
 using ProArch.FieldOrbit.Models;
+using ProArch.FieldOrbit.Models.Common;
 using ProArch.FieldOrbit.WebApi.Filters;
+using ProArch.FieldOrbit.WebAPI.Filters;
 
 namespace ProArch.FieldOrbit.WebAPI.Controllers
 {
@@ -53,9 +51,17 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
-        public IEnumerable<Job> GetUserJob(int employeeId)
+        [FieldOrbitAuthorizeAttribute]
+        public IEnumerable<Job> GetUserJob()
         {
-            return _jobService.GetUserJob(employeeId);
+            object header = null;
+            EmployeeToken userInfo = null;
+            if (Request.Properties.TryGetValue("Token", out header))
+            {
+                userInfo = (EmployeeToken)header;
+            }
+            return _jobService.GetUserJob(userInfo.Id);
         }
+
     }
 }

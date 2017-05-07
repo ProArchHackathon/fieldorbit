@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using MongoDB.Bson;
+using ProArch.FieldOrbit.DataLayer.Extensions;
 
 namespace ProArch.FieldOrbit.DataLayer.Repositories
 {
@@ -43,10 +44,10 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                                     {"lastname", job.Employee.Name.LastName }
                                 }
                             },
-                            {"phone", job.Employee.Phone },
-                            {"email", job.Employee.Email },
+                            {"phone",job.Employee.Phone==null?string.Empty: job.Employee.Phone },
+                            {"email", job.Employee.Email ==null?string.Empty: job.Employee.Email },
                             {"active", job.Employee.Active },
-                            {"voicecalluserid", job.Employee.VoiceCallUserId }
+                            {"voicecalluserid",job.Employee.VoiceCallUserId==null?string.Empty: job.Employee.VoiceCallUserId }
                         };
             }
 
@@ -57,15 +58,15 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                     customer = new BsonDocument
                     {
                         {"customerid", job.WorkRequest.ServiceRequest.Customer.CustomerId },
-                        {"name", job.WorkRequest.ServiceRequest.Customer==null?new BsonDocument(): new BsonDocument
+                        {"name", (job.WorkRequest.ServiceRequest.Customer==null||job.WorkRequest.ServiceRequest.Customer.Name==null)?new BsonDocument(): new BsonDocument
                             {
                                 {"firstname", job.WorkRequest.ServiceRequest.Customer.Name.FirstName },
                                 {"middlename", job.WorkRequest.ServiceRequest.Customer.Name.MiddleName },
                                 {"lastname", job.WorkRequest.ServiceRequest.Customer.Name.LastName }
                             }
                         },
-                        {"email",job.WorkRequest.ServiceRequest.Customer.Email },
-                        {"phone",job.WorkRequest.ServiceRequest.Customer.Phone }
+                        {"email",job.WorkRequest.ServiceRequest.Customer.Email==null?string.Empty: job.WorkRequest.ServiceRequest.Customer.Email },
+                        {"phone",job.WorkRequest.ServiceRequest.Customer.Phone==null?string.Empty: job.WorkRequest.ServiceRequest.Customer.Phone }
                     };
                 }
 
@@ -73,8 +74,8 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 {
                     device = new BsonDocument
                     {
-                      { "deviceid", job.WorkRequest.ServiceRequest.Device.DeviceId },
-                      { "devicetype", job.WorkRequest.ServiceRequest.Device.DeviceType.ToString() },
+                      { "deviceid",job.WorkRequest.ServiceRequest.Device.DeviceId==null?string.Empty: job.WorkRequest.ServiceRequest.Device.DeviceId },
+                      { "devicetype",job.WorkRequest.ServiceRequest.Device.DeviceType==null?string.Empty: job.WorkRequest.ServiceRequest.Device.DeviceType },
                       { "serialno", job.WorkRequest.ServiceRequest.Device.ModelNumber }
                     };
                 }
@@ -82,7 +83,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 workRequestDocument = new BsonDocument
                 {
                     {"workorderid", job.WorkRequest.WorkRequestId },
-                    {"description", job.WorkRequest.Description},
+                    {"description", job.WorkRequest.Description.ValidateData() },
                     {"startdate", job.WorkRequest.StartDate},
                     {"enddate", job.WorkRequest.EndDate.Value},
                     { "status", job.Status.ToString() },
@@ -92,24 +93,22 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                             { "startdate", job.WorkRequest.ServiceRequest.StartDate },
                             { "servicetype", job.WorkRequest.ServiceRequest.ServiceType.ToString() },
                             { "requesttype", job.WorkRequest.ServiceRequest.RequestType.ToString() },
-                            { "customer", new BsonDocument { { "customerid", job.WorkRequest.ServiceRequest.Customer.CustomerId } }},
-                            { "device", new BsonDocument
+                            { "device",job.WorkRequest.ServiceRequest.Device==null? new BsonDocument(): new BsonDocument
                                 {
-                                    { "deviceid", job.WorkRequest.ServiceRequest.Device.DeviceId },
-                                    { "devicetype", job.WorkRequest.ServiceRequest.Device.DeviceType.ToString() },
+                                    { "deviceid", job.WorkRequest.ServiceRequest.Device.DeviceId.ValidateData() },
+                                    { "devicetype", job.WorkRequest.ServiceRequest.Device.DeviceType.ValidateData() },
                                     { "serialno", job.WorkRequest.ServiceRequest.Device.ModelNumber }
                                 }
                             },
-                            { "location", job.WorkRequest.ServiceRequest.Location },
+                            { "location", job.WorkRequest.ServiceRequest.Location.ValidateData() },
                             { "closedate", job.WorkRequest.ServiceRequest.EndDate.Value },
-                            { "closedby", new BsonDocument
+                            { "closedby",job.WorkRequest.ServiceRequest.ClosedBy==null?new BsonDocument(): new BsonDocument
                                 {
                                     {"employeeid", job.WorkRequest.ServiceRequest.ClosedBy.EmployeeId}
                                 }
                             },
                             { "status", job.WorkRequest.ServiceRequest.Status.ToString() },
                             {"customer", customer},
-                            {"device", device }
                         }
                     }
                 };
@@ -123,8 +122,8 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 { "jobdescription", job.JobDescription },
                 { "starttime", job.StartTime },
                 { "endtime", job.EndTime },
-                { "comments", job.Comments },
-                { "observations", job.Observations },
+                { "comments", job.Comments.ValidateData() },
+                { "observations", job.Observations.ValidateData() },
                 { "workrequest", workRequestDocument},
                 {"employee", employeeDocument }
             };
