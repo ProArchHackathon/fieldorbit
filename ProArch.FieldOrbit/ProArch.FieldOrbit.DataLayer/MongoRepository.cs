@@ -185,10 +185,10 @@ namespace ProArch.FieldOrbit.DataLayer
                         path = content.Path.InstallPath;
                         break;
                     case "repairpath":
-                        path = content.Path.InstallPath;
+                        path = content.Path.RepairPath;
                         break;
                     case "configpath":
-                        path = content.Path.InstallPath;
+                        path = content.Path.ConfigurationPath;
                         break;
                     default:
                         path = content.Path.InstallPath;
