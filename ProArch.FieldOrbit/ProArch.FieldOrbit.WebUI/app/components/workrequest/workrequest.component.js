@@ -13,12 +13,14 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/toPromise");
+var app_constants_1 = require("../../common/app.constants");
 var WorkRequestComponent = (function () {
-    function WorkRequestComponent(http) {
+    function WorkRequestComponent(http, _configuration) {
         this.http = http;
+        this._configuration = _configuration;
         this.ServiceRequestType = "Electric";
         this.status = "";
-        this.serviceTypes = [
+        this.sTypes = [
             { value: 'electric-0', viewValue: 'Electric' },
             { value: 'water-1', viewValue: 'Water' },
             { value: 'gas-2', viewValue: 'Gas' }
@@ -30,9 +32,11 @@ var WorkRequestComponent = (function () {
         ];
     }
     ;
+    WorkRequestComponent.prototype.ngOnInit = function () {
+    };
     WorkRequestComponent.prototype.onUpdate = function () {
         var data = {
-            WorkOrderId: this.WorkOrderId,
+            WorkRequestId: this.WorkRequestId,
             ServiceRequestId: this.ServiceRequestId,
             Description: this.Description,
             StartDate: this.StartDate,
@@ -42,9 +46,9 @@ var WorkRequestComponent = (function () {
         };
         this.result = {};
         console.log(data);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var opt = new http_1.RequestOptions({ headers: headers });
-        this.http.post('http://192.168.19.12/webapi/api/home/detailspost', JSON.stringify(data), opt)
+        this.http.post(this._configuration.ApiServer + this._configuration.AddWorkRequest, JSON.stringify(data), opt)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
@@ -71,16 +75,17 @@ var WorkRequestComponent = (function () {
         return Promise.reject(errMsg);
     };
     WorkRequestComponent.prototype.onLoad = function () {
-        this.WorkOrderId = "12345";
+        this.WorkRequestId = "12345";
     };
     return WorkRequestComponent;
 }());
 WorkRequestComponent = __decorate([
     core_1.Component({
         selector: 'work-request',
-        templateUrl: 'app/components/workrequest/workrequest.component.html'
+        templateUrl: 'app/components/workrequest/workrequest.component.html',
+        providers: [app_constants_1.Configuration]
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration])
 ], WorkRequestComponent);
 exports.WorkRequestComponent = WorkRequestComponent;
 //# sourceMappingURL=workrequest.component.js.map

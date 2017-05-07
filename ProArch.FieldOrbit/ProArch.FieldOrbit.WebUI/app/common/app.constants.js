@@ -15,6 +15,10 @@ var Configuration = (function () {
         this.UpdateServiceRequest = "api/ServiceRequest/Put";
         this.GetAllServiceRequests = "api/ServiceRequest/GetAllServiceRequest";
         this.GetServiceRequestById = "api/ServiceRequest/Get";
+        //Work Request
+        this.GetWorkRequestById = "api/WorkRequest/Get";
+        this.AddWorkRequest = "api/WorkRequest/Post";
+        this.UpdateWorkRequest = "api/WorkRequest/Put";
     }
     return Configuration;
 }());
