@@ -45,7 +45,7 @@ namespace ProArch.FieldOrbit.DataLayer
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-            return _database.GetCollection<WorkRequest>(collectionName).Find(id => id.WorkRequestId == workRequestId).SingleOrDefault();
+            return _database.GetCollection<WorkRequest>(collectionName).Find(id => id.WorkRequestId == workRequestId).FirstOrDefault();
         }
 
         public IEnumerable<ServiceRequest> GetAllServiceRequests(string collectionName)
@@ -59,7 +59,7 @@ namespace ProArch.FieldOrbit.DataLayer
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-            return _database.GetCollection<ServiceRequest>(collectionName).Find(id => id.ServiceRequestId == serviceRequestId).SingleOrDefault();
+            return _database.GetCollection<ServiceRequest>(collectionName).Find(id => id.ServiceRequestId == serviceRequestId).FirstOrDefault();
         }
 
         public bool UpdateServiceRequest(BsonDocument doc, string collectionName)
@@ -102,6 +102,43 @@ namespace ProArch.FieldOrbit.DataLayer
                                                          Set("status", workRequest.Status);
             collection.UpdateOne(filter, update);
             return true;
+        }
+
+        public bool UpdateJobRequest(BsonDocument doc, string collectionName,bool isForComments)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            var collection = _database.GetCollection<Job>(collectionName);
+
+            Job job = BsonSerializer.Deserialize<Job>(doc);
+            var filter = Builders<Job>.Filter.Eq("jobid", job.JobId);
+            var update = Builders<Job>.Update.Set("status", job.Status).
+                                                         Set("priority", job.Priority).
+                                                         Set("starttime", job.StartTime).
+                                                         Set("endtime", job.EndTime.HasValue ? job.EndTime :null);
+            if(isForComments)
+            {
+                update.Set("comments", job.Comments).
+                    Set("observations", job.Observations);
+            }
+            collection.UpdateOne(filter, update);
+            return true;
+        }
+
+
+
+        public Job GetJobByID(int jobId, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            return _database.GetCollection<Job>(collectionName).Find(id => id.JobId == jobId).FirstOrDefault();
+        }
+
+        public List<Job> GetJobByEmployee(int employeeId, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            return _database.GetCollection<Job>(collectionName).Find(id => id.Employee.EmployeeId == employeeId).ToList();
         }
     }
 }

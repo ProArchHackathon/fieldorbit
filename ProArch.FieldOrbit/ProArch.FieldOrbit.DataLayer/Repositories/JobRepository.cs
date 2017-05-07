@@ -2,7 +2,9 @@
 using ProArch.FieldOrbit.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.IO;
+using MongoDB.Bson;
 
 namespace ProArch.FieldOrbit.DataLayer.Repositories
 {
@@ -18,7 +20,114 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public bool CreateJob(Job job)
         {
-            throw new NotImplementedException();
+            return new MongoRepository().Create(CreateJobRequest(job), "job");
+        }
+
+        private BsonDocument CreateJobRequest(Job job)
+        {
+            var customer = new BsonDocument();
+            var device = new BsonDocument();
+            var workRequestDocument = new BsonDocument();
+            var employeeDocument = new BsonDocument();
+
+
+            if (job.Employee != null)
+            {
+                employeeDocument = new BsonDocument
+                        {
+                            {"employeeid", job.Employee.EmployeeId },
+                            {"name", job.Employee.Name == null ? new BsonDocument() : new BsonDocument
+                                {
+                                    {"firstname", job.Employee.Name.FirstName },
+                                    {"middlename", job.Employee.Name.MiddleName },
+                                    {"lastname", job.Employee.Name.LastName }
+                                }
+                            },
+                            {"phone", job.Employee.Phone },
+                            {"email", job.Employee.Email },
+                            {"active", job.Employee.Active },
+                            {"voicecalluserid", job.Employee.VoiceCallUserId }
+                        };
+            }
+
+            if (job.WorkRequest != null)
+            {
+                if (job.WorkRequest.ServiceRequest.Customer != null)
+                {
+                    customer = new BsonDocument
+                    {
+                        {"customerid", job.WorkRequest.ServiceRequest.Customer.CustomerId },
+                        {"name", job.WorkRequest.ServiceRequest.Customer==null?new BsonDocument(): new BsonDocument
+                            {
+                                {"firstname", job.WorkRequest.ServiceRequest.Customer.Name.FirstName },
+                                {"middlename", job.WorkRequest.ServiceRequest.Customer.Name.MiddleName },
+                                {"lastname", job.WorkRequest.ServiceRequest.Customer.Name.LastName }
+                            }
+                        },
+                        {"email",job.WorkRequest.ServiceRequest.Customer.Email },
+                        {"phone",job.WorkRequest.ServiceRequest.Customer.Phone }
+                    };
+                }
+
+                if (job.WorkRequest.ServiceRequest.Device != null)
+                {
+                    device = new BsonDocument
+                    {
+                      { "deviceid", job.WorkRequest.ServiceRequest.Device.DeviceId },
+                      { "devicetype", job.WorkRequest.ServiceRequest.Device.DeviceType.ToString() },
+                      { "serialno", job.WorkRequest.ServiceRequest.Device.ModelNumber }
+                    };
+                }
+
+                workRequestDocument = new BsonDocument
+                {
+                    {"workorderid", job.WorkRequest.WorkRequestId },
+                    {"description", job.WorkRequest.Description},
+                    {"startdate", job.WorkRequest.StartDate},
+                    {"enddate", job.WorkRequest.EndDate.Value},
+                    { "status", job.Status.ToString() },
+                    {"servicerequest", new BsonDocument
+                        {
+                            { "createddate", job.WorkRequest.ServiceRequest.CreatedDate },
+                            { "startdate", job.WorkRequest.ServiceRequest.StartDate },
+                            { "servicetype", job.WorkRequest.ServiceRequest.ServiceType.ToString() },
+                            { "requesttype", job.WorkRequest.ServiceRequest.RequestType.ToString() },
+                            { "customer", new BsonDocument { { "customerid", job.WorkRequest.ServiceRequest.Customer.CustomerId } }},
+                            { "device", new BsonDocument
+                                {
+                                    { "deviceid", job.WorkRequest.ServiceRequest.Device.DeviceId },
+                                    { "devicetype", job.WorkRequest.ServiceRequest.Device.DeviceType.ToString() },
+                                    { "serialno", job.WorkRequest.ServiceRequest.Device.ModelNumber }
+                                }
+                            },
+                            { "location", job.WorkRequest.ServiceRequest.Location },
+                            { "closedate", job.WorkRequest.ServiceRequest.EndDate.Value },
+                            { "closedby", new BsonDocument
+                                {
+                                    {"employeeid", job.WorkRequest.ServiceRequest.ClosedBy.EmployeeId}
+                                }
+                            },
+                            { "status", job.WorkRequest.ServiceRequest.Status.ToString() },
+                            {"customer", customer},
+                            {"device", device }
+                        }
+                    }
+                };
+            }
+
+            return new BsonDocument
+            {
+                { "jobid", new MongoRepository().GetCount("job")},
+                { "status", job.Status.ToString() },
+                { "priority", job.Priority.ToString() },
+                { "jobdescription", job.JobDescription },
+                { "starttime", job.StartTime },
+                { "endtime", job.EndTime },
+                { "comments", job.Comments },
+                { "observations", job.Observations },
+                { "workrequest", workRequestDocument},
+                {"employee", employeeDocument }
+            };
         }
 
         /// <summary>
@@ -28,17 +137,17 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public Job GetJobByID(int JobId)
         {
-            throw new NotImplementedException();
+            return new MongoRepository().GetJobByID(JobId, "job");
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="EmployeeID"></param>
+        /// <param name="employeeID"></param>
         /// <returns></returns>
-        public List<Job> GetUserJob(int EmployeeID)
+        public List<Job> GetUserJob(int employeeID)
         {
-            throw new NotImplementedException();
+            return new MongoRepository().GetJobByEmployee(employeeID, "job");
         }
 
         /// <summary>
@@ -48,7 +157,19 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public bool UpdateJob(Job job)
         {
-            throw new NotImplementedException();
+            var document = new BsonDocument
+            {
+                { "jobid", job.JobId},
+                { "status", job.Status.ToString() },
+                { "priority", job.Priority.ToString() },
+                { "jobdescription", job.JobDescription },
+                { "starttime", job.StartTime },
+                { "endtime", job.EndTime },
+                { "comments", job.Comments },
+                { "observations", job.Observations }
+            };
+            return new MongoRepository().UpdateJobRequest(document, "job", false);
+
         }
 
         /// <summary>
@@ -61,7 +182,15 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public bool UpdateJob(int JobID, string Status, string Comments, string Observations)
         {
-            throw new NotImplementedException();
+            var document = new BsonDocument
+            {
+                { "jobid", JobID},
+                { "status", Status.ToString() },
+                { "comments", Comments },
+                { "observations", Observations }
+            };
+            return new MongoRepository().UpdateJobRequest(document, "job", true);
+
         }
     }
 }

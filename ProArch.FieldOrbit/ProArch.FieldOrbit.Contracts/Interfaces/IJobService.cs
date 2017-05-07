@@ -49,6 +49,6 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// <param name="Comments"></param>
         /// <param name="Observations"></param>
         /// <returns></returns>
-        bool UpdateJob(int JobID, string Status, string Comments, string Observations);
+        bool UpdateJobWithComments(int JobID, string Status, string Comments, string Observations);
     }
 }
