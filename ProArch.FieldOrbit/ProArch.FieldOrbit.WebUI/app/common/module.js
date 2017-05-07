@@ -20,6 +20,7 @@ var app_component_1 = require("../common/app.component");
 var serviceRequest_component_1 = require("../components/serviceRequest/serviceRequest.component");
 var workrequest_component_1 = require("../components/workrequest/workrequest.component");
 var sidenav_1 = require("./material/sidenav");
+var srlist_component_1 = require("../components/servicelist/srlist.component");
 //import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -56,7 +57,7 @@ AppModule = __decorate([
             ], { useHash: true })
         ],
         declarations: [
-            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent,
+            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent, srlist_component_1.ServiceRequestListComponent,
             serviceRequest_component_1.ServiceRequestComponent, workrequest_component_1.WorkRequestComponent, sidenav_1.SidenavComponent
         ],
         exports: [

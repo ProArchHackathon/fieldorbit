@@ -25,7 +25,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpPost]
         [TraceLogActionFilter]
-        public bool Post(ServiceRequest serviceRequest)
+        public bool Post([FromBody]ServiceRequest serviceRequest)
         {
             return this.serviceRequest.CreateServiceRequest(Mapper.Map<ProArch.FieldOrbit.Models.ServiceRequest>(serviceRequest));
         }

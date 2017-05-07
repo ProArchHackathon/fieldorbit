@@ -13,6 +13,7 @@ import { AppComponent } from '../common/app.component';
 import { ServiceRequestComponent } from '../components/serviceRequest/serviceRequest.component';
 import { WorkRequestComponent } from '../components/workrequest/workrequest.component';
 import { SidenavComponent } from './material/sidenav';
+import { ServiceRequestListComponent } from '../components/servicelist/srlist.component';
 
 //import 'hammerjs';
 @NgModule({
@@ -44,7 +45,7 @@ import { SidenavComponent } from './material/sidenav';
         ], { useHash: true })
     ],
     declarations: [
-        AppComponent, JobComponent, LoginComponent,
+        AppComponent, JobComponent, LoginComponent, ServiceRequestListComponent,
         ServiceRequestComponent, WorkRequestComponent, SidenavComponent
 
     ],

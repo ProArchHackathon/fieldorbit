@@ -6,11 +6,16 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Configuration } from '../../common/app.constants';
 
+export class Customer {
+    constructor(
+        public CustomerId: number) {
 
+    }
+}
 @Component({
     selector: 'service-request',
     templateUrl: 'app/components/serviceRequest/serviceRequest.component.html',
-    providers:[Configuration]
+    providers: [Configuration]
 })
 
 export class ServiceRequestComponent {
@@ -22,16 +27,31 @@ export class ServiceRequestComponent {
     CreatedDate: Date;
     StartDate: Date;
     EndDate: Date;
-    CustomerId: string;
+    Customer: Customer;
     Status: any;
-    constructor(private http: Http, private _configuration: Configuration) {
+    Location: string;
 
+
+    serviceRequestList: any;
+    constructor(private http: Http, private _configuration: Configuration) {
+        this.Customer = {
+            CustomerId: 0
+        }
+        this.http.get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests, null)
+            .toPromise()
+            .then((response: Response) => {
+                this.serviceRequestList = response.json();
+            })
+            .catch((errors: any) => {
+
+            });
     };
+    
 
     serviceType = [
-        { value: '0', viewValue: 'Electricity ' },
-        { value: '1', viewValue: 'Gas' },
-        { value: '2', viewValue: 'Water' },
+        { value: 'Electricity', viewValue: 'Electricity ' },
+        { value: 'Gas', viewValue: 'Gas' },
+        { value: 'Water', viewValue: 'Water' },
     ];
 
     statusList = [
@@ -42,29 +62,41 @@ export class ServiceRequestComponent {
     ];
 
     requestType = [
-        { value: '0', viewValue: 'Connect' },
-        { value: '1', viewValue: 'Reconnect' },
-        { value: '2', viewValue: 'Disconnect' },
-        { value: '3', viewValue: 'Miscellaneous' }
+        { value: 'Connect', viewValue: 'Connect' },
+        { value: 'Reconnect', viewValue: 'Reconnect' },
+        { value: 'Disconnect', viewValue: 'Disconnect' },
+        { value: 'Miscellaneous', viewValue: 'Miscellaneous' }
     ];
 
     onUpdate(): void {
         var data =
-         {
-             SrNumber: this.SrNumber,
-             RequestedBy: this.RequestedBy,
-             ServiceType: this.ServiceType,
-             RequestType: this.RequestType,
-             CreatedDate: this.CreatedDate,
-             StartDate: this.StartDate,
-             EndDate: this.EndDate,
-             CustomerId: this.CustomerId,
-             Status: this.Status
-         };
+            {
+                SrNumber: this.SrNumber,
+                RequestedBy: this.RequestedBy,
+                ServiceType: this.ServiceType,
+                RequestType: this.RequestType,
+                CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                }).split(' ').join('-'),
+                StartDate: new Date(this.StartDate).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                }).split(' ').join('-'),
+                EndDate: (this.EndDate)? new Date(this.EndDate).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                }).split(' ').join('-'):null,
+                Customer: this.Customer,
+                Status: this.Status,
+                Location:this.Location
+            };
 
-        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
         let opt = new RequestOptions({ headers: headers });
-
         this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
             .toPromise()
             .then(this.extractData)
@@ -95,6 +127,6 @@ export class ServiceRequestComponent {
 
 
     onLoad() {
-        
+
     }
 }

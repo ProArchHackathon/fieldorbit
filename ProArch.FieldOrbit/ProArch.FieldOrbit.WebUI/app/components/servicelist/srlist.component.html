@@ -1,0 +1,20 @@
+﻿<md-card>
+    <table style="width:100%; border:1px solid black;cursor:pointer;">
+        <tr style="text-align:left">
+            <th>Customer Id</th>
+            <th>Service Type</th>
+            <th>Status</th>
+            <th>Created Date</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        <tr *ngFor="let sr of serviceRequestList" style="text-align:left">
+            <td>{{sr.Customer.CustomerId }} </td>
+            <td>{{sr.ServiceType}} </td>
+            <td>{{sr.Status}} </td>
+            <td>{{sr.CreatedDate}} </td>
+            <td>{{sr.StartDate}} </td>
+            <td>{{sr.EndDate}} </td>
+        </tr>
+    </table>
+</md-card>
