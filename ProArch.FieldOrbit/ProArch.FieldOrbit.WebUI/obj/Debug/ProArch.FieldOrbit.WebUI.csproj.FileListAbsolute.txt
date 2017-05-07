@@ -138,3 +138,4 @@ D:\HackathonCode\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebUI\bin\Syst
 D:\HackathonCode\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebUI\bin\System.Web.Mvc.xml
 D:\HackathonCode\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebUI\obj\Debug\ProArch.FieldOrbit.WebUI.dll
 D:\HackathonCode\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebUI\obj\Debug\ProArch.FieldOrbit.WebUI.pdb
+D:\HackathonCode\fieldorbit\ProArch.FieldOrbit\ProArch.FieldOrbit.WebUI\obj\Debug\ProArch.FieldOrbit.WebUI.csprojResolveAssemblyReference.cache

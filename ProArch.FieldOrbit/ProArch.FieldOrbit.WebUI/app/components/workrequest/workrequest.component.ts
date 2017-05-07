@@ -1,20 +1,22 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers, RequestOptions, ResponseOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
+import { Configuration } from '../../common/app.constants';
 
 
 
 @Component({
     selector: 'work-request',
-    templateUrl: 'app/components/workrequest/workrequest.component.html'
+    templateUrl: 'app/components/workrequest/workrequest.component.html',
+    providers: [Configuration]
 })
 
-export class WorkRequestComponent {
+export class WorkRequestComponent implements OnInit {
 
-    WorkOrderId: string;
+    WorkRequestId: string;
     ServiceRequestId: string;
     Description: string;
     StartDate: Date;
@@ -23,13 +25,17 @@ export class WorkRequestComponent {
     ServiceRequestType: string = "Electric";
     status: string = "";
     result: any;
-    constructor(private http: Http) {
+    constructor(private http: Http, private _configuration: Configuration) {
 
     };
+
+    ngOnInit() {
+
+    }
     onUpdate(): void {
         var data =
             {
-                WorkOrderId: this.WorkOrderId,
+                WorkRequestId: this.WorkRequestId,
                 ServiceRequestId: this.ServiceRequestId,
                 Description: this.Description,
                 StartDate: this.StartDate,
@@ -40,16 +46,15 @@ export class WorkRequestComponent {
         this.result = {};
         console.log(data);
 
-        let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
         let opt = new RequestOptions({ headers: headers });
 
-
-        this.http.post('http://192.168.19.12/webapi/api/home/detailspost', JSON.stringify(data), opt)
+        this.http.post(this._configuration.ApiServer + this._configuration.AddWorkRequest, JSON.stringify(data), opt)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
 
-       // alert(this.result);
+        // alert(this.result);
     };
     private extractData(res: Response) {
         let body = res.json();
@@ -73,12 +78,11 @@ export class WorkRequestComponent {
         return Promise.reject(errMsg);
 
     }
-
     selectedValue: string;
 
 
 
-    serviceTypes = [
+    sTypes = [
         { value: 'electric-0', viewValue: 'Electric' },
         { value: 'water-1', viewValue: 'Water' },
         { value: 'gas-2', viewValue: 'Gas' }
@@ -91,7 +95,7 @@ export class WorkRequestComponent {
     ];
 
     onLoad() {
-        this.WorkOrderId = "12345";
+        this.WorkRequestId = "12345";
     }
 
 }

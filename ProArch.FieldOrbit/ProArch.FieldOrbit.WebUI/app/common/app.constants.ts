@@ -15,4 +15,11 @@ export class Configuration {
 
     public GetServiceRequestById: string = "api/ServiceRequest/Get";
 
+    //Work Request
+    public GetWorkRequestById: string = "api/WorkRequest/Get";
+
+    public AddWorkRequest: string = "api/WorkRequest/Post";
+
+    public UpdateWorkRequest: string = "api/WorkRequest/Put";
+
 }
