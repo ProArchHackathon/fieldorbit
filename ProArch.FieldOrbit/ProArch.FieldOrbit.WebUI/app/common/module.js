@@ -15,8 +15,8 @@ var http_1 = require("@angular/http");
 var job_component_1 = require("../components/job/job.component");
 var login_component_1 = require("../common/login/login.component");
 var app_component_1 = require("../common/app.component");
-var fileupload_component_1 = require("../components/fileupload/fileupload.component");
-var fileuploaddetails_component_1 = require("../components/fileupload/fileuploaddetails.component");
+//import { FileUploadComponent } from '../components/fileupload/fileupload.component';
+//import { FileUploadDetailsComponent } from '../components/fileupload/fileuploaddetails.component';
 var serviceRequest_component_1 = require("../components/serviceRequest/serviceRequest.component");
 var workrequest_component_1 = require("../components/workrequest/workrequest.component");
 var sidenav_1 = require("./material/sidenav");
@@ -35,9 +35,6 @@ AppModule = __decorate([
                 {
                     path: 'login',
                     component: login_component_1.LoginComponent
-                }, {
-                    path: 'fileupload',
-                    component: fileupload_component_1.FileUploadComponent
                 },
                 {
                     path: 'job',
@@ -59,8 +56,8 @@ AppModule = __decorate([
             ], { useHash: true })
         ],
         declarations: [
-            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent, fileupload_component_1.FileUploadComponent,
-            fileuploaddetails_component_1.FileUploadDetailsComponent, serviceRequest_component_1.ServiceRequestComponent, workrequest_component_1.WorkRequestComponent, sidenav_1.SidenavComponent
+            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent,
+            serviceRequest_component_1.ServiceRequestComponent, workrequest_component_1.WorkRequestComponent, sidenav_1.SidenavComponent
         ],
         exports: [
             material_1.MaterialModule

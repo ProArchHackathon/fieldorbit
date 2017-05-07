@@ -14,43 +14,48 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/toPromise");
+var app_constants_1 = require("../../common/app.constants");
 var ServiceRequestComponent = (function () {
-    function ServiceRequestComponent(http) {
+    function ServiceRequestComponent(http, _configuration) {
         this.http = http;
+        this._configuration = _configuration;
         this.serviceType = [
-            { value: 'Connect-0', viewValue: 'Connect' },
-            { value: 'Reconnect-1', viewValue: 'Reconnect' },
-            { value: 'Disconnect-2', viewValue: 'Disconnect' },
-            { value: 'Miscellaneous-3', viewValue: 'Miscellaneous' }
+            { value: '0', viewValue: 'Electricity ' },
+            { value: '1', viewValue: 'Gas' },
+            { value: '2', viewValue: 'Water' },
+        ];
+        this.statusList = [
+            { value: 'Open', viewValue: 'Open' },
+            { value: 'InProgress', viewValue: 'InProgress' },
+            { value: 'Closed', viewValue: 'Closed' },
+            { value: 'Hold', viewValue: 'Hold' }
         ];
         this.requestType = [
-            { value: 'Connect-0', viewValue: 'Connect' },
-            { value: 'Reconnect-1', viewValue: 'Reconnect' },
-            { value: 'Disconnect-2', viewValue: 'Disconnect' },
-            { value: 'Miscellaneous-3', viewValue: 'Miscellaneous' }
+            { value: '0', viewValue: 'Connect' },
+            { value: '1', viewValue: 'Reconnect' },
+            { value: '2', viewValue: 'Disconnect' },
+            { value: '3', viewValue: 'Miscellaneous' }
         ];
     }
     ;
     ServiceRequestComponent.prototype.onUpdate = function () {
-        alert(this.RequestedBy + this.CreateDate + this.CostomerId + this.CompletedDate + this.Fee);
         var data = {
             SrNumber: this.SrNumber,
             RequestedBy: this.RequestedBy,
             ServiceType: this.ServiceType,
             RequestType: this.RequestType,
-            CreateDate: this.CreateDate,
-            CompletedDate: this.CompletedDate,
-            CostomerId: this.CostomerId,
-            Fee: this.Fee
+            CreatedDate: this.CreatedDate,
+            StartDate: this.StartDate,
+            EndDate: this.EndDate,
+            CustomerId: this.CustomerId,
+            Status: this.Status
         };
-        this.result = {};
         var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
         var opt = new http_1.RequestOptions({ headers: headers });
-        this.http.post('http://192.168.19.12/webapi/api/home/detailspost', JSON.stringify(data), opt)
+        this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
-        alert(this.result);
     };
     ;
     ServiceRequestComponent.prototype.extractData = function (res) {
@@ -73,16 +78,16 @@ var ServiceRequestComponent = (function () {
         return Promise.reject(errMsg);
     };
     ServiceRequestComponent.prototype.onLoad = function () {
-        this.SrNumber = "12345";
     };
     return ServiceRequestComponent;
 }());
 ServiceRequestComponent = __decorate([
     core_1.Component({
         selector: 'service-request',
-        templateUrl: 'app/components/serviceRequest/serviceRequest.component.html'
+        templateUrl: 'app/components/serviceRequest/serviceRequest.component.html',
+        providers: [app_constants_1.Configuration]
     }),
-    __metadata("design:paramtypes", [http_1.Http])
+    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration])
 ], ServiceRequestComponent);
 exports.ServiceRequestComponent = ServiceRequestComponent;
 //# sourceMappingURL=serviceRequest.component.js.map

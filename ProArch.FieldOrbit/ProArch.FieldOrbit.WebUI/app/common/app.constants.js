@@ -8,10 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var Configuration = (function () {
     function Configuration() {
-        this.ApiServer = "http://localhost/fieldorbitApi/";
-        this.GetAllDevicesApiUrl = "api/Home";
-        this.FileUploadApiUrl = "api/Home/detailspost";
+        this.ApiServer = "http://192.168.21.161/dev-fieldorbit-api/";
         this.LoginApiUrl = "api/LoginOperations/Validate";
+        //Service Request Info Api Calls
+        this.AddServiceRequest = "api/ServiceRequest/Post";
+        this.UpdateServiceRequest = "api/ServiceRequest/Put";
+        this.GetAllServiceRequests = "api/Device/GetAllServiceRequest";
+        this.GetServiceRequestById = "api/ServiceRequest/Get";
     }
     return Configuration;
 }());

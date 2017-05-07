@@ -2,12 +2,17 @@
 
 @Injectable()
 export class Configuration {
-    public ApiServer: string = "http://localhost/fieldorbitApi/";  
+    public ApiServer: string = "http://192.168.21.161/dev-fieldorbit-api/";
 
-    public GetAllDevicesApiUrl: string = "api/Home";
+    public LoginApiUrl: string = "api/LoginOperations/Validate"
 
-    public FileUploadApiUrl: string = "api/Home/detailspost";
+    //Service Request Info Api Calls
+    public AddServiceRequest: string = "api/ServiceRequest/Post";
 
-    public LoginApiUrl:string ="api/LoginOperations/Validate"
+    public UpdateServiceRequest: string = "api/ServiceRequest/Put";
+
+    public GetAllServiceRequests: string = "api/Device/GetAllServiceRequest";
+
+    public GetServiceRequestById: string = "api/ServiceRequest/Get";
 
 }

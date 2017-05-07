@@ -4,13 +4,13 @@ import { Http, Response, Headers, RequestOptions, ResponseOptions } from '@angul
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-
+import { Configuration } from '../../common/app.constants';
 
 
 @Component({
     selector: 'service-request',
-    templateUrl: 'app/components/serviceRequest/serviceRequest.component.html'
-    //styleUrls: ['./input-form-example.css'],
+    templateUrl: 'app/components/serviceRequest/serviceRequest.component.html',
+    providers:[Configuration]
 })
 
 export class ServiceRequestComponent {
@@ -19,56 +19,56 @@ export class ServiceRequestComponent {
     RequestedBy: string;
     ServiceType: string;
     RequestType: string;
-    CreateDate: Date;
-    CompletedDate: Date;
-    CostomerId: string;
-    Fee: string;
-
-    result: any;
-    Person: any;
-    constructor(private http: Http) {
+    CreatedDate: Date;
+    StartDate: Date;
+    EndDate: Date;
+    CustomerId: string;
+    Status: any;
+    constructor(private http: Http, private _configuration: Configuration) {
 
     };
 
     serviceType = [
-        { value: 'Connect-0', viewValue: 'Connect' },
-        { value: 'Reconnect-1', viewValue: 'Reconnect' },
-        { value: 'Disconnect-2', viewValue: 'Disconnect' },
-        { value: 'Miscellaneous-3', viewValue: 'Miscellaneous' }
+        { value: '0', viewValue: 'Electricity ' },
+        { value: '1', viewValue: 'Gas' },
+        { value: '2', viewValue: 'Water' },
+    ];
+
+    statusList = [
+        { value: 'Open', viewValue: 'Open' },
+        { value: 'InProgress', viewValue: 'InProgress' },
+        { value: 'Closed', viewValue: 'Closed' },
+        { value: 'Hold', viewValue: 'Hold' }
     ];
 
     requestType = [
-        { value: 'Connect-0', viewValue: 'Connect' },
-        { value: 'Reconnect-1', viewValue: 'Reconnect' },
-        { value: 'Disconnect-2', viewValue: 'Disconnect' },
-        { value: 'Miscellaneous-3', viewValue: 'Miscellaneous' }
+        { value: '0', viewValue: 'Connect' },
+        { value: '1', viewValue: 'Reconnect' },
+        { value: '2', viewValue: 'Disconnect' },
+        { value: '3', viewValue: 'Miscellaneous' }
     ];
 
     onUpdate(): void {
-        alert(this.RequestedBy + this.CreateDate + this.CostomerId + this.CompletedDate + this.Fee);
-
         var data =
-            {
-                SrNumber: this.SrNumber,
-                RequestedBy: this.RequestedBy,
-                ServiceType: this.ServiceType,
-                RequestType: this.RequestType,
-                CreateDate: this.CreateDate,
-                CompletedDate: this.CompletedDate,
-                CostomerId: this.CostomerId,
-                Fee: this.Fee
+         {
+             SrNumber: this.SrNumber,
+             RequestedBy: this.RequestedBy,
+             ServiceType: this.ServiceType,
+             RequestType: this.RequestType,
+             CreatedDate: this.CreatedDate,
+             StartDate: this.StartDate,
+             EndDate: this.EndDate,
+             CustomerId: this.CustomerId,
+             Status: this.Status
+         };
 
-            };
-        this.result = {};
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
         let opt = new RequestOptions({ headers: headers });
 
-        this.http.post('http://192.168.19.12/webapi/api/home/detailspost', JSON.stringify(data), opt)
+        this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
             .toPromise()
             .then(this.extractData)
             .catch(this.handleError);
-
-        alert(this.result);
     };
 
     private extractData(res: Response) {
@@ -95,6 +95,6 @@ export class ServiceRequestComponent {
 
 
     onLoad() {
-        this.SrNumber = "12345";
+        
     }
 }

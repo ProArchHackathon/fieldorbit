@@ -10,8 +10,7 @@ var AppComponent = (function () {
     function AppComponent() {
         this.navLinks = [{ route: 'servicerequest', label: 'Service Request' },
             { route: 'workrequest', label: 'Work Request' },
-            { route: 'job', label: 'Job' },
-            { route: 'fileupload', label: 'File Upload' }];
+            { route: 'job', label: 'Job' }];
     }
     return AppComponent;
 }());

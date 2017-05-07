@@ -8,11 +8,12 @@ import { HttpModule } from '@angular/http';
 import { JobComponent } from '../components/job/job.component';
 import { LoginComponent } from '../common/login/login.component';
 import { AppComponent } from '../common/app.component';
-import { FileUploadComponent } from '../components/fileupload/fileupload.component';
-import { FileUploadDetailsComponent } from '../components/fileupload/fileuploaddetails.component';
+//import { FileUploadComponent } from '../components/fileupload/fileupload.component';
+//import { FileUploadDetailsComponent } from '../components/fileupload/fileuploaddetails.component';
 import { ServiceRequestComponent } from '../components/serviceRequest/serviceRequest.component';
 import { WorkRequestComponent } from '../components/workrequest/workrequest.component';
 import { SidenavComponent } from './material/sidenav';
+
 //import 'hammerjs';
 @NgModule({
     imports: [
@@ -22,9 +23,6 @@ import { SidenavComponent } from './material/sidenav';
             {
                 path: 'login',
                 component: LoginComponent
-            }, {
-                path: 'fileupload',
-                component: FileUploadComponent
             },
             {
                 path: 'job',
@@ -46,8 +44,8 @@ import { SidenavComponent } from './material/sidenav';
         ], { useHash: true })
     ],
     declarations: [
-        AppComponent, JobComponent, LoginComponent, FileUploadComponent,
-        FileUploadDetailsComponent, ServiceRequestComponent, WorkRequestComponent, SidenavComponent
+        AppComponent, JobComponent, LoginComponent,
+        ServiceRequestComponent, WorkRequestComponent, SidenavComponent
 
     ],
     exports: [

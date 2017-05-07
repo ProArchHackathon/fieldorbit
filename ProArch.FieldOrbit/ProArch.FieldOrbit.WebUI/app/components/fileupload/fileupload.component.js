@@ -1,40 +1,31 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var core_1 = require("@angular/core");
-var DataService_1 = require("./DataService");
-var app_constants_1 = require("../../common/app.constants");
-//import { NoteItem } from "./noteModel";
-//import { Product } from "./Product";
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/catch");
-var FileUploadComponent = (function () {
-    function FileUploadComponent(_dataService) {
-        this._dataService = _dataService;
-        this.model = {};
-    }
-    FileUploadComponent.prototype.onSubmit = function () {
-        this._dataService
-            .fileUpload(this.model);
-    };
-    return FileUploadComponent;
-}());
-FileUploadComponent = __decorate([
-    core_1.Component({
-        selector: 'file-upload',
-        moduleId: module.id,
-        // templateUrl: 'app/components/fileupload/fileupload.component.html',
-        templateUrl: 'fileupload.component.html',
-        providers: [DataService_1.DataService, app_constants_1.Configuration]
-    }),
-    __metadata("design:paramtypes", [DataService_1.DataService])
-], FileUploadComponent);
-exports.FileUploadComponent = FileUploadComponent;
+//import { Component, OnInit } from '@angular/core';
+//import { DataService } from './DataService';
+//import { Configuration } from '../../common/app.constants';
+//import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/catch';
+//import { Product } from "./ProductDetails";
+//@Component({
+//    selector: 'file-upload',
+//    moduleId: module.id,
+//    // templateUrl: 'app/components/fileupload/fileupload.component.html',
+//    templateUrl: 'fileupload.component.html',
+//    providers: [DataService, Configuration]
+//})
+//export class FileUploadComponent {
+//    constructor(private _dataService: DataService) {
+//    }
+//    public ModelType = [
+//        { value: '2D', display: '2D' },
+//        { value: '3D', display: '3D' }
+//    ];
+//    public Recommend = [
+//        { value: 'Yes', display: 'Yes' },
+//        { value: 'No', display: 'NO' }
+//    ];
+//    model = new Product(0, '', '', '');
+//    onSubmit() {
+//        this._dataService
+//            .fileUpload(this.model);
+//    }
+//}
 //# sourceMappingURL=fileupload.component.js.map

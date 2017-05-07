@@ -147,6 +147,7 @@
     <TypeScriptCompile Include="app\components\fileupload\DataService.ts" />
     <TypeScriptCompile Include="app\components\fileupload\fileupload.component.ts" />
     <TypeScriptCompile Include="app\components\fileupload\fileuploaddetails.component.ts" />
+    <TypeScriptCompile Include="app\components\fileupload\ProductDetails.ts" />
     <TypeScriptCompile Include="app\components\job\job.component.ts" />
     <TypeScriptCompile Include="app\components\serviceRequest\serviceRequest.component.ts" />
     <TypeScriptCompile Include="app\components\workrequest\workrequest.component.ts" />

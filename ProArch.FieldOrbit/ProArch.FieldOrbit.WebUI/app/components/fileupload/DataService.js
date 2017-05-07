@@ -1,43 +1,28 @@
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/add/operator/map");
-//import { NoteItem } from "./noteModel";
-var app_constants_1 = require("../../common/app.constants");
-require("rxjs/add/operator/toPromise");
-var DataService = (function () {
-    function DataService(_http, _configuration) {
-        var _this = this;
-        this._http = _http;
-        this._configuration = _configuration;
-        this.getAllDeviceDetails = function () {
-            return _this._http.get(_this._configuration.ApiServer + _this._configuration.GetAllDevicesApiUrl)
-                .map(function (data) { return data.json(); });
-        };
-    }
-    DataService.prototype.fileUpload = function (model) {
-        var headers = new http_1.Headers({
-            'Content-Type': 'application/json; charset=utf-8'
-        });
-        var options = new http_1.RequestOptions({ headers: headers });
-        //delete model["id"];
-        var body = JSON.stringify(model);
-        return this._http.post(this._configuration.ApiServer + this._configuration.FileUploadApiUrl, body, options).toPromise().catch();
-    };
-    return DataService;
-}());
-DataService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration])
-], DataService);
-exports.DataService = DataService;
+//import { Injectable } from "@angular/core";
+//import { Http, RequestOptions, Headers, Response } from "@angular/http";
+//import "rxjs/add/operator/map";
+//import { Observable, Subject } from "rxjs/Rx";
+////import { NoteItem } from "./noteModel";
+//import { Configuration } from "../../common/app.constants";
+//import 'rxjs/add/operator/toPromise';
+//@Injectable()
+//export class DataService {
+//    constructor(private _http: Http, private _configuration: Configuration) {
+//    }
+//    public getAllDeviceDetails = () => {
+//        return this._http.get(this._configuration.ApiServer + this._configuration.GetAllDevicesApiUrl)
+//            .map(data => data.json());
+//    };
+//    public fileUpload(model) {
+//        let headers = new Headers({
+//            'Content-Type':
+//            'application/json; charset=utf-8'
+//        });
+//        let options = new RequestOptions({ headers: headers });
+//        //delete model["id"];
+//        let body = JSON.stringify(model);
+//        return this._http.post(this._configuration.ApiServer + this._configuration.FileUploadApiUrl, body,
+//            options).toPromise().catch();
+//    }
+//} 
 //# sourceMappingURL=DataService.js.map
