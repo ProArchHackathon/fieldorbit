@@ -109,7 +109,11 @@ namespace ProArch.FieldOrbit.DataLayer
             return true;
         }
 
+<<<<<<< HEAD
         public bool UpdateJobRequest(BsonDocument doc, string collectionName, bool isForComments)
+=======
+        public bool UpdateJobRequest(BsonDocument doc, string collectionName,bool isForComments)
+>>>>>>> c6171852adefaaa5b93286ba41270346e663285d
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
@@ -120,8 +124,13 @@ namespace ProArch.FieldOrbit.DataLayer
             var update = Builders<Job>.Update.Set("status", job.Status).
                                                          Set("priority", job.Priority).
                                                          Set("starttime", job.StartTime).
+<<<<<<< HEAD
                                                          Set("endtime", job.EndTime.HasValue ? job.EndTime : null);
             if (isForComments)
+=======
+                                                         Set("endtime", job.EndTime.HasValue ? job.EndTime :null);
+            if(isForComments)
+>>>>>>> c6171852adefaaa5b93286ba41270346e663285d
             {
                 update.Set("comments", job.Comments).
                     Set("observations", job.Observations);
@@ -130,6 +139,11 @@ namespace ProArch.FieldOrbit.DataLayer
             return true;
         }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> c6171852adefaaa5b93286ba41270346e663285d
         public Job GetJobByID(int jobId, string collectionName)
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
@@ -137,6 +151,7 @@ namespace ProArch.FieldOrbit.DataLayer
             return _database.GetCollection<Job>(collectionName).Find(id => id.JobId == jobId).FirstOrDefault();
         }
 
+<<<<<<< HEAD
         public DeviceExpert GetExpert(string deviceId, string collectionName)
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
@@ -171,6 +186,13 @@ namespace ProArch.FieldOrbit.DataLayer
                 }
             }
             return path;
+=======
+        public List<Job> GetJobByEmployee(int employeeId, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            return _database.GetCollection<Job>(collectionName).Find(id => id.Employee.EmployeeId == employeeId).ToList();
+>>>>>>> c6171852adefaaa5b93286ba41270346e663285d
         }
     }
 }
