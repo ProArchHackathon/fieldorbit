@@ -51,5 +51,6 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// <param name="Observations"></param>
         /// <returns></returns>
         bool UpdateJob(int JobID, string Status, string Comments, string Observations);
+        VRJob GetVRJobByID(int jobId);
     }
 }

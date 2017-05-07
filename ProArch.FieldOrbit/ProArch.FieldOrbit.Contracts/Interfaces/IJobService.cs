@@ -34,6 +34,7 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// <returns></returns>
         Job GetJobByID(int JobId);
 
+        VRJob GetVRJobByID(int JobId);
         /// <summary>
         /// Get jobs by emplyeeid
         /// </summary>
@@ -50,6 +51,6 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// <param name="Observations"></param>
         /// <returns></returns>
         bool UpdateJobWithComments(int JobID, string Status, string Comments, string Observations);
-        bool EnterTimeSheet(Job job, Timesheet timeSheet);
+        bool EnterTimeSheet(Job job, Timesheet timeSheet);        
     }
 }

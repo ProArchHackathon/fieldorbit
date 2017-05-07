@@ -51,6 +51,14 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
+        [Route("api/Job/GetVRJob")]
+        public VRJob GetVRUserJob(int jobId)
+        {
+            return Mapper.Map<VRJob>(_jobService.GetVRJobByID(jobId));
+        }
+
+        [HttpGet]
+        [TraceLogActionFilter]
         [FieldOrbitAuthorizeAttribute]
         public IEnumerable<Job> GetUserJob()
         {
