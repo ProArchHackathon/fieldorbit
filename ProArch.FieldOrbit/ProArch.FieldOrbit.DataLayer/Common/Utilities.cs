@@ -33,18 +33,18 @@ namespace ProArch.FieldOrbit.DataLayer.Common
                 return new List<User>()
                 {
                     //CSR
-                    new User() { UserId=1, EmployeeId=1001, UserName="eva", Password="csr123", Type=Models.Enums.EmployeeType.CSR},
-                    new User() { UserId=2, EmployeeId=1010, UserName="nelson", Password="csr123", Type=Models.Enums.EmployeeType.CSR},
-                    new User() { UserId=3, EmployeeId=1045, UserName="lindad", Password="csr123", Type=Models.Enums.EmployeeType.CSR},
-                    new User() { UserId=4, EmployeeId=1040, UserName="keith", Password="csr123", Type=Models.Enums.EmployeeType.CSR},
-                    new User() { UserId=5, EmployeeId=1005, UserName="john", Password="csr123", Type=Models.Enums.EmployeeType.CSR},
+                    new User() { UserId=1, EmployeeId=1003, UserName="michael", Password="csr123", Type="CSR"},
+                    new User() { UserId=2, EmployeeId=1020, UserName="jessi", Password="csr123", Type="CSR"},
+                    new User() { UserId=3, EmployeeId=1033, UserName="larry", Password="csr123", Type="CSR"},
+                    new User() { UserId=4, EmployeeId=1041, UserName="smith", Password="csr123", Type="CSR"},
+                    new User() { UserId=5, EmployeeId=1046, UserName="steven", Password="csr123", Type="CSR"},
                                  
-                    //WorkMan    
-                    new User() { UserId=6, EmployeeId=1002, UserName="leonard", Password="wm123", Type=Models.Enums.EmployeeType.WorkMen},
-                    new User() { UserId=7, EmployeeId=1003, UserName="michael", Password="wm123", Type=Models.Enums.EmployeeType.WorkMen},
-                    new User() { UserId=8, EmployeeId=1004, UserName="michel", Password="wm123", Type=Models.Enums.EmployeeType.WorkMen},
-                    new User() { UserId=9, EmployeeId=1008, UserName="shirley", Password="wm123", Type=Models.Enums.EmployeeType.WorkMen},
-                    new User() { UserId=10, EmployeeId=1009, UserName="kenneth", Password="wm123", Type=Models.Enums.EmployeeType.WorkMen},
+                    //WorkMen    
+                    new User() { UserId=6, EmployeeId=1002, UserName="leonard", Password="wm123", Type="WorkMen"},
+                    new User() { UserId=7, EmployeeId=1026, UserName="louise", Password="wm123", Type="WorkMen"},
+                    new User() { UserId=8, EmployeeId=1027, UserName="jaryl", Password="wm123", Type="WorkMen"},
+                    new User() { UserId=9, EmployeeId=1028, UserName="joshua", Password="wm123", Type="WorkMen"},
+                    new User() { UserId=10, EmployeeId=1036, UserName="rebecca", Password="wm123", Type="WorkMen"},
                 };
             }
         }

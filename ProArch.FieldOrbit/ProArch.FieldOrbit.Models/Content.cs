@@ -1,5 +1,4 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
-using ProArch.FieldOrbit.Models.Enums;
 using System;
 
 namespace ProArch.FieldOrbit.Models

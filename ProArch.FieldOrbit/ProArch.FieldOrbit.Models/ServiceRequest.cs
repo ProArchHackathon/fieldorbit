@@ -1,7 +1,7 @@
-﻿using ProArch.FieldOrbit.Models.Enums;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 namespace ProArch.FieldOrbit.Models
 {
@@ -15,9 +15,9 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("startdate")]
         public DateTime StartDate { get; set; }
         [BsonElement("servicetype")]
-        public ServiceType ServiceType { get; set; }
+        public string ServiceType { get; set; }
         [BsonElement("requesttype")]
-        public RequestType RequestType { get; set; }
+        public string RequestType { get; set; }
 
         [BsonElement("customer")]
         public Customer Customer { get; set; }
@@ -32,6 +32,6 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("closedby")]
         public Employee ClosedBy { get; set; }
         [BsonElement("status")]
-        public ServiceRequestStatus Status { get; set; }        
+        public string Status { get; set; }
     }
 }

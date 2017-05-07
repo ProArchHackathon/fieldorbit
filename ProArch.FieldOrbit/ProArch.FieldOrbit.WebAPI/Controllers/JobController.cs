@@ -16,48 +16,46 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
     [ExceptionHandlerFilterAttribute]
     public class JobController : ApiController
     {
-        private IJobService jobRequest;
+        private IJobService _jobService;
 
         public JobController(IJobService jobRequest)
         {
-            this.jobRequest = jobRequest;
+            _jobService = jobRequest;
         }
 
         [HttpPost]
         [TraceLogActionFilter]
-        public bool Post(Job jobRequest)
+        public bool Post(Job job)
         {
-            return this.jobRequest.CreateJob(Mapper.Map<ProArch.FieldOrbit.Models.Job>(jobRequest));
+            return _jobService.CreateJob(Mapper.Map<ProArch.FieldOrbit.Models.Job>(job));
         }
 
         [HttpPut]
         [TraceLogActionFilter]
         public bool Update(Job jobRequest)
         {
-            return this.jobRequest.UpdateJob(Mapper.Map<ProArch.FieldOrbit.Models.Job>(jobRequest));
+            return _jobService.UpdateJob(Mapper.Map<ProArch.FieldOrbit.Models.Job>(jobRequest));
         }
 
         [HttpPut]
         [TraceLogActionFilter]
         public bool Update(int JobID, string Status, string Comments, string Observations)
         {
-            return this.jobRequest.UpdateJobWithComments(JobID, Status, Comments, Observations);
+            return _jobService.UpdateJobWithComments(JobID, Status, Comments, Observations);
         }
 
         [HttpGet]
         [TraceLogActionFilter]
         public Job GetJobByID(int jobId)
         {
-            return Mapper.Map<Job>(this.jobRequest.GetJobByID(jobId));
+            return Mapper.Map<Job>(_jobService.GetJobByID(jobId));
         }
 
-        //[HttpGet]
-        //[TraceLogActionFilter]
-        //public IEnumerable<Job> GetUserJob()
-        //{
-        //    var claimsIdentity = HttpContext.Current.User.Identity as ClaimsIdentity;
-        //    return this.jobRequest.GetUserJob(claimsIdentity.Claims.First(x=>));
-        //}
-
+        [HttpGet]
+        [TraceLogActionFilter]
+        public IEnumerable<Job> GetUserJob(int employeeId)
+        {
+            return _jobService.GetUserJob(employeeId);
+        }
     }
 }

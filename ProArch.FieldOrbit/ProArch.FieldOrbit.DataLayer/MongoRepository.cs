@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
-using MongoDB.Driver.Linq;
 using ProArch.FieldOrbit.DataLayer.Common;
 using ProArch.FieldOrbit.Models;
-using ProArch.FieldOrbit.Models.Enums;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProArch.FieldOrbit.DataLayer
 {

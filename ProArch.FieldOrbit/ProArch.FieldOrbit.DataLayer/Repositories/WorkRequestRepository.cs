@@ -17,7 +17,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public bool CreateWorkRequest(WorkRequest workRequest)
         {
-            return new MongoRepository().Create(GetWorkRequestDocument(workRequest), "workorder");
+            return new MongoRepository().Create(GetWorkRequestDocument(workRequest), "workrequest");
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <returns></returns>
         public WorkRequest GetWorkRequestByID(int WRNumber)
         {
-            return new MongoRepository().GetWorkRequestById(WRNumber, "workorder");
+            return new MongoRepository().GetWorkRequestById(WRNumber, "workrequest");
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         {
             var document = new BsonDocument
             {
-                {"workorderid", workRequest.WorkRequestId },
+                {"workrequestid", workRequest.WorkRequestId },
                 {"description", workRequest.Description},
                 {"startdate", workRequest.StartDate},
                 {"enddate", workRequest.EndDate.Value},
@@ -70,14 +70,14 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 { "status", workRequest.Status }
             };
 
-            return new MongoRepository().UpdateWorkRequest(document, "workorder");
+            return new MongoRepository().UpdateWorkRequest(document, "workrequest");
         }
 
         internal BsonDocument GetWorkRequestDocument(WorkRequest workRequest)
         {
             return new BsonDocument
             {
-                {"workorderid", new MongoRepository().GetCount("workorder") },
+                {"workrequestid", new MongoRepository().GetCount("workrequest") },
                 {"description", workRequest.Description},
                 {"startdate", workRequest.StartDate},
                 {"enddate", workRequest.EndDate.Value},

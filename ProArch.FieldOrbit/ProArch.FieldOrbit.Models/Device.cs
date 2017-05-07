@@ -1,6 +1,4 @@
-﻿using ProArch.FieldOrbit.Models.Enums;
-using System.Collections.Generic;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
 
 namespace ProArch.FieldOrbit.Models

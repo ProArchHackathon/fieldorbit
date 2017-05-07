@@ -1,5 +1,4 @@
-﻿using ProArch.FieldOrbit.Models.Enums;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace ProArch.FieldOrbit.Models
@@ -11,7 +10,7 @@ namespace ProArch.FieldOrbit.Models
         public int EmployeeId { get; set; }
 
         [BsonElement("employeetype")]
-        public EmployeeType EmployeeType { get; set; }
+        public string EmployeeType { get; set; }
 
         [BsonElement("name")]
         public Name Name { get; set; }
