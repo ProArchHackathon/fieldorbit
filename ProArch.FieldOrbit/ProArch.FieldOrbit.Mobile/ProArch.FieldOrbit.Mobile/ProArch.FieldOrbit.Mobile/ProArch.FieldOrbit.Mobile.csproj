@@ -5,7 +5,7 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{91A27E05-D224-44B6-BE43-9C128C9413AE}</ProjectGuid>
+    <ProjectGuid>{8E20433D-7112-489D-B348-8E9D502F0E11}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProArch.FieldOrbit.Mobile</RootNamespace>
@@ -41,9 +41,34 @@
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
+    <Compile Include="ModelsExt\Address.cs" />
+    <Compile Include="ModelsExt\Common\EmployeeToken.cs" />
+    <Compile Include="ModelsExt\Common\TokenHolder.cs" />
+    <Compile Include="ModelsExt\ContentPath.cs" />
+    <Compile Include="ModelsExt\Customer.cs" />
+    <Compile Include="ModelsExt\Device.cs" />
+    <Compile Include="ModelsExt\DeviceExpert.cs" />
+    <Compile Include="ModelsExt\DeviceModel.cs" />
+    <Compile Include="ModelsExt\Edit.cs" />
+    <Compile Include="ModelsExt\EditException.cs" />
+    <Compile Include="ModelsExt\Employee.cs" />
+    <Compile Include="ModelsExt\Enums\DeviceModelType.cs" />
+    <Compile Include="ModelsExt\Enums\EmployeeType.cs" />
+    <Compile Include="ModelsExt\Enums\JobPriority.cs" />
+    <Compile Include="ModelsExt\Enums\JobStatus.cs" />
+    <Compile Include="ModelsExt\Enums\RequestType.cs" />
+    <Compile Include="ModelsExt\Enums\ServiceType.cs" />
+    <Compile Include="ModelsExt\Job.cs" />
+    <Compile Include="ModelsExt\ManufacturerDetail.cs" />
+    <Compile Include="ModelsExt\ModelBase.cs" />
+    <Compile Include="ModelsExt\Name.cs" />
+    <Compile Include="ModelsExt\ServiceRequest.cs" />
+    <Compile Include="ModelsExt\Ticket.cs" />
+    <Compile Include="ModelsExt\Timesheet.cs" />
+    <Compile Include="ModelsExt\WorkRequest.cs" />
     <Compile Include="Models\BaseDataObject.cs" />
-    <Compile Include="Models\ItemExt.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemExt.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IDataStore.cs" />
@@ -61,6 +86,9 @@
     <Compile Include="Views\JobDetailsPage.xaml.cs">
       <DependentUpon>JobDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\JobsPage.xaml.cs">
+      <DependentUpon>JobsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -69,9 +97,6 @@
     </Compile>
     <Compile Include="Views\TimeSheetsPage.xaml.cs">
       <DependentUpon>TimeSheetsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\JobsPage.xaml.cs">
-      <DependentUpon>JobsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -83,9 +108,6 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="ProArch.FieldOrbit.Models">
-      <HintPath>..\References\ProArch.FieldOrbit.Models.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.4.224\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
@@ -101,34 +123,44 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\JobsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <EmbeddedResource Include="Views\CreateJobPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CreateJobPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\CustomerDetailsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Views\JobDetailsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\JobsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Views\LoginPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Views\TicketInfoPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Views\TimeSheetsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

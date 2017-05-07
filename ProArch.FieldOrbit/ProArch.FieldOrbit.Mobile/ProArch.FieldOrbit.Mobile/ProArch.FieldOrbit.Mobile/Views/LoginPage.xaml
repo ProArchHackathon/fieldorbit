@@ -1,30 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProArch.FieldOrbit.Mobile.Views.LoginPage">
+             x:Class="ProArch.FieldOrbit.Mobile.Views.LoginPage" NavigationPage.HasNavigationBar="False" BackgroundColor="#cfe4f8" >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BorderRadius" Value="5" />
+                <Setter Property="BackgroundColor" Value="#0F4E81" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Padding="0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
+        <StackLayout BackgroundColor="White" Margin="10"  VerticalOptions="Center">
+            <BoxView Color="White" />
+            <Image Source="login.png" Margin="20" HorizontalOptions="Center"></Image>
+            <Grid Padding="10">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-
-                <Label x:Name="lblUserName" Text="User Name:" Grid.Row="0" Grid.Column="0"></Label>
-                <Entry x:Name="txtUserName" Grid.Row="0" Grid.Column="1"/>
-
-                <Label x:Name="lblPassword" Text="Password:" Grid.Row="1" Grid.Column="0"></Label>
-                <Entry x:Name="txtPassword" Grid.Row="1" Grid.Column="1"/>
-
-                <Button x:Name="btnLogin" Text="Login" Clicked="btnLogin_Clicked" Grid.Row="2" Grid.Column="0" />
-                <Button x:Name="btnCancel" Text="Cancel" Clicked="btnCancel_Clicked" Grid.Row="2" Grid.Column="1"/>
-
+                <Entry x:Name="txtUserName" Placeholder="UserName" Grid.Row="0" Grid.ColumnSpan="2"/>
+                <Entry x:Name="txtPassword" Placeholder="Password" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <Button x:Name="btnLogin" Text="Login" Clicked="btnLogin_Clicked" Grid.Row="2" Grid.ColumnSpan="2" />
             </Grid>
+            <BoxView Color="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
