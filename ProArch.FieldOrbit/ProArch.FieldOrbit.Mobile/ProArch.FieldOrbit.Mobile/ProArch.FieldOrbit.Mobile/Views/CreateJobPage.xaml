@@ -2,11 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProArch.FieldOrbit.Mobile.Views.CreateJobPage"
-             Title="Create Job"
+             Title="Create Job" BackgroundColor="#cfe4f8"
              >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BorderRadius" Value="5" />
+                <Setter Property="BackgroundColor" Value="#0F4E81" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout >
+            <StackLayout Margin="5" Padding="5" BackgroundColor="White">
                 <Label x:Name="lblName" Text="Name"></Label>
                 <Entry x:Name="txtName" />
 
