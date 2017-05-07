@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
              x:Class="ProArch.FieldOrbit.Mobile.Views.TimeSheetsPage" Title="TimeSheets" BackgroundColor="#cfe4f8">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -31,28 +24,27 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="5" Padding="5" BackgroundColor="White">
-                <Label x:Name="lblCrewID" Text="Crew ID:"></Label>
-                <Entry x:Name="txtCrewID" />
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="lblCrewID" Text="Crew ID:"></Label>
+                    <Label x:Name="txtCrewID" Text="{Binding CrewID}" IsEnabled="False" />
+                </StackLayout>
 
-                <Label x:Name="lblCustomerID" Text="Customer ID:"></Label>
-                <Entry x:Name="txtCustomerID" />
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="lblJobID" Text="Job ID:"></Label>
+                    <Entry x:Name="txtJobID" Text="{Binding JobID}" IsEnabled="False" />
+                </StackLayout>
 
-                <Label x:Name="lblJobID" Text="Job ID:"></Label>
-                <Entry x:Name="txtJobID" />
+                <Label x:Name="lblCommemts" Text="Comments:"></Label>
+                <Entry x:Name="txtComments" Text="{Binding Timesheet.Comments}" />
 
-                <Label x:Name="lblJobDesc" Text="Job Description:"></Label>
-                <Entry x:Name="txtJobDesc" />
-
-
-                <Label x:Name="lblStartDate" Text="Start Date:"></Label>
-                <DatePicker x:Name="dtCompletedDate" />
-                <Label x:Name="lblEndDate" Text="End Date:"></Label>
-                <DatePicker x:Name="dtEndDate" />
 
                 <Label x:Name="lblWorkDate" Text="Work Date:"></Label>
-                <DatePicker x:Name="dtWorkDate" />
+                <DatePicker x:Name="dtWorkDate" Date="{Binding Timesheet.WorkDate}"  />
+                
+                <Label x:Name="lblHours" Text="Hours:"></Label>
+                <Entry x:Name="txtHours" Text="{Binding Timesheet.Hours}" />
 
-
+                <!--
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -63,72 +55,18 @@
                     <Picker x:Name="cboHours" Grid.Column="1" SelectedIndex="1"></Picker>
                     <Picker x:Name="cboMinutes" Grid.Column="2" SelectedIndex="1"></Picker>
                 </Grid>
+                -->
 
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Button Text="Reset" Grid.Column="0"/>
-                    <Button Text="Submit" Grid.Column="1"/>
+                    <Button Text="Reset" Grid.Column="0" Command="{Binding ResetCommand}"/>
+                    <Button Text="Submit" Grid.Column="1" Command="{Binding LogTimeCommand}"/>
                 </Grid>
 
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-             x:Class="ProArch.FieldOrbit.Mobile.Views.TimeSheetsPage" Title="TimeSheets">
-    <ScrollView>
-        <StackLayout>
-            <Label x:Name="lblCrewID" Text="Crew ID:"></Label>
-            <Entry x:Name="txtCrewID" />
-
-            <Label x:Name="lblCustomerID" Text="Customer ID:"></Label>
-            <Entry x:Name="txtCustomerID" />
-
-            <Label x:Name="lblJobID" Text="Job ID:"></Label>
-            <Entry x:Name="txtJobID" />
-
-            <Label x:Name="lblJobDesc" Text="Job Description:"></Label>
-            <Entry x:Name="txtJobDesc" />
-
-
-            <Label x:Name="lblStartDate" Text="Start Date:"></Label>
-            <DatePicker x:Name="dtCompletedDate" />
-            <Label x:Name="lblEndDate" Text="End Date:"></Label>
-            <DatePicker x:Name="dtEndDate" />
-
-            <Label x:Name="lblWorkDate" Text="Work Date:"></Label>
-            <DatePicker x:Name="dtWorkDate" />
-
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Label x:Name="lblHours" Text="No of Hours:" Grid.Column="0"></Label>
-                <Picker x:Name="cboHours" Grid.Column="1" SelectedIndex="1"></Picker>
-                <Picker x:Name="cboMinutes" Grid.Column="2" SelectedIndex="1"></Picker>
-            </Grid>
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Button Text="Reset" Grid.Column="0"/>
-                <Button Text="Submit" Grid.Column="1"/>
-            </Grid>
-
-        </StackLayout>
-    </ScrollView>
->>>>>>> Initial commit
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 </ContentPage>

@@ -6,17 +6,29 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ProArch.FieldOrbit.Mobile.ViewModels;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 
 namespace ProArch.FieldOrbit.Mobile.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateJobPage : ContentPage
     {
+        private CreateJobViewModel createJobViewModel;
+
         public CreateJobPage()
         {
-            InitializeComponent();
-            FillStatusCombo();
+            try
+            {
+                InitializeComponent();
+                FillStatusCombo();
 
+                BindingContext = createJobViewModel = new CreateJobViewModel();
+            }
+            catch (Exception e)
+            {
+            }
         }
 
         private void FillStatusCombo()

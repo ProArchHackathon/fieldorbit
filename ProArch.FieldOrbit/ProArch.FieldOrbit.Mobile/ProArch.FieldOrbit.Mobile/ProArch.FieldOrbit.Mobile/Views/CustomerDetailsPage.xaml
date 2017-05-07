@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
-             x:Class="ProArch.FieldOrbit.Mobile.Views.CustomerDetailsPage" BackgroundColor="#cfe4f8">
+             x:Class="ProArch.FieldOrbit.Mobile.Views.CustomerDetailsPage" 
+            Title="Customer Details" BackgroundColor="#cfe4f8">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
@@ -16,10 +10,6 @@
                 <Setter Property="TextColor" Value="Black" />
                 <Setter Property="FontSize" Value="Medium" />
             </Style>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 
             <Style TargetType="Entry">
                 <Setter Property="VerticalOptions" Value="Center" />
@@ -36,8 +26,8 @@
         <StackLayout Margin="5" Padding="5" BackgroundColor="White" >
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
@@ -48,95 +38,29 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
-                <Label Text="First Name:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Column="1" Text="Abdul"></Label>
+                <Label Text="Customer Id" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Column="1" Text="{Binding WorkRequest.ServiceRequest.Customer.CustomerId}"></Label>
 
-                <Label  Grid.Row="1" Text="Middle Name:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="1" Grid.Column="1" Text="Kalam"></Label>
+                <Label  Grid.Row="1" Text="Customer Name" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding WorkRequest.ServiceRequest.Customer.Name.FirstName}"></Label>
 
-                <Label  Grid.Row="2" Text="Last Name:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="2" Grid.Column="1" Text="A.P.J"></Label>
+                <Label  Grid.Row="2" Text="Address" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding WorkRequest.ServiceRequest.Customer.Address.Street}"></Label>
 
-                <Label  Grid.Row="3" Text="Address:" HorizontalTextAlignment="End"></Label>
-                <Editor Grid.Row="3" Grid.Column="1" HeightRequest="5" MinimumHeightRequest="5" Margin="5,5,5,5" Text="Nizamabad"></Editor>
+                <Label  Grid.Row="3" Text="Phone" HorizontalTextAlignment="Start"></Label>
+                <Editor Grid.Row="3" Grid.Column="1" HeightRequest="5" MinimumHeightRequest="5" Margin="5,5,5,5" Text="{Binding WorkRequest.ServiceRequest.Customer.Phone}"></Editor>
 
-                <Label  Grid.Row="4" Text="SSN:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="4" Grid.Column="1" Text="00000"></Label>
+                <Label  Grid.Row="4" Text="SSN" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Row="4" Grid.Column="1" Text="{Binding WorkRequest.ServiceRequest.Customer.SSN}"></Label>
 
-                <Label  Grid.Row="5" Text="Email:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="5" Grid.Column="1" Text="Proarch@praorch.com"></Label>
+                <Label  Grid.Row="5" Text="Email" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Row="5" Grid.Column="1" Text="{Binding WorkRequest.ServiceRequest.Customer.Email}"></Label>
 
-                <Label  Grid.Row="6" Text="Active:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="6" Grid.Column="1" Text="True"></Label>
-
-                <Button Grid.Row="7" Text="View History" Grid.ColumnSpan="2" Margin="5,5,5,5"></Button>
-            </Grid>
-        </StackLayout>
-    </ContentPage.Content>
-<<<<<<< HEAD
-=======
-             x:Class="ProArch.FieldOrbit.Mobile.Views.CustomerDetailsPage">
-=======
->>>>>>> Complete solution with UWP
-
-            <Style TargetType="Entry">
-                <Setter Property="VerticalOptions" Value="Center" />
-            </Style>
-            <Style TargetType="Button">
-                <Setter Property="BorderRadius" Value="5" />
-                <Setter Property="BackgroundColor" Value="#0F4E81" />
-                <Setter Property="TextColor" Value="White" />
-                <Setter Property="FontAttributes" Value="Bold"/>
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.Content>
-        <StackLayout Margin="5" Padding="5" BackgroundColor="White" >
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Label Text="First Name:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Column="1" Text="Abdul"></Label>
-
-                <Label  Grid.Row="1" Text="Middle Name:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="1" Grid.Column="1" Text="Kalam"></Label>
-
-                <Label  Grid.Row="2" Text="Last Name:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="2" Grid.Column="1" Text="A.P.J"></Label>
-
-                <Label  Grid.Row="3" Text="Address:" HorizontalTextAlignment="End"></Label>
-                <Editor Grid.Row="3" Grid.Column="1" HeightRequest="5" MinimumHeightRequest="5" Margin="5,5,5,5" Text="Nizamabad"></Editor>
-
-                <Label  Grid.Row="4" Text="SSN:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="4" Grid.Column="1" Text="00000"></Label>
-
-                <Label  Grid.Row="5" Text="Email:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="5" Grid.Column="1" Text="Proarch@praorch.com"></Label>
-
-                <Label  Grid.Row="6" Text="Active:" HorizontalTextAlignment="End"></Label>
-                <Label Grid.Row="6" Grid.Column="1" Text="True"></Label>
+                <Label  Grid.Row="6" Text="Active" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Row="6" Grid.Column="1" Text="{Binding WorkRequest.ServiceRequest.Customer.Active}"></Label>
 
                 <Button Grid.Row="7" Text="View History" Grid.ColumnSpan="2" Margin="5,5,5,5"></Button>
             </Grid>
         </StackLayout>
     </ContentPage.Content>
-<<<<<<< HEAD
-
-
->>>>>>> Initial commit
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 </ContentPage>

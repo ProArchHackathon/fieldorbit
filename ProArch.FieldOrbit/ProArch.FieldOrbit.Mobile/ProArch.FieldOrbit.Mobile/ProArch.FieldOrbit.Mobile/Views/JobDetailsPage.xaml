@@ -1,13 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
              x:Class="ProArch.FieldOrbit.Mobile.Views.JobDetailsPage" Title="Details" BackgroundColor="#cfe4f8">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -30,88 +23,46 @@
 
         </ResourceDictionary>
     </ContentPage.Resources>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="5" Padding="5" BackgroundColor="White" >
 
                 <StackLayout Orientation="Horizontal">
                     <Label x:Name="lblJobNumber" Text="Job Number:" ></Label>
-                    <Label x:Name="lblJobNumberValue" Text="12345" ></Label>
+                    <Label x:Name="lblJobNumberValue" Text="{Binding Job.JobId}"></Label>
                 </StackLayout>
 
                 <Label x:Name="lblJobDescription" Text="Job Description:" ></Label>
-                <Entry x:Name="txtJobDescription" />
+                <Entry x:Name="txtJobDescription" Text="{Binding Job.JobDescription}"/>
                 <Label x:Name="lblCustomerInfo" Text="Customer Info:"  ></Label>
-<<<<<<< HEAD
-=======
-             x:Class="ProArch.FieldOrbit.Mobile.Views.JobDetailsPage" Title="Details">
-=======
->>>>>>> Complete solution with UWP
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Margin="5" Padding="5" BackgroundColor="White" >
-
-                <StackLayout Orientation="Horizontal">
-                    <Label x:Name="lblJobNumber" Text="Job Number:" ></Label>
-                    <Label x:Name="lblJobNumberValue" Text="12345" ></Label>
-                </StackLayout>
-
-                <Label x:Name="lblJobDescription" Text="Job Description:" ></Label>
-                <Entry x:Name="txtJobDescription" />
-<<<<<<< HEAD
-
->>>>>>> Initial commit
-=======
-                <Label x:Name="lblCustomerInfo" Text="Customer Info:"  ></Label>
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
                 <Grid>
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
                     </Grid.ColumnDefinitions>
-                    
-                    <Entry x:Name="txtCustomerInfo" Grid.Column="0" />
+
+                    <Entry x:Name="txtCustomerInfo" Grid.Column="0" Text="{Binding Job.WorkRequest.ServiceRequest.Customer.CustomerId,Mode=TwoWay}"/>
                     <Button x:Name="btnShowCustomer" Text="Info" Clicked="btnShowCustomer_Clicked" Grid.Column="1" />
                 </Grid>
 
-                <Label x:Name="lblLocation" Text="Location:" TextColor="Black"></Label>
-<<<<<<< HEAD
-=======
+                <Label x:Name="lblDeviceInfo" Text="Device Info:"  ></Label>
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-=======
->>>>>>> Complete solution with UWP
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
-<<<<<<< HEAD
-                
-                
-                <Label x:Name="lblLocation" Text="Location:"></Label>
->>>>>>> Initial commit
-=======
-                    <Entry x:Name="txtCustomerInfo" Grid.Column="0" />
-                    <Button x:Name="btnShowCustomer" Text="Info" Clicked="btnShowCustomer_Clicked" Grid.Column="1" />
+
+                    <Entry x:Name="txtDeviceInfo" Grid.Column="0" Text="{Binding Job.WorkRequest.ServiceRequest.Device.DeviceId,Mode=TwoWay}"/>
+                    <Button x:Name="btnShowDeviceInfo" Text="Info" Clicked="btnShowDeviceInfo_Clicked" Grid.Column="1" />
                 </Grid>
 
                 <Label x:Name="lblLocation" Text="Location:" TextColor="Black"></Label>
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
-                <Entry x:Name="txtLocation" />
+                <Entry x:Name="txtLocation" Text="{Binding Job.WorkRequest.ServiceRequest.Customer.Address.Street}"/>
 
                 <Label x:Name="lblWRNumber" Text="WR Number:"></Label>
-                <Entry x:Name="txtWRNumber" />
+                <Entry x:Name="txtWRNumber"  Text="{Binding Job.WorkRequest.WorkRequestId}"/>
 
                 <Label x:Name="lblRequestedDate" Text="Requested Date:"></Label>
                 <DatePicker x:Name="dtRequestedDate" />
@@ -123,10 +74,10 @@
                 <DatePicker x:Name="dtCompletedDate" />
 
                 <Label x:Name="lblComments" Text="Comments:"></Label>
-                <Entry x:Name="txtComments" />
+                <Entry x:Name="txtComments" Text="{Binding Job.Comments}"/>
 
                 <Label x:Name="lblStatus" Text="Status"></Label>
-                <Picker x:Name="cboStatus" SelectedIndexChanged="cboStatus_SelectedIndexChanged">
+                <Picker x:Name="cboStatus" SelectedIndexChanged="cboStatus_SelectedIndexChanged" SelectedIndex="0">
                 </Picker>
 
 
@@ -144,29 +95,21 @@
 
                     <Button x:Name="btnCreateJob" Text="Create Job" Clicked="btnCreateJob_Clicked"  Grid.Column="2" />
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                     <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0" />
 
-                    <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1" />
-=======
-                    <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0"/>
-
-                    <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1"/>
->>>>>>> Initial commit
-=======
-                    <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0" />
-
-                    <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1" />
->>>>>>> Complete solution with UWP
-=======
-                    <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0" />
-
-                    <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1" />
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
+                    <Button x:Name="btnUpdate" Text="Update" Command="{Binding UpdateJobCommand}"  Grid.ColumnSpan="3" Grid.Row="1" />
 
                 </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Camera" x:Name="btnCamera" Clicked="btnCamera_Clicked" />
+                    <Button Text="Gallery"  x:Name="btnGallery" Clicked="btnGallery_Clicked"  Grid.Column="1"/>
+                </Grid>
+                <Image x:Name="imgView" Grid.ColumnSpan="2" Grid.Row="1"  />
 
             </StackLayout>
         </ScrollView>

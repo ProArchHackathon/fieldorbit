@@ -10,6 +10,8 @@ namespace ProArch.FieldOrbit.Mobile
     {
         public static bool IsUserLoggedIn { get; set; }
 
+        public static UserIdentity Identity { get; set; }
+
         public App()
         {
             InitializeComponent();
@@ -25,5 +27,11 @@ namespace ProArch.FieldOrbit.Mobile
                 Icon = Device.OnPlatform("tab_feed.png", null, null)
             };
         }
+    }
+
+    public class UserIdentity
+    {
+        public string AccessToken { get; set; }
+        public string RefreshToken { get; set; }
     }
 }

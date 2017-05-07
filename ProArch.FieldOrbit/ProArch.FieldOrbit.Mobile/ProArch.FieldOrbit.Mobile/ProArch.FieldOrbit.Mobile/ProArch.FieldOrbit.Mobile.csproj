@@ -5,19 +5,7 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <ProjectGuid>{8E20433D-7112-489D-B348-8E9D502F0E11}</ProjectGuid>
-=======
-    <ProjectGuid>{91A27E05-D224-44B6-BE43-9C128C9413AE}</ProjectGuid>
->>>>>>> Initial commit
-=======
-    <ProjectGuid>{8E20433D-7112-489D-B348-8E9D502F0E11}</ProjectGuid>
->>>>>>> Complete solution with UWP
-=======
-    <ProjectGuid>{8E20433D-7112-489D-B348-8E9D502F0E11}</ProjectGuid>
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProArch.FieldOrbit.Mobile</RootNamespace>
@@ -50,68 +38,46 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Globals.cs" />
     <Compile Include="Helpers\MessengingCenterAlert.cs" />
-    <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <Compile Include="ModelsExt\Address.cs" />
     <Compile Include="ModelsExt\Common\EmployeeToken.cs" />
     <Compile Include="ModelsExt\Common\TokenHolder.cs" />
+    <Compile Include="ModelsExt\Content.cs" />
     <Compile Include="ModelsExt\ContentPath.cs" />
     <Compile Include="ModelsExt\Customer.cs" />
     <Compile Include="ModelsExt\Device.cs" />
     <Compile Include="ModelsExt\DeviceExpert.cs" />
-    <Compile Include="ModelsExt\DeviceModel.cs" />
     <Compile Include="ModelsExt\Edit.cs" />
     <Compile Include="ModelsExt\EditException.cs" />
     <Compile Include="ModelsExt\Employee.cs" />
     <Compile Include="ModelsExt\Enums\DeviceModelType.cs" />
+    <Compile Include="ModelsExt\Enums\DeviceType.cs" />
     <Compile Include="ModelsExt\Enums\EmployeeType.cs" />
     <Compile Include="ModelsExt\Enums\JobPriority.cs" />
     <Compile Include="ModelsExt\Enums\JobStatus.cs" />
     <Compile Include="ModelsExt\Enums\RequestType.cs" />
+    <Compile Include="ModelsExt\Enums\ServiceRequestStatus.cs" />
     <Compile Include="ModelsExt\Enums\ServiceType.cs" />
     <Compile Include="ModelsExt\Job.cs" />
+    <Compile Include="ModelsExt\Manufacturer.cs" />
     <Compile Include="ModelsExt\ManufacturerDetail.cs" />
     <Compile Include="ModelsExt\ModelBase.cs" />
     <Compile Include="ModelsExt\Name.cs" />
     <Compile Include="ModelsExt\ServiceRequest.cs" />
     <Compile Include="ModelsExt\Ticket.cs" />
     <Compile Include="ModelsExt\Timesheet.cs" />
+    <Compile Include="ModelsExt\User.cs" />
     <Compile Include="ModelsExt\WorkRequest.cs" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Compile Include="Models\BaseDataObject.cs" />
-    <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\ItemExt.cs" />
-=======
-=======
->>>>>>> Complete solution with UWP
-    <Compile Include="Models\BaseDataObject.cs" />
-    <Compile Include="Models\Item.cs" />
-<<<<<<< HEAD
->>>>>>> Initial commit
-=======
-    <Compile Include="Models\ItemExt.cs" />
->>>>>>> Complete solution with UWP
-=======
-    <Compile Include="Models\BaseDataObject.cs" />
-    <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\ItemExt.cs" />
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
-    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\Job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IDataStore.cs" />
-    <Compile Include="Services\MockDataStore.cs" />
     <Compile Include="Services\ServiceAdapter.cs" />
-    <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\JobDetailsViewModel.cs" />
+    <Compile Include="ViewModels\CreateJobViewModel.cs" />
+    <Compile Include="ViewModels\TimesheetViewModel.cs" />
     <Compile Include="ViewModels\JobsViewModel.cs" />
     <Compile Include="Views\CreateJobPage.xaml.cs">
       <DependentUpon>CreateJobPage.xaml</DependentUpon>
@@ -119,27 +85,15 @@
     <Compile Include="Views\CustomerDetailsPage.xaml.cs">
       <DependentUpon>CustomerDetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DeviceInfoPage.xaml.cs">
+      <DependentUpon>DeviceInfoPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\JobDetailsPage.xaml.cs">
       <DependentUpon>JobDetailsPage.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <Compile Include="Views\JobsPage.xaml.cs">
       <DependentUpon>JobsPage.xaml</DependentUpon>
     </Compile>
-=======
->>>>>>> Initial commit
-=======
-    <Compile Include="Views\JobsPage.xaml.cs">
-      <DependentUpon>JobsPage.xaml</DependentUpon>
-    </Compile>
->>>>>>> Complete solution with UWP
-=======
-    <Compile Include="Views\JobsPage.xaml.cs">
-      <DependentUpon>JobsPage.xaml</DependentUpon>
-    </Compile>
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -149,18 +103,9 @@
     <Compile Include="Views\TimeSheetsPage.xaml.cs">
       <DependentUpon>TimeSheetsPage.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    <Compile Include="Views\JobsPage.xaml.cs">
-      <DependentUpon>JobsPage.xaml</DependentUpon>
+    <Compile Include="Views\VideoPlayerPage.xaml.cs">
+      <DependentUpon>VideoPlayerPage.xaml</DependentUpon>
     </Compile>
->>>>>>> Initial commit
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -172,18 +117,21 @@
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
     </Reference>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    <Reference Include="ProArch.FieldOrbit.Models">
-      <HintPath>..\References\ProArch.FieldOrbit.Models.dll</HintPath>
+    <Reference Include="Octane.Xam.VideoPlayer, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Octane.Xam.VideoPlayer.1.2.3.0\lib\portable-net45+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10\Octane.Xam.VideoPlayer.dll</HintPath>
     </Reference>
->>>>>>> Initial commit
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
+    <Reference Include="Plugin.Media, Version=2.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.2\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions, Version=2.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.2.6.2\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Messaging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Messaging.4.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Messaging.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Messaging.4.0.0\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Messaging.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.4.224\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -198,71 +146,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <EmbeddedResource Include="Views\CreateJobPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-=======
-    <EmbeddedResource Include="Views\JobsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
->>>>>>> Initial commit
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Views\CustomerDetailsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\JobDetailsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-=======
-    <EmbeddedResource Include="Views\CreateJobPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
->>>>>>> Complete solution with UWP
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Views\JobsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\LoginPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-=======
-    <EmbeddedResource Include="Views\CreateJobPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Views\TicketInfoPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\TimeSheetsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-=======
-    <EmbeddedResource Include="Views\CreateJobPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <EmbeddedResource Include="Views\CustomerDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -294,16 +183,20 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\TimeSheetsPage.xaml">
-<<<<<<< HEAD
-<<<<<<< HEAD
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelsExt\ValidationHelper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DeviceInfoPage.xaml">
       <Generator>MSBuild:Compile</Generator>
->>>>>>> Initial commit
-=======
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
->>>>>>> Complete solution with UWP
-=======
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VideoPlayerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

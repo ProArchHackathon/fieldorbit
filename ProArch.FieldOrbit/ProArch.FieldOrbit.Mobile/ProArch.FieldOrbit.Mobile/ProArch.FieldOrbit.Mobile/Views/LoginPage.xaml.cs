@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ProArch.FieldOrbit.Mobile.Services;
+using System;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,13 +16,11 @@ namespace ProArch.FieldOrbit.Mobile.Views
 
         async void btnLogin_Clicked(object sender, EventArgs e)
         {
-
             try
             {
-                var isValid = true;
-
-
-                if (isValid)
+                string url = string.Concat("LoginOperations/Validate?username=", txtUserName.Text, "&password=", txtPassword.Text);
+                App.IsUserLoggedIn = await ServiceAdapter.Instance.ValidateUser<bool>(url);
+                if (App.IsUserLoggedIn)
                 {
                     App.IsUserLoggedIn = true;
                     Navigation.InsertPageBefore(new JobsPage(), this);
@@ -33,16 +28,13 @@ namespace ProArch.FieldOrbit.Mobile.Views
                 }
                 else
                 {
-                    //messageLabel.Text = "Login failed";
+                    DisplayAlert("Alert", "Invalid UserId/Password", "Ok");
                 }
             }
             catch (Exception Exception)
             {
-
-
             }
         }
-
 
         private void btnCancel_Clicked(object sender, EventArgs e)
         {

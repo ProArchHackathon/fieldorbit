@@ -9,13 +9,17 @@ using Xamarin.Forms.Xaml;
 
 namespace ProArch.FieldOrbit.Mobile.Views
 {
+
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomerDetailsPage : ContentPage
+    public partial class VideoPlayerPage : ContentPage
     {
-        public CustomerDetailsPage()
+        string videoUrl = string.Empty;
+        public VideoPlayerPage( string videoUrl)
         {
             InitializeComponent();
-            BindingContext = Globals.CurrentJob;
+            this.videoUrl = videoUrl;
+            videoPlayer.Source = videoUrl;
         }
+
     }
 }

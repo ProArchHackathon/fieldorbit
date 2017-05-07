@@ -1,25 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.ProArch.FieldOrbit.Mobile" android:versionCode="1" android:versionName="1.0">
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="@string/app_name"></application>
-<<<<<<< HEAD
-=======
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.ProArch.FieldOrbit.Mobile" android:versionCode="1" android:versionName="1.0">
-	<uses-sdk android:minSdkVersion="15" />
-  <application android:label="@string/app_name"></application>
->>>>>>> Initial commit
-=======
-﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.ProArch.FieldOrbit.Mobile" android:versionCode="1" android:versionName="1.0">
-	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="@string/app_name"></application>
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 </manifest>

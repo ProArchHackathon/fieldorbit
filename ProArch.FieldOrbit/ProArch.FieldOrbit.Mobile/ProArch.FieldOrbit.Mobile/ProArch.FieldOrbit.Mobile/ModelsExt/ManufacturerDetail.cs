@@ -14,8 +14,8 @@ namespace ProArch.FieldOrbit.Models
 
     public string Company { get; set; }
 
-    public DateTime Date { get; set; }
+    public DateTime? Date { get; set; }
 
-    public DateTime ExpiryDate { get; set; }
+    public DateTime? ExpiryDate { get; set; }
   }
 }

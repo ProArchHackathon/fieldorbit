@@ -3,40 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProArch.FieldOrbit.Mobile.Views.JobsPage"
               Title="{Binding Title}"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
              x:Name="BrowseJobsPage" BackgroundColor="#cfe4f8">
-=======
-             x:Name="BrowseJobsPage">
->>>>>>> Initial commit
-=======
-             x:Name="BrowseJobsPage" BackgroundColor="#cfe4f8">
->>>>>>> Complete solution with UWP
-=======
-             x:Name="BrowseJobsPage" BackgroundColor="#cfe4f8">
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
   <ContentPage.ToolbarItems>
   	<!--<ToolbarItem Text="Add Item" Clicked="AddItem_Clicked" />-->
   </ContentPage.ToolbarItems>
   <ContentPage.Content>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         <StackLayout Margin="5" Padding="5" BackgroundColor="White">
             <ListView x:Name="JobsListView"
-=======
-    <StackLayout>
-      <ListView x:Name="JobsListView"
->>>>>>> Initial commit
-=======
-        <StackLayout Margin="5" Padding="5" BackgroundColor="White">
-            <ListView x:Name="JobsListView"
->>>>>>> Complete solution with UWP
-=======
-        <StackLayout Margin="5" Padding="5" BackgroundColor="White">
-            <ListView x:Name="JobsListView"
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 				ItemsSource="{Binding Jobs}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
@@ -45,24 +18,15 @@
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement"
 				ItemSelected="OnItemSelected">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Text}"
-<<<<<<< HEAD
-<<<<<<< HEAD
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemTextStyle}"
                        FontSize="16"/>
-                                <Label Text="{Binding Description}"
+                                <Label Text="{Binding JobDescription}"
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemDetailTextStyle}"
                        FontSize="13"/>
@@ -72,44 +36,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout> 
-=======
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ViewCell>
-              <StackLayout Padding="10">
-                <Label Text="{Binding Text}"
-=======
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemTextStyle}"
-                       FontSize="16"/>
-                                <Label Text="{Binding Description}"
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-              </StackLayout>
-            </ViewCell>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-    </StackLayout> 
->>>>>>> Initial commit
-=======
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout> 
-<<<<<<< HEAD
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
   </ContentPage.Content>
 </ContentPage>

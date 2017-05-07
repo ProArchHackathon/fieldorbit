@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProArch.FieldOrbit.Mobile.Views.DeviceInfoPage" Title="Device Info">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BorderRadius" Value="5" />
+                <Setter Property="BackgroundColor" Value="#0F4E81" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="5" Padding="5" BackgroundColor="White" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="DeviceId" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Column="1" Text ="{Binding WorkRequest.ServiceRequest.Device.DeviceId}"></Label>
+
+                <Label  Grid.Row="1" Text="Device Type" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding WorkRequest.ServiceRequest.Device.DeviceType}"></Label>
+
+                <Label  Grid.Row="2" Text="Model Number" HorizontalTextAlignment="Start"></Label>
+                <Label Grid.Row="2" Grid.Column="1" Text="{Binding WorkRequest.ServiceRequest.Device.ModelNumber}"></Label>
+
+                <Label  Grid.Row="3" Text="Address" HorizontalTextAlignment="Start"></Label>
+                <Editor Grid.Row="3" Grid.Column="1" HeightRequest="5" MinimumHeightRequest="5" Margin="5,5,5,5" 
+                        Text="{Binding WorkRequest.ServiceRequest.Device.Manufacturer.Name}"></Editor>
+
+                <Button Grid.Row="4" x:Name="btnRecomendationVideo" Clicked="btnRecomendationVideo_Clicked"  Text="Recomendation Video" Grid.ColumnSpan="2" ></Button>
+                <Button Grid.Row="5" x:Name="btnCallSMEonPhone" Clicked="btnCallSMEonPhone_Clicked" Text="Call SME on Phone" Grid.ColumnSpan="2" ></Button>
+                <Button Grid.Row="6" x:Name="btnCallSMEonSkype" Clicked="btnCallSMEonSkype_Clicked" Text="Call SME on Skype" Grid.ColumnSpan="2" ></Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

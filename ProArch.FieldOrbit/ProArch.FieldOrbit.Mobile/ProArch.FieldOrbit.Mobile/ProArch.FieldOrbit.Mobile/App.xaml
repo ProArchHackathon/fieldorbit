@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ProArch.FieldOrbit.Mobile.App">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <Application.Resources>
-=======
-  <Application.Resources>
->>>>>>> Initial commit
-=======
-    <Application.Resources>
->>>>>>> Complete solution with UWP
-=======
-    <Application.Resources>
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="PrimaryDark">#1976D2</Color>
@@ -26,18 +14,7 @@
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> Initial commit
-=======
-
->>>>>>> Complete solution with UWP
-=======
-
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
         </ResourceDictionary>
     </Application.Resources>
 </Application>

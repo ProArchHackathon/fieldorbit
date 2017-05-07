@@ -1,30 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
              x:Class="ProArch.FieldOrbit.Mobile.Views.TicketInfoPage" Title="Ticket Info" BackgroundColor="#cfe4f8">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="White">
-<<<<<<< HEAD
-=======
-             x:Class="ProArch.FieldOrbit.Mobile.Views.TicketInfoPage" Title="Ticket Info">
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
->>>>>>> Initial commit
-=======
-             x:Class="ProArch.FieldOrbit.Mobile.Views.TicketInfoPage" Title="Ticket Info" BackgroundColor="#cfe4f8">
-    <ContentPage.Content>
-        <ScrollView>
-            <StackLayout BackgroundColor="White">
->>>>>>> Complete solution with UWP
-=======
->>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
                 <Label Text="Ticket ID:"></Label>
                 <Entry />
 

@@ -13,30 +13,30 @@ using ProArch.FieldOrbit.Models;
 
 namespace ProArch.FieldOrbit.Mobile.ViewModels
 {
-    public class JobsViewModel : BaseViewModel
+    public class JobDetailsViewModel : BaseViewModel
     {
-        public ObservableRangeCollection<Job> Jobs { get; set; }
-        public Command LoadJobsCommand { get; set; }
+        public Job Job { get; set; }
 
-        public JobsViewModel()
+        public Command UpdateJobCommand { get; set; }
+
+        public JobDetailsViewModel()
         {
-            Title = "Jobs";
-            Jobs = new ObservableRangeCollection<Job>();
-            LoadJobsCommand = new Command(async () => await ExecuteLoadTicketsCommand());
+            Title = "Job Details";
+
+            this.Job = Globals.CurrentJob;
+
+            UpdateJobCommand = new Command(async () => await ExecUpdateJobCommand());
         }
 
-        async Task ExecuteLoadTicketsCommand()
+        async Task ExecUpdateJobCommand()
         {
-            if (IsBusy)
-                return;
+            if (IsBusy) return;
 
             IsBusy = true;
 
             try
             {
-                Jobs.Clear();
-                var jobs = await ServiceAdapter.Instance.Get<List<Job>>("Job/GetUserJob?employeeID=" + Globals.CurrentWorkman.EmployeeId);
-                Jobs.ReplaceRange(jobs);
+                await ServiceAdapter.Instance.Post<Job>("Job/UpdateJob", this.Job);
             }
             catch (Exception ex)
             {
@@ -52,6 +52,11 @@ namespace ProArch.FieldOrbit.Mobile.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        async Task ExecResetCommand()
+        {
+            this.Job = new Job();
         }
     }
 }
