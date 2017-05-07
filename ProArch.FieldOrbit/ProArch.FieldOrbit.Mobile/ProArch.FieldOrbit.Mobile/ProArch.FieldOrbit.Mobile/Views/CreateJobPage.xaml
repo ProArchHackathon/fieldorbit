@@ -4,6 +4,9 @@
              x:Class="ProArch.FieldOrbit.Mobile.Views.CreateJobPage"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
              Title="Create Job" BackgroundColor="#cfe4f8"
              >
     <ContentPage.Resources>
@@ -28,6 +31,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="5" Padding="5" BackgroundColor="White">
+<<<<<<< HEAD
 =======
              Title="Create Job"
 =======
@@ -61,6 +65,8 @@
 =======
             <StackLayout Margin="5" Padding="5" BackgroundColor="White">
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
                 <Label x:Name="lblName" Text="Name"></Label>
                 <Entry x:Name="txtName" />
 

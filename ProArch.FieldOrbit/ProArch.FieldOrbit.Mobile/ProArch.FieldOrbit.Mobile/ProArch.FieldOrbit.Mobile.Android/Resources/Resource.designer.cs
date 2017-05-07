@@ -2155,6 +2155,9 @@ namespace ProArch.FieldOrbit.Mobile.Droid
 			// aapt resource value: 0x7f020091
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 			public const int login = 2130837649;
 			
 			// aapt resource value: 0x7f020092
@@ -2210,6 +2213,7 @@ namespace ProArch.FieldOrbit.Mobile.Droid
 			
 			// aapt resource value: 0x7f0200a2
 			public const int slideout = 2130837666;
+<<<<<<< HEAD
 =======
 			public const int mr_dialog_material_background_dark = 2130837649;
 =======
@@ -2274,6 +2278,8 @@ namespace ProArch.FieldOrbit.Mobile.Droid
 			// aapt resource value: 0x7f0200a2
 			public const int slideout = 2130837666;
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 			
 			static Drawable()
 			{

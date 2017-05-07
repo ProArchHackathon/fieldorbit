@@ -39,17 +39,23 @@ namespace ProArch.FieldOrbit.Mobile.Views
         }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 
         private void test_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new JobDetailsPage());
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Initial commit
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     }
 }

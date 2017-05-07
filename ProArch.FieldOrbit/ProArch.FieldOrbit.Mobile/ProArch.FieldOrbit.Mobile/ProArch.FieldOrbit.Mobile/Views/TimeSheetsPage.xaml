@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
              x:Class="ProArch.FieldOrbit.Mobile.Views.TimeSheetsPage" Title="TimeSheets" BackgroundColor="#cfe4f8">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -74,6 +77,7 @@
         </ScrollView>
     </ContentPage.Content>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
              x:Class="ProArch.FieldOrbit.Mobile.Views.TimeSheetsPage" Title="TimeSheets">
     <ScrollView>
@@ -125,4 +129,6 @@
 >>>>>>> Initial commit
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 </ContentPage>

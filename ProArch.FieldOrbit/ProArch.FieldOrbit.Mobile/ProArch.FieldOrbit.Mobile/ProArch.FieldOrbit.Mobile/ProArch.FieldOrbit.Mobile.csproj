@@ -7,6 +7,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <ProjectGuid>{8E20433D-7112-489D-B348-8E9D502F0E11}</ProjectGuid>
 =======
     <ProjectGuid>{91A27E05-D224-44B6-BE43-9C128C9413AE}</ProjectGuid>
@@ -14,6 +15,9 @@
 =======
     <ProjectGuid>{8E20433D-7112-489D-B348-8E9D502F0E11}</ProjectGuid>
 >>>>>>> Complete solution with UWP
+=======
+    <ProjectGuid>{8E20433D-7112-489D-B348-8E9D502F0E11}</ProjectGuid>
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProArch.FieldOrbit.Mobile</RootNamespace>
@@ -51,8 +55,11 @@
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <Compile Include="ModelsExt\Address.cs" />
     <Compile Include="ModelsExt\Common\EmployeeToken.cs" />
     <Compile Include="ModelsExt\Common\TokenHolder.cs" />
@@ -79,6 +86,7 @@
     <Compile Include="ModelsExt\Timesheet.cs" />
     <Compile Include="ModelsExt\WorkRequest.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Models\BaseDataObject.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemExt.cs" />
@@ -92,6 +100,11 @@
 =======
     <Compile Include="Models\ItemExt.cs" />
 >>>>>>> Complete solution with UWP
+=======
+    <Compile Include="Models\BaseDataObject.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemExt.cs" />
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IDataStore.cs" />
@@ -111,6 +124,7 @@
     </Compile>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="Views\JobsPage.xaml.cs">
       <DependentUpon>JobsPage.xaml</DependentUpon>
     </Compile>
@@ -121,6 +135,11 @@
       <DependentUpon>JobsPage.xaml</DependentUpon>
     </Compile>
 >>>>>>> Complete solution with UWP
+=======
+    <Compile Include="Views\JobsPage.xaml.cs">
+      <DependentUpon>JobsPage.xaml</DependentUpon>
+    </Compile>
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -132,6 +151,7 @@
     </Compile>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <Compile Include="Views\JobsPage.xaml.cs">
       <DependentUpon>JobsPage.xaml</DependentUpon>
@@ -139,6 +159,8 @@
 >>>>>>> Initial commit
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -152,6 +174,7 @@
     </Reference>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <Reference Include="ProArch.FieldOrbit.Models">
       <HintPath>..\References\ProArch.FieldOrbit.Models.dll</HintPath>
@@ -159,6 +182,8 @@
 >>>>>>> Initial commit
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.4.224\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -175,6 +200,7 @@
   <ItemGroup>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <EmbeddedResource Include="Views\CreateJobPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 =======
@@ -211,10 +237,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Views\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+=======
+    <EmbeddedResource Include="Views\CreateJobPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <EmbeddedResource Include="Views\TicketInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -230,6 +261,8 @@
     </EmbeddedResource>
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <EmbeddedResource Include="Views\CustomerDetailsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -262,11 +295,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Views\TimeSheetsPage.xaml">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Generator>MSBuild:Compile</Generator>
 >>>>>>> Initial commit
 =======
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 >>>>>>> Complete solution with UWP
+=======
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿namespace ProArch.FieldOrbit.Mobile.Models
 =======
 ﻿using System;
@@ -13,6 +14,9 @@ namespace ProArch.FieldOrbit.Mobile.Models
 =======
 ﻿namespace ProArch.FieldOrbit.Mobile.Models
 >>>>>>> Complete solution with UWP
+=======
+﻿namespace ProArch.FieldOrbit.Mobile.Models
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 {
     public class Ticket : ProArch.FieldOrbit.Models.Ticket
     {

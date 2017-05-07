@@ -3,8 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
              x:Class="ProArch.FieldOrbit.Mobile.Views.JobDetailsPage" Title="Details" BackgroundColor="#cfe4f8">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -28,6 +31,9 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="5" Padding="5" BackgroundColor="White" >
@@ -40,6 +46,7 @@
                 <Label x:Name="lblJobDescription" Text="Job Description:" ></Label>
                 <Entry x:Name="txtJobDescription" />
                 <Label x:Name="lblCustomerInfo" Text="Customer Info:"  ></Label>
+<<<<<<< HEAD
 =======
              x:Class="ProArch.FieldOrbit.Mobile.Views.JobDetailsPage" Title="Details">
 =======
@@ -61,6 +68,8 @@
 =======
                 <Label x:Name="lblCustomerInfo" Text="Customer Info:"  ></Label>
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
                 <Grid>
 
                     <Grid.ColumnDefinitions>
@@ -68,6 +77,9 @@
                         <ColumnDefinition/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
                     </Grid.ColumnDefinitions>
                     
                     <Entry x:Name="txtCustomerInfo" Grid.Column="0" />
@@ -75,6 +87,7 @@
                 </Grid>
 
                 <Label x:Name="lblLocation" Text="Location:" TextColor="Black"></Label>
+<<<<<<< HEAD
 =======
                         <ColumnDefinition/>
 =======
@@ -93,6 +106,8 @@
 
                 <Label x:Name="lblLocation" Text="Location:" TextColor="Black"></Label>
 >>>>>>> Complete solution with UWP
+=======
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
                 <Entry x:Name="txtLocation" />
 
                 <Label x:Name="lblWRNumber" Text="WR Number:"></Label>
@@ -131,6 +146,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0" />
 
                     <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1" />
@@ -144,6 +160,11 @@
 
                     <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1" />
 >>>>>>> Complete solution with UWP
+=======
+                    <Button x:Name="btnLogTime" Text="Log Time" Clicked="btnLogTime_Clicked"  Grid.Column="0" />
+
+                    <Button x:Name="btnUpdate" Text="Update" Clicked="btnUpdate_Clicked"  Grid.ColumnSpan="3" Grid.Row="1" />
+>>>>>>> 85fc0fd05e49a90d4978b9ec91d2dbfe7c42887d
 
                 </Grid>
 
