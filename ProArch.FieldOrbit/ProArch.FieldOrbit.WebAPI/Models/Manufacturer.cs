@@ -9,7 +9,7 @@ namespace ProArch.FieldOrbit.WebAPI.Models
     {
         public int ManufacturerId { get; set; }
         public string Name { get; set; }
-        public DateTime ManufactureDate { get; set; }
-        public DateTime ExpiryDate { get; set; }
+        public DateTime? ManufactureDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
     }
 }

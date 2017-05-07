@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
@@ -188,6 +189,41 @@ namespace ProArch.FieldOrbit.DataLayer
                 }
             }
             return path;
+        }
+
+        public bool EnterTimeSheet(Job job, Timesheet timeSheet)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            try
+            {
+                if (job.Employee.EmployeeId > 0)
+                {
+                    var collection = _database.GetCollection<BsonDocument>("job");
+                    var builder = Builders<BsonDocument>.Filter;
+                    var filter = builder.Eq("employee.employeeid", job.Employee.EmployeeId);
+                    var update = Builders<BsonDocument>.Update
+                        .Set("employee.timesheet.timesheetid", timeSheet.TimesheetId)
+                        .Set("employee.timesheet.Workdate", timeSheet.WorkDate)
+                        .Set("employee.timesheet.hours", timeSheet.Hours)
+                        .Set("employee.timesheet.comments", timeSheet.Comments);
+                    collection.UpdateManyAsync(filter, update);
+                }
+                else
+                {
+                    var collection = _database.GetCollection<BsonDocument>("job");
+                    var builder = Builders<BsonDocument>.Filter;
+                    var filter = builder.Lte("employee.employeeid", 0);
+                    var update = Builders<BsonDocument>.Update
+                        .Set("employee", job.Employee);
+                    collection.UpdateManyAsync(filter, update);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public List<Job> GetJobByEmployee(int employeeId, string collectionName)

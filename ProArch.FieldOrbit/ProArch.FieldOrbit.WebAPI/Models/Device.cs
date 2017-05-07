@@ -12,7 +12,7 @@ namespace ProArch.FieldOrbit.WebAPI.Models
         public string DeviceType { get; set; }
         public string ModelNumber { get; set; }
         public decimal Cost { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public int YearOfPurchase { get; set; }
         public Manufacturer Manufacturer { get; set; }        
     }

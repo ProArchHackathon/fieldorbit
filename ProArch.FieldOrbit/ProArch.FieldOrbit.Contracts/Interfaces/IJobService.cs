@@ -50,5 +50,6 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// <param name="Observations"></param>
         /// <returns></returns>
         bool UpdateJobWithComments(int JobID, string Status, string Comments, string Observations);
+        bool EnterTimeSheet(Job job, Timesheet timeSheet);
     }
 }

@@ -12,7 +12,7 @@ namespace ProArch.FieldOrbit.WebAPI.Models
         public JobStatus Status { get; set; }
         public JobPriority Priority { get; set; }
         public string JobDescription { get; set; }
-        public DateTime StartTime { get; set; }
+        public DateTime? StartTime { get; set; }
         public DateTime? EndTime { get; set; }
 
         public string Comments { get; set; }

@@ -191,5 +191,10 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
             return new MongoRepository().UpdateJobRequest(document, "job", true);
 
         }
+
+        public bool EnterTimeSheet(Job job, Timesheet timeSheet)
+        {
+            return new MongoRepository().EnterTimeSheet(job, timeSheet);
+        }
     }
 }
