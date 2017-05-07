@@ -1,0 +1,117 @@
+[
+{ 
+    "_id" : ObjectId("590e932e45ddefa1a8078d49"), 
+    "deviceexpertid" : NumberInt(101), 
+    "employee" : {
+        "employeeid" : NumberInt(1001), 
+        "name" : {
+            "firstname" : "eva", 
+            "middlename" : "c", 
+            "lastname" : "green"
+        }, 
+        "phone" : "7706589744", 
+        "email" : "ercgreen@yahoo.com", 
+        "active" : true, 
+        "voicecalluserid" : "ercgreen"
+    }, 
+    "device" : [
+        {
+            "deviceid" : "D0001", 
+            "devicetype" : "meter", 
+            "modelno" : "MR1234"
+        }
+    ]
+},
+{ 
+    "_id" : ObjectId("590e932e45ddefa1a8078d4a"), 
+    "deviceexpertid" : NumberInt(102), 
+    "employee" : {
+        "employeeid" : NumberInt(1005), 
+        "name" : {
+            "firstname" : "john", 
+            "middlename" : "c", 
+            "lastname" : "marry"
+        }, 
+        "phone" : "7706589744", 
+        "email" : "johnc@yahoo.com", 
+        "active" : true, 
+        "voicecalluserid" : "johnc"
+    }, 
+    "device" : [
+        {
+            "deviceid" : "D0004", 
+            "devicetype" : "electricwires", 
+            "modelno" : "EW1211"
+        }
+    ]
+},
+{ 
+    "_id" : ObjectId("590e932e45ddefa1a8078d4b"), 
+    "deviceexpertid" : NumberInt(103), 
+    "employee" : {
+        "employeeid" : NumberInt(1010), 
+        "name" : {
+            "firstname" : "nelson", 
+            "middlename" : "m", 
+            "lastname" : "buckland"
+        }, 
+        "phone" : "7806489744", 
+        "email" : "nelsonm@yahoo.com", 
+        "active" : true, 
+        "voicecalluserid" : "nelsonm"
+    }, 
+    "device" : [
+        {
+            "deviceid" : "D0005", 
+            "devicetype" : "inductor", 
+            "modelno" : "IR1328"
+        }
+    ]
+},
+{ 
+    "_id" : ObjectId("590e932e45ddefa1a8078d4c"), 
+    "deviceexpertid" : NumberInt(104), 
+    "employee" : {
+        "employeeid" : NumberInt(1040), 
+        "name" : {
+            "firstname" : "keith", 
+            "middlename" : "allen", 
+            "lastname" : "shuler"
+        }, 
+        "phone" : "7703108136", 
+        "email" : "keithshuler@yahoo.com", 
+        "active" : true, 
+        "voicecalluserid" : "keithshuler"
+    }, 
+    "device" : [
+        {
+            "deviceid" : "D0002", 
+            "devicetype" : "transformer", 
+            "modelno" : "TR1235"
+        }
+    ]
+},
+{ 
+    "_id" : ObjectId("590e932e45ddefa1a8078d4d"), 
+    "deviceexpertid" : NumberInt(105), 
+    "employee" : {
+        "employeeid" : NumberInt(1045), 
+        "name" : {
+            "firstname" : "linda d", 
+            "middlename" : "linda d", 
+            "lastname" : "johnson"
+        }, 
+        "phone" : "1234567890", 
+        "email" : "lindad@yahoo.com", 
+        "active" : true, 
+        "voicecalluserid" : "lindad"
+    }, 
+    "device" : [
+        {
+            "deviceid" : "D0003", 
+            "devicetype" : "amplifier", 
+            "modelno" : "AR1236"
+        }
+    ]
+}
+]
