@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProArch.FieldOrbit.Models;
 using System.IO;
+using System.Web;
 
 namespace ProArch.FieldOrbit.Contracts.Interfaces
 {
@@ -62,6 +63,19 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// <param name="URL"></param>
         /// <returns></returns>
         Stream GetVideoContent(string URL);
+
+        /// <summary>
+        /// getcustomerdevices
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
         List<Job> GetCustomerDevices(int customerId);
+
+        /// <summary>
+        /// uploadfiles
+        /// </summary>
+        /// <param name="files"></param>
+        /// <returns></returns>
+        bool UploadFiles(HttpFileCollectionBase files);
     }
 }

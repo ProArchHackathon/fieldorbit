@@ -35,12 +35,12 @@ namespace ProArch.FieldOrbit.BusinessLayer.Streaming
             return blob.Uri.AbsoluteUri;
         }
 
-        public static async Task<bool> UploadFiles(HttpFileCollectionBase files)
+        public static bool UploadFiles(HttpFileCollectionBase files)
         {
             int fileCount = files.Count;
             CloudBlobContainer blobContainer = GetContainer();
 
-            await blobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+            blobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
             if (blobContainer.Exists() && fileCount > 0)
             {
@@ -59,22 +59,17 @@ namespace ProArch.FieldOrbit.BusinessLayer.Streaming
             return false;
         }
 
-        //public async Task GetVideoContent(string filename)
-        //{
-        //    CloudBlobContainer blobContainer = GetContainer();
+        public static Stream GetVideoContent(string url)
+        {
+            CloudBlobContainer blobContainer = GetContainer();
 
-        //    await blobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
+            blobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-        //    //var blob = blobContainer.GetBlockBlobReference(filename);
-        //    //await blob.
-
-        //    List<Uri> allBlobs = new List<Uri>();
-        //    foreach (IListBlobItem blob in blobContainer.ListBlobs())
-        //    {
-        //        if (blob.GetType() == typeof(CloudBlockBlob))
-        //            allBlobs.Add(blob.Uri);
-        //    }
-        //}
+            var blob = blobContainer.GetBlockBlobReference(url);
+            Stream stream = new System.IO.MemoryStream();
+            blob.DownloadToStream(stream);
+            return stream;
+        }
 
         //public async Task<List<Uri>> GetAllBlobs()
         //{
