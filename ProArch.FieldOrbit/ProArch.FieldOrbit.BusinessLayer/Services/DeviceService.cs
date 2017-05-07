@@ -45,9 +45,9 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// </summary>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        public Models.Device GetDeviceById(int deviceId)
+        public Models.Device GetDeviceById(string deviceId)
         {
-            throw new NotImplementedException();
+            return _deviceRepository.GetDeviceById(deviceId);
         }
 
         /// <summary>
@@ -94,5 +94,9 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
             return ContentService.GetVideoPath(filename);
         }
 
+        public List<Job> GetCustomerDevices(int customerId)
+        {
+            return _deviceRepository.GetCustomerDevices(customerId);
+        }
     }
 }

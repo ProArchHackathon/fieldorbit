@@ -37,6 +37,13 @@ namespace ProArch.FieldOrbit.DataLayer
             return _database.GetCollection<BsonDocument>(collectionName).Count(new BsonDocument()) + 1;
         }
 
+        public Device GetDeviceById(string deviceId, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            return _database.GetCollection<Device>(collectionName).Find(dev => dev.DeviceId == deviceId).FirstOrDefault();
+        }
+
         public bool Create(BsonDocument doc, string collectionName)
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
@@ -51,6 +58,15 @@ namespace ProArch.FieldOrbit.DataLayer
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
             return _database.GetCollection<WorkRequest>(collectionName).Find(id => id.WorkRequestId == workRequestId).FirstOrDefault();
+        }
+
+        public List<Job> GetCustomerDevices(int customerId, string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            var collection = _database.GetCollection<Job>(collectionName);
+            var filter1 = Builders<Job>.Filter.Eq("workrequest.servicerequest.customer.customerid", customerId);
+            return collection.Find(filter1).ToList();
         }
 
         public IEnumerable<ServiceRequest> GetAllServiceRequests(string collectionName)
@@ -90,7 +106,7 @@ namespace ProArch.FieldOrbit.DataLayer
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-            return _database.GetCollection<Device>(collectionName).AsQueryable().ToList();
+            return _database.GetCollection<Device>(collectionName).AsQueryable().ToList();            
         }
 
         public bool UpdateWorkRequest(BsonDocument doc, string collectionName)

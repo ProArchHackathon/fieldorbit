@@ -45,12 +45,23 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <returns></returns>      
+		[TraceLogActionFilterAttribute]
+        [Route("api/Device/GetDeviceById")]
+        public Device GetAllDevices(string deviceId)
+        {
+            return Mapper.Map<Device>(_deviceService.GetDeviceById(deviceId));            
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="deviceId"></param>
         /// <returns></returns>
         [HttpGet]
         [TraceLogActionFilter]
         [ActionName("getdevicebyid")]
-        public Device GetDeviceById(int deviceId)
+        public Device GetDeviceById(string deviceId)
         {
             return _deviceService.GetDeviceById(deviceId);
         }
@@ -90,6 +101,12 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         public string GetVideoPath(string deviceId, string videoType)
         {
             return _deviceService.GetVideoPath(deviceId, videoType);
+        }
+
+        [Route("api/Device/GetCustomerDevices")]
+        public List<Job> GetCustomerDevices(int customerId)
+        {
+            return _deviceService.GetCustomerDevices(customerId);
         }
     }
 }

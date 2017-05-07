@@ -11,9 +11,9 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("jobid")]
         public int JobId { get; set; }
         [BsonElement("status")]
-        public JobStatus Status { get; set; }
+        public string Status { get; set; }
         [BsonElement("priority")]
-        public JobPriority Priority { get; set; }
+        public string Priority { get; set; }
         [BsonElement("jobdescription")]
         public string JobDescription { get; set; }
         [BsonElement("startdate")]

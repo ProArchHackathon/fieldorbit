@@ -32,7 +32,7 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// </summary>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        Device GetDeviceById(int deviceId);
+        Device GetDeviceById(string deviceId);
 
         /// <summary>
         /// get all devices
@@ -54,5 +54,6 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// <param name="videoType"></param>
         /// <returns></returns>
         string GetVideoPath(string deviceId, string videoType);
+        List<Job> GetCustomerDevices(int customerId);
     }
 }

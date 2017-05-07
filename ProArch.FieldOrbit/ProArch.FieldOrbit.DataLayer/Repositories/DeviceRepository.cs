@@ -34,9 +34,9 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// </summary>
         /// <param name="deviceId"></param>
         /// <returns></returns>
-        public Device GetDeviceById(int deviceId)
+        public Device GetDeviceById(string deviceId)
         {
-            throw new NotImplementedException();
+            return new MongoRepository().GetDeviceById(deviceId, "device");
         }
 
         /// <summary>
@@ -70,6 +70,11 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         public string GetVideoPath(string deviceId, string videoType)
         {
             return new MongoRepository().GetVideoPath(deviceId, videoType, "content");
+        }
+
+        public List<Job> GetCustomerDevices(int customerId)
+        {
+            return new MongoRepository().GetCustomerDevices(customerId, "job");
         }
     }
 }
