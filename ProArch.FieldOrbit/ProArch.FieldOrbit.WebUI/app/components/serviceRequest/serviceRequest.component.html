@@ -3,9 +3,9 @@
     <md-card>
         <md-card-title>Service Request</md-card-title>
         <div class="example-full-width" cellspacing="0">
-            <!--<md-input-container class="example-full-width" flex>
+            <md-input-container class="example-full-width" flex >
                 <input #srNumber mdInput [(ngModel)]="SrNumber" name="SrNumber" placeholder="SR Number" [disabled]="true">
-            </md-input-container>-->
+            </md-input-container>
             <md-input-container class="example-full-width">
                 <input #requestedBy mdInput [(ngModel)]="RequestedBy" name="RequestedBy" placeholder="Requested By">
             </md-input-container>
@@ -19,17 +19,17 @@
         </div>
         <br>
         <div class="example-full-width" cellspacing="0">
-
-            <md-select placeholder="Request Type" name="RequestType"  [(ngModel)]="RequestType">
+            <md-select placeholder="Request Type" name="RequestType" [(ngModel)]="RequestType">
                 <md-option *ngFor="let RType of requestType" [value]="RType.value">
                     {{ RType.viewValue }}
                 </md-option>
             </md-select>
             <md-input-container class="example-full-width">
-                <input #customerId mdInput [(ngModel)]="CustomerId" name="CustomerId" placeholder="Customer ID">
+                <input #customerId mdInput [(ngModel)]="Customer.CustomerId" name="CustomerId" placeholder="Customer ID">
             </md-input-container>
-            
-
+            <md-input-container class="example-full-width">
+                <input #location mdInput [(ngModel)]="Location" name="Location" placeholder="Location">
+            </md-input-container>
         </div>
         <div class="example-full-width" cellspacing="0">
             <md-input-container class="example-full-width">
@@ -50,8 +50,28 @@
             </md-select>
         </div>
         <p style="text-align: right">
-            <button class="mat-button mat-primary"(click)="onUpdate()" md-primary-button md-raised-button>Update</button>
+            <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>Update</button>
             <button class="mat-button mat-primary" md-raised-button>Close</button>
         </p>
+    </md-card>
+    <md-card>
+        <table style="width:100%; border:1px solid black;cursor:pointer;">
+            <tr style="text-align:left">
+                <th>Customer Id</th>
+                <th>Service Type</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            <tr *ngFor="let sr of serviceRequestList" style="text-align:left">
+                <td>{{sr.Customer.CustomerId }} </td>
+                <td>{{sr.ServiceType}} </td>
+                <td>{{sr.Status}} </td>
+                <td>{{sr.CreatedDate | date: 'dd-MMM-yyyy'}} </td>
+                <td>{{sr.StartDate| date: 'dd-MMM-yyyy'}} </td>
+                <td>{{sr.EndDate| date: 'dd-MMM-yyyy'}} </td>
+            </tr>
+        </table>
     </md-card>
 </form>

@@ -15,14 +15,22 @@ require("rxjs/add/operator/catch");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/toPromise");
 var app_constants_1 = require("../../common/app.constants");
+var Customer = (function () {
+    function Customer(CustomerId) {
+        this.CustomerId = CustomerId;
+    }
+    return Customer;
+}());
+exports.Customer = Customer;
 var ServiceRequestComponent = (function () {
     function ServiceRequestComponent(http, _configuration) {
+        var _this = this;
         this.http = http;
         this._configuration = _configuration;
         this.serviceType = [
-            { value: '0', viewValue: 'Electricity ' },
-            { value: '1', viewValue: 'Gas' },
-            { value: '2', viewValue: 'Water' },
+            { value: 'Electricity', viewValue: 'Electricity ' },
+            { value: 'Gas', viewValue: 'Gas' },
+            { value: 'Water', viewValue: 'Water' },
         ];
         this.statusList = [
             { value: 'Open', viewValue: 'Open' },
@@ -31,11 +39,21 @@ var ServiceRequestComponent = (function () {
             { value: 'Hold', viewValue: 'Hold' }
         ];
         this.requestType = [
-            { value: '0', viewValue: 'Connect' },
-            { value: '1', viewValue: 'Reconnect' },
-            { value: '2', viewValue: 'Disconnect' },
-            { value: '3', viewValue: 'Miscellaneous' }
+            { value: 'Connect', viewValue: 'Connect' },
+            { value: 'Reconnect', viewValue: 'Reconnect' },
+            { value: 'Disconnect', viewValue: 'Disconnect' },
+            { value: 'Miscellaneous', viewValue: 'Miscellaneous' }
         ];
+        this.Customer = {
+            CustomerId: 0
+        };
+        this.http.get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests, null)
+            .toPromise()
+            .then(function (response) {
+            _this.serviceRequestList = response.json();
+        })
+            .catch(function (errors) {
+        });
     }
     ;
     ServiceRequestComponent.prototype.onUpdate = function () {
@@ -44,13 +62,26 @@ var ServiceRequestComponent = (function () {
             RequestedBy: this.RequestedBy,
             ServiceType: this.ServiceType,
             RequestType: this.RequestType,
-            CreatedDate: this.CreatedDate,
-            StartDate: this.StartDate,
-            EndDate: this.EndDate,
-            CustomerId: this.CustomerId,
-            Status: this.Status
+            CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            }).split(' ').join('-'),
+            StartDate: new Date(this.StartDate).toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            }).split(' ').join('-'),
+            EndDate: (this.EndDate) ? new Date(this.EndDate).toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            }).split(' ').join('-') : null,
+            Customer: this.Customer,
+            Status: this.Status,
+            Location: this.Location
         };
-        var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var opt = new http_1.RequestOptions({ headers: headers });
         this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
             .toPromise()
