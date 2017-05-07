@@ -201,15 +201,22 @@ namespace ProArch.FieldOrbit.DataLayer
                 {
                     var collection = _database.GetCollection<BsonDocument>("job");
                     var builder = Builders<BsonDocument>.Filter;
-                    var filter = builder.Eq("workrequest.employee", job.Employee.EmployeeId);
+                    var filter = builder.Eq("employee.employeeid", job.Employee.EmployeeId);
                     var update = Builders<BsonDocument>.Update
-                        .Set("cuisine", "Category To Be Determined")
-                        .CurrentDate("lastModified");
+                        .Set("employee.timesheet.timesheetid", timeSheet.TimesheetId)
+                        .Set("employee.timesheet.Workdate", timeSheet.WorkDate)
+                        .Set("employee.timesheet.hours", timeSheet.Hours)
+                        .Set("employee.timesheet.comments", timeSheet.Comments);
                     collection.UpdateManyAsync(filter, update);
                 }
                 else
                 {
-
+                    var collection = _database.GetCollection<BsonDocument>("job");
+                    var builder = Builders<BsonDocument>.Filter;
+                    var filter = builder.Lte("employee.employeeid", 0);
+                    var update = Builders<BsonDocument>.Update
+                        .Set("employee", job.Employee);
+                    collection.UpdateManyAsync(filter, update);
                 }
                 return true;
             }
