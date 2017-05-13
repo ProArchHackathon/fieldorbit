@@ -16,12 +16,13 @@ import { SidenavComponent } from './material/sidenav';
 import { ServiceRequestListComponent } from '../components/servicelist/srlist.component';
 import { DialogResultDialog } from './dialog/dialog';
 import { MdDialogModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //import 'hammerjs';
 @NgModule({
     imports: [
-        BrowserModule, MdDialogModule,
-        FormsModule, HttpModule, BrowserAnimationsModule, MaterialModule.forRoot(),
+        BrowserModule, ReactiveFormsModule, MdDialogModule,
+        FormsModule, HttpModule, BrowserAnimationsModule, MaterialModule,
         RouterModule.forRoot([
             {
                 path: 'login',

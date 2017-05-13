@@ -7,6 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import { Configuration } from '../../common/app.constants';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class Customer {
     constructor(
         public CustomerId: number) {
@@ -21,23 +22,27 @@ export class Customer {
 
 export class ServiceRequestComponent {
 
-    SrNumber: string;
-    RequestedBy: string;
-    ServiceType: string;
-    RequestType: string;
-    CreatedDate: Date;
-    StartDate: Date;
-    EndDate: Date;
-    Customer: Customer;
-    Status: any;
-    Location: string;
+
 
 
     serviceRequestList: any;
-    constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
-        this.Customer = {
-            CustomerId: 0
-        }
+    srForm: FormGroup;
+    constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog, private _formBuilder: FormBuilder) {
+
+        this.srForm = this._formBuilder.group({
+            SrNumber: ['', Validators.required],
+            RequestedBy: ['', Validators.required],
+            ServiceType: ['', Validators.required],
+            RequestType: ['', Validators.required],
+            CreatedDate: ['', Validators.required],
+            StartDate: ['', Validators.required],
+            EndDate: ['', Validators.required],
+            CustomerId: ['', Validators.required],
+            Status: ['', Validators.required],
+            Location: ['', Validators.required]
+        });
+
+
         this.http.get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests, null)
             .toPromise()
             .then((response: Response) => {
@@ -75,40 +80,40 @@ export class ServiceRequestComponent {
     ];
 
     onUpdate(): void {
-        var data =
-            {
-                SrNumber: this.SrNumber,
-                RequestedBy: this.RequestedBy,
-                ServiceType: this.ServiceType,
-                RequestType: this.RequestType,
-                CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                }).split(' ').join('-'),
-                StartDate: new Date(this.StartDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                }).split(' ').join('-'),
-                EndDate: (this.EndDate)? new Date(this.EndDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                }).split(' ').join('-'):null,
-                Customer: this.Customer,
-                Status: this.Status,
-                Location:this.Location
-            };
+        //var data =
+        //    {
+        //        SrNumber: this.SrNumber,
+        //        RequestedBy: this.RequestedBy,
+        //        ServiceType: this.ServiceType,
+        //        RequestType: this.RequestType,
+        //        CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
+        //            day: 'numeric',
+        //            month: 'short',
+        //            year: 'numeric'
+        //        }).split(' ').join('-'),
+        //        StartDate: new Date(this.StartDate).toLocaleDateString('en-GB', {
+        //            day: 'numeric',
+        //            month: 'short',
+        //            year: 'numeric'
+        //        }).split(' ').join('-'),
+        //        EndDate: (this.EndDate)? new Date(this.EndDate).toLocaleDateString('en-GB', {
+        //            day: 'numeric',
+        //            month: 'short',
+        //            year: 'numeric'
+        //        }).split(' ').join('-'):null,
+        //        Customer: this.Customer,
+        //        Status: this.Status,
+        //        Location:this.Location
+        //    };
 
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let opt = new RequestOptions({ headers: headers });
-        this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
-            .toPromise()
-            .then((response: Response) => {
-                this.openDialog();
-            })
-            .catch(this.handleError);
+        //let headers = new Headers({ 'Content-Type': 'application/json' });
+        //let opt = new RequestOptions({ headers: headers });
+        //this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
+        //    .toPromise()
+        //    .then((response: Response) => {
+        //        this.openDialog();
+        //    })
+        //    .catch(this.handleError);
     };
 
     private handleError(error: Response | any) {
@@ -128,18 +133,17 @@ export class ServiceRequestComponent {
 
     }
 
-    private onSelectedRow(serviceRequest): void
-    {
-        this.SrNumber = serviceRequest.ServiceRequestId;
-        this.RequestedBy = serviceRequest.RequestedBy;
-        this.ServiceType = serviceRequest.ServiceType;
-        this.RequestType = serviceRequest.RequestType;
-        this.Customer.CustomerId = serviceRequest.Customer.CustomerId;
-        this.Location = serviceRequest.Location;
-        this.CreatedDate = new Date(serviceRequest.CreatedDate);
-        this.StartDate = serviceRequest.StartDate;
-        this.EndDate = serviceRequest.EndDate;
-        this.Status = serviceRequest.Status;
+    private onSelectedRow(serviceRequest): void {
+        //this.SrNumber = serviceRequest.ServiceRequestId;
+        //this.RequestedBy = serviceRequest.RequestedBy;
+        //this.ServiceType = serviceRequest.ServiceType;
+        //this.RequestType = serviceRequest.RequestType;
+        //this.Customer.CustomerId = serviceRequest.Customer.CustomerId;
+        //this.Location = serviceRequest.Location;
+        //this.CreatedDate = new Date(serviceRequest.CreatedDate);
+        //this.StartDate = serviceRequest.StartDate;
+        //this.EndDate = serviceRequest.EndDate;
+        //this.Status = serviceRequest.Status;
 
     }
     onLoad() {

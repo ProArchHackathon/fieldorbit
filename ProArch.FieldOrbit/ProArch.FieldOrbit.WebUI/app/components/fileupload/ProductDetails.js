@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Product = (function () {
     function Product(DeviceId, DeviceName, ModelType, RecommendedType) {
         this.DeviceId = DeviceId;
