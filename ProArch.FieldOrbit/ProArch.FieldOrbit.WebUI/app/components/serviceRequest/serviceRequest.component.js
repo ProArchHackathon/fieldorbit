@@ -51,14 +51,14 @@ var ServiceRequestComponent = (function () {
             { value: 'Miscellaneous', viewValue: 'Miscellaneous' }
         ];
         this.srForm = this._formBuilder.group({
-            SrNumber: ['', forms_1.Validators.required],
+            SrNumber: [''],
             RequestedBy: ['', forms_1.Validators.required],
             ServiceType: ['', forms_1.Validators.required],
             RequestType: ['', forms_1.Validators.required],
             CreatedDate: ['', forms_1.Validators.required],
             StartDate: ['', forms_1.Validators.required],
             EndDate: ['', forms_1.Validators.required],
-            CustomerId: ['', forms_1.Validators.required],
+            CustomerId: ['', forms_1.Validators.compose([forms_1.Validators.required, forms_1.Validators.maxLength(6)])],
             Status: ['', forms_1.Validators.required],
             Location: ['', forms_1.Validators.required]
         });

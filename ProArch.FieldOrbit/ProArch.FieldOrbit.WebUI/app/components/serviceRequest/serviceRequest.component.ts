@@ -30,14 +30,14 @@ export class ServiceRequestComponent {
     constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog, private _formBuilder: FormBuilder) {
 
         this.srForm = this._formBuilder.group({
-            SrNumber: ['', Validators.required],
+            SrNumber: [''],
             RequestedBy: ['', Validators.required],
             ServiceType: ['', Validators.required],
             RequestType: ['', Validators.required],
             CreatedDate: ['', Validators.required],
             StartDate: ['', Validators.required],
             EndDate: ['', Validators.required],
-            CustomerId: ['', Validators.required],
+            CustomerId: ['', Validators.compose([Validators.required, Validators.maxLength(6)])],
             Status: ['', Validators.required],
             Location: ['', Validators.required]
         });

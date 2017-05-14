@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { JobComponent } from '../components/job/job.component';
 import { LoginComponent } from '../common/login/login.component';
+import { ControlMessages } from '../common/app.validations';
 import { AppComponent } from '../common/app.component';
 //import { FileUploadComponent } from '../components/fileupload/fileupload.component';
 //import { FileUploadDetailsComponent } from '../components/fileupload/fileuploaddetails.component';
@@ -48,7 +49,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         ], { useHash: true })
     ],
     declarations: [
-        AppComponent, JobComponent, LoginComponent, ServiceRequestListComponent, DialogResultDialog,
+        AppComponent, ControlMessages, JobComponent, LoginComponent, ServiceRequestListComponent, DialogResultDialog,
         ServiceRequestComponent, WorkRequestComponent, SidenavComponent
 
     ],

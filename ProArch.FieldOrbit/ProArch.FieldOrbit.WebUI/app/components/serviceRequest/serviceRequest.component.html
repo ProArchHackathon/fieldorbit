@@ -1,48 +1,83 @@
 ﻿<form [formGroup]="srForm">
-    <input formControlName="SrNumber" placeholder="SR Number">
-    <input formControlName="RequestedBy" placeholder="Requested By">
-    <select placeholder="Service Type" formControlName="ServiceType">
-        <option *ngFor="let type of serviceType" [value]="type.value">
-            {{ type.viewValue }}
-        </option>
-    </select>
-    <select placeholder="Request Type" formControlName="RequestType">
-        <option *ngFor="let RType of requestType" [value]="RType.value">
-            {{ RType.viewValue }}
-        </option>
-    </select>
-    <input formControlName="CustomerId" placeholder="Customer ID">
-    <input formControlName="Location" placeholder="Location">
-    <input type="date" formControlName="CreatedDate" placeholder="Created Date">
-    <input type="date" formControlName="StartDate" value="" placeholder="Start Date">
-    <input type="date" formControlName="EndDate" placeholder="End Date">
-    <select placeholder="Status" formControlName="Status">
-        <option *ngFor="let Status of statusList" [value]="Status.value">
-            {{ Status.viewValue }}
-        </option>
-    </select>
-    <button (click)="onUpdate()">Update</button>
-    <!--<table>
-        <tr>
-            <th>Customer Id</th>
-            <th>Service Type</th>
-            <th>Status</th>
-            <th>Created Date</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-        </tr>
-        <tr *ngFor="let sr of serviceRequestList" (click)="onSelectedRow(sr)">
-            <td>{{sr.CustomerId }} </td>
-            <td>{{sr.ServiceType}} </td>
-            <td>{{sr.Status}} </td>
-            <td>{{sr.CreatedDate | date: 'dd-MMM-yyyy'}} </td>
-            <td>{{sr.StartDate| date: 'dd-MMM-yyyy'}} </td>
-            <td>{{sr.EndDate| date: 'dd-MMM-yyyy'}} </td>
-        </tr>
-    </table>-->
-</form>
-form {{srForm.status}}
-CustomerId {{srForm.get('CustomerId').value}}
+    <md-card>
+        <md-input-container>
+            <input mdInput formControlName="SrNumber" placeholder="SR Number" disabled>
+                   </md-input-container>
+        <md-input-container>
+            <input mdInput formControlName="RequestedBy" placeholder="Requested By">
+            <md-hint *ngIf="srForm.controls['RequestedBy'].hasError('required')" [ngStyle]="{'color': 'red'}"> The required field is empty. </md-hint>
+        </md-input-container>
+        <md-input-container>
+            <input style="display:none" mdInput>
+            <md-select placeholder="Service Type" formControlName="ServiceType" name="ServiceType"  style="width:100% !important">
+                <md-option *ngFor="let type of serviceType" [value]="type.value">
+                    {{ type.viewValue }}
+                </md-option>
+            </md-select>
+            <md-hint *ngIf="srForm.controls['ServiceType'].hasError('required')" [ngStyle]="{'color': 'red'}"> The required field is empty. </md-hint>
+        </md-input-container>
+        <md-input-container>
+            <input style="display:none" mdInput>   
+            <md-select placeholder="Request Type" formControlName="RequestType" name="RequestType"  style="width:100% !important">
+                <md-option *ngFor="let RType of requestType" [value]="RType.value">
+                    {{ RType.viewValue }}
+                </md-option>
+            </md-select>
+            <md-hint *ngIf="srForm.controls['RequestType'].hasError('required')" [ngStyle]="{'color': 'red'}"> The required field is empty. </md-hint>
+        </md-input-container>
+        <md-input-container>
+            <input mdInput formControlName="CustomerId" placeholder="Customer ID">
+            <md-hint *ngIf="srForm.controls['CustomerId'].hasError('required')" [ngStyle]="{'color': 'red'}">The required field is empty. </md-hint>
+            <md-hint *ngIf="srForm.controls['CustomerId'].hasError('maxlength')" [ngStyle]="{'color': 'red'}"> Length Exceeded. </md-hint>
+        </md-input-container>
+        <md-input-container>
+            <input mdInput formControlName="Location" placeholder="Location">
+            <md-hint *ngIf="srForm.controls['Location'].hasError('required')" [ngStyle]="{'color': 'red'}"> The required field is empty. </md-hint>
+        </md-input-container>
+        <md-input-container>
+            <input type="date" mdInput formControlName="CreatedDate" placeholder="Created Date">
+            <md-hint *ngIf="srForm.controls['CreatedDate'].hasError('required')" [ngStyle]="{'color': 'red'}"> The required field is empty. </md-hint>
+        </md-input-container>
+        <md-input-container>
+            <input type="date" mdInput formControlName="StartDate" value="" placeholder="Start Date">
+            <md-hint *ngIf="srForm.controls['StartDate'].hasError('required')" [ngStyle]="{'color': 'red'}"> The required field is empty. </md-hint>
+        </md-input-container>
+        <md-input-container>
+            <input type="date" mdInput formControlName="EndDate" placeholder="End Date">
+            <md-hint *ngIf="srForm.controls['EndDate'].hasError('required')" [ngStyle]="{'color': 'red'}"> The required field is empty. </md-hint>
+        </md-input-container>
+        <md-input-container>
+            <input style="display:none" mdInput> 
+            <md-select placeholder="Status" formControlName="Status" name="Status" style="width:100% !important">
+                <md-option *ngFor="let Status of statusList" [value]="Status.value">
+                    {{ Status.viewValue }}
+                </md-option>
+            </md-select>
+            <md-hint *ngIf="srForm.controls['Status'].hasError('required')" [ngStyle]="{'color': 'red'}"> The required field is empty. </md-hint>
+        </md-input-container>
 
-CreatedDate {{srForm.get('CreatedDate').value}}
-SrNumber {{srForm.get('SrNumber').value}}
+        <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>Update</button>
+
+    </md-card>
+    <md-card>
+        <table class="table" style="width:100%;cursor:pointer;">
+            <tr>
+                <th>Customer Id</th>
+                <th>Service Type</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            <tr *ngFor="let sr of serviceRequestList" (click)="onSelectedRow(sr)">
+                <td>{{sr.CustomerId }} </td>
+                <td>{{sr.ServiceType}} </td>
+                <td>{{sr.Status}} </td>
+                <td>{{sr.CreatedDate | date: 'dd-MMM-yyyy'}} </td>
+                <td>{{sr.StartDate| date: 'dd-MMM-yyyy'}} </td>
+                <td>{{sr.EndDate| date: 'dd-MMM-yyyy'}} </td>
+            </tr>
+        </table>
+    </md-card>
+</form>
+

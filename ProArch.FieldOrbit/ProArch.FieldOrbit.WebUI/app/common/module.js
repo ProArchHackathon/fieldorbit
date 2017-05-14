@@ -15,6 +15,7 @@ var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 var job_component_1 = require("../components/job/job.component");
 var login_component_1 = require("../common/login/login.component");
+var app_validations_1 = require("../common/app.validations");
 var app_component_1 = require("../common/app.component");
 //import { FileUploadComponent } from '../components/fileupload/fileupload.component';
 //import { FileUploadDetailsComponent } from '../components/fileupload/fileuploaddetails.component';
@@ -61,7 +62,7 @@ AppModule = __decorate([
             ], { useHash: true })
         ],
         declarations: [
-            app_component_1.AppComponent, job_component_1.JobComponent, login_component_1.LoginComponent, srlist_component_1.ServiceRequestListComponent, dialog_1.DialogResultDialog,
+            app_component_1.AppComponent, app_validations_1.ControlMessages, job_component_1.JobComponent, login_component_1.LoginComponent, srlist_component_1.ServiceRequestListComponent, dialog_1.DialogResultDialog,
             serviceRequest_component_1.ServiceRequestComponent, workrequest_component_1.WorkRequestComponent, sidenav_1.SidenavComponent
         ],
         exports: [
