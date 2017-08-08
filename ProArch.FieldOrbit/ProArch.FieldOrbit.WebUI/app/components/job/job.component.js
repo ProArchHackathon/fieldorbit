@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/add/operator/catch");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/toPromise");
-var app_constants_1 = require("../../common/app.constants");
-var material_1 = require("@angular/material");
-var dialog_1 = require("../../common/dialog/dialog");
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/toPromise');
+var app_constants_1 = require('../../common/app.constants');
+var material_1 = require('@angular/material');
+var dialog_1 = require('../../common/dialog/dialog');
 var WorkRequest = (function () {
     function WorkRequest(WorkRequestId) {
         this.WorkRequestId = WorkRequestId;
@@ -117,16 +117,16 @@ var JobComponent = (function () {
         console.error(errMsg);
         return Promise.reject(errMsg);
     };
+    JobComponent = __decorate([
+        core_1.Component({
+            selector: 'msg-app',
+            templateUrl: 'app/components/job/job.component.html',
+            styleUrls: ['app/components/job/job.component.css'],
+            providers: [app_constants_1.Configuration]
+        }), 
+        __metadata('design:paramtypes', [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
+    ], JobComponent);
     return JobComponent;
 }());
-JobComponent = __decorate([
-    core_1.Component({
-        selector: 'msg-app',
-        templateUrl: 'app/components/job/job.component.html',
-        styleUrls: ['app/components/job/job.component.css'],
-        providers: [app_constants_1.Configuration]
-    }),
-    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
-], JobComponent);
 exports.JobComponent = JobComponent;
 //# sourceMappingURL=job.component.js.map

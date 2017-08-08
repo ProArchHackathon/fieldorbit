@@ -29,6 +29,13 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
             var document = new BsonDocument
             {
                 {"servicerequestid", new MongoRepository().GetCount("servicerequest")},
+                { "createdBy",serviceRequest.CreatedBy==null? new BsonDocument() : new BsonDocument
+                    {
+                        { "employeeid", serviceRequest.CreatedBy.EmployeeId }
+                    }
+                },
+                { "deviceOwner",serviceRequest.DeviceOwner.ToString()},
+                { "description",serviceRequest.Description.ToString()},
                 {"createddate", serviceRequest.CreatedDate},
                 {"startdate" ,serviceRequest.StartDate},
                 {"servicetype",serviceRequest.ServiceType.ToString()},
@@ -78,6 +85,13 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
             {
                 {"servicerequestid", serviceRequest.ServiceRequestId},
                 {"createddate", serviceRequest.CreatedDate},
+                { "createdBy",serviceRequest.CreatedBy==null? new BsonDocument() : new BsonDocument
+                    {
+                        { "employeeid", serviceRequest.CreatedBy.EmployeeId }
+                    }
+                },
+                { "deviceOwner",serviceRequest.DeviceOwner.ToString()},
+                { "description",serviceRequest.Description.ToString()},
                 {"startdate" ,serviceRequest.StartDate},
                 {"servicetype",serviceRequest.ServiceType.ToString()},
                 {"requesttype", serviceRequest.RequestType.ToString()},

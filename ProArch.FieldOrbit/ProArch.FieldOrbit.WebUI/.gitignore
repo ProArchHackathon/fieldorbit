@@ -1,0 +1,3 @@
+# Ignore .js and .map files
+app/**/*.js
+app/**/*.map

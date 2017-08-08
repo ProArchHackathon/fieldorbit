@@ -21,7 +21,7 @@ import { MdDialogModule } from '@angular/material';
 @NgModule({
     imports: [
         BrowserModule, MdDialogModule,
-        FormsModule, HttpModule, BrowserAnimationsModule, MaterialModule.forRoot(),
+        FormsModule, HttpModule, BrowserAnimationsModule, MaterialModule,
         RouterModule.forRoot([
             {
                 path: 'login',

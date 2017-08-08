@@ -58,6 +58,8 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                     customer = new BsonDocument
                     {
                         {"customerid", job.WorkRequest.ServiceRequest.Customer.CustomerId },
+                        {"deviceid",job.WorkRequest.ServiceRequest.Customer.DeviceId},
+                        {"assetid",job.WorkRequest.ServiceRequest.Customer.AssetId},
                         {"name", (job.WorkRequest.ServiceRequest.Customer==null||job.WorkRequest.ServiceRequest.Customer.Name==null)?new BsonDocument(): new BsonDocument
                             {
                                 {"firstname", job.WorkRequest.ServiceRequest.Customer.Name.FirstName },
@@ -90,6 +92,13 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                     {"servicerequest", new BsonDocument
                         {
                             { "createddate", job.WorkRequest.ServiceRequest.CreatedDate },
+                              { "createdBy",job.WorkRequest.ServiceRequest.CreatedBy==null? new BsonDocument() : new BsonDocument
+                                 {
+                                     { "employeeid", job.WorkRequest.ServiceRequest.CreatedBy.EmployeeId }
+                                 }
+                              },
+                            { "deviceOwner",job.WorkRequest.ServiceRequest.DeviceOwner.ToString()},
+                            { "description",job.WorkRequest.ServiceRequest.Description.ToString()},
                             { "startdate", job.WorkRequest.ServiceRequest.StartDate },
                             { "servicetype", job.WorkRequest.ServiceRequest.ServiceType.ToString() },
                             { "requesttype", job.WorkRequest.ServiceRequest.RequestType.ToString() },

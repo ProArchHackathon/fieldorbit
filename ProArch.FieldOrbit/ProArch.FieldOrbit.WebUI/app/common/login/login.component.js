@@ -8,11 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var login_service_1 = require("./login.service");
+var core_1 = require('@angular/core');
+var login_service_1 = require('./login.service');
 var app_constants_1 = require("../../common/app.constants");
-var app_cookieManager_1 = require("../app.cookieManager");
-var router_1 = require("@angular/router");
+var app_cookieManager_1 = require('../app.cookieManager');
+var router_1 = require('@angular/router');
 var User = (function () {
     function User(username, password) {
         this.username = username;
@@ -44,14 +44,14 @@ var LoginComponent = (function () {
             var error = errors;
         });
     };
+    LoginComponent = __decorate([
+        core_1.Component({
+            templateUrl: 'app/common/login/login.component.html',
+            providers: [login_service_1.LoginService, app_constants_1.Configuration, app_cookieManager_1.CookieService]
+        }), 
+        __metadata('design:paramtypes', [login_service_1.LoginService, app_cookieManager_1.CookieService, router_1.Router])
+    ], LoginComponent);
     return LoginComponent;
 }());
-LoginComponent = __decorate([
-    core_1.Component({
-        templateUrl: 'app/common/login/login.component.html',
-        providers: [login_service_1.LoginService, app_constants_1.Configuration, app_cookieManager_1.CookieService]
-    }),
-    __metadata("design:paramtypes", [login_service_1.LoginService, app_cookieManager_1.CookieService, router_1.Router])
-], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

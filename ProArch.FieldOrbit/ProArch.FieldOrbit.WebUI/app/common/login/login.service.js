@@ -29,11 +29,11 @@ var LoginService = (function () {
             return _this._http.get(_this._configuration.ApiServer + _this._configuration.LoginApiUrl, requestOptions);
         };
     }
+    LoginService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http, app_constants_1.Configuration])
+    ], LoginService);
     return LoginService;
 }());
-LoginService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration])
-], LoginService);
 exports.LoginService = LoginService;
 //# sourceMappingURL=login.service.js.map

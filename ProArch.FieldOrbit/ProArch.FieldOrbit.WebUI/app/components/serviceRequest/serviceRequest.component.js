@@ -8,15 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
 //import { Observable } from 'rxjs/Observable';
-require("rxjs/add/operator/catch");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/toPromise");
-var app_constants_1 = require("../../common/app.constants");
-var material_1 = require("@angular/material");
-var dialog_1 = require("../../common/dialog/dialog");
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/toPromise');
+var app_constants_1 = require('../../common/app.constants');
+var material_1 = require('@angular/material');
+var dialog_1 = require('../../common/dialog/dialog');
 var Customer = (function () {
     function Customer(CustomerId) {
         this.CustomerId = CustomerId;
@@ -128,15 +128,15 @@ var ServiceRequestComponent = (function () {
     };
     ServiceRequestComponent.prototype.onLoad = function () {
     };
+    ServiceRequestComponent = __decorate([
+        core_1.Component({
+            selector: 'service-request',
+            templateUrl: 'app/components/serviceRequest/serviceRequest.component.html',
+            providers: [app_constants_1.Configuration]
+        }), 
+        __metadata('design:paramtypes', [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
+    ], ServiceRequestComponent);
     return ServiceRequestComponent;
 }());
-ServiceRequestComponent = __decorate([
-    core_1.Component({
-        selector: 'service-request',
-        templateUrl: 'app/components/serviceRequest/serviceRequest.component.html',
-        providers: [app_constants_1.Configuration]
-    }),
-    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
-], ServiceRequestComponent);
 exports.ServiceRequestComponent = ServiceRequestComponent;
 //# sourceMappingURL=serviceRequest.component.js.map

@@ -8,14 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
+var core_1 = require('@angular/core');
 var http_1 = require("@angular/http");
-require("rxjs/add/operator/catch");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/toPromise");
-var app_constants_1 = require("../../common/app.constants");
-var material_1 = require("@angular/material");
-var dialog_1 = require("../../common/dialog/dialog");
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/toPromise');
+var app_constants_1 = require('../../common/app.constants');
+var material_1 = require('@angular/material');
+var dialog_1 = require('../../common/dialog/dialog');
 var ServiceRequest = (function () {
     function ServiceRequest(ServiceRequestId) {
         this.ServiceRequestId = ServiceRequestId;
@@ -110,15 +110,15 @@ var WorkRequestComponent = (function () {
     WorkRequestComponent.prototype.onLoad = function () {
         this.WorkRequestId = "12345";
     };
+    WorkRequestComponent = __decorate([
+        core_1.Component({
+            selector: 'work-request',
+            templateUrl: 'app/components/workrequest/workrequest.component.html',
+            providers: [app_constants_1.Configuration]
+        }), 
+        __metadata('design:paramtypes', [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
+    ], WorkRequestComponent);
     return WorkRequestComponent;
 }());
-WorkRequestComponent = __decorate([
-    core_1.Component({
-        selector: 'work-request',
-        templateUrl: 'app/components/workrequest/workrequest.component.html',
-        providers: [app_constants_1.Configuration]
-    }),
-    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration, material_1.MdDialog])
-], WorkRequestComponent);
 exports.WorkRequestComponent = WorkRequestComponent;
 //# sourceMappingURL=workrequest.component.js.map

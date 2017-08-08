@@ -8,12 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-require("rxjs/add/operator/catch");
-require("rxjs/add/operator/map");
-require("rxjs/add/operator/toPromise");
-var app_constants_1 = require("../../common/app.constants");
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/toPromise');
+var app_constants_1 = require('../../common/app.constants');
 var ServiceRequestListComponent = (function () {
     function ServiceRequestListComponent(http, _configuration) {
         var _this = this;
@@ -45,15 +45,15 @@ var ServiceRequestListComponent = (function () {
         console.error(errMsg);
         return Promise.reject(errMsg);
     };
+    ServiceRequestListComponent = __decorate([
+        core_1.Component({
+            selector: 'service-list-component',
+            templateUrl: 'app/components/servicelist/srlist.component.html',
+            providers: [app_constants_1.Configuration]
+        }), 
+        __metadata('design:paramtypes', [http_1.Http, app_constants_1.Configuration])
+    ], ServiceRequestListComponent);
     return ServiceRequestListComponent;
 }());
-ServiceRequestListComponent = __decorate([
-    core_1.Component({
-        selector: 'service-list-component',
-        templateUrl: 'app/components/servicelist/srlist.component.html',
-        providers: [app_constants_1.Configuration]
-    }),
-    __metadata("design:paramtypes", [http_1.Http, app_constants_1.Configuration])
-], ServiceRequestListComponent);
 exports.ServiceRequestListComponent = ServiceRequestListComponent;
 //# sourceMappingURL=srlist.component.js.map

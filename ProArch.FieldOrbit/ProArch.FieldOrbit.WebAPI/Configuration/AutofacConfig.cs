@@ -23,8 +23,8 @@ namespace ProArch.FieldOrbit.WebAPI.Configuration
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             builder.RegisterType<LoginOperationsLogic>().As<ILoginOperations>().InstancePerRequest();
-            builder.RegisterType<WorkRequestService>().As<IWorkRequestService>().InstancePerRequest();
-            builder.RegisterType<WorkRequestRepository>().As<IWorkRequestRepository>().InstancePerRequest();
+            //builder.RegisterType<WorkRequestService>().As<IWorkRequestService>().InstancePerRequest();
+            //builder.RegisterType<WorkRequestRepository>().As<IWorkRequestRepository>().InstancePerRequest();
             builder.RegisterType<ServiceRequestService>().As<IServiceRequestService>().InstancePerRequest();
             builder.RegisterType<ServiceRequestRepository>().As<IServiceRequestRepository>().InstancePerRequest();
             builder.RegisterType<DeviceService>().As<IDeviceService>().InstancePerRequest();

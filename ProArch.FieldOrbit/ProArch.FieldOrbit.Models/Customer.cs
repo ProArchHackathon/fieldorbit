@@ -8,6 +8,10 @@ namespace ProArch.FieldOrbit.Models
     {
         [BsonElement("customerid")]
         public int CustomerId { get; set; }
+        [BsonElement("DeviceId")]
+        public int DeviceId { get; set; }
+        [BsonElement("AssetId")]
+        public int AssetId { get; set; }
         public Name Name { get; set; }
         public Address Address { get; set; }
         public string Phone { get; set; }
