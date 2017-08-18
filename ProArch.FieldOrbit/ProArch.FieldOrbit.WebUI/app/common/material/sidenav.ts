@@ -3,7 +3,7 @@
 
 @Component({
     selector: 'side-nav',
-    moduleId: module.id,
+    //moduleId: module.id,
     templateUrl: './sidenav.html',
     styleUrls: ['./sidenav.css'],
 })

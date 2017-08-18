@@ -16,8 +16,8 @@ export class WorkRequest {
 
 @Component({
     selector: 'msg-app',
-    templateUrl: 'app/components/job/job.component.html',
-    styleUrls: ['app/components/job/job.component.css'],
+    templateUrl: 'job.component.html',
+    styleUrls: ['job.component.css'],
     providers: [Configuration]
 })
 

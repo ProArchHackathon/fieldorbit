@@ -15,7 +15,7 @@ export class Customer {
 }
 @Component({
     selector: 'service-request',
-    templateUrl: 'app/components/serviceRequest/serviceRequest.component.html',
+    templateUrl: 'serviceRequest.component.html',
     providers: [Configuration]
 })
 

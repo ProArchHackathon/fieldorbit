@@ -17,7 +17,7 @@ export class ServiceRequest {
 
 @Component({
     selector: 'work-request',
-    templateUrl: 'app/components/workrequest/workrequest.component.html',
+    templateUrl: 'workrequest.component.html',
     providers: [Configuration]
 })
 

@@ -17,7 +17,7 @@ import { ServiceRequestListComponent } from '../components/servicelist/srlist.co
 import { DialogResultDialog } from './dialog/dialog';
 import { MdDialogModule } from '@angular/material';
 
-//import 'hammerjs';
+import 'hammerjs';
 @NgModule({
     imports: [
         BrowserModule, MdDialogModule,
@@ -35,10 +35,10 @@ import { MdDialogModule } from '@angular/material';
                 path: 'servicerequest',
                 component: ServiceRequestComponent
             },
-            {
-                path: 'workrequest',
-                component: WorkRequestComponent
-            },
+            // {
+            //     path: 'workrequest',
+            //     component: WorkRequestComponent
+            // },
             {
                 path: '',
                 redirectTo: '/login',

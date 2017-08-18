@@ -11,7 +11,7 @@ export class User {
 }
 
 @Component({
-    templateUrl: 'app/common/login/login.component.html',
+    templateUrl: 'login.component.html',
     providers: [LoginService, Configuration, CookieService]
 })
 export class LoginComponent {

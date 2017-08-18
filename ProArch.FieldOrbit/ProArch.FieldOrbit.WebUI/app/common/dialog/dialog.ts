@@ -2,9 +2,8 @@
 import { MdDialog, MdDialogRef } from '@angular/material';
 
 @Component({
-    moduleId: module.id,
     selector: 'dialog-result-dialog',
-    templateUrl: './dialog.component.html',
+    templateUrl: 'dialog.component.html',
 })
 
 export class DialogResultDialog {

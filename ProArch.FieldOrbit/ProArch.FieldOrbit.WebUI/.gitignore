@@ -1,3 +1,10 @@
-# Ignore .js and .map files
-app/**/*.js
-app/**/*.map
+# Ignore dist folder
+dist
+
+# Dependency directory
+# https://docs.npmjs.com/cli/shrinkwrap#caveats
+node_modules
+public
+
+# Debug log from npm
+npm-debug.log

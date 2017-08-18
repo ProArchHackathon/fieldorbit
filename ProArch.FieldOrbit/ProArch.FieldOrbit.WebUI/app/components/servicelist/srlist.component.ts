@@ -8,7 +8,7 @@ import { Configuration } from '../../common/app.constants';
 
 @Component({
     selector: 'service-list-component',
-    templateUrl: 'app/components/servicelist/srlist.component.html',
+    templateUrl: 'srlist.component.html',
     providers:[Configuration]
 })
 
