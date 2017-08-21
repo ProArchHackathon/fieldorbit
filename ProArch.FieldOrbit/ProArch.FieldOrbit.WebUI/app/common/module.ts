@@ -35,10 +35,10 @@ import 'hammerjs';
                 path: 'servicerequest',
                 component: ServiceRequestComponent
             },
-            // {
-            //     path: 'workrequest',
-            //     component: WorkRequestComponent
-            // },
+            {
+                 path: 'workrequest',
+                 component: WorkRequestComponent
+            }, 
             {
                 path: '',
                 redirectTo: '/login',

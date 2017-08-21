@@ -28,7 +28,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         {
             var customer = new BsonDocument();
             var device = new BsonDocument();
-            var workRequestDocument = new BsonDocument();
+            var serviceRequestDocument = new BsonDocument();
             var employeeDocument = new BsonDocument();
 
 
@@ -36,7 +36,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
             {
                 employeeDocument = new BsonDocument
                         {
-                            {"employeeid", job.Employee.EmployeeId },
+                            {"employeeid", job.ServiceRequest.Customer.CustomerId },
                             {"name", job.Employee.Name == null ? new BsonDocument() : new BsonDocument
                                 {
                                     {"firstname", job.Employee.Name.FirstName },
@@ -51,75 +51,67 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                         };
             }
 
-            if (job.WorkRequest != null)
+            if (job.ServiceRequest != null)
             {
-                if (job.WorkRequest.ServiceRequest.Customer != null)
+                if (job.ServiceRequest.Customer != null)
                 {
                     customer = new BsonDocument
                     {
-                        {"customerid", job.WorkRequest.ServiceRequest.Customer.CustomerId },
-                        {"deviceid",job.WorkRequest.ServiceRequest.Customer.DeviceId},
-                        {"assetid",job.WorkRequest.ServiceRequest.Customer.AssetId},
-                        {"name", (job.WorkRequest.ServiceRequest.Customer==null||job.WorkRequest.ServiceRequest.Customer.Name==null)?new BsonDocument(): new BsonDocument
+                        {"customerid", job.ServiceRequest.Customer.CustomerId },
+                        {"deviceid",job.ServiceRequest.Customer.DeviceId},
+                        {"assetid",job.ServiceRequest.Customer.AssetId},
+                        {"name", (job.ServiceRequest.Customer==null||job.ServiceRequest.Customer.Name==null)?new BsonDocument(): new BsonDocument
                             {
-                                {"firstname", job.WorkRequest.ServiceRequest.Customer.Name.FirstName },
-                                {"middlename", job.WorkRequest.ServiceRequest.Customer.Name.MiddleName },
-                                {"lastname", job.WorkRequest.ServiceRequest.Customer.Name.LastName }
+                                {"firstname", job.ServiceRequest.Customer.Name.FirstName },
+                                {"middlename", job.ServiceRequest.Customer.Name.MiddleName },
+                                {"lastname", job.ServiceRequest.Customer.Name.LastName }
                             }
                         },
-                        {"email",job.WorkRequest.ServiceRequest.Customer.Email==null?string.Empty: job.WorkRequest.ServiceRequest.Customer.Email },
-                        {"phone",job.WorkRequest.ServiceRequest.Customer.Phone==null?string.Empty: job.WorkRequest.ServiceRequest.Customer.Phone }
+                        {"email",job.ServiceRequest.Customer.Email==null?string.Empty: job.ServiceRequest.Customer.Email },
+                        {"phone",job.ServiceRequest.Customer.Phone==null?string.Empty: job.ServiceRequest.Customer.Phone }
                     };
                 }
 
-                if (job.WorkRequest.ServiceRequest.Device != null)
+                if (job.ServiceRequest.Device != null)
                 {
                     device = new BsonDocument
                     {
-                      { "deviceid",job.WorkRequest.ServiceRequest.Device.DeviceId==null?string.Empty: job.WorkRequest.ServiceRequest.Device.DeviceId },
-                      { "devicetype",job.WorkRequest.ServiceRequest.Device.DeviceType==null?string.Empty: job.WorkRequest.ServiceRequest.Device.DeviceType },
-                      { "serialno", job.WorkRequest.ServiceRequest.Device.ModelNumber }
+                      { "deviceid",job.ServiceRequest.Device.DeviceId==null?string.Empty: job.ServiceRequest.Device.DeviceId },
+                      { "devicetype",job.ServiceRequest.Device.DeviceType==null?string.Empty: job.ServiceRequest.Device.DeviceType },
+                      { "serialno", job.ServiceRequest.Device.ModelNumber }
                     };
                 }
 
-                workRequestDocument = new BsonDocument
+                serviceRequestDocument = new BsonDocument
                 {
-                    {"workorderid", job.WorkRequest.WorkRequestId },
-                    {"description", job.WorkRequest.Description.ValidateData() },
-                    {"startdate", job.WorkRequest.StartDate},
-                    {"enddate", job.WorkRequest.EndDate.Value},
-                    { "status", job.Status.ToString() },
-                    {"servicerequest", new BsonDocument
+                    { "createddate", job.ServiceRequest.CreatedDate },
+                        { "createdBy",job.ServiceRequest.CreatedBy==null? new BsonDocument() : new BsonDocument
+                            {
+                                { "employeeid", job.ServiceRequest.CreatedBy.EmployeeId }
+                            }
+                        },
+                    { "deviceOwner",job.ServiceRequest.DeviceOwner.ToString()},
+                    { "description",job.ServiceRequest.Description.ToString()},
+                    { "startdate", job.ServiceRequest.StartDate },
+                    { "servicetype", job.ServiceRequest.ServiceType.ToString() },
+                    { "requesttype", job.ServiceRequest.RequestType.ToString() },
+                    { "device",job.ServiceRequest.Device==null? new BsonDocument(): new BsonDocument
                         {
-                            { "createddate", job.WorkRequest.ServiceRequest.CreatedDate },
-                              { "createdBy",job.WorkRequest.ServiceRequest.CreatedBy==null? new BsonDocument() : new BsonDocument
-                                 {
-                                     { "employeeid", job.WorkRequest.ServiceRequest.CreatedBy.EmployeeId }
-                                 }
-                              },
-                            { "deviceOwner",job.WorkRequest.ServiceRequest.DeviceOwner.ToString()},
-                            { "description",job.WorkRequest.ServiceRequest.Description.ToString()},
-                            { "startdate", job.WorkRequest.ServiceRequest.StartDate },
-                            { "servicetype", job.WorkRequest.ServiceRequest.ServiceType.ToString() },
-                            { "requesttype", job.WorkRequest.ServiceRequest.RequestType.ToString() },
-                            { "device",job.WorkRequest.ServiceRequest.Device==null? new BsonDocument(): new BsonDocument
-                                {
-                                    { "deviceid", job.WorkRequest.ServiceRequest.Device.DeviceId.ValidateData() },
-                                    { "devicetype", job.WorkRequest.ServiceRequest.Device.DeviceType.ValidateData() },
-                                    { "serialno", job.WorkRequest.ServiceRequest.Device.ModelNumber }
-                                }
-                            },
-                            { "location", job.WorkRequest.ServiceRequest.Location.ValidateData() },
-                            { "closedate", job.WorkRequest.ServiceRequest.EndDate.Value },
-                            { "closedby",job.WorkRequest.ServiceRequest.ClosedBy==null?new BsonDocument(): new BsonDocument
-                                {
-                                    {"employeeid", job.WorkRequest.ServiceRequest.ClosedBy.EmployeeId}
-                                }
-                            },
-                            { "status", job.WorkRequest.ServiceRequest.Status.ToString() },
-                            {"customer", customer},
+                            { "deviceid", job.ServiceRequest.Device.DeviceId.ValidateData() },
+                            { "devicetype", job.ServiceRequest.Device.DeviceType.ValidateData() },
+                            { "serialno", job.ServiceRequest.Device.ModelNumber }
                         }
-                    }
+                    },
+                    { "location", job.ServiceRequest.Location.ValidateData() },
+                    { "closedate", job.ServiceRequest.EndDate.Value },
+                    { "closedby",job.ServiceRequest.ClosedBy==null?new BsonDocument(): new BsonDocument
+                        {
+                            {"employeeid", job.ServiceRequest.ClosedBy.EmployeeId}
+                        }
+                    },
+                    { "status", job.ServiceRequest.Status.ToString() },
+                    {"customer", customer},
+
                 };
             }
 
@@ -133,7 +125,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 { "endtime", job.EndTime },
                 { "comments", job.Comments.ValidateData() },
                 { "observations", job.Observations.ValidateData() },
-                { "workrequest", workRequestDocument},
+                { "servicerequest", serviceRequestDocument},
                 {"employee", employeeDocument }
             };
         }

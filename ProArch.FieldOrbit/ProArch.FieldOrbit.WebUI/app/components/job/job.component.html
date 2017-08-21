@@ -1,4 +1,4 @@
-﻿<form class="example-form">
+﻿<form class="example-form" name="exampleForm">
 
     <md-card>
         <md-card-title>Create Job</md-card-title>
@@ -6,27 +6,34 @@
             <tr cellspacing="0">
                 <td>
                     <md-input-container>
-                        <input mdInput placeholder="WorkRequest  Id" required [(ngModel)]="WorkRequest.WorkRequestId" name="WorkRequestId" autofocus>
+                        <label>Service Request  Id</label>
+                        <input mdInput required [(ngModel)]="ServiceRequest.ServiceRequestId" name="ServiceRequestId" autofocus>
                     </md-input-container>
                 </td>
             </tr>
             <tr cellspacing="0">
                 <td>
                     <md-input-container style="resize: none">
-                        <textarea mdInput [(ngModel)]="JobDescription" placeholder="Job Description" name="JobDescription"></textarea>
+                        <label>Job Description</label>
+                        <textarea mdInput [(ngModel)]="JobDescription" name="JobDescription"></textarea>
                     </md-input-container>
                 </td>
             </tr>
             <tr>
                 <td>
                     <md-input-container>
-                        <input type="date" mdInput placeholder="Start Date" [(ngModel)]="StartTime" name="StartTime">
+                        <label>Start Date</label>
+                        <input type="date" required mdInput [(ngModel)]="StartTime" name="StartTime">
+                        <!-- <md-hint *ngIf="exampleForm.StartTime.invalid" [ngStyle]="{'color': 'red'}" align="start">
+                            Please Select From Date
+                            </md-hint>  -->
                     </md-input-container>
                 </td>
                 <td style="color:red" *ngIf="showdateError" [ngClass]="{'has-error':showdateError}">please select FromDate.</td>
                 <td>
                     <md-input-container>
-                        <input type="date" mdInput placeholder="End Date" [(ngModel)]="EndTime" name="EndTime" (blur)="validateDate()">
+                        <label>End Date</label>
+                        <input type="date" mdInput [(ngModel)]="EndTime" name="EndTime" (blur)="validateDate()">
                     </md-input-container>
                 </td>
                 <!--<td style="color:red" *ngIf="showhighError" [ngClass]="{'has-error':showhighError}">please select Proper Date.</td>-->
@@ -34,7 +41,8 @@
             <tr>
                 <td>
                     <md-input-container>
-                        <input mdInput placeholder="Estimated Duration" [(ngModel)]="estTime" name="estTime">
+                        <label>Estimated Duration</label>
+                        <input mdInput [(ngModel)]="estTime" name="estTime">
                     </md-input-container>
                 </td>
                 <td>
@@ -64,12 +72,14 @@
             <tr>
                 <td>
                     <md-input-container style="resize: none">
-                        <textarea mdInput placeholder="Comments" [(ngModel)]="Comments" name="Comments"></textarea>
+                        <label>Comments</label>
+                        <textarea mdInput [(ngModel)]="Comments" name="Comments"></textarea>
                     </md-input-container>
                 </td>
                 <td>
                     <md-input-container style="resize: none">
-                        <textarea mdInput placeholder="Observations" [(ngModel)]="Observations" name="Observations"></textarea>
+                        <label>Observations</label>
+                        <textarea mdInput [(ngModel)]="Observations" name="Observations"></textarea>
                     </md-input-container>
                 </td>
             </tr>

@@ -6,9 +6,9 @@ import 'rxjs/add/operator/toPromise';
 import { Configuration } from '../../common/app.constants';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
-export class WorkRequest {
+export class ServiceRequest {
     constructor(
-        public WorkRequestId: number) {
+        public ServiceRequestId: number) {
 
     }
 }
@@ -24,10 +24,11 @@ export class WorkRequest {
 export class JobComponent {
 
     constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
-        this.WorkRequest = {
-            WorkRequestId: 0
+        this.ServiceRequest = {
+            ServiceRequestId: 0,
         }
     }
+    
     message = 'This is Job Component';
     Statuses = [
         { value: 'Open', viewValue: 'Open' },
@@ -47,7 +48,7 @@ export class JobComponent {
 
     //Properties......
     public JobId: number;
-    public WorkRequest: WorkRequest;
+    public ServiceRequest: ServiceRequest;
     public JobDescription: string;
     public StartTime: Date;
     public EndTime: Date;
@@ -82,7 +83,7 @@ export class JobComponent {
         var data =
             {
                 JobId: this.JobId,
-                WorkRequest: this.WorkRequest,
+                ServiceRequest: this.ServiceRequest,
                 JobDescription: this.JobDescription,
                 StartTime: this.StartTime,
                 EndTime: this.EndTime,
@@ -95,20 +96,20 @@ export class JobComponent {
 
 
         let params: URLSearchParams = new URLSearchParams();
-        params.set('workRequestNumber', this.WorkRequest.WorkRequestId.toString());
+        params.set('serviceRequestId', this.ServiceRequest.ServiceRequestId.toString());
 
         let requestOptions = new RequestOptions();
         requestOptions.search = params;
 
-        this.http.get(this._configuration.ApiServer + this._configuration.GetWorkRequestById, requestOptions)
+        this.http.get(this._configuration.ApiServer + this._configuration.GetServiceRequestById, requestOptions)
             .toPromise()
             .then((response: Response) => {
                 let res = response.json();
-                data.WorkRequest = res;
+                data.ServiceRequest = res;
                 let headers = new Headers({ 'Content-Type': 'application/json' });
                 let opt = new RequestOptions({ headers: headers });
 
-                this.http.post(this._configuration.ApiServer + this._configuration.AddJob, JSON.stringify(data), opt)
+                this.http.post(this._configuration.ApiServer + this._configuration.AddJob, JSON.stringify(data),opt)
                     .toPromise()
                     .then((response: Response) => {
                         this.openDialog();
@@ -143,10 +144,6 @@ export class JobComponent {
         return Promise.reject(errMsg);
 
     }
-
-
-
-
-
+    
 }
 

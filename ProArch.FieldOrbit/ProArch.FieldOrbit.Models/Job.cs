@@ -31,8 +31,11 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("observations")]
         public string Observations { get; set; }
 
-        [BsonElement("workrequest")]
-        public WorkRequest WorkRequest { get; set; }
+        [BsonElement("servicerequest")]
+        public ServiceRequest ServiceRequest { get; set; }
+
+        //[BsonElement("workrequest")]
+        //public WorkRequest WorkRequest { get; set; }
 
         [BsonElement("employee")]
         public Employee Employee { get; set; }
