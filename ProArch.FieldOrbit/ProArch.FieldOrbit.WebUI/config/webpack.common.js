@@ -78,9 +78,9 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-        inject: false,
-        template: 'Views/Home/Index.cshtml',
-        filename: '../../Views/Home/Index.cshtml'
+      inject: false,
+        template: 'Views/Home/IndexDetails.cshtml',
+        filename: '../Views/Home/Index.cshtml'
     })
   ]
 };

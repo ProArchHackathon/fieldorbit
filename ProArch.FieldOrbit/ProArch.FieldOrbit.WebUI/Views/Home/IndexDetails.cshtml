@@ -8,14 +8,13 @@
     <link href="~/Content/indigo-pink.css" rel="stylesheet">
     <link href="~/Content/deeppurple-amber.css" rel="stylesheet">
     <link href="~/Content/Site.css" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="background">
     <msg-app>Please Wait...</msg-app>
 
-    <script src="~/dist/js/polyfills.js"></script>
-    <script src="~/dist/js/vendor.js"></script>
-    <script src="~/dist/js/app.js"></script>
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+    <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% } %>
 </body>
 </html> 
