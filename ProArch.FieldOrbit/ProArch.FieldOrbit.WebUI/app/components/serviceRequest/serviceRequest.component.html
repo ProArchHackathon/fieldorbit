@@ -1,5 +1,4 @@
-﻿
-<form class="example-form" (load)="onLoad()">
+﻿<form class="example-form" (load)="onLoad()">
     <md-card>
         <md-card-title>Service Request</md-card-title>
         <div class="example-full-width" cellspacing="0">
@@ -36,18 +35,36 @@
             </md-input-container>
         </div>
         <div class="example-full-width" cellspacing="0">
-            <md-input-container class="example-full-width">
+            <!-- <md-input-container class="example-full-width">
                     <label>Created Date</label>
                 <input type="date" #createdDate mdInput [(ngModel)]="CreatedDate" name="CreatedDate">
+            </md-input-container> -->
+            <md-input-container>
+                <label>Created Date</label>
+                <input [mdDatepicker]="createdDate" mdInput [(ngModel)]="CreatedDate" name="CreatedDate">
+                <button mdSuffix [mdDatepickerToggle]="createdDate"></button>
             </md-input-container>
-            <md-input-container class="example-full-width">
-                    <label>Start Date</label>
+            <md-datepicker #createdDate></md-datepicker>
+            <!-- <md-input-container class="example-full-width">
+                <label>Start Date</label>
                 <input type="date" #startDate mdInput [(ngModel)]="StartDate" value="" name="StartDate">
+            </md-input-container> -->
+            <md-input-container>
+                <label>Start Date</label>
+                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartDate" value="" name="StartDate">
+                <button mdSuffix [mdDatepickerToggle]="startDate"></button>
             </md-input-container>
-            <md-input-container class="example-full-width">
-                    <label>End Date</label>
+            <md-datepicker #startDate></md-datepicker>
+            <!-- <md-input-container class="example-full-width">
+                <label>End Date</label>
                 <input type="date" #endDate mdInput [(ngModel)]="EndDate" name="EndDate">
+            </md-input-container> -->
+            <md-input-container>
+                <label>End Date</label>
+                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="EndDate" name="EndDate">
+                <button mdSuffix [mdDatepickerToggle]="endDate"></button>
             </md-input-container>
+            <md-datepicker #endDate></md-datepicker>
         </div>
         <div class="example-full-width" cellspacing="0">
             <md-select name="Status" placeholder="Status" [(ngModel)]="Status">

@@ -16,11 +16,12 @@ import { SidenavComponent } from './material/sidenav';
 import { ServiceRequestListComponent } from '../components/servicelist/srlist.component';
 import { DialogResultDialog } from './dialog/dialog';
 import { MdDialogModule } from '@angular/material';
+import {MdDatepickerModule,MdNativeDateModule } from '@angular/material';
 
 import 'hammerjs';
 @NgModule({
     imports: [
-        BrowserModule, MdDialogModule,
+        BrowserModule, MdDialogModule,MdDatepickerModule,MdNativeDateModule ,
         FormsModule, HttpModule, BrowserAnimationsModule, MaterialModule,
         RouterModule.forRoot([
             {

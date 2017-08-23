@@ -7,6 +7,8 @@ import 'rxjs/add/operator/toPromise';
 import { Configuration } from '../../common/app.constants';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
+import {MdDatepickerModule,MdNativeDateModule } from '@angular/material';
+
 export class Customer {
     constructor(
         public CustomerId: number) {
