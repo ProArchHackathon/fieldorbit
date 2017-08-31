@@ -19,10 +19,10 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("jobdescription")]
         public string JobDescription { get; set; }
 
-        [BsonElement("startdate")]
+        [BsonElement("starttime")]
         public DateTime? StartTime { get; set; }
 
-        [BsonElement("enddate")]
+        [BsonElement("endtime")]
         public DateTime? EndTime { get; set; }
 
         [BsonElement("comments")]
@@ -33,9 +33,6 @@ namespace ProArch.FieldOrbit.Models
 
         [BsonElement("servicerequest")]
         public ServiceRequest ServiceRequest { get; set; }
-
-        //[BsonElement("workrequest")]
-        //public WorkRequest WorkRequest { get; set; }
 
         [BsonElement("employee")]
         public Employee Employee { get; set; }

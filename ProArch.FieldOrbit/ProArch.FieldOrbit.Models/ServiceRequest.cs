@@ -11,9 +11,9 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("servicerequestid")]
         public int ServiceRequestId { get; set; }
 
-        [BsonElement("createdBy")]
+        [BsonElement("createdby")]
         public Employee CreatedBy { get; set; }
-        [BsonElement("deviceOwner")]
+        [BsonElement("deviceowner")]
         public string DeviceOwner { get; set; }
         [BsonElement("description")]
         public string Description { get; set; }
@@ -38,5 +38,7 @@ namespace ProArch.FieldOrbit.Models
         public Employee ClosedBy { get; set; }
         [BsonElement("status")]
         public string Status { get; set; }
+        [BsonIgnore]
+        public string Type { get; set; }
     }
 }

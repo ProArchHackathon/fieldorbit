@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 import { Configuration } from '../../common/app.constants';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
-import {MdDatepickerModule,MdNativeDateModule } from '@angular/material';
+import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 
 export class Customer {
     constructor(
@@ -33,6 +33,7 @@ export class ServiceRequestComponent {
     Customer: Customer;
     Status: any;
     Location: string;
+    Button: string;
 
 
     serviceRequestList: any;
@@ -40,10 +41,28 @@ export class ServiceRequestComponent {
         this.Customer = {
             CustomerId: 0
         }
+        this.Button = 'Create';
         this.http.get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests, null)
             .toPromise()
             .then((response: Response) => {
                 this.serviceRequestList = response.json();
+                this.serviceRequestList.forEach(element => {
+                    element.StartDate = new Date(element.StartDate).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-');
+                    element.CreatedDate = new Date(element.CreatedDate).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-');
+                    element.EndDate = new Date(element.EndDate).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-');
+                });
             })
             .catch((errors: any) => {
 
@@ -80,7 +99,7 @@ export class ServiceRequestComponent {
         var data =
             {
                 SrNumber: this.SrNumber,
-                RequestedBy: this.RequestedBy,
+                CreatedBy: {EmployeeId:this.RequestedBy},
                 ServiceType: this.ServiceType,
                 RequestType: this.RequestType,
                 CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
@@ -93,24 +112,35 @@ export class ServiceRequestComponent {
                     month: 'short',
                     year: 'numeric'
                 }).split(' ').join('-'),
-                EndDate: (this.EndDate)? new Date(this.EndDate).toLocaleDateString('en-GB', {
+                EndDate: (this.EndDate) ? new Date(this.EndDate).toLocaleDateString('en-GB', {
                     day: 'numeric',
                     month: 'short',
                     year: 'numeric'
-                }).split(' ').join('-'):null,
+                }).split(' ').join('-') : null,
                 Customer: this.Customer,
                 Status: this.Status,
-                Location:this.Location
+                Location: this.Location,
+                Type:'ServiceRequest'
             };
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let opt = new RequestOptions({ headers: headers });
-        this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
+        if (this.Button == 'Create') {
+            this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
+                .toPromise()
+                .then((response: Response) => {
+                    this.openDialog();
+                })
+                .catch(this.handleError);
+        }
+        else{
+            this.http.put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, JSON.stringify(data), opt)
             .toPromise()
             .then((response: Response) => {
                 this.openDialog();
             })
             .catch(this.handleError);
+        }
     };
 
     private handleError(error: Response | any) {
@@ -130,19 +160,18 @@ export class ServiceRequestComponent {
 
     }
 
-    private onSelectedRow(serviceRequest): void
-    {
+    private onSelectedRow(serviceRequest): void {
         this.SrNumber = serviceRequest.ServiceRequestId;
-        this.RequestedBy = serviceRequest.RequestedBy;
+        this.RequestedBy = serviceRequest.CreatedBy==null?0:serviceRequest.CreatedBy.EmployeeId;
         this.ServiceType = serviceRequest.ServiceType;
         this.RequestType = serviceRequest.RequestType;
         this.Customer.CustomerId = serviceRequest.Customer.CustomerId;
         this.Location = serviceRequest.Location;
-        this.CreatedDate = new Date(serviceRequest.CreatedDate);
+        this.CreatedDate = serviceRequest.CreatedDate;
         this.StartDate = serviceRequest.StartDate;
         this.EndDate = serviceRequest.EndDate;
         this.Status = serviceRequest.Status;
-
+        this.Button = 'Update';
     }
     onLoad() {
 

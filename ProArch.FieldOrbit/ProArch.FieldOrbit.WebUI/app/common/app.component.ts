@@ -15,6 +15,6 @@
 
 export class AppComponent {
     navLinks = [{ route: 'servicerequest', label: 'Service Request' },
-    //{ route: 'workrequest', label: 'Work Request' },
+    { route: 'workrequest', label: 'Work Request' },
     { route: 'job', label: 'Job' }];
 }

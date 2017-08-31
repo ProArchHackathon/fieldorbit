@@ -1,44 +1,89 @@
 ﻿<form class="example-form" (load)="onLoad()">
     <md-card>
         <md-card-title>Work Request</md-card-title>
-        <div>
-            <md-input-container>
-                <input #serviceRequestId mdInput [(ngModel)]="ServiceRequest.ServiceRequestId" name="ServiceRequestId" placeholder="ServiceRequestId">
+        <div class="example-full-width" cellspacing="0">
+            <md-input-container class="example-full-width">
+                <label>SR Number</label>
+                <input #srNumber mdInput [(ngModel)]="SrNumber" name="SrNumber" [disabled]="true">
             </md-input-container>
-            <!--<md-input-container>
-                <input #workOrderId mdInput [(ngModel)]="WorkRequestId" name="WorkRequestId" placeholder="WorkRequestId">
-            </md-input-container>-->
+            <md-input-container class="example-full-width">
+                <label>Requested By</label>
+                <input #requestedBy mdInput [(ngModel)]="RequestedBy" autofocus name="RequestedBy">
+            </md-input-container>
         </div>
-        <div cellspacing="0">
-
-            <md-select placeholder="Service Type" [(ngModel)]="ServiceRequestType" name="ServiceRequestType">
-                <md-option *ngFor="let servicerequestype of sTypes" [value]="servicerequestype.viewValue">
-                    {{servicerequestype.viewValue}}
-                </md-option>
-            </md-select>
-            <md-select placeholder="Work Request Status" [(ngModel)]="status" name="status">
-                <md-option *ngFor="let workstatus of workStatus" [value]="workstatus.viewValue">
-                    {{workstatus.viewValue}}
+        <div class="example-full-width" cellspacing="0">
+            <md-select name="ServiceType" placeholder="Service Type" [(ngModel)]="ServiceType">
+                <md-option *ngFor="let type of serviceType" [value]="type.value">
+                    {{ type.viewValue }}
                 </md-option>
             </md-select>
         </div>
-        <div>
-            <md-input-container>
-                <input type="date" #startDate mdInput [(ngModel)]="StartDate" name="StartDate" placeholder="StartDate">
+        <br>
+        <div class="example-full-width" cellspacing="0">
+            <md-select placeholder="Request Type" name="RequestType" [(ngModel)]="RequestType">
+                <md-option *ngFor="let RType of requestType" [value]="RType.value">
+                    {{ RType.viewValue }}
+                </md-option>
+            </md-select>
+            <md-input-container class="example-full-width">
+                <label>Customer ID</label>
+                <input #customerId mdInput [(ngModel)]="Customer.CustomerId" name="CustomerId">
             </md-input-container>
-
-            <md-input-container>
-                <input type="date" #endDate mdInput [(ngModel)]="EndDate" name="EndDate" placeholder="EndDate">
+            <md-input-container class="example-full-width">
+                <label>Location</label>
+                <input #location mdInput [(ngModel)]="Location" name="Location">
             </md-input-container>
         </div>
-        <div>
+        <div class="example-full-width" cellspacing="0">
+            
             <md-input-container>
-                <textarea #description mdInput [(ngModel)]="Description" name="Description" placeholder="Description"></textarea>
+                <label>Created Date</label>
+                <input [mdDatepicker]="createdDate" mdInput [(ngModel)]="CreatedDate" name="CreatedDate">
+                <button mdSuffix [mdDatepickerToggle]="createdDate"></button>
             </md-input-container>
+            <md-datepicker #createdDate></md-datepicker>
+            <md-input-container>
+                <label>Start Date</label>
+                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartDate" value="" name="StartDate">
+                <button mdSuffix [mdDatepickerToggle]="startDate"></button>
+            </md-input-container>
+            <md-datepicker #startDate></md-datepicker>
+            <md-input-container>
+                <label>End Date</label>
+                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="EndDate" name="EndDate">
+                <button mdSuffix [mdDatepickerToggle]="endDate"></button>
+            </md-input-container>
+            <md-datepicker #endDate></md-datepicker>
         </div>
-
-        <div style="text-align:right;">
-            <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>Update</button>
+        <div class="example-full-width" cellspacing="0">
+            <md-select name="Status" placeholder="Status" [(ngModel)]="Status">
+                <md-option *ngFor="let Status of statusList" [value]="Status.value">
+                    {{ Status.viewValue }}
+                </md-option>
+            </md-select>
         </div>
+        <p style="text-align: right">
+            <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>{{Button}}</button>
+        </p>
+    </md-card>
+    <md-card>
+        <table class="table" style="width:100%;cursor:pointer;">
+            <tr>
+                <th>Customer Id</th>
+                <th>Service Type</th>
+                <th>Status</th>
+                <th>Created Date</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr>
+            <tr *ngFor="let sr of serviceRequestList" (click)="onSelectedRow(sr)">
+                <td>{{sr.Customer.CustomerId }} </td>
+                <td>{{sr.ServiceType}} </td>
+                <td>{{sr.Status}} </td>
+                <td>{{sr.CreatedDate}} </td>
+                <td>{{sr.StartDate}} </td>
+                <td>{{sr.EndDate}} </td>
+            </tr>
+        </table>
     </md-card>
 </form>

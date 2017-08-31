@@ -65,11 +65,19 @@ namespace ProArch.FieldOrbit.DataLayer
             return collection.Find(filter1).ToList();
         }
 
-        public IEnumerable<ServiceRequest> GetAllServiceRequests(string collectionName)
+        public List<Job> GetJobs(string collectionName)
+        {
+            IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
+            IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
+            return _database.GetCollection<Job>(collectionName).AsQueryable().ToList();
+        }
+
+        public List<ServiceRequest> GetAllServiceRequests(string collectionName)
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
             return _database.GetCollection<ServiceRequest>(collectionName).AsQueryable().ToList();
+
         }
 
         public ServiceRequest GetServiceRequestBySRNumber(int serviceRequestId, string collectionName)

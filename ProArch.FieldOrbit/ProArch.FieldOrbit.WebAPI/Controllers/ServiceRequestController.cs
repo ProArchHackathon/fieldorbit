@@ -14,6 +14,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 {
     [EnableCors("*", "*", "*")]
     [ExceptionHandlerFilterAttribute]
+    [RoutePrefix("api/ServiceRequest")]
     public class ServiceRequestController : ApiController
     {
         private IServiceRequestService serviceRequest;
@@ -25,6 +26,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpPost]
         [TraceLogActionFilter]
+        [Route("Post")]
         public bool Post([FromBody]ServiceRequest serviceRequest)
         {
             return this.serviceRequest.CreateServiceRequest(Mapper.Map<ProArch.FieldOrbit.Models.ServiceRequest>(serviceRequest));
@@ -32,6 +34,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpPut]
         [TraceLogActionFilter]
+        [Route("Update")]
         public bool Update(ServiceRequest serviceRequest)
         {
             return this.serviceRequest.UpdateServiceRequest(Mapper.Map<ProArch.FieldOrbit.Models.ServiceRequest>(serviceRequest));
@@ -39,6 +42,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
+        [Route("GetServiceRequest")]
         public ServiceRequest GetServiceRequest(int serviceRequestId)
         {
             return Mapper.Map<ServiceRequest>(this.serviceRequest.GetServiceRequestBySRNumber(serviceRequestId));
@@ -46,9 +50,10 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
-        public IEnumerable<ServiceRequest> GetAllServiceRequest()
+        [Route("GetAllServiceRequest")]
+        public IEnumerable<ServiceRequest> GetAllServiceRequest(string type)
         {
-            return Mapper.Map<IEnumerable<ServiceRequest>>(this.serviceRequest.GetAllServiceRequests());
+            return Mapper.Map<IEnumerable<ServiceRequest>>(this.serviceRequest.GetAllServiceRequests(type));
         }
     }
 }

@@ -22,19 +22,44 @@ export class ServiceRequest {
 })
 
 export class JobComponent {
+    jobList: any;
 
     constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
         this.ServiceRequest = {
             ServiceRequestId: 0,
         }
+        this.Button = 'Create';
+        this.http.get(this._configuration.ApiServer + this._configuration.GetAllJobs, null)
+            .toPromise()
+            .then((response: Response) => {
+                this.jobList = response.json();
+                console.log(this.jobList);
+                this.jobList.forEach(element => {
+                    element.StartTime = new Date(element.StartTime).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-');
+                    element.EndTime = new Date(element.EndTime).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-');
+                });
+            })
+            .catch((errors: any) => {
+
+            });
     }
-    
+
+
     message = 'This is Job Component';
     Statuses = [
         { value: 'Open', viewValue: 'Open' },
         { value: 'Close', viewValue: 'Close' },
         { value: 'Unscheduled', viewValue: 'Unscheduled' }
     ];
+
     Priorities = [
         { value: 'High', viewValue: 'High' },
         { value: 'Medium', viewValue: 'Medium' },
@@ -61,6 +86,8 @@ export class JobComponent {
     public showError: boolean;
     public showhighError: boolean;
     public showdateError: boolean;
+    public Button: string;
+    public ErrorMessage: string;
 
     //validating the Date here
     validateDate() {
@@ -91,7 +118,6 @@ export class JobComponent {
                 Priority: this.Priority,
                 Comments: this.Comments,
                 Observations: this.Observations
-
             };
 
 
@@ -100,33 +126,66 @@ export class JobComponent {
 
         let requestOptions = new RequestOptions();
         requestOptions.search = params;
-
+        this.ErrorMessage = null;
         this.http.get(this._configuration.ApiServer + this._configuration.GetServiceRequestById, requestOptions)
             .toPromise()
             .then((response: Response) => {
                 let res = response.json();
                 data.ServiceRequest = res;
-                let headers = new Headers({ 'Content-Type': 'application/json' });
-                let opt = new RequestOptions({ headers: headers });
+                if (data.ServiceRequest) {
+                    let headers = new Headers({ 'Content-Type': 'application/json' });
+                    let opt = new RequestOptions({ headers: headers });
 
-                this.http.post(this._configuration.ApiServer + this._configuration.AddJob, JSON.stringify(data),opt)
-                    .toPromise()
-                    .then((response: Response) => {
-                        this.openDialog();
-                    })
-                    .catch((errors: any) => {
+                    if (this.Button == 'Create') {
+                        this.http.post(this._configuration.ApiServer + this._configuration.AddJob, JSON.stringify(data), opt)
+                            .toPromise()
+                            .then((response: Response) => {
+                                this.openDialog();
+                            })
+                            .catch((errors: any) => {
 
-                    });
+                            });
+                    }
+                    else {
+                        this.http.put(this._configuration.ApiServer + this._configuration.UpdateJob, JSON.stringify(data), opt)
+                            .toPromise()
+                            .then((response: Response) => {
+                                console.log('updated successfully');
+                                this.openDialog();
+                            })
+                            .catch((errors: any) => {
+
+                            });
+                    }
+                }
+                else {
+                    this.ErrorMessage = 'No Service Request Found';
+                }
             })
             .catch((errors: any) => {
 
             });
+
     };
 
     private extractData(res: Response) {
         let body = res.json();
         return body.data || {};
     };
+
+    private onSelectedRow(sr): void {
+        this.ServiceRequest.ServiceRequestId = sr.ServiceRequest.ServiceRequestId;
+        this.JobId = sr.JobId;
+        this.JobDescription = sr.JobDescription;
+        this.StartTime = sr.StartTime;
+        this.EndTime = sr.EndTime;
+        this.Priority = sr.Priority;
+        this.Comments = sr.Comments;
+        this.Observations = sr.Observations;
+        this.Button = 'Update';
+        this.Status = sr.Status;
+
+    }
 
     private handleError(error: Response | any) {
         // In a real world app, we might use a remote logging infrastructure
@@ -144,6 +203,6 @@ export class JobComponent {
         return Promise.reject(errMsg);
 
     }
-    
+
 }
 

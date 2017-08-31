@@ -9,11 +9,15 @@ export class Configuration {
     //Service Request Info Api Calls
     public readonly AddServiceRequest: string = "api/ServiceRequest/Post";
 
-    public readonly UpdateServiceRequest: string = "api/ServiceRequest/Put";
+    public readonly UpdateServiceRequest: string = "api/ServiceRequest/Update";
 
-    public readonly GetAllServiceRequests: string = "api/ServiceRequest/GetAllServiceRequest";
+    public readonly GetAllServiceRequests: string = "api/ServiceRequest/GetAllServiceRequest?type=ServiceRequest";
 
-    public readonly GetServiceRequestById: string = "api/ServiceRequest/Get";
+    public readonly GetAllJobs: string = "api/Job/GetAllJobs";
+
+    public readonly GetAllWorkRequests: string = "api/ServiceRequest/GetAllServiceRequest?type=WorkRequest";
+
+    public readonly GetServiceRequestById: string = "api/ServiceRequest/GetServiceRequest";
 
     //Work Request
     public readonly GetWorkRequestById: string = "api/WorkRequest/Get";
@@ -26,5 +30,7 @@ export class Configuration {
     public readonly GetJobById: string = "api/Job/GetJobById";
 
     public readonly AddJob: string = "api/Job/Post";
+
+    public readonly UpdateJob: string = "api/Job/Update";
 
 }

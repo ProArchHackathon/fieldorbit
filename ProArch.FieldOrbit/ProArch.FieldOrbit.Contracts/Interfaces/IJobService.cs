@@ -43,6 +43,12 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         List<Job> GetUserJob(int EmployeeID);
 
         /// <summary>
+        /// Gets all jobs list
+        /// </summary>
+        /// <returns></returns>
+        List<Job> GetJobs();
+
+        /// <summary>
         /// Update job
         /// </summary>
         /// <param name="JobID"></param>

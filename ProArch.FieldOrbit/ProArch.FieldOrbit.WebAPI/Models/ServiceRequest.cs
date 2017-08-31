@@ -21,5 +21,10 @@ namespace ProArch.FieldOrbit.WebAPI.Models
         public DateTime? EndDate { get; set; }
         public Employee ClosedBy { get; set; }
         public string Status { get; set; }
+
+        public Employee CreatedBy { get; set; }
+        public string DeviceOwner { get; set; }
+        public string Description { get; set; }
+        public string Type { get; set; }
     }
 }
