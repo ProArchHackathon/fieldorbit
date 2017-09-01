@@ -42,6 +42,9 @@ export class ServiceRequestComponent {
             CustomerId: 0
         }
         this.Button = 'Create';
+        this.getAllServiceRequests();
+    };
+    getAllServiceRequests() {
         this.http.get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests, null)
             .toPromise()
             .then((response: Response) => {
@@ -67,11 +70,11 @@ export class ServiceRequestComponent {
             .catch((errors: any) => {
 
             });
-    };
-
+    }
     openDialog() {
         let dialogRef = this.dialog.open(DialogResultDialog);
         dialogRef.afterClosed().subscribe(result => {
+            this.getAllServiceRequests();
         });
     }
 
@@ -99,7 +102,7 @@ export class ServiceRequestComponent {
         var data =
             {
                 ServiceRequestId: this.SrNumber,
-                CreatedBy: {EmployeeId:this.RequestedBy},
+                CreatedBy: { EmployeeId: this.RequestedBy },
                 ServiceType: this.ServiceType,
                 RequestType: this.RequestType,
                 CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
@@ -120,7 +123,7 @@ export class ServiceRequestComponent {
                 Customer: this.Customer,
                 Status: this.Status,
                 Location: this.Location,
-                Type:'ServiceRequest'
+                Type: 'ServiceRequest'
             };
 
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -133,13 +136,13 @@ export class ServiceRequestComponent {
                 })
                 .catch(this.handleError);
         }
-        else{
+        else {
             this.http.put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, JSON.stringify(data), opt)
-            .toPromise()
-            .then((response: Response) => {
-                this.openDialog();
-            })
-            .catch(this.handleError);
+                .toPromise()
+                .then((response: Response) => {
+                    this.openDialog();
+                })
+                .catch(this.handleError);
         }
     };
 
@@ -162,7 +165,7 @@ export class ServiceRequestComponent {
 
     private onSelectedRow(serviceRequest): void {
         this.SrNumber = serviceRequest.ServiceRequestId;
-        this.RequestedBy = serviceRequest.CreatedBy==null?0:serviceRequest.CreatedBy.EmployeeId;
+        this.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
         this.ServiceType = serviceRequest.ServiceType;
         this.RequestType = serviceRequest.RequestType;
         this.Customer.CustomerId = serviceRequest.Customer.CustomerId;

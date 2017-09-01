@@ -149,7 +149,10 @@ namespace ProArch.FieldOrbit.DataLayer
             {
                 var update = Builders<Job>.Update.Set("status", job.Status).
                                                   Set("priority", job.Priority).
-                                                  Set("starttime", job.StartTime).
+                                                  Set("starttime", job.StartTime.HasValue ? job.StartTime : null).
+                                                  Set("jobdescription", job.JobDescription).
+                                                  Set("comments", job.Comments).
+                                                  Set("observations", job.Observations).
                                                   Set("endtime", job.EndTime.HasValue ? job.EndTime : null);
                 collection.UpdateOne(filter, update);
             }

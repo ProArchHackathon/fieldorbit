@@ -41,6 +41,10 @@ export class WorkRequestComponent {
             CustomerId: 0
         }
         this.Button = 'Create';
+        this.getAllWorkRequests();
+    };
+
+    getAllWorkRequests() {
         this.http.get(this._configuration.ApiServer + this._configuration.GetAllWorkRequests, null)
             .toPromise()
             .then((response: Response) => {
@@ -66,11 +70,12 @@ export class WorkRequestComponent {
             .catch((errors: any) => {
 
             });
-    };
+    }
 
     openDialog() {
         let dialogRef = this.dialog.open(DialogResultDialog);
         dialogRef.afterClosed().subscribe(result => {
+            this.getAllWorkRequests();
         });
     }
 
@@ -98,7 +103,7 @@ export class WorkRequestComponent {
         var data =
             {
                 ServiceRequestId: this.SrNumber,
-                CreatedBy: {EmployeeId:this.RequestedBy},
+                CreatedBy: { EmployeeId: this.RequestedBy },
                 ServiceType: this.ServiceType,
                 RequestType: this.RequestType,
                 CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
@@ -161,7 +166,7 @@ export class WorkRequestComponent {
 
     private onSelectedRow(serviceRequest): void {
         this.SrNumber = serviceRequest.ServiceRequestId;
-        this.RequestedBy = serviceRequest.CreatedBy==null?0:serviceRequest.CreatedBy.EmployeeId;
+        this.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
         this.ServiceType = serviceRequest.ServiceType;
         this.RequestType = serviceRequest.RequestType;
         this.Customer.CustomerId = serviceRequest.Customer.CustomerId;

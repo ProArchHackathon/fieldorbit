@@ -29,27 +29,7 @@ export class JobComponent {
             ServiceRequestId: 0,
         }
         this.Button = 'Create';
-        this.http.get(this._configuration.ApiServer + this._configuration.GetAllJobs, null)
-            .toPromise()
-            .then((response: Response) => {
-                this.jobList = response.json();
-                console.log(this.jobList);
-                this.jobList.forEach(element => {
-                    element.StartTime = new Date(element.StartTime).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }).split(' ').join('-');
-                    element.EndTime = new Date(element.EndTime).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }).split(' ').join('-');
-                });
-            })
-            .catch((errors: any) => {
-
-            });
+        this.getAllJobs();
     }
 
 
@@ -102,6 +82,30 @@ export class JobComponent {
     openDialog() {
         let dialogRef = this.dialog.open(DialogResultDialog);
         dialogRef.afterClosed().subscribe(result => {
+            this.getAllJobs();
+        });
+    }
+
+    getAllJobs(){
+        this.http.get(this._configuration.ApiServer + this._configuration.GetAllJobs, null)
+        .toPromise()
+        .then((response: Response) => {
+            this.jobList = response.json();
+            this.jobList.forEach(element => {
+                element.StartTime = new Date(element.StartTime).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                }).split(' ').join('-');
+                element.EndTime = new Date(element.EndTime).toLocaleDateString('en-GB', {
+                    day: 'numeric',
+                    month: 'short',
+                    year: 'numeric'
+                }).split(' ').join('-');
+            });
+        })
+        .catch((errors: any) => {
+
         });
     }
 
