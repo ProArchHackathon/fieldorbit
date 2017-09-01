@@ -97,7 +97,7 @@ export class WorkRequestComponent {
     onUpdate(): void {
         var data =
             {
-                SrNumber: this.SrNumber,
+                ServiceRequestId: this.SrNumber,
                 CreatedBy: {EmployeeId:this.RequestedBy},
                 ServiceType: this.ServiceType,
                 RequestType: this.RequestType,

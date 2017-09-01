@@ -23,7 +23,7 @@ export class Customer {
 
 export class ServiceRequestComponent {
 
-    SrNumber: string;
+    SrNumber: number;
     RequestedBy: string;
     ServiceType: string;
     RequestType: string;
@@ -98,7 +98,7 @@ export class ServiceRequestComponent {
     onUpdate(): void {
         var data =
             {
-                SrNumber: this.SrNumber,
+                ServiceRequestId: this.SrNumber,
                 CreatedBy: {EmployeeId:this.RequestedBy},
                 ServiceType: this.ServiceType,
                 RequestType: this.RequestType,
