@@ -29,7 +29,7 @@ export class LoginComponent {
         this._loginService.ValidateLoginInformation(this.login)
             .map((response) => {
                 var output = response.json();
-                this._route.navigate(['fileupload']);
+                this._route.navigate(['servicerequest']);
                 //this._cookieService.setCookie("filedOrbitAccess", output.AccessToken, 1);
             })
             .subscribe(function(errors) {
