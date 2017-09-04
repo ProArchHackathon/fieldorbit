@@ -17,6 +17,11 @@
                     {{ type.viewValue }}
                 </md-option>
             </md-select>
+            <md-select class="inputMargin" name="Status" placeholder="Status" [(ngModel)]="Status">
+                <md-option *ngFor="let Status of statusList" [value]="Status.value">
+                    {{ Status.viewValue }}
+                </md-option>
+            </md-select>
         </div>
         <br>
         <div class="example-full-width" cellspacing="0">
@@ -55,13 +60,7 @@
             </md-input-container>
             <md-datepicker #endDate></md-datepicker>
         </div>
-        <div class="example-full-width" cellspacing="0">
-            <md-select class="inputMargin" name="Status" placeholder="Status" [(ngModel)]="Status">
-                <md-option *ngFor="let Status of statusList" [value]="Status.value">
-                    {{ Status.viewValue }}
-                </md-option>
-            </md-select>
-        </div>
+        
         <p style="text-align: right">
             <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>{{Button}}</button>
         </p>

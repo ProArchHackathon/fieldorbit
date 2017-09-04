@@ -7,5 +7,7 @@
         <label>Password</label>
         <input #psw mdInput [(ngModel)]="login.password" name="Password">
     </md-input-container>
-    <button class="mat-button mat-primary" md-raised-button (click)="OnSubmit()">Login</button>
+    <div class="inputMargin">
+        <button class="mat-button mat-primary" md-raised-button (click)="OnSubmit()">Login</button>
+    </div>
 </form>
