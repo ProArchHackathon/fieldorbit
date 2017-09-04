@@ -1,24 +1,24 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Angular 2 Demo</title>
     <base href="/fieldorbit/" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="~/node_modules/core-js/client/shim.min.js"></script>
-    <script src="~/node_modules/zone.js/dist/zone.js"></script>
-    <script src="~/node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="~/node_modules/systemjs/dist/system.src.js"></script>
-
-    <!-- Configure SystemJS -->
-    <script src="~/systemjs.config.js"></script>
-    <script>
-        System.import('myApp').catch(function (err) { console.error(err); });
-    </script>
-    <link href="~/Content/indigo-pink.css" rel="stylesheet" />
-    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/indigo-pink.css" rel="stylesheet">
+    <link href="~/Content/deeppurple-amber.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="background">
     <msg-app>Please Wait...</msg-app>
+
+    
+    <script src="~/dist/js/polyfills.js"></script>
+    
+    <script src="~/dist/js/vendor.js"></script>
+    
+    <script src="~/dist/js/app.js"></script>
+    
 </body>
 </html> 

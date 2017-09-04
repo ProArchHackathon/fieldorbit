@@ -40,6 +40,13 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// <param name="EmployeeID"></param>
         /// <returns></returns>
         List<Job> GetUserJob(int EmployeeID);
+
+        /// <summary>
+        /// Gets all jobs list
+        /// </summary>
+        /// <returns></returns>
+        List<Job> GetAllJobs();
+
         bool EnterTimeSheet(Job job, Timesheet timeSheet);
 
         /// <summary>

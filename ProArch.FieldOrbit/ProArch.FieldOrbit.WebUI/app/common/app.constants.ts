@@ -2,24 +2,35 @@
 
 @Injectable()
 export class Configuration {
-    public ApiServer: string = "http://localhost/fieldorbitapi/";
+    public readonly ApiServer: string = "http://localhost/test-fieldorbit-api/";
 
-    public LoginApiUrl: string = "api/LoginOperations/Validate"
+    public readonly LoginApiUrl: string = "api/LoginOperations/Validate"
 
     //Service Request Info Api Calls
-    public AddServiceRequest: string = "api/ServiceRequest/Post";
+    public readonly AddServiceRequest: string = "api/ServiceRequest/Post";
 
-    public UpdateServiceRequest: string = "api/ServiceRequest/Put";
+    public readonly UpdateServiceRequest: string = "api/ServiceRequest/Update";
 
-    public GetAllServiceRequests: string = "api/ServiceRequest/GetAllServiceRequest";
+    public readonly GetAllServiceRequests: string = "api/ServiceRequest/GetAllServiceRequest?type=ServiceRequest";
 
-    public GetServiceRequestById: string = "api/ServiceRequest/Get";
+    public readonly GetAllJobs: string = "api/Job/GetAllJobs";
+
+    public readonly GetAllWorkRequests: string = "api/ServiceRequest/GetAllServiceRequest?type=WorkRequest";
+
+    public readonly GetServiceRequestById: string = "api/ServiceRequest/GetServiceRequest";
 
     //Work Request
-    public GetWorkRequestById: string = "api/WorkRequest/Get";
+    public readonly GetWorkRequestById: string = "api/WorkRequest/Get";
 
-    public AddWorkRequest: string = "api/WorkRequest/Post";
+    public readonly AddWorkRequest: string = "api/WorkRequest/Post";
 
-    public UpdateWorkRequest: string = "api/WorkRequest/Put";
+    public readonly UpdateWorkRequest: string = "api/WorkRequest/Put";
+
+    //Job
+    public readonly GetJobById: string = "api/Job/GetJobById";
+
+    public readonly AddJob: string = "api/Job/Post";
+
+    public readonly UpdateJob: string = "api/Job/Update";
 
 }

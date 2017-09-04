@@ -1,4 +1,5 @@
 ﻿using System;
+using ProArch.FieldOrbit.DataLayer.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,7 +27,7 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
             MapWorkRequestModelToViewModel();
             MapServiceRequestModelToViewModel();
         }
-
+        
         private void MapWorkRequestViewModelToModel()
         {
             var workRequestMap = CreateMap<ViewModels.WorkRequest, DomainModels.WorkRequest>();
@@ -42,9 +43,16 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
                 {
                     EmployeeId = src.ServiceRequest.ClosedBy == null ? 0 : src.ServiceRequest.ClosedBy.EmployeeId,
                 },
+                Type=src.ServiceRequest.Type,
                 CreatedDate = src.ServiceRequest.CreatedDate,
                 EndDate = src.ServiceRequest.EndDate,
                 Location = src.ServiceRequest.Location,
+                CreatedBy = new DomainModels.Employee()
+                {
+                    EmployeeId = src.ServiceRequest.CreatedBy == null ? 0 : src.ServiceRequest.CreatedBy.EmployeeId
+                },
+                Description = src.ServiceRequest.Description,
+                DeviceOwner = src.ServiceRequest.DeviceOwner,
                 ServiceRequestId = src.ServiceRequest.ServiceRequestId,
                 RequestType = src.ServiceRequest.RequestType,
                 ServiceType = src.ServiceRequest.ServiceType,
@@ -53,6 +61,8 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
                 Customer = new DomainModels.Customer()
                 {
                     CustomerId = src.ServiceRequest.Customer == null ? 0 : src.ServiceRequest.Customer.CustomerId,
+                    AssetId = src.ServiceRequest.Customer == null ? 0 : src.ServiceRequest.Customer.AssetId,
+                    DeviceId = src.ServiceRequest.Customer == null ? string.Empty : src.ServiceRequest.Customer.DeviceId,
                     Active = src.ServiceRequest.Customer == null ? false : src.ServiceRequest.Customer.Active,
                     Address = new DomainModels.Address()
                     {
@@ -85,7 +95,10 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
             var serviceRequestMap = CreateMap<ViewModels.ServiceRequest, DomainModels.ServiceRequest>();
             serviceRequestMap.ForAllMembers(opt => opt.Ignore());
             serviceRequestMap.ForMember(dest => dest.CreatedDate, opt => opt.MapFrom(src => src.CreatedDate))
+                .ForMember(dest => dest.DeviceOwner, opt => opt.MapFrom(src => src.DeviceOwner))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
                 .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate))
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type))
                 .ForMember(dest => dest.Location, opt => opt.MapFrom(src => src.Location))
                 .ForMember(dest => dest.RequestType, opt => opt.MapFrom(src => src.RequestType))
                 .ForMember(dest => dest.ServiceRequestId, opt => opt.MapFrom(src => src.ServiceRequestId))
@@ -102,11 +115,23 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
                         LastName = src.ClosedBy.Name == null ? string.Empty : src.ClosedBy.Name.LastName
                     }
                 }))
+                .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => new DomainModels.Employee()
+                {
+                    EmployeeId = src.CreatedBy == null ? 0 : src.CreatedBy.EmployeeId,
+                    Name = new DomainModels.Name()
+                    {
+                        FirstName = src.CreatedBy.Name == null ? string.Empty : src.CreatedBy.Name.FirstName,
+                        MiddleName = src.CreatedBy.Name == null ? string.Empty : src.CreatedBy.Name.MiddleName,
+                        LastName = src.CreatedBy.Name == null ? string.Empty : src.CreatedBy.Name.LastName
+                    }
+                }))
                 .ForMember(dest => dest.Customer, opt => opt.MapFrom(src => new DomainModels.Customer()
                 {
                     Active = src.Customer == null ? false : src.Customer.Active,
                     CustomerId = src.Customer == null ? 0 : src.Customer.CustomerId,
                     Email = src.Customer == null ? string.Empty : src.Customer.Email,
+                    AssetId = src.Customer == null ? 0 : src.Customer.AssetId,
+                    DeviceId = src.Customer == null ? string.Empty : src.Customer.DeviceId,
                     Phone = src.Customer == null ? string.Empty : src.Customer.Phone,
                     SSN = src.Customer == null ? string.Empty : src.Customer.SSN,
                     Address = new DomainModels.Address()
@@ -133,10 +158,23 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
                 .ForMember(dest => dest.EndDate, opt => opt.MapFrom(src => src.EndDate))
                 .ForMember(dest => dest.Location, opt => opt.MapFrom(src => src.Location))
                 .ForMember(dest => dest.RequestType, opt => opt.MapFrom(src => src.RequestType))
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type))
+                .ForMember(dest => dest.DeviceOwner, opt => opt.MapFrom(src => src.DeviceOwner))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
                 .ForMember(dest => dest.ServiceRequestId, opt => opt.MapFrom(src => src.ServiceRequestId))
                 .ForMember(dest => dest.ServiceType, opt => opt.MapFrom(src => src.ServiceType))
                 .ForMember(dest => dest.StartDate, opt => opt.MapFrom(src => src.StartDate))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
+                .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => new ViewModels.Employee()
+                {
+                    EmployeeId = src.CreatedBy == null ? 0 : src.CreatedBy.EmployeeId,
+                    Name = new ViewModels.Name()
+                    {
+                        FirstName = src.CreatedBy.Name == null ? string.Empty : src.CreatedBy.Name.FirstName,
+                        MiddleName = src.CreatedBy.Name == null ? string.Empty : src.CreatedBy.Name.MiddleName,
+                        LastName = src.CreatedBy.Name == null ? string.Empty : src.CreatedBy.Name.LastName
+                    }
+                }))
                 .ForMember(dest => dest.ClosedBy, opt => opt.MapFrom(src => new ViewModels.Employee()
                 {
                     EmployeeId = src.ClosedBy == null ? 0 : src.ClosedBy.EmployeeId,
@@ -151,6 +189,8 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
                 {
                     Active = src.Customer == null ? false : src.Customer.Active,
                     CustomerId = src.Customer == null ? 0 : src.Customer.CustomerId,
+                    AssetId = src.Customer == null ? 0 : src.Customer.AssetId,
+                    DeviceId = src.Customer == null ? string.Empty : src.Customer.DeviceId,
                     Email = src.Customer == null ? string.Empty : src.Customer.Email,
                     Phone = src.Customer == null ? string.Empty : src.Customer.Phone,
                     SSN = src.Customer == null ? string.Empty : src.Customer.SSN,
@@ -185,18 +225,27 @@ namespace ProArch.FieldOrbit.WebAPI.App_Start.Profiles
                 {
                     EmployeeId = src.ServiceRequest.ClosedBy == null ? 0 : src.ServiceRequest.ClosedBy.EmployeeId,
                 },
-                CreatedDate = src.ServiceRequest.CreatedDate,
-                EndDate = src.ServiceRequest.EndDate,
-                Location = src.ServiceRequest.Location,
+                CreatedBy = new ViewModels.Employee()
+                {
+                    EmployeeId = src.ServiceRequest.CreatedBy == null ? 0 : src.ServiceRequest.CreatedBy.EmployeeId,
+                },
+                CreatedDate = src.ServiceRequest.CreatedDate.HasValue?src.ServiceRequest.CreatedDate :new DateTime(),
+                Description = src.ServiceRequest.Description.ValidateData(),
+                DeviceOwner = src.ServiceRequest.DeviceOwner.ValidateData() ,
+                EndDate = src.ServiceRequest.EndDate.HasValue?src.ServiceRequest.EndDate: new DateTime() ,
+                Location = src.ServiceRequest.Location.ValidateData(),
                 ServiceRequestId = src.ServiceRequest.ServiceRequestId,
-                RequestType = src.ServiceRequest.RequestType,
-                ServiceType = src.ServiceRequest.ServiceType,
-                StartDate = src.ServiceRequest.StartDate,
-                Status = src.ServiceRequest.Status,
+                RequestType = src.ServiceRequest.RequestType.ValidateData(),
+                Type=src.ServiceRequest.Type.ValidateData(),
+                ServiceType = src.ServiceRequest.ServiceType.ValidateData(),
+                StartDate = src.ServiceRequest.StartDate.HasValue?src.ServiceRequest.StartDate :new DateTime() ,
+                Status = src.ServiceRequest.Status.ValidateData(),
                 Customer = new ViewModels.Customer()
                 {
                     CustomerId = src.ServiceRequest.Customer == null ? 0 : src.ServiceRequest.Customer.CustomerId,
                     Active = src.ServiceRequest.Customer == null ? false : src.ServiceRequest.Customer.Active,
+                    AssetId = src.ServiceRequest.Customer == null ? 0 : src.ServiceRequest.Customer.AssetId,
+                    DeviceId = src.ServiceRequest.Customer == null ? string.Empty : src.ServiceRequest.Customer.DeviceId,
                     Address = new ViewModels.Address()
                     {
                         Street = src.ServiceRequest.Customer.Address == null ? string.Empty : src.ServiceRequest.Customer.Address.Street,

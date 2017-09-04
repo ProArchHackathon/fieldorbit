@@ -29,6 +29,14 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         public bool CreateServiceRequest(Models.ServiceRequest serviceRequest)
         {
             serviceRequest.VerifyObjectNull();
+            if (serviceRequest.Type == "ServiceRequest")
+            {
+                serviceRequest.DeviceOwner = "Customer";
+            }
+            else
+            {
+                serviceRequest.DeviceOwner = "Utility";
+            }
             return this.serviceRequestRepository.CreateServiceRequest(serviceRequest);
         }
 
@@ -36,9 +44,24 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         /// 
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Models.ServiceRequest> GetAllServiceRequests()
+        public IEnumerable<Models.ServiceRequest> GetAllServiceRequests(string type)
         {
-            return this.serviceRequestRepository.GetAllServiceRequests();
+            string deviceOwner = "";
+            if (type == "ServiceRequest")
+            {
+                deviceOwner = "Customer";
+            }
+            else
+            {
+                deviceOwner = "Utility";
+            }
+            var list = this.serviceRequestRepository.GetAllServiceRequests();
+            List<Models.ServiceRequest> result = new List<ServiceRequest>();
+            if (list.Any())
+            {
+                result.AddRange(list.Where(item => item.DeviceOwner == deviceOwner));
+            }
+            return result;
         }
 
         /// <summary>
@@ -60,6 +83,14 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         public bool UpdateServiceRequest(Models.ServiceRequest serviceRequest)
         {
             serviceRequest.VerifyObjectNull();
+            if (serviceRequest.Type == "ServiceRequest")
+            {
+                serviceRequest.DeviceOwner = "Customer";
+            }
+            else
+            {
+                serviceRequest.DeviceOwner = "Utility";
+            }
             return this.serviceRequestRepository.UpdateServiceRequest(serviceRequest);
         }
     }

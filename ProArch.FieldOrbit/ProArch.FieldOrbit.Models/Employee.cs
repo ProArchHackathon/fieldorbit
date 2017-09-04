@@ -33,7 +33,6 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("voicecalluserid")]
         public string VoiceCallUserId { get; set; }
 
-        [BsonElement("timesheet")]
         public List<Timesheet> Timesheets { get; set; }
     }
 }

@@ -12,6 +12,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 {
     [EnableCors("*", "*", "*")]
     [ExceptionHandlerFilterAttribute]
+    [RoutePrefix("api/Job")]
     public class JobController : ApiController
     {
         private IJobService _jobService;
@@ -23,6 +24,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpPost]
         [TraceLogActionFilter]
+        [Route("Post")]
         public bool Post(Job job)
         {
             return _jobService.CreateJob(Mapper.Map<ProArch.FieldOrbit.Models.Job>(job));
@@ -30,6 +32,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpPut]
         [TraceLogActionFilter]
+        [Route("Update")]
         public bool Update(Job jobRequest)
         {
             return _jobService.UpdateJob(Mapper.Map<ProArch.FieldOrbit.Models.Job>(jobRequest));
@@ -37,13 +40,15 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpPut]
         [TraceLogActionFilter]
-        public bool Update(int JobID, string Status, string Comments, string Observations)
+        [Route("UpdateJob")]
+        public bool UpdateJob(int JobID, string Status, string Comments, string Observations)
         {
             return _jobService.UpdateJobWithComments(JobID, Status, Comments, Observations);
         }
 
         [HttpGet]
         [TraceLogActionFilter]
+        [Route("GetJobByID")]
         public Job GetJobByID(int jobId)
         {
             return Mapper.Map<Job>(_jobService.GetJobByID(jobId));
@@ -51,7 +56,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
-        [Route("api/Job/GetVRJob")]
+        [Route("GetVRUserJob")]
         public VRJob GetVRUserJob(int jobId)
         {
             return Mapper.Map<VRJob>(_jobService.GetVRJobByID(jobId));
@@ -59,6 +64,15 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
+        [Route("GetAllJobs")]
+        public List<Job> GetAllJobs()
+        {
+            return _jobService.GetJobs();
+        }
+
+        [HttpGet]
+        [TraceLogActionFilter]
+        [Route("GetUserJob")]
         [FieldOrbitAuthorizeAttribute]
         public IEnumerable<Job> GetUserJob()
         {
@@ -73,13 +87,15 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
-        public IEnumerable<Job> GetUserJob(int employeeId)
+        [Route("GetUserJobById")]
+        public IEnumerable<Job> GetUserJobById(int employeeId)
         {
             return _jobService.GetUserJob(employeeId);
         }
 
         [HttpGet]
         [TraceLogActionFilter]
+        [Route("EnterTimeSheet")]
         public bool EnterTimeSheet(Job job, Timesheet timeSheet)
         {
             return _jobService.EnterTimeSheet(job, timeSheet);

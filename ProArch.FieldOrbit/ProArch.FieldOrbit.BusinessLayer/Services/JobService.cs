@@ -50,6 +50,15 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
         }
 
         /// <summary>
+        /// Gets all jobs list
+        /// </summary>
+        /// <returns></returns>
+        public List<Models.Job> GetJobs()
+        {
+            return this.jobRepository.GetAllJobs();
+        }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="JobId"></param>

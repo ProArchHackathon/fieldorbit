@@ -11,7 +11,7 @@ export class User {
 }
 
 @Component({
-    templateUrl: 'app/common/login/login.component.html',
+    templateUrl: 'login.component.html',
     providers: [LoginService, Configuration, CookieService]
 })
 export class LoginComponent {
@@ -29,7 +29,7 @@ export class LoginComponent {
         this._loginService.ValidateLoginInformation(this.login)
             .map((response) => {
                 var output = response.json();
-                this._route.navigate(['fileupload']);
+                this._route.navigate(['servicerequest']);
                 //this._cookieService.setCookie("filedOrbitAccess", output.AccessToken, 1);
             })
             .subscribe(function(errors) {

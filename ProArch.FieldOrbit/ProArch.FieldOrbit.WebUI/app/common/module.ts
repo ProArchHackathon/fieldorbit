@@ -14,12 +14,15 @@ import { ServiceRequestComponent } from '../components/serviceRequest/serviceReq
 import { WorkRequestComponent } from '../components/workrequest/workrequest.component';
 import { SidenavComponent } from './material/sidenav';
 import { ServiceRequestListComponent } from '../components/servicelist/srlist.component';
+import { DialogResultDialog } from './dialog/dialog';
+import { MdDialogModule } from '@angular/material';
+import {MdDatepickerModule,MdNativeDateModule } from '@angular/material';
 
-//import 'hammerjs';
+import 'hammerjs';
 @NgModule({
     imports: [
-        BrowserModule,
-        FormsModule, HttpModule, BrowserAnimationsModule, MaterialModule.forRoot(),
+        BrowserModule, MdDialogModule,MdDatepickerModule,MdNativeDateModule ,
+        FormsModule, HttpModule, BrowserAnimationsModule, MaterialModule,
         RouterModule.forRoot([
             {
                 path: 'login',
@@ -34,9 +37,9 @@ import { ServiceRequestListComponent } from '../components/servicelist/srlist.co
                 component: ServiceRequestComponent
             },
             {
-                path: 'workrequest',
-                component: WorkRequestComponent
-            },
+                 path: 'workrequest',
+                 component: WorkRequestComponent
+            }, 
             {
                 path: '',
                 redirectTo: '/login',
@@ -45,13 +48,14 @@ import { ServiceRequestListComponent } from '../components/servicelist/srlist.co
         ], { useHash: true })
     ],
     declarations: [
-        AppComponent, JobComponent, LoginComponent, ServiceRequestListComponent,
+        AppComponent, JobComponent, LoginComponent, ServiceRequestListComponent, DialogResultDialog,
         ServiceRequestComponent, WorkRequestComponent, SidenavComponent
 
     ],
     exports: [
         MaterialModule
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    entryComponents: [DialogResultDialog]
 })
 export class AppModule { }

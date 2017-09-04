@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MongoDB.Bson;
 using ProArch.FieldOrbit.DataContracts.Interfaces;
 using ProArch.FieldOrbit.Models;
+using System.Collections.Generic;
+using ProArch.FieldOrbit.DataLayer.Extensions;
 
 namespace ProArch.FieldOrbit.DataLayer.Repositories
 {
@@ -29,30 +27,37 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
             var document = new BsonDocument
             {
                 {"servicerequestid", new MongoRepository().GetCount("servicerequest")},
-                {"createddate", serviceRequest.CreatedDate},
-                {"startdate" ,serviceRequest.StartDate},
-                {"servicetype",serviceRequest.ServiceType.ToString()},
-                {"requesttype", serviceRequest.RequestType.ToString()},
+                { "createdby",serviceRequest.CreatedBy==null? new BsonDocument() : new BsonDocument
+                    {
+                        { "employeeid", serviceRequest.CreatedBy.EmployeeId }
+                    }
+                },
+                { "deviceowner",serviceRequest.DeviceOwner.ValidateData()},
+                { "description",serviceRequest.Description.ValidateData()},
+                {"createddate", serviceRequest.CreatedDate.HasValue? serviceRequest.CreatedDate:new DateTime()},
+                {"startdate" ,serviceRequest.StartDate.HasValue?serviceRequest.StartDate:new DateTime()},
+                {"servicetype",serviceRequest.ServiceType.ValidateData()},
+                {"requesttype", serviceRequest.RequestType.ValidateData()},
                 {"customer",serviceRequest.Customer==null? new BsonDocument() : new BsonDocument
                     {
                         { "customerid", serviceRequest.Customer.CustomerId }
                     }
                 },
-                { "location",serviceRequest.Location },
-                { "enddate",serviceRequest.EndDate.HasValue? serviceRequest.EndDate: null },
+                { "location",serviceRequest.Location.ValidateData() },
+                { "enddate",serviceRequest.EndDate.HasValue? serviceRequest.EndDate: new DateTime() },
                 { "closedby", serviceRequest.ClosedBy==null? new BsonDocument() : new BsonDocument
                     {
                         {"employeeid",serviceRequest.ClosedBy.EmployeeId },
                         {"name", new BsonDocument
                             {
-                                {"firstname",serviceRequest.ClosedBy.Name.FirstName },
-                                {"middlename",serviceRequest.ClosedBy.Name.MiddleName },
-                                {"lastname",serviceRequest.ClosedBy.Name.LastName }
+                                {"firstname",serviceRequest.ClosedBy.Name.FirstName.ValidateData() },
+                                {"middlename",serviceRequest.ClosedBy.Name.MiddleName.ValidateData() },
+                                {"lastname",serviceRequest.ClosedBy.Name.LastName.ValidateData() }
                             }
                         }
                     }
                 },
-                { "status",serviceRequest.Status.ToString() }
+                { "status",serviceRequest.Status.ValidateData() }
             };
             return document;
         }
@@ -77,30 +82,37 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
             var document = new BsonDocument
             {
                 {"servicerequestid", serviceRequest.ServiceRequestId},
-                {"createddate", serviceRequest.CreatedDate},
-                {"startdate" ,serviceRequest.StartDate},
-                {"servicetype",serviceRequest.ServiceType.ToString()},
-                {"requesttype", serviceRequest.RequestType.ToString()},
+                { "createdby",serviceRequest.CreatedBy==null? new BsonDocument() : new BsonDocument
+                    {
+                        { "employeeid", serviceRequest.CreatedBy.EmployeeId }
+                    }
+                },
+                { "deviceowner",serviceRequest.DeviceOwner.ValidateData()},
+                { "description",serviceRequest.Description.ValidateData()},
+                {"createddate", serviceRequest.CreatedDate.HasValue? serviceRequest.CreatedDate:new DateTime()},
+                {"startdate" ,serviceRequest.StartDate.HasValue?serviceRequest.StartDate:new DateTime()},
+                {"servicetype",serviceRequest.ServiceType.ValidateData()},
+                {"requesttype", serviceRequest.RequestType.ValidateData()},
                 {"customer",serviceRequest.Customer==null? new BsonDocument() : new BsonDocument
                     {
                         { "customerid", serviceRequest.Customer.CustomerId }
                     }
                 },
                 { "location",serviceRequest.Location },
-                { "enddate",serviceRequest.EndDate.HasValue? serviceRequest.EndDate: null },
+                { "enddate",serviceRequest.EndDate.HasValue? serviceRequest.EndDate: new DateTime() },
                 { "closedby", serviceRequest.ClosedBy==null? new BsonDocument() : new BsonDocument
                     {
                         {"employeeid",serviceRequest.ClosedBy.EmployeeId },
                         {"name", new BsonDocument
                             {
-                                {"firstname",serviceRequest.ClosedBy.Name.FirstName },
-                                {"middlename",serviceRequest.ClosedBy.Name.MiddleName },
-                                {"lastname",serviceRequest.ClosedBy.Name.LastName }
+                                {"firstname",serviceRequest.ClosedBy.Name.FirstName.ValidateData() },
+                                {"middlename",serviceRequest.ClosedBy.Name.MiddleName.ValidateData() },
+                                {"lastname",serviceRequest.ClosedBy.Name.LastName.ValidateData() }
                             }
                         }
                     }
                 },
-                { "status",serviceRequest.Status.ToString() }
+                { "status",serviceRequest.Status.ValidateData() }
             };
 
             return new MongoRepository().UpdateServiceRequest(document, "servicerequest");

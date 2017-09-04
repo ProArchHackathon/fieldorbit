@@ -37,6 +37,6 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
         /// Get all srvice requests
         /// </summary>
         /// <returns></returns>
-        IEnumerable<ServiceRequest> GetAllServiceRequests();
+        IEnumerable<ServiceRequest> GetAllServiceRequests(string deviceOwner);
     }
 }
