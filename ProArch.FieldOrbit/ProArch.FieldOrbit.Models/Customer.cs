@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 namespace ProArch.FieldOrbit.Models
 {
@@ -13,12 +14,13 @@ namespace ProArch.FieldOrbit.Models
         public string DeviceId { get; set; }
 
         [BsonElement("AssetId")]
-        public int AssetId { get; set; }
+        public string AssetId { get; set; }
 
         [BsonElement("name")]
         public Name Name { get; set; }
 
-        public Address Address { get; set; }
+        [BsonElement("address")]
+        public List<Address> Address { get; set; }
 
         [BsonElement("phone")]
         public string Phone { get; set; }

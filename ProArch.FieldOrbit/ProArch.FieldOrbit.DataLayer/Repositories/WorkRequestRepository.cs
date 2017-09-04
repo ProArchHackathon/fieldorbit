@@ -58,7 +58,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                             }
                         },
                         { "location", workRequest.ServiceRequest.Location },
-                        { "closedate", workRequest.ServiceRequest.EndDate.Value },
+                        { "enddate", workRequest.ServiceRequest.EndDate.Value },
                         { "closedby", new BsonDocument
                             {
                                 {"employeeid", workRequest.ServiceRequest.ClosedBy.EmployeeId}
@@ -96,7 +96,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                             }
                         },
                         { "location", workRequest.ServiceRequest.Location },
-                        { "closedate",workRequest.ServiceRequest.EndDate.HasValue ? workRequest.ServiceRequest.EndDate : null },
+                        { "enddate",workRequest.ServiceRequest.EndDate.HasValue ? workRequest.ServiceRequest.EndDate : null },
                         { "closedby", new BsonDocument
                             {
                                 {"employeeid", workRequest.ServiceRequest.ClosedBy.EmployeeId}

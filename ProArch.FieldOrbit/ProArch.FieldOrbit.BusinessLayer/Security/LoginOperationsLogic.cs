@@ -74,5 +74,13 @@ namespace ProArch.FieldOrbit.BusinessLayer.Security
                 }
             }
         }
+
+        public User GetUserInfo(string userName, string password)
+        {
+
+            User userInfo = Utilities.Users.FirstOrDefault(c => c.UserName.Equals(userName) && c.Password.Equals(password));
+
+            return userInfo;
+        }
     }
 }
