@@ -1,18 +1,18 @@
-﻿<form class="example-form" (load)="onLoad()">
+﻿<form class="example-form designform" (load)="onLoad()">
     <md-card>
         <md-card-title>Service Request</md-card-title>
         <div class="example-full-width" cellspacing="0">
-            <md-input-container class="example-full-width">
+            <md-input-container class="example-full-width inputMargin">
                 <label>SR Number</label>
                 <input #srNumber mdInput [(ngModel)]="SrNumber" name="SrNumber" [disabled]="true">
             </md-input-container>
-            <md-input-container class="example-full-width">
+            <md-input-container class="example-full-width inputMargin">
                 <label>Requested By</label>
                 <input #requestedBy mdInput [(ngModel)]="RequestedBy" autofocus name="RequestedBy">
             </md-input-container>
         </div>
         <div class="example-full-width" cellspacing="0">
-            <md-select name="ServiceType" placeholder="Service Type" [(ngModel)]="ServiceType">
+            <md-select class="inputMargin" name="ServiceType" placeholder="Service Type" [(ngModel)]="ServiceType">
                 <md-option *ngFor="let type of serviceType" [value]="type.value">
                     {{ type.viewValue }}
                 </md-option>
@@ -20,29 +20,29 @@
         </div>
         <br>
         <div class="example-full-width" cellspacing="0">
-            <md-select placeholder="Request Type" name="RequestType" [(ngModel)]="RequestType">
+            <md-select class="inputMargin" placeholder="Request Type" name="RequestType" [(ngModel)]="RequestType">
                 <md-option *ngFor="let RType of requestType" [value]="RType.value">
                     {{ RType.viewValue }}
                 </md-option>
             </md-select>
-            <md-input-container class="example-full-width">
+            <md-input-container class="example-full-width inputMargin">
                 <label>Customer ID</label>
                 <input #customerId mdInput [(ngModel)]="Customer.CustomerId" name="CustomerId">
             </md-input-container>
-            <md-input-container class="example-full-width">
+            <md-input-container class="example-full-width inputMargin">
                 <label>Location</label>
                 <input #location mdInput [(ngModel)]="Location" name="Location">
             </md-input-container>
         </div>
         <div class="example-full-width" cellspacing="0">
             
-            <md-input-container>
+            <md-input-container class="inputMargin">
                 <label>Created Date</label>
                 <input [mdDatepicker]="createdDate" mdInput [(ngModel)]="CreatedDate" name="CreatedDate">
                 <button mdSuffix [mdDatepickerToggle]="createdDate"></button>
             </md-input-container>
             <md-datepicker #createdDate></md-datepicker>
-            <md-input-container>
+            <md-input-container class="inputMargin">
                 <label>Start Date</label>
                 <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartDate" value="" name="StartDate">
                 <button mdSuffix [mdDatepickerToggle]="startDate"></button>
@@ -56,7 +56,7 @@
             <md-datepicker #endDate></md-datepicker>
         </div>
         <div class="example-full-width" cellspacing="0">
-            <md-select name="Status" placeholder="Status" [(ngModel)]="Status">
+            <md-select class="inputMargin" name="Status" placeholder="Status" [(ngModel)]="Status">
                 <md-option *ngFor="let Status of statusList" [value]="Status.value">
                     {{ Status.viewValue }}
                 </md-option>
