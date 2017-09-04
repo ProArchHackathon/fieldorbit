@@ -71,6 +71,7 @@ export class ServiceRequestComponent {
 
             });
     }
+    
     openDialog() {
         let dialogRef = this.dialog.open(DialogResultDialog);
         dialogRef.afterClosed().subscribe(result => {

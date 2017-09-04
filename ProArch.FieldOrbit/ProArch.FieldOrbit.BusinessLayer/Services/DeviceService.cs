@@ -72,7 +72,6 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
             throw new NotImplementedException();
         }
 
-
         /// <summary>
         /// getvideocontent
         /// </summary>
@@ -95,11 +94,21 @@ namespace ProArch.FieldOrbit.BusinessLayer.Services
             return ContentService.GetVideoPath(filename);
         }
 
+        /// <summary>
+        /// get customer devices
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
         public List<Job> GetCustomerDevices(int customerId)
         {
             return _deviceRepository.GetCustomerDevices(customerId);
         }
 
+        /// <summary>
+        /// upload files
+        /// </summary>
+        /// <param name="files"></param>
+        /// <returns></returns>
         public bool UploadFiles(HttpFileCollectionBase files)
         {
             return ContentService.UploadFiles(files);

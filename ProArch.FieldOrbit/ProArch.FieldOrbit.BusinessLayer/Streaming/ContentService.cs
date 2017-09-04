@@ -70,20 +70,5 @@ namespace ProArch.FieldOrbit.BusinessLayer.Streaming
             blob.DownloadToStream(stream);
             return stream;
         }
-
-        //public async Task<List<Uri>> GetAllBlobs()
-        //{
-        //    CloudBlobContainer blobContainer = GetContainer();
-
-        //    await blobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
-
-        //    List<Uri> allBlobs = new List<Uri>();
-        //    foreach (IListBlobItem blob in blobContainer.ListBlobs())
-        //    {
-        //        if (blob.GetType() == typeof(CloudBlockBlob))
-        //            allBlobs.Add(blob.Uri);
-        //    }
-        //    return allBlobs;
-        //}
     }
 }

@@ -54,6 +54,12 @@ namespace ProArch.FieldOrbit.DataContracts.Interfaces
         /// <param name="videoType"></param>
         /// <returns></returns>
         string GetVideoPath(string deviceId, string videoType);
+
+        /// <summary>
+        /// get customer devices
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
         List<Job> GetCustomerDevices(int customerId);
     }
 }
