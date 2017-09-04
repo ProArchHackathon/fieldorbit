@@ -39,5 +39,6 @@ namespace ProArch.FieldOrbit.Models
 
         [BsonElement("customer")]
         public Customer Customer { get; set; }
+
     }
 }

@@ -1,9 +1,11 @@
-﻿<form>
-    <md-input-container>
-        <input #uname mdInput placeholder="UserName" [(ngModel)]="login.username" name="UserName" focus>
+﻿<form class="designform">
+    <md-input-container class="inputMargin">
+        <label>User Name</label>
+        <input #uname mdInput [(ngModel)]="login.username" name="UserName" focus>
     </md-input-container>
-    <md-input-container>
-        <input #psw mdInput placeholder="Password" [(ngModel)]="login.password" name="Password">
+    <md-input-container class="inputMargin">
+        <label>Password</label>
+        <input #psw mdInput [(ngModel)]="login.password" name="Password">
     </md-input-container>
     <button class="mat-button mat-primary" md-raised-button (click)="OnSubmit()">Login</button>
 </form>

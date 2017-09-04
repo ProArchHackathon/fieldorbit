@@ -39,6 +39,10 @@ export class JobComponent {
         { value: 'Close', viewValue: 'Close' },
         { value: 'Unscheduled', viewValue: 'Unscheduled' }
     ];
+    Types = [
+        { value: 'WorkRequest', viewValue: 'Work Request' },
+        { value: 'ServiceRequest', viewValue: 'Service Request' }
+    ];
 
     Priorities = [
         { value: 'High', viewValue: 'High' },
@@ -121,7 +125,7 @@ export class JobComponent {
                 Status: this.Status,
                 Priority: this.Priority,
                 Comments: this.Comments,
-                Observations: this.Observations
+                Observations: this.Observations,
             };
 
 
