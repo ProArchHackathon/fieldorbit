@@ -9,12 +9,12 @@ namespace ProArch.FieldOrbit.WebAPI.Models
     {
         public int CustomerId { get; set; }
         public Name Name { get; set; }
-        public Address Address { get; set; }
+        public List<Address> Address { get; set; }
         public string Phone { get; set; }
         public string SSN { get; set; }
         public string Email { get; set; }
         public bool Active { get; set; }
         public string DeviceId { get; set; }
-        public int AssetId { get; set; }
+        public string AssetId { get; set; }
     }
 }

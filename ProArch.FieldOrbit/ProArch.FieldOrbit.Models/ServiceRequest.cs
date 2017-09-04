@@ -32,7 +32,7 @@ namespace ProArch.FieldOrbit.Models
         public Device Device { get; set; }
         [BsonElement("location")]
         public string Location { get; set; }
-        [BsonElement("closedate")]
+        [BsonElement("enddate")]
         public DateTime? EndDate { get; set; }
         [BsonElement("closedby")]
         public Employee ClosedBy { get; set; }

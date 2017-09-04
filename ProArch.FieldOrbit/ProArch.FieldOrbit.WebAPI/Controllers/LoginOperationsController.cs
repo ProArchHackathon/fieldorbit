@@ -28,5 +28,13 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         {
             return Request.CreateResponse(HttpStatusCode.OK, loginOperations.Validate(username, password));
         }
+
+        [HttpGet]
+        [TraceLogActionFilterAttribute]
+        [Route("api/LoginOperations/GetUserDetails")]
+        public HttpResponseMessage GetUserDetails([FromUri]string username, [FromUri]string password)
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, loginOperations.GetUserInfo(username, password));
+        }
     }
 }

@@ -103,13 +103,14 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                         }
                     },
                     { "location", job.ServiceRequest.Location.ValidateData() },
-                    { "closedate", job.ServiceRequest.EndDate },
+                    { "enddate", job.ServiceRequest.EndDate },
                     { "closedby",job.ServiceRequest.ClosedBy==null?new BsonDocument(): new BsonDocument
                         {
                             {"employeeid", job.ServiceRequest.ClosedBy.EmployeeId}
                         }
                     },
                     { "status", job.ServiceRequest.Status.ToString() },
+                    {"servicerequestid",job.ServiceRequest.ServiceRequestId },
                     {"customer", customer},
 
                 };
@@ -183,7 +184,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 { "comments", job.Comments.ValidateData() },
                 { "observations", job.Observations.ValidateData() }
             };
-            return new MongoRepository().UpdateJobRequest(document, "job", false);
+            return new MongoRepository().UpdateJobRequest(document, "job");
 
         }
 
@@ -204,7 +205,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                 { "comments", Comments.ValidateData() },
                 { "observations", Observations.ValidateData() }
             };
-            return new MongoRepository().UpdateJobRequest(document, "job", true);
+            return new MongoRepository().UpdateJobRequest(document, "job");
 
         }
 

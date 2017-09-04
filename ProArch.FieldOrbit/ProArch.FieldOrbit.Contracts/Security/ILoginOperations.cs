@@ -1,4 +1,5 @@
-﻿using ProArch.FieldOrbit.Models.Common;
+﻿using ProArch.FieldOrbit.Models;
+using ProArch.FieldOrbit.Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace ProArch.FieldOrbit.Contracts.Security
         TokenHolder Validate(string username, string password);
         bool ValidateToken(string token);
         EmployeeToken DecodeToken(string token);
+        User GetUserInfo(string username, string password);
     }
 }

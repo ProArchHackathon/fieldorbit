@@ -72,7 +72,6 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
-        [Route("GetUserJob")]
         [FieldOrbitAuthorizeAttribute]
         public IEnumerable<Job> GetUserJob()
         {
@@ -87,18 +86,17 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpGet]
         [TraceLogActionFilter]
-        [Route("GetUserJobById")]
-        public IEnumerable<Job> GetUserJobById(int employeeId)
+        public IEnumerable<Job> GetUserJob(int employeeId)
         {
             return _jobService.GetUserJob(employeeId);
         }
 
-        [HttpGet]
+        [HttpPut]
         [TraceLogActionFilter]
-        [Route("EnterTimeSheet")]
-        public bool EnterTimeSheet(Job job, Timesheet timeSheet)
+        [Route("api/Job/EnterTimeSheet")]
+        public bool EnterTimeSheet(TimeSheetUpdater timeSheet)
         {
-            return _jobService.EnterTimeSheet(job, timeSheet);
+            return _jobService.EnterTimeSheet(timeSheet.Job, timeSheet.Timesheet);
         }
     }
 }

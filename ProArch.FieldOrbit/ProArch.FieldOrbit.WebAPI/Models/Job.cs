@@ -17,7 +17,7 @@ namespace ProArch.FieldOrbit.WebAPI.Models
 
         public string Comments { get; set; }
         public string Observations { get; set; }
-
+        public ServiceRequest ServiceRequest { get; set; }
         public WorkRequest WorkRequest { get; set; }
         public List<Employee> Employee { get; set; }
     }

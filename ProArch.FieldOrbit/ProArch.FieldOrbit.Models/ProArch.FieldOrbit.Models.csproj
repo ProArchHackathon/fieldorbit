@@ -59,6 +59,7 @@
     <Compile Include="Enums\RequestType.cs" />
     <Compile Include="Enums\ServiceRequestStatus.cs" />
     <Compile Include="Enums\ServiceType.cs" />
+    <Compile Include="TimeSheetUpdater.cs" />
     <Compile Include="VRJob.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="Device.cs" />
