@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
-
 namespace ProArch.FieldOrbit.Models
 {
     [BsonIgnoreExtraElements]
@@ -19,7 +18,6 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("name")]
         public Name Name { get; set; }
 
-        [BsonElement("address")]
         public List<Address> Address { get; set; }
 
         [BsonElement("phone")]
