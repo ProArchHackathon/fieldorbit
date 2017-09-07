@@ -5,9 +5,10 @@
     </md-input-container>
     <md-input-container class="inputMargin">
         <label>Password</label>
-        <input #psw mdInput [(ngModel)]="login.password" name="Password">
+        <input #psw mdInput type="password" [(ngModel)]="login.password" name="Password">
     </md-input-container>
     <div class="inputMargin">
+        <span style="color:red;" *ngIf="errorMessage">Invalid Username or Password</span>
         <button class="mat-button mat-primary" md-raised-button (click)="OnSubmit()">Login</button>
     </div>
 </form>

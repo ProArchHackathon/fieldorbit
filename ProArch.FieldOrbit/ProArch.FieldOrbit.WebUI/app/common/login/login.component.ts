@@ -15,7 +15,7 @@ export class User {
     providers: [LoginService, Configuration, CookieService]
 })
 export class LoginComponent {
-    constructor(private _loginService: LoginService, private _cookieService: CookieService, private _route : Router) {
+    constructor(private _loginService: LoginService, private _cookieService: CookieService, private _route: Router) {
 
     }
 
@@ -23,17 +23,19 @@ export class LoginComponent {
         username: "",
         password: ""
     };
+    public errorMessage: string;
 
     OnSubmit() {
+        this.errorMessage = null;
         //var cookie = this._cookieService.getCookie("filedOrbitAccess");
         this._loginService.ValidateLoginInformation(this.login)
-            .map((response) => {
+            .toPromise()
+            .then((response) => {
                 var output = response.json();
                 this._route.navigate(['servicerequest']);
-                //this._cookieService.setCookie("filedOrbitAccess", output.AccessToken, 1);
             })
-            .subscribe(function(errors) {
-                var error = errors;
+            .catch((error: any) => {
+                this.errorMessage = error._body;
             });
     }
 }

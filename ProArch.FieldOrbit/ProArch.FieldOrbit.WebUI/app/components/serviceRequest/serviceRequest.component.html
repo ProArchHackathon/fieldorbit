@@ -2,7 +2,7 @@
     <md-card>
         <md-card-title>Service Request</md-card-title>
         <div class="example-full-width" cellspacing="0">
-            <md-input-container class="example-full-width inputMargin">
+            <md-input-container *ngIf="SrNumber && SrNumber!=0" class="example-full-width inputMargin">
                 <label>SR Number</label>
                 <input #srNumber mdInput [(ngModel)]="SrNumber" name="SrNumber" [disabled]="true">
             </md-input-container>

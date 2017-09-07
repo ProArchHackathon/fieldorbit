@@ -3,7 +3,7 @@
     <md-card>
         <md-card-title>{{Button}} Job</md-card-title>
         <div class="example-full-width" cellspacing="0">
-            <md-input-container class="inputMargin">
+            <md-input-container *ngIf="JobId" class="inputMargin">
                 <label>Job Id</label>
                 <input mdInput disabled required [(ngModel)]="JobId" name="JobId" autofocus>
             </md-input-container>

@@ -2,7 +2,7 @@
 
 @Injectable()
 export class Configuration {
-    public readonly ApiServer: string = "http://localhost/test-fieldorbit-api/";
+    public readonly ApiServer: string = "http://192.168.20.77/test-fieldorbit-api/";
 
     public readonly LoginApiUrl: string = "api/LoginOperations/Validate"
 

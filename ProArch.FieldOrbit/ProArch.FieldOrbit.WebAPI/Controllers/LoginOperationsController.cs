@@ -26,7 +26,14 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
         [TraceLogActionFilterAttribute]
         public HttpResponseMessage Validate([FromUri]string username, [FromUri]string password)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, loginOperations.Validate(username, password));
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, loginOperations.Validate(username, password));
+            }
+            catch
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid UserName or Password");
+            }
         }
 
         [HttpGet]
