@@ -74,12 +74,14 @@ export class JobComponent {
     public ErrorMessage: string;
 
     //validating the Date here
+
     validateDate() {
-        if (this.EndTime <= this.StartTime) {
-            this.showhighError = true;
+        this.ErrorMessage = null;
+        if (!this.StartTime) {
+            this.ErrorMessage = 'Please Select Start Time';
         }
-        if (this.StartTime == undefined) {
-            this.showdateError = true;
+        else if (this.EndTime && (this.EndTime <= this.StartTime)) {
+            this.ErrorMessage = 'End Time should be greater than Start Time';
         }
     }
 
@@ -90,30 +92,31 @@ export class JobComponent {
         });
     }
 
-    getAllJobs(){
+    getAllJobs() {
         this.http.get(this._configuration.ApiServer + this._configuration.GetAllJobs, null)
-        .toPromise()
-        .then((response: Response) => {
-            this.jobList = response.json();
-            this.jobList.forEach(element => {
-                element.StartTime = new Date(element.StartTime).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                }).split(' ').join('-');
-                element.EndTime = new Date(element.EndTime).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                }).split(' ').join('-');
-            });
-        })
-        .catch((errors: any) => {
+            .toPromise()
+            .then((response: Response) => {
+                this.jobList = response.json();
+                this.jobList.forEach(element => {
+                    element.StartTime = new Date(element.StartTime).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-');
+                    element.EndTime = new Date(element.EndTime).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-');
+                });
+            })
+            .catch((errors: any) => {
 
-        });
+            });
     }
 
-    onSubmit() {
+    onSubmit(valid) {
+        this.ErrorMessage = null;
 
         var data =
             {
@@ -173,7 +176,6 @@ export class JobComponent {
             .catch((errors: any) => {
 
             });
-
     };
 
     private extractData(res: Response) {

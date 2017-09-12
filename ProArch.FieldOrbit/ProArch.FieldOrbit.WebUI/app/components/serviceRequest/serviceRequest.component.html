@@ -1,4 +1,4 @@
-﻿<form class="example-form designform" (load)="onLoad()">
+﻿<form class="example-form designform" name="servicerequestform" (load)="onLoad()">
     <md-card>
         <md-card-title>Service Request</md-card-title>
         <div class="example-full-width" cellspacing="0">
@@ -12,13 +12,13 @@
             </md-input-container>
         </div>
         <div class="example-full-width" cellspacing="0">
-            <md-select class="inputMargin" name="ServiceType" placeholder="Service Type" [(ngModel)]="ServiceType">
+            <md-select class="inputMargin" name="ServiceType" required placeholder="Service Type" [(ngModel)]="ServiceType">
                 <label>Service Type</label>
                 <md-option *ngFor="let type of serviceType" [value]="type.value">
                     {{ type.viewValue }}
                 </md-option>
             </md-select>
-            <md-select class="inputMargin" name="Status" placeholder="Status" [(ngModel)]="Status">
+            <md-select class="inputMargin" name="Status" required placeholder="Status" [(ngModel)]="Status">
                 <md-option *ngFor="let Status of statusList" [value]="Status.value">
                     {{ Status.viewValue }}
                 </md-option>
@@ -26,14 +26,14 @@
         </div>
         <br>
         <div class="example-full-width" cellspacing="0">
-            <md-select class="inputMargin" placeholder="Request Type" name="RequestType" [(ngModel)]="RequestType">
+            <md-select class="inputMargin" placeholder="Request Type" required name="RequestType" [(ngModel)]="RequestType">
                 <md-option *ngFor="let RType of requestType" [value]="RType.value">
                     {{ RType.viewValue }}
                 </md-option>
             </md-select>
             <md-input-container class="example-full-width inputMargin">
                 <label>Customer ID</label>
-                <input #customerId mdInput [(ngModel)]="Customer.CustomerId" name="CustomerId">
+                <input #customerId mdInput [(ngModel)]="Customer.CustomerId" required name="CustomerId">
             </md-input-container>
             <md-input-container class="example-full-width inputMargin">
                 <label>Location</label>
@@ -44,19 +44,19 @@
 
             <md-input-container class="inputMargin">
                 <label>Created Date</label>
-                <input [mdDatepicker]="createdDate" mdInput [(ngModel)]="CreatedDate" name="CreatedDate">
+                <input [mdDatepicker]="createdDate" required mdInput [(ngModel)]="CreatedDate" name="CreatedDate">
                 <button mdSuffix [mdDatepickerToggle]="createdDate"></button>
             </md-input-container>
             <md-datepicker #createdDate></md-datepicker>
             <md-input-container class="inputMargin">
                 <label>Start Date</label>
-                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartDate" value="" name="StartDate">
+                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartDate" value="" (blur)="validateDate()" name="StartDate">
                 <button mdSuffix [mdDatepickerToggle]="startDate"></button>
             </md-input-container>
             <md-datepicker #startDate></md-datepicker>
             <md-input-container>
                 <label>End Date</label>
-                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="EndDate" name="EndDate">
+                <input mdInput [mdDatepicker]="endDate" (blur)="validateDate()" [(ngModel)]="EndDate" name="EndDate">
                 <button mdSuffix [mdDatepickerToggle]="endDate"></button>
             </md-input-container>
             <md-datepicker #endDate></md-datepicker>
@@ -65,6 +65,7 @@
 
         </div>
         <p style="text-align: right">
+            <span style="color:red" *ngIf="ErrorMessage">{{ErrorMessage}}</span>
             <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>{{Button}}</button>
         </p>
     </md-card>

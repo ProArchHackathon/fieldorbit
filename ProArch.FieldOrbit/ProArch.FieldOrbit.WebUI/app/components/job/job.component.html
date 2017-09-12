@@ -22,23 +22,18 @@
         <div class="example-full-width" cellspacing="0">
             <md-input-container class="inputMargin">
                 <label>Start Date</label>
-                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartTime" value="" name="StartTime">
+                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartTime" (blur)="validateDate()" name="StartTime">
                 <button mdSuffix [mdDatepickerToggle]="startDate"></button>
             </md-input-container>
             <md-datepicker #startDate></md-datepicker>
 
-        
-
-        <div style="color:red" *ngIf="showdateError" [ngClass]="{'has-error':showdateError}">please select FromDate.</div>
-        
-            <md-input-container class="inputMargin">
+         <md-input-container class="inputMargin">
                 <label>End Date</label>
                 <input mdInput [mdDatepicker]="endDate" [(ngModel)]="EndTime" name="EndDate" (blur)="validateDate()">
                 <button mdSuffix [mdDatepickerToggle]="endDate"></button>
             </md-input-container>
             <md-datepicker #endDate></md-datepicker>
         </div>
-        <!--<td style="color:red" *ngIf="showhighError" [ngClass]="{'has-error':showhighError}">please select Proper Date.</td>-->
         <div class="example-full-width" cellspacing="0">
             <md-input-container class="inputMargin">
                 <label>Est. Duration</label>

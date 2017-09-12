@@ -34,6 +34,7 @@ export class WorkRequestComponent {
     Status: any;
     Location: string;
     Button: string;
+    ErrorMessage: string;
 
     serviceRequestList: any;
     constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
@@ -41,8 +42,19 @@ export class WorkRequestComponent {
             CustomerId: 0
         }
         this.Button = 'Create';
+        this.CreatedDate = new Date();
+        this.StartDate = new Date();
         this.getAllWorkRequests();
     };
+
+    validateDate() {
+        if (!this.StartDate) {
+            this.ErrorMessage = 'Please Select Start Date';
+        }
+        else if (this.EndDate && (this.EndDate <= this.StartDate)) {
+            this.ErrorMessage = 'End Date should be greater than Start Date';
+        }
+    }
 
     getAllWorkRequests() {
         this.http.get(this._configuration.ApiServer + this._configuration.GetAllWorkRequests, null)
@@ -99,52 +111,55 @@ export class WorkRequestComponent {
         { value: 'Miscellaneous', viewValue: 'Miscellaneous' }
     ];
 
-    onUpdate(): void {
-        var data =
-            {
-                ServiceRequestId: this.SrNumber,
-                CreatedBy: { EmployeeId: this.RequestedBy },
-                ServiceType: this.ServiceType,
-                RequestType: this.RequestType,
-                CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                }).split(' ').join('-'),
-                StartDate: new Date(this.StartDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                }).split(' ').join('-'),
-                EndDate: (this.EndDate) ? new Date(this.EndDate).toLocaleDateString('en-GB', {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
-                }).split(' ').join('-') : null,
-                Customer: this.Customer,
-                Status: this.Status,
-                Location: this.Location,
-                Type: 'WorkRequest'
-            };
+    onUpdate(valid): void {
+        this.ErrorMessage = null;
+      
+            var data =
+                {
+                    ServiceRequestId: this.SrNumber,
+                    CreatedBy: { EmployeeId: this.RequestedBy },
+                    ServiceType: this.ServiceType,
+                    RequestType: this.RequestType,
+                    CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-'),
+                    StartDate: new Date(this.StartDate).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-'),
+                    EndDate: (this.EndDate) ? new Date(this.EndDate).toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    }).split(' ').join('-') : null,
+                    Customer: this.Customer,
+                    Status: this.Status,
+                    Location: this.Location,
+                    Type: 'WorkRequest'
+                };
 
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let opt = new RequestOptions({ headers: headers });
-        if (this.Button == 'Create') {
-            this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
-                .toPromise()
-                .then((response: Response) => {
-                    this.openDialog();
-                })
-                .catch(this.handleError);
-        }
-        else {
-            this.http.put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, JSON.stringify(data), opt)
-                .toPromise()
-                .then((response: Response) => {
-                    this.openDialog();
-                })
-                .catch(this.handleError);
-        }
+            let headers = new Headers({ 'Content-Type': 'application/json' });
+            let opt = new RequestOptions({ headers: headers });
+            if (this.Button == 'Create') {
+                this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
+                    .toPromise()
+                    .then((response: Response) => {
+                        this.openDialog();
+                    })
+                    .catch(this.handleError);
+            }
+            else {
+                this.http.put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, JSON.stringify(data), opt)
+                    .toPromise()
+                    .then((response: Response) => {
+                        this.openDialog();
+                    })
+                    .catch(this.handleError);
+            }
+       
     };
 
     private handleError(error: Response | any) {

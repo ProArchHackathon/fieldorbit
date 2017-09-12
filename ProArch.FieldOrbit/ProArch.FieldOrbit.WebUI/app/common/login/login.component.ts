@@ -25,7 +25,7 @@ export class LoginComponent {
     };
     public errorMessage: string;
 
-    OnSubmit() {
+    OnSubmit =function() {
         this.errorMessage = null;
         //var cookie = this._cookieService.getCookie("filedOrbitAccess");
         this._loginService.ValidateLoginInformation(this.login)

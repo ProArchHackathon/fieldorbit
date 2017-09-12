@@ -33,6 +33,7 @@ namespace ProArch.FieldOrbit.DataLayer.Common
                 return new List<User>()
                 {
                     //CSR
+                    new User() { UserId=1, EmployeeId=1003, UserName="FieldOrbit", Password="Password@1", Type="CSR"},
                     new User() { UserId=1, EmployeeId=1003, UserName="michael", Password="csr123", Type="CSR"},
                     new User() { UserId=2, EmployeeId=1020, UserName="jessi", Password="csr123", Type="CSR"},
                     new User() { UserId=3, EmployeeId=1033, UserName="larry", Password="csr123", Type="CSR"},
