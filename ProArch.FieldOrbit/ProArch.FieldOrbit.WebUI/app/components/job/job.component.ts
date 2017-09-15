@@ -30,6 +30,7 @@ export class JobComponent {
         }
         this.Button = 'Create';
         this.getAllJobs();
+        this.showButton = false;
     }
 
 
@@ -72,11 +73,15 @@ export class JobComponent {
     public showdateError: boolean;
     public Button: string;
     public ErrorMessage: string;
+    public serviceRequestError: string;
+    public showButton: boolean;
+    public Request:any;
 
     //validating the Date here
 
     validateDate() {
         this.ErrorMessage = null;
+        this.serviceRequestError = null;
         if (!this.StartTime) {
             this.ErrorMessage = 'Please Select Start Time';
         }
@@ -115,13 +120,40 @@ export class JobComponent {
             });
     }
 
-    onSubmit(valid) {
+    getServiceRequest() {
+        this.serviceRequestError = null;
+        let params: URLSearchParams = new URLSearchParams();
+        params.set('serviceRequestId', this.ServiceRequest.ServiceRequestId.toString());
+
+        let requestOptions = new RequestOptions();
+        requestOptions.search = params;
+        this.http.get(this._configuration.ApiServer + this._configuration.GetServiceRequestById, requestOptions)
+            .toPromise()
+            .then((response: Response) => {
+                let res = response.json();
+                this.Request = res;
+                if (this.Request) {
+                    this.showButton = true;
+                }
+                else {
+                    this.serviceRequestError = 'No Service Request Found';
+                    this.showButton = false;
+                }
+            })
+            .catch((error) => {
+                this.serviceRequestError = 'No Service Request Found';
+                this.showButton = false;
+            });
+    }
+
+    onSubmit() {
         this.ErrorMessage = null;
+        this.serviceRequestError = null;
 
         var data =
             {
                 JobId: this.JobId,
-                ServiceRequest: this.ServiceRequest,
+                ServiceRequest: this.Request,
                 JobDescription: this.JobDescription,
                 StartTime: this.StartTime,
                 EndTime: this.EndTime,
@@ -131,51 +163,31 @@ export class JobComponent {
                 Observations: this.Observations,
             };
 
+        data.ServiceRequest = this.Request;
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let opt = new RequestOptions({ headers: headers });
 
-        let params: URLSearchParams = new URLSearchParams();
-        params.set('serviceRequestId', this.ServiceRequest.ServiceRequestId.toString());
+        if (this.Button == 'Create') {
+            this.http.post(this._configuration.ApiServer + this._configuration.AddJob, JSON.stringify(data), opt)
+                .toPromise()
+                .then((response: Response) => {
+                    this.openDialog();
+                })
+                .catch((errors: any) => {
 
-        let requestOptions = new RequestOptions();
-        requestOptions.search = params;
-        this.ErrorMessage = null;
-        this.http.get(this._configuration.ApiServer + this._configuration.GetServiceRequestById, requestOptions)
-            .toPromise()
-            .then((response: Response) => {
-                let res = response.json();
-                data.ServiceRequest = res;
-                if (data.ServiceRequest) {
-                    let headers = new Headers({ 'Content-Type': 'application/json' });
-                    let opt = new RequestOptions({ headers: headers });
+                });
+        }
+        else {
+            this.http.put(this._configuration.ApiServer + this._configuration.UpdateJob, JSON.stringify(data), opt)
+                .toPromise()
+                .then((response: Response) => {
+                    console.log('updated successfully');
+                    this.openDialog();
+                })
+                .catch((errors: any) => {
 
-                    if (this.Button == 'Create') {
-                        this.http.post(this._configuration.ApiServer + this._configuration.AddJob, JSON.stringify(data), opt)
-                            .toPromise()
-                            .then((response: Response) => {
-                                this.openDialog();
-                            })
-                            .catch((errors: any) => {
-
-                            });
-                    }
-                    else {
-                        this.http.put(this._configuration.ApiServer + this._configuration.UpdateJob, JSON.stringify(data), opt)
-                            .toPromise()
-                            .then((response: Response) => {
-                                console.log('updated successfully');
-                                this.openDialog();
-                            })
-                            .catch((errors: any) => {
-
-                            });
-                    }
-                }
-                else {
-                    this.ErrorMessage = 'No Service Request Found';
-                }
-            })
-            .catch((errors: any) => {
-
-            });
+                });
+        }
     };
 
     private extractData(res: Response) {

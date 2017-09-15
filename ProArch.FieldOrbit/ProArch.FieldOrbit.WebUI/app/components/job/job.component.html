@@ -1,25 +1,25 @@
 ﻿<form class="example-form designform" name="exampleForm">
 
     <md-card>
-        <md-card-title>{{Button}} Job</md-card-title>
-        <div class="example-full-width" cellspacing="0">
+        <md-card-title><b>{{Button}} Job</b></md-card-title>
+        <div>
             <md-input-container *ngIf="JobId" class="inputMargin">
                 <label>Job Id</label>
-                <input mdInput disabled required [(ngModel)]="JobId" name="JobId" autofocus>
+                <input mdInput disabled required [(ngModel)]="JobId" name="JobId">
             </md-input-container>
-
             <md-input-container class="inputMargin">
                 <label>Service Request Id</label>
-                <input mdInput required [(ngModel)]="ServiceRequest.ServiceRequestId" name="ServiceRequestId" autofocus>
+                <input mdInput required [(ngModel)]="ServiceRequest.ServiceRequestId" name="ServiceRequestId">
             </md-input-container>
+            <button style="margin-left:15px;" class="mat-button mat-primary" md-raised-button (click)="getServiceRequest()">Get</button>
+            <span style="color:red" *ngIf="serviceRequestError">{{serviceRequestError}}</span>
         </div>
-        <div class="example-full-width" cellspacing="0">
-            <md-input-container style="resize: none" class="inputMargin">
-                <label>Job Description</label>
-                <textarea mdInput [(ngModel)]="JobDescription" name="JobDescription"></textarea>
+
+        <div>
+            <md-input-container class="inputMargin">
+                <label>Est. Duration</label>
+                <input mdInput [(ngModel)]="estTime" name="estTime">
             </md-input-container>
-        </div>
-        <div class="example-full-width" cellspacing="0">
             <md-input-container class="inputMargin">
                 <label>Start Date</label>
                 <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartTime" (blur)="validateDate()" name="StartTime">
@@ -27,57 +27,51 @@
             </md-input-container>
             <md-datepicker #startDate></md-datepicker>
 
-         <md-input-container class="inputMargin">
+            <md-input-container class="inputMargin">
                 <label>End Date</label>
                 <input mdInput [mdDatepicker]="endDate" [(ngModel)]="EndTime" name="EndDate" (blur)="validateDate()">
                 <button mdSuffix [mdDatepickerToggle]="endDate"></button>
             </md-input-container>
             <md-datepicker #endDate></md-datepicker>
         </div>
-        <div class="example-full-width" cellspacing="0">
-            <md-input-container class="inputMargin">
-                <label>Est. Duration</label>
-                <input mdInput [(ngModel)]="estTime" name="estTime">
-            </md-input-container>
 
-            <md-select class="inputMargin" placeholder="Status" [(ngModel)]="Status" name="Status">
+        <div>
+            <md-select style="margin-left:15px;" placeholder="Status" [(ngModel)]="Status" name="Status" floatPlaceholder="always">
                 <md-option *ngFor="let statusValue of Statuses" [value]="statusValue.value">
                     {{ statusValue.viewValue }}
                 </md-option>
             </md-select>
-        </div>
-
-
-        <div class="example-full-width" cellspacing="0">
-            <md-select class="inputMargin" placeholder="Priority" [(ngModel)]="Priority" name="Priority">
+            <md-select style="margin-left:15px;" placeholder="Priority" [(ngModel)]="Priority" name="Priority" floatPlaceholder="always">
                 <md-option *ngFor="let priorValue of Priorities" [value]="priorValue.value">
                     {{ priorValue.viewValue }}
                 </md-option>
             </md-select>
 
-            <md-select class="inputMargin" placeholder="Category" [(ngModel)]="jobCategory" name="jobCategory">
+            <md-select style="margin-left:15px;" placeholder="Category" [(ngModel)]="jobCategory" name="jobCategory" floatPlaceholder="always">
                 <md-option *ngFor="let categoryValue of Category" [value]="categoryValue.value">
                     {{ categoryValue.viewValue }}
                 </md-option>
             </md-select>
         </div>
-        <div class="example-full-width" cellspacing="0">
+        <div>
+            <md-input-container style="resize: none" class="inputMargin">
+                <label>Job Description</label>
+                <textarea class="textAreaBorder" mdInput [(ngModel)]="JobDescription" name="JobDescription"></textarea>
+            </md-input-container>
             <md-input-container class="inputMargin" style="resize: none">
                 <label>Comments</label>
-                <textarea mdInput [(ngModel)]="Comments" name="Comments"></textarea>
+                <textarea class="textAreaBorder" mdInput [(ngModel)]="Comments" name="Comments"></textarea>
             </md-input-container>
 
             <md-input-container class="inputMargin" style="resize: none">
                 <label>Observations</label>
-                <textarea mdInput [(ngModel)]="Observations" name="Observations"></textarea>
+                <textarea class="textAreaBorder" mdInput [(ngModel)]="Observations" name="Observations"></textarea>
             </md-input-container>
         </div>
-
-        <br />
         <br />
         <p style="text-align: right">
             <span style="color:red" *ngIf="ErrorMessage">{{ErrorMessage}}</span>
-            <button class="mat-button mat-primary" md-raised-button (click)="onSubmit()">{{Button}}</button>
+            <button *ngIf="showButton" class="mat-button mat-primary" md-raised-button (click)="onSubmit()">{{Button}}</button>
         </p>
     </md-card>
     <md-card>

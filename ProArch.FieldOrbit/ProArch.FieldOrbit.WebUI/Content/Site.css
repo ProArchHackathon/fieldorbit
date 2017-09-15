@@ -30,14 +30,16 @@ md-card {
 .designform md-input-container input {
     background: rgb(255, 255, 255) none repeat scroll 0 0;
     border-width: 1px;
-    min-height: 38px;
-    padding: 0 11px;
+    min-height: 30px;
+    padding: 0 10px 0 10px;
     border-radius: 5px;
     border: 1px solid black;
 }
 
 .designform md-input-container label:not(.md-container-ignore) {
     position: initial;
+    font-size: 13px;
+    color: rgba(0,0,0,.38);
 }
 
 .designform md-select-value {
@@ -48,7 +50,10 @@ md-card {
 }
 
 .designform md-select {
-    min-height: 38px;
+    border: 1px solid black;
+    border-radius: 5px;
+    min-height: 30px;
+    padding: 0 5px;
 }
 
 .tab-background {
@@ -124,4 +129,9 @@ tr:hover, tr.alt:hover {
 
 .mat-input-element:disabled {
     background-color: lightgray;
+}
+
+.textAreaBorder{
+    border: 1px solid black !important;
+    border-radius: 5px !important;
 }

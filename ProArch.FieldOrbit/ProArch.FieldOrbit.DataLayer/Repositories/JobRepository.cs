@@ -59,7 +59,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
                     {
                         {"customerid", job.ServiceRequest.Customer.CustomerId },
                         {"deviceid",job.ServiceRequest.Customer.DeviceId.ValidateData()},
-                        {"assetid",job.ServiceRequest.Customer.AssetId},
+                        {"Assetid",job.ServiceRequest.Customer.AssetId},
                         {"name", (job.ServiceRequest.Customer==null||job.ServiceRequest.Customer.Name==null)?new BsonDocument(): new BsonDocument
                             {
                                 {"firstname", job.ServiceRequest.Customer.Name.FirstName.ValidateData()},

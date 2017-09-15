@@ -12,7 +12,7 @@ namespace ProArch.FieldOrbit.Models
         [BsonElement("deviceid")]
         public string DeviceId { get; set; }
 
-        [BsonElement("AssetId")]
+        [BsonElement("Assetid")]
         public string AssetId { get; set; }
 
         [BsonElement("name")]
