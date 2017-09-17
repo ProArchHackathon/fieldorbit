@@ -17,7 +17,7 @@ export class ServiceRequest {
 @Component({
     selector: 'msg-app',
     templateUrl: 'job.component.html',
-    styleUrls: ['job.component.css'],
+    styleUrls: ['job.component.scss'],
     providers: [Configuration]
 })
 

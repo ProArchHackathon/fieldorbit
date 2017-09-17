@@ -5,6 +5,6 @@
     selector: 'side-nav',
     //moduleId: module.id,
     templateUrl: './sidenav.html',
-    styleUrls: ['./sidenav.css'],
+    styleUrls: ['./sidenav.scss'],
 })
 export class SidenavComponent { }

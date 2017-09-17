@@ -1,4 +1,10 @@
-﻿md-input-container {
+﻿html *{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+
+md-input-container {
     display: inline-block;
     position: relative;
     padding: 2px;
@@ -134,4 +140,7 @@ tr:hover, tr.alt:hover {
 .textAreaBorder{
     border: 1px solid black !important;
     border-radius: 5px !important;
+}
+.mat-calendar-content {
+    background: white;
 }

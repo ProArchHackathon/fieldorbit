@@ -3,19 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'msg-app',
-  template: `<nav class="tab-background" md-tab-nav-bar>
-    <img style="height:40px" src="./Images/login.png" />
-  <a md-tab-link *ngFor="let link of navLinks"
-     [routerLink]="link.route"
-     routerLinkActive #rla="routerLinkActive"
-     [active]="rla.isActive"><b>
-    {{link.label}}</b>
-    </a>
-    <a style="float:right;" md-tab-link (click)="logout()"><b>
-   Log Out</b>
-  </a>
-</nav>
-<router-outlet></router-outlet>`
+  template: `<router-outlet></router-outlet>`
 })
 
 export class AppComponent {

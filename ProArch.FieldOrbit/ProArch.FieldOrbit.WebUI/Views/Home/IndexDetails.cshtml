@@ -8,13 +8,15 @@
     <link href="~/Content/indigo-pink.css" rel="stylesheet">
     <link href="~/Content/deeppurple-amber.css" rel="stylesheet">
     <link href="~/Content/Site.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body class="background">
+<body class="background" style="marign:inherit;">
     <msg-app>Please Wait...</msg-app>
 
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
     <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.2.5/web-animations.min.js"></script>
 </body>
 </html> 

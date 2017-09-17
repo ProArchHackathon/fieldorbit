@@ -43,10 +43,15 @@ module.exports = {
       use: ['file-loader?name=images/[name].[hash].[ext]']
     },
     {
-        test: /\.css$/,
-        use: ['to-string-loader', 'css-loader'],
-        exclude: [helpers.root('Content', 'app')]
-    },
+      test: /\.scss$/,
+      exclude: /node_modules/,
+      loaders: ['raw-loader', 'sass-loader']
+    }
+    // {
+    //     test: /\.css$/,
+    //     use: ['to-string-loader', 'css-loader'],
+    //     exclude: [helpers.root('Content', 'app')]
+    // },
     // {
     //   test: /\.css$/,
     //   exclude: helpers.root('Content'),

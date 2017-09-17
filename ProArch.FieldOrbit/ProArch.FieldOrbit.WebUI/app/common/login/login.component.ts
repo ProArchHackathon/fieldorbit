@@ -1,8 +1,9 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from "@angular/core";
 import { LoginService } from './login.service';
 import { Configuration } from "../../common/app.constants";
 import { CookieService } from '../app.cookieManager';
 import { Router } from '@angular/router';
+import { AuthenticateService } from "../../Services/auth.service";
 
 export class User {
     constructor(
@@ -14,9 +15,14 @@ export class User {
     templateUrl: 'login.component.html',
     providers: [LoginService, Configuration, CookieService]
 })
-export class LoginComponent {
-    constructor(private _loginService: LoginService, private _cookieService: CookieService, private _route: Router) {
+export class LoginComponent implements OnInit{
+    constructor(private _loginService: LoginService,private _authService:AuthenticateService, private _cookieService: CookieService, private _route: Router) {
 
+    }
+    ngOnInit (){
+        if(this._authService.logInStatus === true){
+            this._route.navigate(['dashboard']);
+        }
     }
 
     public login: User = {
@@ -32,7 +38,8 @@ export class LoginComponent {
             .toPromise()
             .then((response) => {
                 var output = response.json();
-                this._route.navigate(['servicerequest']);
+                this._authService.logInStatus = true;
+                this._route.navigate(['dashboard']);
             })
             .catch((error: any) => {
                 this.errorMessage = error._body;
