@@ -14,6 +14,7 @@ import {MdDatepickerModule,MdNativeDateModule } from '@angular/material';
 import 'hammerjs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DetailsModule } from "../components/details.module";
+import { ComponentPageTitle } from "../Services/pageTitle.service";
 @NgModule({
   imports: [
     BrowserModule,
@@ -37,6 +38,7 @@ import { DetailsModule } from "../components/details.module";
   declarations: [AppComponent, LoginComponent, DialogResultDialog],
   exports: [MaterialModule],
   bootstrap: [AppComponent],
-  entryComponents: [DialogResultDialog]
+  entryComponents: [DialogResultDialog],
+  providers: [ComponentPageTitle]
 })
 export class AppModule {}
