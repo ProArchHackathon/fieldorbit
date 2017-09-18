@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthenticateService {
-    _loggedIn = false;
     
-      get logInStatus(): boolean { return this._loggedIn; }
+      get logInStatus(): boolean {
+        const status = JSON.parse(localStorage.getItem('_loggedIn'));
+         return status;
+      }
     
       set logInStatus(loggedIn: boolean) {
-        this._loggedIn = loggedIn;
+        localStorage.setItem('_loggedIn', `${loggedIn}`);
       }
     
       constructor() { }

@@ -2,6 +2,7 @@
     font-family: Roboto, "Helvetica Neue", sans-serif;
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
+    margin: 0;
   }
 
 md-input-container {
@@ -126,15 +127,19 @@ tr:hover, tr.alt:hover {
 }
 
 .mat-input-container {
-    min-width: 20%;
+    min-width: 19.4%;
 }
 
 .mat-select {
-    min-width: 20%;
+    width: 20%;
 }
 
 .mat-input-element:disabled {
     background-color: lightgray;
+}
+
+md-input-container label {
+    color:black !important;
 }
 
 .textAreaBorder{
@@ -143,4 +148,16 @@ tr:hover, tr.alt:hover {
 }
 .mat-calendar-content {
     background: white;
+}
+
+.mat-form-field-underline {
+    background-color: rgba(0,0,0,.42);
+}
+
+.mat-select-placeholder {
+    color: black;
+}
+
+textarea {
+    padding: 0 5px !important;
 }

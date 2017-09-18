@@ -15,6 +15,7 @@ import 'hammerjs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DetailsModule } from "../components/details.module";
 import { ComponentPageTitle } from "../Services/pageTitle.service";
+import { DataClearerDirective } from "../Directive/dataClearer.directive";
 @NgModule({
   imports: [
     BrowserModule,
@@ -39,6 +40,6 @@ import { ComponentPageTitle } from "../Services/pageTitle.service";
   exports: [MaterialModule],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultDialog],
-  providers: [ComponentPageTitle]
+  providers: [ComponentPageTitle, DataClearerDirective]
 })
 export class AppModule {}

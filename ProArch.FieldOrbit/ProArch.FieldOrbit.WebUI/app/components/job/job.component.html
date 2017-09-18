@@ -2,7 +2,7 @@
 
     <md-card>
         <md-card-title><b>{{Button}} Job</b></md-card-title>
-        <div>
+        <div fxLayout="row" fxLayoutAlign="start center">
             <md-input-container *ngIf="JobId" class="inputMargin">
                 <label>Job Id</label>
                 <input mdInput disabled required [(ngModel)]="JobId" name="JobId">
@@ -11,11 +11,11 @@
                 <label>Service Request Id</label>
                 <input mdInput required [(ngModel)]="ServiceRequest.ServiceRequestId" name="ServiceRequestId">
             </md-input-container>
-            <button style="margin-left:15px;" class="mat-button mat-primary" md-raised-button (click)="getServiceRequest()">Get</button>
+            <button style="margin-left:15px; margin-top:20px;" class="mat-button mat-primary" md-raised-button (click)="getServiceRequest()">Get</button>
             <span style="color:red" *ngIf="serviceRequestError">{{serviceRequestError}}</span>
         </div>
 
-        <div>
+        <div fxLayout="row" fxLayoutAlign="start center">
             <md-input-container class="inputMargin">
                 <label>Est. Duration</label>
                 <input mdInput [(ngModel)]="estTime" name="estTime">
@@ -35,7 +35,7 @@
             <md-datepicker #endDate></md-datepicker>
         </div>
 
-        <div>
+        <div class="marginCreator" fxLayout="row" fxLayoutAlign="start center">
             <md-select style="margin-left:15px;" placeholder="Status" [(ngModel)]="Status" name="Status" floatPlaceholder="always">
                 <md-option *ngFor="let statusValue of Statuses" [value]="statusValue.value">
                     {{ statusValue.viewValue }}

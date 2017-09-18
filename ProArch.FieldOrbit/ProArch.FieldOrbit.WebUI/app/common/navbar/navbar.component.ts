@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   
     logout = function () {
       this._authService.logInStatus = false;
+      console.log(this._authService.logInStatus);
       this._route.navigate(['login']);
       this.showNavBar = false;
     }

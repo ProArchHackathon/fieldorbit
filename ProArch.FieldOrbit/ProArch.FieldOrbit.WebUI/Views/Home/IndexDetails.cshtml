@@ -18,5 +18,10 @@
     <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
     <% } %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.2.5/web-animations.min.js"></script>
+    <script>
+        window.onunload = function () {
+            localStorage.clear();
+        }
+    </script>
 </body>
 </html> 

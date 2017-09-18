@@ -5,7 +5,7 @@ import { ComponentPageTitle } from "../Services/pageTitle.service";
 
 @Component({
   selector: 'msg-app',
-  template: `<router-outlet></router-outlet>`
+  template: `<router-outlet app-data-clearer></router-outlet>`
 })
 
 export class AppComponent {
@@ -16,6 +16,7 @@ export class AppComponent {
     
   }
   ngOnInit() {
+
     this._route.events
     .filter((event) => event instanceof NavigationEnd)
     .map(() => this.activatedRoute)

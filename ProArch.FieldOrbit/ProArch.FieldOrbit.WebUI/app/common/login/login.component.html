@@ -1,22 +1,23 @@
 ﻿<form class="designform">
-    <md-card fxFlex="30" fxFlexOffset="40" style="margin-top:20%;">
-        <md-card-title class="md-title" fxLayout="row">
-                    <h3> Field Orbit Login </h3>
+    <md-card fxFlex="30" fxFlexOffset="35" style="margin-top:20%;">
+        <md-card-title class="md-title" fxLayout="row" fxLayoutAlign="center center">
+                    <!-- <h3> Field Orbit Login </h3>
                     <span style="flex-grow: 1;"></span>
-                    <md-icon style="margin-top: 20px;">lock</md-icon>
+                    <md-icon style="margin-top: 20px;">lock</md-icon> -->
+                    <img src="../../../Images/login.png" alt="Field Orbit Login">
         </md-card-title>
         <hr/>
-        <div>
-        <md-input-container class="inputMargin">
-            <label>User Name</label>
-            <input #uname mdInput [(ngModel)]="login.username" name="UserName">
-        </md-input-container>
-        <md-input-container class="inputMargin">
-            <label>Password</label>
-            <input #psw mdInput type="password" [(ngModel)]="login.password" name="Password">
-        </md-input-container>
+        <div fxLayout="column" >
+            <md-input-container class="inputMargin">
+                <label>User Name</label>
+                <input #uname mdInput [(ngModel)]="login.username" name="UserName">
+            </md-input-container>
+            <md-input-container class="inputMargin">
+                <label>Password</label>
+                <input #psw mdInput type="password" [(ngModel)]="login.password" name="Password">
+            </md-input-container>
         </div>
-        <div class="inputMargin">
+        <div class="inputMargin" fxLayoutAlign="end end" fxLayout="column" style="margin-right: 0;">
             <span style="color:red;" *ngIf="errorMessage">Invalid Username or Password</span>
             <button class="mat-button mat-primary" md-raised-button (click)="OnSubmit()">Login</button>
         </div>

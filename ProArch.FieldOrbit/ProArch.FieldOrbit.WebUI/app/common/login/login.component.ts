@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit{
 
     }
     ngOnInit (){
+        console.log(this._authService.logInStatus );
         if(this._authService.logInStatus === true){
             this._route.navigate(['dashboard']);
         }

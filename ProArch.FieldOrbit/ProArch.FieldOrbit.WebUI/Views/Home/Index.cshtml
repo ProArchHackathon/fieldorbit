@@ -15,12 +15,17 @@
     <msg-app>Please Wait...</msg-app>
 
     
-    <script src="~/dist/js/polyfills.js"></script>
+    <script src="dist/js/polyfills.js"></script>
     
-    <script src="~/dist/js/vendor.js"></script>
+    <script src="dist/js/vendor.js"></script>
     
-    <script src="~/dist/js/app.js"></script>
+    <script src="dist/js/app.js"></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.2.5/web-animations.min.js"></script>
+    <script>
+        window.onunload = function () {
+            localStorage.clear();
+        }
+    </script>
 </body>
 </html> 
