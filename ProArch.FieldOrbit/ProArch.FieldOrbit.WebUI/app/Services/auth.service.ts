@@ -11,6 +11,7 @@ export class AuthenticateService {
     
       set logInStatus(loggedIn: boolean) {
         localStorage.setItem('_loggedIn', `${loggedIn}`);
+        console.log(localStorage.getItem(''))
       }
     
       constructor() { }

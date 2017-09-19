@@ -5,17 +5,6 @@
     margin: 0;
   }
 
-md-input-container {
-    display: inline-block;
-    position: relative;
-    padding: 2px;
-    margin: 18px 0;
-    vertical-align: middle;
-    /*
-   * The .md-input class is added to the input/textarea
-   */
-}
-
 md-card {
     box-sizing: border-box;
     display: -webkit-box;
@@ -33,7 +22,7 @@ md-card {
     color: rgba(0,0,0,0.87);
     background-color: #eeeeee !important;
 }
-
+/* 
 .designform md-input-container input {
     background: rgb(255, 255, 255) none repeat scroll 0 0;
     border-width: 1px;
@@ -52,7 +41,7 @@ md-card {
 .designform md-select-value {
     border: 1px solid rgba(0, 0, 0, 0.12) !important;
     background: white !important;
-    padding: 5px 8px !important;
+    padding: 5px 8px !important; 
     border-radius: 5px;
 }
 
@@ -63,13 +52,9 @@ md-card {
     padding: 0 5px;
 }
 
-.tab-background {
-    background-color: #a2b7dc !important;
-}
-
-.inputMargin{
+/* .inputMargin{
     margin: 15px 15px 15px 15px;
-}
+} */
 
 .table {
     max-width: 100%;
@@ -126,22 +111,6 @@ tr:hover, tr.alt:hover {
     font-size: 15px;
 }
 
-.mat-input-container {
-    min-width: 19.4%;
-}
-
-.mat-select {
-    width: 20%;
-}
-
-.mat-input-element:disabled {
-    background-color: lightgray;
-}
-
-md-input-container label {
-    color:black !important;
-}
-
 .textAreaBorder{
     border: 1px solid black !important;
     border-radius: 5px !important;
@@ -154,10 +123,38 @@ md-input-container label {
     background-color: rgba(0,0,0,.42);
 }
 
+.mat-select-underline {
+    background-color: rgba(0,0,0,.42);
+}
+
+.mat-select-arrow {
+    color: rgba(0,0,0,.42);
+}
+
 .mat-select-placeholder {
     color: black;
 }
 
-textarea {
-    padding: 0 5px !important;
+.padder {
+    padding:10px;
 }
+
+.mat-form-field{
+    width:15%;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.mat-select{
+    width:15%;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+.tab-background {
+    background-color: #a2b7dc !important;
+}
+
+/* textarea {
+    padding: 0 5px !important;
+} */

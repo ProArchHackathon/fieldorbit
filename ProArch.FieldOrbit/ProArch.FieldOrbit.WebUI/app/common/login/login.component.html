@@ -7,17 +7,17 @@
                     <img src="../../../Images/login.png" alt="Field Orbit Login">
         </md-card-title>
         <hr/>
-        <div fxLayout="column" >
-            <md-input-container class="inputMargin">
+        <div fxLayout="column" class="padder">
+            <md-form-field class="example-full-width padder" style="width:auto;">
                 <label>User Name</label>
-                <input #uname mdInput [(ngModel)]="login.username" name="UserName">
-            </md-input-container>
-            <md-input-container class="inputMargin">
+                <input #uname mdInput [(ngModel)]="login.username" autofocus name="UserName">
+            </md-form-field>
+            <md-form-field class="example-full-width padder" style="width:auto;">
                 <label>Password</label>
                 <input #psw mdInput type="password" [(ngModel)]="login.password" name="Password">
-            </md-input-container>
+            </md-form-field>
         </div>
-        <div class="inputMargin" fxLayoutAlign="end end" fxLayout="column" style="margin-right: 0;">
+        <div fxLayoutAlign="end end" fxLayout="row" style="margin-right: 0;" class="padder">
             <span style="color:red;" *ngIf="errorMessage">Invalid Username or Password</span>
             <button class="mat-button mat-primary" md-raised-button (click)="OnSubmit()">Login</button>
         </div>

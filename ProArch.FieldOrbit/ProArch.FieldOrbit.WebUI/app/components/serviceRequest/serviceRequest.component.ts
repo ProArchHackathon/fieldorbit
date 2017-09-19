@@ -27,8 +27,8 @@ export class ServiceRequestComponent {
     RequestedBy: string;
     ServiceType: string;
     RequestType: string;
-    CreatedDate: Date;
-    StartDate: Date;
+    CreatedDate: Date ;
+    StartDate: Date ;
     EndDate: Date;
     Customer: Customer;
     Status: any;
@@ -43,7 +43,7 @@ export class ServiceRequestComponent {
             CustomerId: 0
         }
         this.Button = 'Create';
-        this.CreatedDate = new Date();
+        // this.CreatedDate = new Date();
         this.getAllServiceRequests();
     };
 

@@ -5,9 +5,9 @@
     <base href="/fieldorbit/" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/Site.css" rel="stylesheet">
     <link href="~/Content/indigo-pink.css" rel="stylesheet">
     <link href="~/Content/deeppurple-amber.css" rel="stylesheet">
-    <link href="~/Content/Site.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -20,7 +20,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.2.5/web-animations.min.js"></script>
     <script>
         window.onunload = function () {
-            localStorage.clear();
+           if (performance.navigation.type == 1) {
+                console.info( "This page is reloaded" );
+                localStorage.clear();   
+            } else {
+                console.info( "This page is not reloaded");
+            }
         }
     </script>
 </body>

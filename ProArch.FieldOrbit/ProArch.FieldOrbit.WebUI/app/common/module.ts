@@ -8,16 +8,77 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from '../common/login/login.component';
 import { AppComponent } from '../common/app.component';
 import { DialogResultDialog } from './dialog/dialog';
-import { MdDialogModule } from '@angular/material';
-import {MdDatepickerModule,MdNativeDateModule } from '@angular/material';
-
 import 'hammerjs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DetailsModule } from "../components/details.module";
 import { ComponentPageTitle } from "../Services/pageTitle.service";
 import { DataClearerDirective } from "../Directive/dataClearer.directive";
+import {
+  MdAutocompleteModule,
+  MdButtonModule,
+  MdButtonToggleModule,
+  MdCardModule,
+  MdCheckboxModule,
+  MdChipsModule,
+  MdCoreModule,
+  MdDatepickerModule,
+  MdDialogModule,
+  MdExpansionModule,
+  MdGridListModule,
+  MdIconModule,
+  MdInputModule,
+  MdListModule,
+  MdMenuModule,
+  MdNativeDateModule,
+  MdPaginatorModule,
+  MdProgressBarModule,
+  MdProgressSpinnerModule,
+  MdRadioModule,
+  MdRippleModule,
+  MdSelectModule,
+  MdSidenavModule,
+  MdSliderModule,
+  MdSlideToggleModule,
+  MdSnackBarModule,
+  MdSortModule,
+  MdTableModule,
+  MdTabsModule,
+  MdToolbarModule,
+  MdTooltipModule,
+} from '@angular/material';
 @NgModule({
   imports: [
+    MdAutocompleteModule,
+    MdButtonModule,
+    MdButtonToggleModule,
+    MdCardModule,
+    MdCheckboxModule,
+    MdChipsModule,
+    MdCoreModule,
+    MdDatepickerModule,
+    MdDialogModule,
+    MdExpansionModule,
+    MdGridListModule,
+    MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
+    MdNativeDateModule,
+    MdPaginatorModule,
+    MdProgressBarModule,
+    MdProgressSpinnerModule,
+    MdRadioModule,
+    MdRippleModule,
+    MdSelectModule,
+    MdSidenavModule,
+    MdSliderModule,
+    MdSlideToggleModule,
+    MdSnackBarModule,
+    MdSortModule,
+    MdTableModule,
+    MdTabsModule,
+    MdToolbarModule,
+    MdTooltipModule,
     BrowserModule,
     MdDialogModule,
     MdDatepickerModule,

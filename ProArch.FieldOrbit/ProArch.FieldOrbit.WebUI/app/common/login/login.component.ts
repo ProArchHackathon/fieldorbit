@@ -13,14 +13,15 @@ export class User {
 
 @Component({
     templateUrl: 'login.component.html',
-    providers: [LoginService, Configuration, CookieService]
+    providers: [LoginService, Configuration, CookieService],
+    styleUrls:['login.component.scss']
 })
 export class LoginComponent implements OnInit{
     constructor(private _loginService: LoginService,private _authService:AuthenticateService, private _cookieService: CookieService, private _route: Router) {
 
     }
     ngOnInit (){
-        console.log(this._authService.logInStatus );
+        console.log(this._authService.logInStatus);
         if(this._authService.logInStatus === true){
             this._route.navigate(['dashboard']);
         }

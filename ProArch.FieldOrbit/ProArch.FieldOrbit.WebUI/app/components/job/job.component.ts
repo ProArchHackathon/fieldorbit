@@ -60,8 +60,8 @@ export class JobComponent {
     public JobId: number;
     public ServiceRequest: ServiceRequest;
     public JobDescription: string;
-    public StartTime: Date;
-    public EndTime: Date;
+    public StartTime: Date = null;
+    public EndTime: Date =null;
     public Status: string;
     public Priority: string;
     public jobCategory: string;
