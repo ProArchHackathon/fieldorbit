@@ -1,199 +1,115 @@
-﻿import { Component } from '@angular/core';
-import { Http, Response, Headers, RequestOptions, ResponseOptions } from '@angular/http';
-//import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
-import { Configuration } from '../../common/app.constants';
+﻿import { Component, OnInit } from "@angular/core";
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import { ServiceRequest } from "../../Models/serviceRequest.model";
+import { ServiceRequestService } from "../../Services/serviceRequest.service";
 
-export class Customer {
-    constructor(
-        public CustomerId: number) {
-
-    }
-}
 @Component({
     selector: 'service-request',
-    templateUrl: 'serviceRequest.component.html',
-    providers: [Configuration]
+    templateUrl: 'serviceRequest.component.html'
 })
 
-export class ServiceRequestComponent {
-
-    SrNumber: number;
-    RequestedBy: string;
-    ServiceType: string;
-    RequestType: string;
-    CreatedDate: Date ;
-    StartDate: Date ;
-    EndDate: Date;
-    Customer: Customer;
-    Status: any;
-    Location: string;
+export class ServiceRequestComponent implements OnInit{
     Button: string;
+    statusList:any;
+    requestType:any;
+    serviceType:any;
     ErrorMessage: string;
-
-
     serviceRequestList: any;
-    constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
-        this.Customer = {
-            CustomerId: 0
-        }
+    serviceRequest: ServiceRequest;
+
+    constructor(public dialog: MdDialog,
+                private serviceRequestService:ServiceRequestService) { };
+
+    ngOnInit(){
+        this.serviceRequest = {
+            SrNumber:null,
+            ServiceType:'',
+            RequestedBy: '',
+            RequestType: '',
+            Customer:{
+                CustomerId: 0
+            },
+            CreatedDate: new Date(),
+            StartDate: null,
+            EndDate: null,
+            Status: null,
+            Location: ''
+        };
+
         this.Button = 'Create';
-        // this.CreatedDate = new Date();
         this.getAllServiceRequests();
-    };
+        this.serviceType = this.serviceRequestService.serviceType;
+        this.statusList = this.serviceRequestService.statusList;
+        this.requestType = this.serviceRequestService.requestType;
+    }
 
     getAllServiceRequests() {
-        this.http.get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests, null)
-            .toPromise()
-            .then((response: Response) => {
-                this.serviceRequestList = response.json();
-                this.serviceRequestList.forEach(element => {
-                    element.StartDate = new Date(element.StartDate).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }).split(' ').join('-');
-                    element.CreatedDate = new Date(element.CreatedDate).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }).split(' ').join('-');
-                    element.EndDate = new Date(element.EndDate).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }).split(' ').join('-');
-                });
-            })
-            .catch((errors: any) => {
-
-            });
+        this.serviceRequestService
+            .getAllServiceRequestDetails()
+            .subscribe(response => {
+                this.serviceRequestList = response;
+            },
+                error => this.ErrorMessage = <any>error,
+                () => console.log('Get all Items complete'))
     }
 
     validateDate() {
         this.ErrorMessage = null;
-        if (!this.StartDate) {
+        if (!this.serviceRequest.StartDate) {
             this.ErrorMessage = 'Please Select Start Date';
         }
-        else if (this.EndDate && (this.EndDate <= this.StartDate)) {
+        else if (this.serviceRequest.EndDate && (this.serviceRequest.EndDate <= this.serviceRequest.StartDate)) {
             this.ErrorMessage = 'End Date should be greater than Start Date';
         }
     }
 
     openDialog() {
         let dialogRef = this.dialog.open(DialogResultDialog);
-        dialogRef.afterClosed().subscribe(result => {
+        dialogRef.afterClosed()
+                 .subscribe(result => {
             this.getAllServiceRequests();
         });
     }
 
-    serviceType = [
-        { value: 'Electric', viewValue: 'Electric' },
-        { value: 'Gas', viewValue: 'Gas' },
-        { value: 'Water', viewValue: 'Water' },
-    ];
+    createServiceRequest() {
+        this.serviceRequestService
+            .addServiceRequest(this.serviceRequest)
+            .subscribe(response => { this.openDialog(); },
+                       error => this.ErrorMessage = <any>error,
+                       () => console.log('Get all Items complete'));
+    }
 
-    statusList = [
-        { value: 'Open', viewValue: 'Open' },
-        { value: 'InProgress', viewValue: 'InProgress' },
-        { value: 'Closed', viewValue: 'Closed' },
-        { value: 'Hold', viewValue: 'Hold' }
-    ];
-
-    requestType = [
-        { value: 'Connect', viewValue: 'Connect' },
-        { value: 'Reconnect', viewValue: 'Reconnect' },
-        { value: 'Disconnect', viewValue: 'Disconnect' },
-        { value: 'Miscellaneous', viewValue: 'Miscellaneous' }
-    ];
+    updateServiceRequest() {
+        this.serviceRequestService
+            .updateServiceRequest(this.serviceRequest)
+            .subscribe(response => { this.openDialog(); },
+                       error => this.ErrorMessage = <any>error,
+                       () => console.log('Get all Items complete'));
+    }
 
     onUpdate(valid): void {
-        this.ErrorMessage = null;
-        
-            var data =
-                {
-                    ServiceRequestId: this.SrNumber,
-                    CreatedBy: { EmployeeId: this.RequestedBy },
-                    ServiceType: this.ServiceType,
-                    RequestType: this.RequestType,
-                    CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }).split(' ').join('-'),
-                    StartDate: new Date(this.StartDate).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }).split(' ').join('-'),
-                    EndDate: (this.EndDate) ? new Date(this.EndDate).toLocaleDateString('en-GB', {
-                        day: 'numeric',
-                        month: 'short',
-                        year: 'numeric'
-                    }).split(' ').join('-') : null,
-                    Customer: this.Customer,
-                    Status: this.Status,
-                    Location: this.Location,
-                    Type: 'ServiceRequest'
-                };
-
-            let headers = new Headers({ 'Content-Type': 'application/json' });
-            let opt = new RequestOptions({ headers: headers });
-            if (this.Button == 'Create') {
-                this.http.post(this._configuration.ApiServer + this._configuration.AddServiceRequest, JSON.stringify(data), opt)
-                    .toPromise()
-                    .then((response: Response) => {
-                        this.openDialog();
-                    })
-                    .catch(this.handleError);
-            }
-            else {
-                this.http.put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, JSON.stringify(data), opt)
-                    .toPromise()
-                    .then((response: Response) => {
-                        this.openDialog();
-                    })
-                    .catch(this.handleError);
-            }
-       
+      this.ErrorMessage = null;
+      if(this.Button === 'Create')  {
+        this.createServiceRequest();
+      } else {
+        this.updateServiceRequest();
+      }      
     };
 
-    private handleError(error: Response | any) {
-        // In a real world app, we might use a remote logging infrastructure
-        let errMsg: string;
-        if (error instanceof Response) {
-            const body = error.json() || '';
-            const err = body.error || JSON.stringify(body);
-            errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-
-        } else {
-            errMsg = error.message ? error.message : error.toString();
-
-        }
-        console.error(errMsg);
-        return Promise.reject(errMsg);
-
-    }
-
     private onSelectedRow(serviceRequest): void {
-        this.SrNumber = serviceRequest.ServiceRequestId;
-        this.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
-        this.ServiceType = serviceRequest.ServiceType;
-        this.RequestType = serviceRequest.RequestType;
-        this.Customer.CustomerId = serviceRequest.Customer.CustomerId;
-        this.Location = serviceRequest.Location;
-        this.CreatedDate = serviceRequest.CreatedDate;
-        this.StartDate = serviceRequest.StartDate;
-        this.EndDate = serviceRequest.EndDate;
-        this.Status = serviceRequest.Status;
+        console.log(serviceRequest);
+        this.serviceRequest.SrNumber = serviceRequest.ServiceRequestId;
+        this.serviceRequest.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
+        this.serviceRequest.ServiceType = serviceRequest.ServiceType;
+        this.serviceRequest.RequestType = serviceRequest.RequestType;
+        this.serviceRequest.Customer.CustomerId = serviceRequest.Customer.CustomerId;
+        this.serviceRequest.Location = serviceRequest.Location;
+        this.serviceRequest.CreatedDate = new Date(serviceRequest.CreatedDate);
+        this.serviceRequest.StartDate = new Date(serviceRequest.StartDate);
+        this.serviceRequest.EndDate = new Date(serviceRequest.EndDate);
+        this.serviceRequest.Status = serviceRequest.Status;
         this.Button = 'Update';
-    }
-    onLoad() {
-
     }
 }

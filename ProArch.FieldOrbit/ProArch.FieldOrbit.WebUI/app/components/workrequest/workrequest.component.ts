@@ -37,7 +37,9 @@ export class WorkRequestComponent {
     ErrorMessage: string;
 
     serviceRequestList: any;
-    constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
+    constructor(private http: Http,
+                public dialog: MdDialog,
+                private _configuration: Configuration) {
         this.Customer = {
             CustomerId: 0
         }

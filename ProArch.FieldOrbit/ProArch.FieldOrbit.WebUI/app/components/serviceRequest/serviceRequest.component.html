@@ -1,41 +1,49 @@
-﻿<form class="example-form designform" name="servicerequestform" (load)="onLoad()">
+﻿<form class="example-form designform" name="servicerequestform">
     <md-card>
             <md-card-title><b>Service Request</b></md-card-title>
             <br>
-        <div *ngIf="SrNumber && SrNumber!=0">
+        <div *ngIf="serviceRequest.SrNumber && serviceRequest.SrNumber!=0">
+
             <md-form-field>
                 <label>SR Number</label>
-                <input #srNumber mdInput [(ngModel)]="SrNumber" name="SrNumber" [disabled]="true">
+                <input #srNumber mdInput [(ngModel)]="serviceRequest.SrNumber" name="SrNumber" [disabled]="true">
             </md-form-field>
+
         </div>
         <div class="padder">
+
             <md-form-field>
                 <label>Requested By</label>
-                <input #requestedBy mdInput [(ngModel)]="RequestedBy" autofocus name="RequestedBy">
+                <input #requestedBy mdInput [(ngModel)]="serviceRequest.RequestedBy" autofocus name="RequestedBy">
             </md-form-field>
+
             <md-form-field>
                 <label>Customer ID</label>
-                <input #customerId mdInput [(ngModel)]="Customer.CustomerId" required name="CustomerId">
+                <input #customerId mdInput [(ngModel)]="serviceRequest.Customer.CustomerId" required name="CustomerId">
             </md-form-field>
+
             <md-form-field>
                 <label>Location</label>
-                <input #location mdInput [(ngModel)]="Location" name="Location">
+                <input #location mdInput [(ngModel)]="serviceRequest.Location" name="Location">
             </md-form-field>
         </div>
 
         <div class="padder">
-            <md-select name="ServiceType" required placeholder="Service Type" [(ngModel)]="ServiceType" floatPlaceholder="always">
+
+            <md-select name="ServiceType" required placeholder="Service Type" [(ngModel)]="serviceRequest.ServiceType" floatPlaceholder="always">
                 <label>Service Type</label>
                 <md-option *ngFor="let type of serviceType" [value]="type.value">
                     {{ type.viewValue }}
                 </md-option>
             </md-select>
-            <md-select name="Status" required placeholder="Status" [(ngModel)]="Status" floatPlaceholder="always">
+
+            <md-select name="Status" required placeholder="Status" [(ngModel)]="serviceRequest.Status" floatPlaceholder="always">
                 <md-option *ngFor="let Status of statusList" [value]="Status.value">
                     {{ Status.viewValue }}
                 </md-option>
             </md-select>
-            <md-select placeholder="Request Type" required name="RequestType" [(ngModel)]="RequestType" floatPlaceholder="always">
+
+            <md-select placeholder="Request Type" required name="RequestType" [(ngModel)]="serviceRequest.RequestType" floatPlaceholder="always">
                 <md-option *ngFor="let RType of requestType" [value]="RType.value">
                     {{ RType.viewValue }}
                 </md-option>
@@ -43,26 +51,28 @@
         </div>  
 
         <div class="padder">
+
             <md-form-field>
                 <label>Created Date</label>
-                <input [mdDatepicker]="createdDate" required mdInput [(ngModel)]="CreatedDate" name="CreatedDate">
+                <input [mdDatepicker]="createdDate" required mdInput [(ngModel)]="serviceRequest.CreatedDate" name="CreatedDate">
                 <md-datepicker-toggle mdSuffix [for]="createdDate"></md-datepicker-toggle>
                 <md-datepicker #createdDate></md-datepicker>
             </md-form-field>
             
             <md-form-field>
                 <label>Start Date</label>
-                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartDate" (blur)="validateDate()" name="StartDate">
+                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="serviceRequest.StartDate" (blur)="validateDate()" name="StartDate">
                 <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
                 <md-datepicker #startDate></md-datepicker>
             </md-form-field>
             
             <md-form-field>
                 <label>End Date</label>
-                <input mdInput [mdDatepicker]="endDate" (blur)="validateDate()" [(ngModel)]="EndDate" name="EndDate">
+                <input mdInput [mdDatepicker]="endDate" (blur)="validateDate()" [(ngModel)]="serviceRequest.EndDate" name="EndDate">
                 <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
                 <md-datepicker #endDate></md-datepicker>
             </md-form-field>
+
         </div>
         <p style="text-align: right">
             <span style="color:red" *ngIf="ErrorMessage">{{ErrorMessage}}</span>

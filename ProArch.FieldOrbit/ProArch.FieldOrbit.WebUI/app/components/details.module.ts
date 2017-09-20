@@ -17,10 +17,12 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModule } from "@angular/material";
 import { RouterModule } from "@angular/router";
 import { HttpModule } from "@angular/http";
-
+import {HttpClientModule} from '@angular/common/http';
 import { DetailsComponent } from "./details/details.component";
 import { AuthenticateService } from "../Services/auth.service";
 import { AuthGuard } from "../Guards/auth.guard";
+import { ServiceRequestService } from "../Services/serviceRequest.service";
+import { Configuration } from "../common/app.constants";
 
 @NgModule({
   imports: [ 
@@ -34,7 +36,8 @@ import { AuthGuard } from "../Guards/auth.guard";
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    HttpClientModule
   ],
   exports: [
     DetailsComponent,
@@ -53,6 +56,6 @@ import { AuthGuard } from "../Guards/auth.guard";
     SidenavComponent,
     JobComponent
   ],
-  providers: [AuthenticateService,AuthGuard]
+  providers: [AuthenticateService,AuthGuard, ServiceRequestService,Configuration]
 })
 export class DetailsModule {}

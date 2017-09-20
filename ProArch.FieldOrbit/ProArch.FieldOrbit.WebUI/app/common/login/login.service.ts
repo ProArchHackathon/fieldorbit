@@ -3,25 +3,23 @@ import { Http, RequestOptions, Headers, Response, URLSearchParams  } from "@angu
 import "rxjs/add/operator/map";
 import { Observable, Subject } from "rxjs/Rx";
 import { Configuration } from "../../common/app.constants";
-import { User } from './login.component';
+import { User } from "../../Models/user.model";
 
 @Injectable()
 export class LoginService {
     result: any;
-    constructor(private _http: Http, private _configuration: Configuration) {
-
-    }
+    constructor(private _http: Http, private _configuration: Configuration) {}
 
 
-    public ValidateLoginInformation = (login: User) => {
+    ValidateLoginInformation = (user: User) => {
         let params: URLSearchParams = new URLSearchParams();
-        params.set('username', login.username);
-        params.set('password', login.password);
+        params.set('username', user.username);
+        params.set('password', user.password);
 
         let requestOptions = new RequestOptions();
         requestOptions.search = params;
        
-        let body = JSON.stringify(login);
+        let body = JSON.stringify(user);
         //return this._http.post(this._configuration.ApiServer + this._configuration.LoginApiUrl, body,
         //    options).toPromise().catch();
 

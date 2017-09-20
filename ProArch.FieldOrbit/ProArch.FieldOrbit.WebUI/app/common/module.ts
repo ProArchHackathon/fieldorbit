@@ -46,6 +46,8 @@ import {
   MdToolbarModule,
   MdTooltipModule,
 } from '@angular/material';
+import { CookieService } from "./app.cookieManager";
+import { LoginService } from "./login/login.service";
 @NgModule({
   imports: [
     MdAutocompleteModule,
@@ -101,6 +103,11 @@ import {
   exports: [MaterialModule],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultDialog],
-  providers: [ComponentPageTitle, DataClearerDirective]
+  providers: [
+    ComponentPageTitle,
+    DataClearerDirective,
+    LoginService,
+    CookieService
+  ]
 })
 export class AppModule {}

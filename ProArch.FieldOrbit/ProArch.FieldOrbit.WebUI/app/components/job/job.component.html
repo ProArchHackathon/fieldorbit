@@ -3,14 +3,17 @@
     <md-card>
         <md-card-title><b>{{Button}} Job</b></md-card-title>
         <div class="padder">
+
             <md-form-field *ngIf="JobId" class="example-full-width">
                 <label>Job Id</label>
                 <input mdInput disabled required [(ngModel)]="JobId" name="JobId">
             </md-form-field>
+
             <md-form-field class="example-full-width">
                 <label>Service Request Id</label>
                 <input mdInput required [(ngModel)]="ServiceRequest.ServiceRequestId" autofocus name="ServiceRequestId">
             </md-form-field>
+
             <button class="mat-button mat-primary" md-raised-button (click)="getServiceRequest()">Get</button>
             <span style="color:red" *ngIf="serviceRequestError">{{serviceRequestError}}</span>
         </div>
@@ -42,6 +45,7 @@
                     {{ statusValue.viewValue }}
                 </md-option>
             </md-select>
+
             <md-select placeholder="Priority" [(ngModel)]="Priority" name="Priority" floatPlaceholder="always">
                 <md-option *ngFor="let priorValue of Priorities" [value]="priorValue.value">
                     {{ priorValue.viewValue }}
@@ -59,6 +63,7 @@
                 <label>Job Description</label>
                 <textarea mdInput [(ngModel)]="JobDescription" name="JobDescription"></textarea>
             </md-form-field>
+            
             <md-form-field class="example-full-width">
                 <label>Comments</label>
                 <textarea mdInput [(ngModel)]="Comments" name="Comments"></textarea>
