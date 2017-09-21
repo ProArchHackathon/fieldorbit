@@ -1,4 +1,5 @@
-﻿import { Component, OnInit } from "@angular/core";
+﻿import { StaticDataLoaderService } from './../../Services/staticDataLoader.service';
+import { Component, OnInit } from "@angular/core";
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
@@ -20,7 +21,8 @@ export class ServiceRequestComponent implements OnInit{
     serviceRequest: ServiceRequest;
 
     constructor(public dialog: MdDialog,
-                private serviceRequestService:ServiceRequestService) { };
+                private serviceRequestService:ServiceRequestService,
+                private staticDataLoaderService:StaticDataLoaderService) { };
 
     ngOnInit(){
         this.serviceRequest = {
@@ -40,9 +42,9 @@ export class ServiceRequestComponent implements OnInit{
 
         this.Button = 'Create';
         this.getAllServiceRequests();
-        this.serviceType = this.serviceRequestService.serviceType;
-        this.statusList = this.serviceRequestService.statusList;
-        this.requestType = this.serviceRequestService.requestType;
+        this.serviceType = this.staticDataLoaderService.serviceType;
+        this.statusList = this.staticDataLoaderService.statusList;
+        this.requestType = this.staticDataLoaderService.requestType;
     }
 
     getAllServiceRequests() {

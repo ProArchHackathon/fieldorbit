@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers, RequestOptions, ResponseOptions, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -21,10 +21,18 @@ export class ServiceRequest {
     providers: [Configuration]
 })
 
-export class JobComponent {
+export class JobComponent implements OnInit{
     jobList: any;
+    Statuses:any;
+    Types:any;
+    Priorities:any;
+    Category:any;
+    message = 'This is Job Component';
 
-    constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) {
+    constructor(private http: Http, private _configuration: Configuration, public dialog: MdDialog) { }
+
+    ngOnInit() {
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         this.ServiceRequest = {
             ServiceRequestId: 0,
         }
@@ -32,30 +40,7 @@ export class JobComponent {
         this.getAllJobs();
         this.showButton = false;
     }
-
-
-    message = 'This is Job Component';
-    Statuses = [
-        { value: 'Open', viewValue: 'Open' },
-        { value: 'Close', viewValue: 'Close' },
-        { value: 'Unscheduled', viewValue: 'Unscheduled' }
-    ];
-    Types = [
-        { value: 'WorkRequest', viewValue: 'Work Request' },
-        { value: 'ServiceRequest', viewValue: 'Service Request' }
-    ];
-
-    Priorities = [
-        { value: 'High', viewValue: 'High' },
-        { value: 'Medium', viewValue: 'Medium' },
-        { value: 'Low', viewValue: 'Low' }
-    ];
-    Category = [
-        { value: 'High', viewValue: 'High' },
-        { value: 'Medium', viewValue: 'Medium' },
-        { value: 'Low', viewValue: 'Low' }
-    ];
-
+    
     //Properties......
     public JobId: number;
     public ServiceRequest: ServiceRequest;

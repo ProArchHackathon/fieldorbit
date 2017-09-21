@@ -48,6 +48,7 @@ import {
 } from '@angular/material';
 import { CookieService } from "./app.cookieManager";
 import { LoginService } from "./login/login.service";
+import { Routing } from "../Routing/app.routing";
 @NgModule({
   imports: [
     MdAutocompleteModule,
@@ -91,13 +92,7 @@ import { LoginService } from "./login/login.service";
     MaterialModule,
     FlexLayoutModule,
     DetailsModule,
-    RouterModule.forRoot(
-      [
-        { path: "", redirectTo: "/login", pathMatch: "full" },
-        { path: "login", component: LoginComponent, data: { Title: "Login" } }
-      ],
-      { useHash: true }
-    )
+    Routing
   ],
   declarations: [AppComponent, LoginComponent, DialogResultDialog],
   exports: [MaterialModule],

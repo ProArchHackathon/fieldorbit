@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ServiceRequest } from "../Models/serviceRequest.model";
-import { Observable } from "rxjs/Observable";
-import { Configuration } from "../common/app.constants";
+import { ServiceRequest } from '../Models/serviceRequest.model';
+import { Observable } from 'rxjs/Observable';
+import { Configuration } from '../common/app.constants';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -10,46 +10,21 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class ServiceRequestService {
-    private _serviceType = [
-        { value: 'Electric', viewValue: 'Electric' },
-        { value: 'Gas', viewValue: 'Gas' },
-        { value: 'Water', viewValue: 'Water' },
-    ];
-
-    private _statusList = [
-        { value: 'Open', viewValue: 'Open' },
-        { value: 'InProgress', viewValue: 'InProgress' },
-        { value: 'Closed', viewValue: 'Closed' },
-        { value: 'Hold', viewValue: 'Hold' }
-    ];
-
-    private _requestType = [
-        { value: 'Connect', viewValue: 'Connect' },
-        { value: 'Reconnect', viewValue: 'Reconnect' },
-        { value: 'Disconnect', viewValue: 'Disconnect' },
-        { value: 'Miscellaneous', viewValue: 'Miscellaneous' }
-    ];
 
     constructor(private httpClient: HttpClient,
                 private _configuration: Configuration) { }
 
-    public getAllServiceRequestDetails = ():Observable<ServiceRequest[]> => {
-        // setting Headers
-      const Headers = this.addingHeaders();        
+    public getAllServiceRequestDetails = (): Observable<ServiceRequest[]> => {
+      const Headers = this.addingHeaders();
 
       return this.httpClient
-                 .get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests,{ headers:Headers })
+                 .get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests, { headers: Headers })
                  .map(this.extractData)
                  .map(this.FormatDate)
                  .do((response) => console.log(response))
                  .catch(this.handleError);
     };
 
-
-    get serviceType():any { return this._serviceType; }
-    get statusList():any { return this._statusList; }
-    get requestType():any { return this._requestType; }
-    
     /**
      * updateServiceRequest
      */
@@ -72,7 +47,7 @@ export class ServiceRequestService {
         // Gathering data
        let data = this.modifyData(serviceRequest);
        const Headers = this.addingHeaders();
-        
+
        return this.httpClient
                   .post(this._configuration.ApiServer + this._configuration.AddServiceRequest, data, { headers: Headers })
                   .map(this.extractData)
@@ -92,7 +67,7 @@ export class ServiceRequestService {
 
     private modifyData(serviceRequest) {
         let data = {
-            ServiceRequestId:serviceRequest.SrNumber,
+            ServiceRequestId: serviceRequest.SrNumber,
             CreatedBy: { EmployeeId: serviceRequest.RequestedBy },
             ServiceType: serviceRequest.ServiceType,
             RequestType: serviceRequest.RequestType,
@@ -142,7 +117,7 @@ export class ServiceRequestService {
         return serviceRequestList;
     }
 
-    private extractData(response:Response | any) {
+    private extractData(response: Response | any) {
         let body = response;
         return body;
     };

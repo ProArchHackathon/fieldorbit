@@ -23,6 +23,8 @@ import { AuthenticateService } from "../Services/auth.service";
 import { AuthGuard } from "../Guards/auth.guard";
 import { ServiceRequestService } from "../Services/serviceRequest.service";
 import { Configuration } from "../common/app.constants";
+import { WorkRequestService } from "../Services/workRequest.service";
+import { StaticDataLoaderService } from "../Services/staticDataLoader.service";
 
 @NgModule({
   imports: [ 
@@ -56,6 +58,6 @@ import { Configuration } from "../common/app.constants";
     SidenavComponent,
     JobComponent
   ],
-  providers: [AuthenticateService,AuthGuard, ServiceRequestService,Configuration]
+  providers: [AuthenticateService,AuthGuard, ServiceRequestService,Configuration,WorkRequestService,StaticDataLoaderService]
 })
 export class DetailsModule {}

@@ -1,6 +1,6 @@
-﻿import { Component } from '@angular/core';
+﻿import { WorkRequest } from './../../Models/workRequest.model';
+import { Component, OnInit } from '@angular/core';
 import { Http, Response, Headers, RequestOptions, ResponseOptions } from '@angular/http';
-//import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -8,52 +8,51 @@ import { Configuration } from '../../common/app.constants';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import { Customer } from "../../Models/customer.model";
 
-export class Customer {
-    constructor(
-        public CustomerId: number) {
-
-    }
-}
 @Component({
     selector: 'work-request',
-    templateUrl: 'workrequest.component.html',
-    providers: [Configuration]
+    templateUrl: 'workrequest.component.html'
 })
 
-export class WorkRequestComponent {
-
-    SrNumber: string;
-    RequestedBy: string;
-    ServiceType: string;
-    RequestType: string;
-    CreatedDate: Date;
-    StartDate: Date;
-    EndDate: Date;
-    Customer: Customer;
-    Status: any;
-    Location: string;
+export class WorkRequestComponent implements OnInit{
+    statusList:any;
+    requestType:any;
+    serviceType:any;
+    workRequest: WorkRequest
     Button: string;
     ErrorMessage: string;
-
     serviceRequestList: any;
+
     constructor(private http: Http,
                 public dialog: MdDialog,
-                private _configuration: Configuration) {
-        this.Customer = {
-            CustomerId: 0
+                private _configuration: Configuration) {};
+
+    ngOnInit() {
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        this.workRequest = {
+            SrNumber: null,
+            RequestedBy: '',
+            ServiceType: '',
+            RequestType: '',
+            CreatedDate: new Date(),
+            StartDate: new Date(),
+            EndDate: null,
+            Customer : {
+                CustomerId:null
+            },
+            Status: '',
+            Location: ''
         }
         this.Button = 'Create';
-        this.CreatedDate = new Date();
-        this.StartDate = new Date();
         this.getAllWorkRequests();
-    };
+    }
 
     validateDate() {
-        if (!this.StartDate) {
+        if (!this.workRequest.StartDate) {
             this.ErrorMessage = 'Please Select Start Date';
         }
-        else if (this.EndDate && (this.EndDate <= this.StartDate)) {
+        else if (this.workRequest.EndDate && (this.workRequest.EndDate <= this.workRequest.StartDate)) {
             this.ErrorMessage = 'End Date should be greater than Start Date';
         }
     }
@@ -93,53 +92,33 @@ export class WorkRequestComponent {
         });
     }
 
-    serviceType = [
-        { value: 'Electric', viewValue: 'Electric' },
-        { value: 'Gas', viewValue: 'Gas' },
-        { value: 'Water', viewValue: 'Water' },
-    ];
-
-    statusList = [
-        { value: 'Open', viewValue: 'Open' },
-        { value: 'InProgress', viewValue: 'InProgress' },
-        { value: 'Closed', viewValue: 'Closed' },
-        { value: 'Hold', viewValue: 'Hold' }
-    ];
-
-    requestType = [
-        { value: 'Connect', viewValue: 'Connect' },
-        { value: 'Reconnect', viewValue: 'Reconnect' },
-        { value: 'Disconnect', viewValue: 'Disconnect' },
-        { value: 'Miscellaneous', viewValue: 'Miscellaneous' }
-    ];
-
     onUpdate(valid): void {
         this.ErrorMessage = null;
       
             var data =
                 {
-                    ServiceRequestId: this.SrNumber,
-                    CreatedBy: { EmployeeId: this.RequestedBy },
-                    ServiceType: this.ServiceType,
-                    RequestType: this.RequestType,
-                    CreatedDate: new Date(this.CreatedDate).toLocaleDateString('en-GB', {
+                    ServiceRequestId: this.workRequest.SrNumber,
+                    CreatedBy: { EmployeeId: this.workRequest.RequestedBy },
+                    ServiceType: this.workRequest.ServiceType,
+                    RequestType: this.workRequest.RequestType,
+                    CreatedDate: new Date(this.workRequest.CreatedDate).toLocaleDateString('en-GB', {
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric'
                     }).split(' ').join('-'),
-                    StartDate: new Date(this.StartDate).toLocaleDateString('en-GB', {
+                    StartDate: new Date(this.workRequest.StartDate).toLocaleDateString('en-GB', {
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric'
                     }).split(' ').join('-'),
-                    EndDate: (this.EndDate) ? new Date(this.EndDate).toLocaleDateString('en-GB', {
+                    EndDate: (this.workRequest.EndDate) ? new Date(this.workRequest.EndDate).toLocaleDateString('en-GB', {
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric'
                     }).split(' ').join('-') : null,
-                    Customer: this.Customer,
-                    Status: this.Status,
-                    Location: this.Location,
+                    Customer: this.workRequest.Customer,
+                    Status: this.workRequest.Status,
+                    Location: this.workRequest.Location,
                     Type: 'WorkRequest'
                 };
 
@@ -178,20 +157,19 @@ export class WorkRequestComponent {
         }
         console.error(errMsg);
         return Promise.reject(errMsg);
-
     }
 
     private onSelectedRow(serviceRequest): void {
-        this.SrNumber = serviceRequest.ServiceRequestId;
-        this.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
-        this.ServiceType = serviceRequest.ServiceType;
-        this.RequestType = serviceRequest.RequestType;
-        this.Customer.CustomerId = serviceRequest.Customer.CustomerId;
-        this.Location = serviceRequest.Location;
-        this.CreatedDate = serviceRequest.CreatedDate;
-        this.StartDate = serviceRequest.StartDate;
-        this.EndDate = serviceRequest.EndDate;
-        this.Status = serviceRequest.Status;
+        this.workRequest.SrNumber = serviceRequest.ServiceRequestId;
+        this.workRequest.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
+        this.workRequest.ServiceType = serviceRequest.ServiceType;
+        this.workRequest.RequestType = serviceRequest.RequestType;
+        this.workRequest.Customer.CustomerId = serviceRequest.Customer.CustomerId;
+        this.workRequest.Location = serviceRequest.Location;
+        this.workRequest.CreatedDate = serviceRequest.CreatedDate;
+        this.workRequest.StartDate = serviceRequest.StartDate;
+        this.workRequest.EndDate = serviceRequest.EndDate;
+        this.workRequest.Status = serviceRequest.Status;
         this.Button = 'Update';
     }
     onLoad() {

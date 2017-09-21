@@ -1,14 +1,16 @@
 {
   "name": "proarch.fieldorbit.webui",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Hybrid Application created using Angular 2, C#, MongoDb and Xamarin",
   "main": "index.js",
   "scripts": {
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:prod": "webpack --env=prod",
     "clean": "rimraf dist/",
     "start": " npm run clean && npm run build:dev",
-    "deploy": "npm run clean && npm run build:prod"
+    "deploy": "npm run clean && npm run build:prod",
+    "tslint": "tslint",
+    "lint": "npm run tslint \"app/**/*.ts\""
   },
   "author": "",
   "license": "ISC",
