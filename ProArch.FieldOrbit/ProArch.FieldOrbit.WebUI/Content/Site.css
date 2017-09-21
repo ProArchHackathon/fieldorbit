@@ -22,6 +22,11 @@ md-card {
     color: rgba(0,0,0,0.87);
     background-color: #eeeeee !important;
 }
+
+.scrollable-form {
+    height:calc(100vh - 48px);
+    overflow-y: auto;
+}
 /* 
 .designform md-input-container input {
     background: rgb(255, 255, 255) none repeat scroll 0 0;
@@ -108,14 +113,13 @@ th {
 
 tr:hover, tr.alt:hover {
     background-color: #d9edf7 !important;
-    font-size: 15px;
 }
 
 .textAreaBorder{
     border: 1px solid black !important;
     border-radius: 5px !important;
 }
-.mat-calendar-content {
+/* .mat-calendar-content {
     background: white;
 }
 
@@ -143,13 +147,13 @@ tr:hover, tr.alt:hover {
     width:15%;
     margin-left:10px;
     margin-right:10px;
-}
+} */
 
-.mat-select{
+/* .mat-select{
     width:15%;
     margin-left:10px;
     margin-right:10px;
-}
+} */
 
 .tab-background {
     background-color: #a2b7dc !important;

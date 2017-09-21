@@ -1,9 +1,7 @@
-﻿import { Injectable } from "@angular/core";
-import { Http, RequestOptions, Headers, Response, URLSearchParams  } from "@angular/http";
-import "rxjs/add/operator/map";
-import { Observable, Subject } from "rxjs/Rx";
-import { Configuration } from "../../common/app.constants";
-import { User } from "../../Models/user.model";
+﻿import { Injectable } from '@angular/core';
+import { Http, RequestOptions, URLSearchParams  } from '@angular/http';
+import { Configuration } from '../../common/app.constants';
+import { User } from '../../Models/user.model';
 
 @Injectable()
 export class LoginService {
@@ -18,9 +16,9 @@ export class LoginService {
 
         let requestOptions = new RequestOptions();
         requestOptions.search = params;
-       
+
         let body = JSON.stringify(user);
-        //return this._http.post(this._configuration.ApiServer + this._configuration.LoginApiUrl, body,
+        // return this._http.post(this._configuration.ApiServer + this._configuration.LoginApiUrl, body,
         //    options).toPromise().catch();
 
         return this._http.get(this._configuration.ApiServer + this._configuration.LoginApiUrl, requestOptions);

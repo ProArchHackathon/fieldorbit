@@ -8,14 +8,14 @@
         <hr/>
         <div fxLayout="column" class="padder">
 
-            <md-form-field class="example-full-width padder" style="width:auto;">
-                <label>User Name</label>
-                <input #uname mdInput [(ngModel)]="user.username" autofocus name="UserName">
+            <md-form-field class="example-full-width" style="width:auto;">
+                <!-- <label>User Name</label> -->
+                <input #uname mdInput [(ngModel)]="user.username" autofocus name="UserName" placeholder="User Name">
             </md-form-field>
 
-            <md-form-field class="example-full-width padder" style="width:auto;">
-                <label>Password</label>
-                <input #psw mdInput type="password" [(ngModel)]="user.password" name="Password">
+            <md-form-field class="example-full-width" style="width:auto;">
+                <!-- <label>Password</label> -->
+                <input #psw mdInput type="password" [(ngModel)]="user.password" name="Password" placeholder="Password">
             </md-form-field>
 
         </div>

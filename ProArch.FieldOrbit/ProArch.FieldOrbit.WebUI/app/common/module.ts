@@ -49,6 +49,8 @@ import {
 import { CookieService } from "./app.cookieManager";
 import { LoginService } from "./login/login.service";
 import { Routing } from "../Routing/app.routing";
+import { HeaderInterceptor } from "../Services/headerInterceptor.service";
+import { JobService } from "../Services/Job.service";
 @NgModule({
   imports: [
     MdAutocompleteModule,
@@ -94,15 +96,16 @@ import { Routing } from "../Routing/app.routing";
     DetailsModule,
     Routing
   ],
-  declarations: [AppComponent, LoginComponent, DialogResultDialog],
+  declarations: [AppComponent, LoginComponent, DialogResultDialog,DataClearerDirective],
   exports: [MaterialModule],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultDialog],
   providers: [
     ComponentPageTitle,
-    DataClearerDirective,
     LoginService,
-    CookieService
+    CookieService,
+    HeaderInterceptor,
+    JobService
   ]
 })
 export class AppModule {}

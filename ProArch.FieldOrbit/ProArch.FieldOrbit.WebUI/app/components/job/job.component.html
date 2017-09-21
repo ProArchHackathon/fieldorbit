@@ -1,17 +1,15 @@
-﻿<form name="exampleForm">
+﻿<form name="exampleForm" class="scrollable-form">
 
     <md-card>
         <md-card-title><b>{{Button}} Job</b></md-card-title>
         <div class="padder">
 
-            <md-form-field *ngIf="JobId" class="example-full-width">
-                <label>Job Id</label>
-                <input mdInput disabled required [(ngModel)]="JobId" name="JobId">
+            <md-form-field *ngIf="job.JobId" class="example-full-width">
+                <input mdInput disabled required [(ngModel)]="job.JobId" name="JobId" placeholder="Job Id">
             </md-form-field>
 
             <md-form-field class="example-full-width">
-                <label>Service Request Id</label>
-                <input mdInput required [(ngModel)]="ServiceRequest.ServiceRequestId" autofocus name="ServiceRequestId">
+                <input mdInput required [(ngModel)]="job.ServiceRequest.ServiceRequestId" autofocus name="ServiceRequestId" placeholder="Service Request Id">
             </md-form-field>
 
             <button class="mat-button mat-primary" md-raised-button (click)="getServiceRequest()">Get</button>
@@ -19,59 +17,48 @@
         </div>
 
         <div class="padder">
-            <md-form-field class="example-full-width">
-                <label>Est. Duration</label>
-                <input mdInput [(ngModel)]="estTime" name="estTime">
-            </md-form-field>
+            <!-- <md-form-field class="example-full-width">
+                <input mdInput [(ngModel)]="estTime" name="estTime" placeholder="Est. Duration">
+            </md-form-field> -->
 
             <md-form-field class="example-full-width">
-                <label>Start Date</label>
-                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="StartTime" (blur)="validateDate()" name="StartTime">
+                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="job.StartTime" (blur)="validateDate()" name="StartTime" placeholder="Start Date">
                 <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
                 <md-datepicker #startDate></md-datepicker>
             </md-form-field>
             
             <md-form-field class="example-full-width">
-                <label>End Date</label>
-                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="EndTime" name="EndDate" (blur)="validateDate()">
+                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="job.EndTime" name="EndDate" (blur)="validateDate()" placeholder="End Date">
                 <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
                 <md-datepicker #endDate></md-datepicker>
             </md-form-field>
         </div>
 
         <div class="padder">
-            <md-select placeholder="Status" [(ngModel)]="Status" name="Status" floatPlaceholder="always">
+            <md-select placeholder="Status" [(ngModel)]="job.Status" name="Status">
                 <md-option *ngFor="let statusValue of Statuses" [value]="statusValue.value">
                     {{ statusValue.viewValue }}
                 </md-option>
             </md-select>
 
-            <md-select placeholder="Priority" [(ngModel)]="Priority" name="Priority" floatPlaceholder="always">
+            <md-select placeholder="Priority" [(ngModel)]="job.Priority" name="Priority">
                 <md-option *ngFor="let priorValue of Priorities" [value]="priorValue.value">
                     {{ priorValue.viewValue }}
                 </md-option>
             </md-select>
 
-            <md-select placeholder="Category" [(ngModel)]="jobCategory" name="jobCategory" floatPlaceholder="always">
-                <md-option *ngFor="let categoryValue of Category" [value]="categoryValue.value">
-                    {{ categoryValue.viewValue }}
-                </md-option>
-            </md-select>
         </div>
         <div class="padder">
             <md-form-field class="example-full-width">
-                <label>Job Description</label>
-                <textarea mdInput [(ngModel)]="JobDescription" name="JobDescription"></textarea>
+                <textarea mdInput [(ngModel)]="job.JobDescription" name="JobDescription" placeholder="Job Description"></textarea>
             </md-form-field>
             
             <md-form-field class="example-full-width">
-                <label>Comments</label>
-                <textarea mdInput [(ngModel)]="Comments" name="Comments"></textarea>
+                <textarea mdInput [(ngModel)]="job.Comments" name="Comments" placeholder="Comments"></textarea>
             </md-form-field>
 
             <md-form-field class="example-full-width">
-                <label>Observations</label>
-                <textarea mdInput [(ngModel)]="Observations" name="Observations"></textarea>
+                <textarea mdInput [(ngModel)]="job.Observations" name="Observations" placeholder="Observations"></textarea>
             </md-form-field>
         </div>
         <br />

@@ -1,26 +1,44 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ServiceRequest } from '../Models/serviceRequest.model';
 import { Observable } from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
 import { Configuration } from '../common/app.constants';
+import { ServiceRequest } from '../Models/serviceRequest.model';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { StaticDataLoaderService } from './staticDataLoader.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+
 
 
 @Injectable()
 export class ServiceRequestService {
 
     constructor(private httpClient: HttpClient,
-                private _configuration: Configuration) { }
+                private _configuration: Configuration,
+                private _staticLoader: StaticDataLoaderService) { }
+
 
     public getAllServiceRequestDetails = (): Observable<ServiceRequest[]> => {
-      const Headers = this.addingHeaders();
 
       return this.httpClient
-                 .get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests, { headers: Headers })
+                 .get(this._configuration.ApiServer + this._configuration.GetAllServiceRequests)
                  .map(this.extractData)
-                 .map(this.FormatDate)
+                 .map(this._staticLoader.FormatDate)
+                 .do((response) => console.log(response))
+                 .catch(this.handleError);
+    };
+
+    /**
+     * Get's service request by id
+     * @return ServiceRequest
+     */
+
+    public getServiceRequestDetails = (serviceReqId): Observable<ServiceRequest> => {
+      const params = new HttpParams().set('serviceRequestId', serviceReqId);
+
+      return this.httpClient
+                 .get(this._configuration.ApiServer + this._configuration.GetServiceRequestById, { params: params})
+                 .map(this.extractData)
                  .do((response) => console.log(response))
                  .catch(this.handleError);
     };
@@ -30,11 +48,10 @@ export class ServiceRequestService {
      */
     public updateServiceRequest(serviceRequest) {
         // Gathering data
-       const data = this.modifyData(serviceRequest);
-       const Headers = this.addingHeaders();
+       const data = this._staticLoader.modifyData(serviceRequest, 'ServiceRequest');
 
        return this.httpClient
-                  .put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, data, { headers: Headers })
+                  .put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, data)
                   .map(this.extractData)
                   .do((response) => console.log(response))
                   .catch(this.handleError);
@@ -45,80 +62,18 @@ export class ServiceRequestService {
      */
     public addServiceRequest(serviceRequest) {
         // Gathering data
-       let data = this.modifyData(serviceRequest);
-       const Headers = this.addingHeaders();
+       let data = this._staticLoader.modifyData(serviceRequest, 'ServiceRequest');
 
        return this.httpClient
-                  .post(this._configuration.ApiServer + this._configuration.AddServiceRequest, data, { headers: Headers })
+                  .post(this._configuration.ApiServer + this._configuration.AddServiceRequest, data)
                   .map(this.extractData)
                   .do((response) => console.log(response))
                   .catch(this.handleError);
     }
 
-    /**
-     * Adding Headers
-     */
-    private addingHeaders() {
-        const headers = new HttpHeaders();
-        headers.append('Accept', 'application/json');
-
-        return headers;
-    }
-
-    private modifyData(serviceRequest) {
-        let data = {
-            ServiceRequestId: serviceRequest.SrNumber,
-            CreatedBy: { EmployeeId: serviceRequest.RequestedBy },
-            ServiceType: serviceRequest.ServiceType,
-            RequestType: serviceRequest.RequestType,
-            CreatedDate: new Date(serviceRequest.CreatedDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-'),
-            StartDate: new Date(serviceRequest.StartDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-'),
-            EndDate: (serviceRequest.EndDate) ? new Date(serviceRequest.EndDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-') : null,
-            Customer: serviceRequest.Customer,
-            Status: serviceRequest.Status,
-            Location: serviceRequest.Location,
-            Type: 'ServiceRequest'
-        };
-
-        return data;
-    }
-
-    private FormatDate(serviceRequestList) {
-        serviceRequestList.forEach(element => {
-            element.StartDate = new Date(element.StartDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-');
-            element.CreatedDate = new Date(element.CreatedDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-');
-            element.EndDate = new Date(element.EndDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-');
-        });
-
-        return serviceRequestList;
-    }
-
     private extractData(response: Response | any) {
         let body = response;
+
         return body;
     };
 

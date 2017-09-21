@@ -1,10 +1,9 @@
-﻿import { StaticDataLoaderService } from './../../Services/staticDataLoader.service';
-import { Component, OnInit } from "@angular/core";
+﻿import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
-import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
-import { ServiceRequest } from "../../Models/serviceRequest.model";
-import { ServiceRequestService } from "../../Services/serviceRequest.service";
+import { ServiceRequest } from '../../Models/serviceRequest.model';
+import { ServiceRequestService } from '../../Services/serviceRequest.service';
+import { StaticDataLoaderService } from './../../Services/staticDataLoader.service';
 
 @Component({
     selector: 'service-request',
@@ -13,24 +12,25 @@ import { ServiceRequestService } from "../../Services/serviceRequest.service";
 
 export class ServiceRequestComponent implements OnInit{
     Button: string;
-    statusList:any;
-    requestType:any;
-    serviceType:any;
+    statusList: any;
+    requestType: any;
+    serviceType: any;
     ErrorMessage: string;
     serviceRequestList: any;
     serviceRequest: ServiceRequest;
 
     constructor(public dialog: MdDialog,
-                private serviceRequestService:ServiceRequestService,
-                private staticDataLoaderService:StaticDataLoaderService) { };
+                private serviceRequestService: ServiceRequestService,
+                private staticDataLoaderService: StaticDataLoaderService) { };
 
-    ngOnInit(){
+    ngOnInit() {
         this.serviceRequest = {
-            SrNumber:null,
-            ServiceType:'',
+            ServiceRequestId: null,
+            SrNumber: null,
+            ServiceType: '',
             RequestedBy: '',
             RequestType: '',
-            Customer:{
+            Customer: {
                 CustomerId: 0
             },
             CreatedDate: new Date(),
@@ -54,15 +54,14 @@ export class ServiceRequestComponent implements OnInit{
                 this.serviceRequestList = response;
             },
                 error => this.ErrorMessage = <any>error,
-                () => console.log('Get all Items complete'))
+                () => console.log('Get all Items complete'));
     }
 
     validateDate() {
         this.ErrorMessage = null;
         if (!this.serviceRequest.StartDate) {
             this.ErrorMessage = 'Please Select Start Date';
-        }
-        else if (this.serviceRequest.EndDate && (this.serviceRequest.EndDate <= this.serviceRequest.StartDate)) {
+        }else if (this.serviceRequest.EndDate && (this.serviceRequest.EndDate <= this.serviceRequest.StartDate)) {
             this.ErrorMessage = 'End Date should be greater than Start Date';
         }
     }
@@ -93,11 +92,11 @@ export class ServiceRequestComponent implements OnInit{
 
     onUpdate(valid): void {
       this.ErrorMessage = null;
-      if(this.Button === 'Create')  {
+      if (this.Button === 'Create')  {
         this.createServiceRequest();
       } else {
         this.updateServiceRequest();
-      }      
+      }
     };
 
     private onSelectedRow(serviceRequest): void {
