@@ -1,10 +1,10 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
-import { Configuration } from '../../common/app.constants';
 import { CookieService } from '../app.cookieManager';
 import { Router } from '@angular/router';
 import { AuthenticateService } from '../../Services/auth.service';
 import { User } from '../../Models/user.model';
+import { FormGroup, Validators, FormBuilder} from '@angular/forms';
 
 @Component({
     templateUrl: 'login.component.html',
@@ -13,14 +13,30 @@ import { User } from '../../Models/user.model';
 
 export class LoginComponent implements OnInit{
     user: User;
-    constructor(private _loginService: LoginService,
-                private _authService: AuthenticateService,
-                private _cookieService: CookieService,
-                private _route: Router) {}
+    loginForm: FormGroup;
+    errorMessage: string;
 
-    ngOnInit (){
+    constructor(private _route: Router,
+                private fb: FormBuilder,
+                private _loginService: LoginService,
+                private _cookieService: CookieService,
+                private _authService: AuthenticateService) {
+
+         this.loginForm = fb.group({
+                   userName: ['',
+                                Validators.compose([Validators.required,
+                                                    Validators.maxLength(10),
+                                                    Validators.minLength(5)])],
+                   password: ['',
+                                Validators.compose([Validators.required,
+                                                    Validators.minLength(6),
+                                                    Validators.maxLength(10)])]
+              });
+        }
+
+    ngOnInit () {
         this.user = {
-            username: '',
+            userName: '',
             password: ''
         };
 
@@ -30,18 +46,15 @@ export class LoginComponent implements OnInit{
         }
     }
 
-
-    public errorMessage: string;
-
     OnSubmit = function() {
         this.errorMessage = null;
         // var cookie = this._cookieService.getCookie("filedOrbitAccess");
-        this._loginService.ValidateLoginInformation(this.user)
+        this._loginService
+            .ValidateLoginInformation(this.user)
             .toPromise()
             .then((response) => {
-                var output = response.json();
+                const output = response.json();
                 this._authService.logInStatus = true;
-                console.log('navigated');
                 this._route.navigate(['dashboard']);
             })
             .catch((error: any) => {

@@ -4,6 +4,7 @@ import { DialogResultDialog } from '../../common/dialog/dialog';
 import { ServiceRequest } from '../../Models/serviceRequest.model';
 import { ServiceRequestService } from '../../Services/serviceRequest.service';
 import { StaticDataLoaderService } from './../../Services/staticDataLoader.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'service-request',
@@ -15,13 +16,31 @@ export class ServiceRequestComponent implements OnInit{
     statusList: any;
     requestType: any;
     serviceType: any;
+    minDate = new Date();
     ErrorMessage: string;
     serviceRequestList: any;
     serviceRequest: ServiceRequest;
+    serviceRequestForm: FormGroup;
 
     constructor(public dialog: MdDialog,
+                private formBuilder: FormBuilder,
                 private serviceRequestService: ServiceRequestService,
-                private staticDataLoaderService: StaticDataLoaderService) { };
+                private staticDataLoaderService: StaticDataLoaderService) {
+
+                    this.serviceRequestForm = formBuilder.group({
+
+                        requestedBy: ['', Validators.compose([Validators.required,
+                                          Validators.pattern('/[^0-9]/g'),
+                                          Validators.maxLength(6)])],
+                        customerId: ['',  Validators.compose([Validators.required,
+                                          Validators.pattern('/[^0-9]/g'),
+                                          Validators.maxLength(6)])],
+                        serviceType: ['', Validators.required],
+                        status: ['', Validators.required],
+                        requestType: ['', Validators.required],
+                        createdDate: [null, Validators.required]
+                    });
+    };
 
     ngOnInit() {
         this.serviceRequest = {

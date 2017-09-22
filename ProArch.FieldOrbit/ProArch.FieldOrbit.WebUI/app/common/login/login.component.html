@@ -1,6 +1,5 @@
-﻿<form class="designform">
+﻿<form novalidate (ngSubmit)="OnSubmit()" [formGroup]="loginForm">
     <md-card fxFlex="30" fxFlexOffset="35" style="margin-top:20%;">
-
         <md-card-title class="md-title" fxLayout="row" fxLayoutAlign="center center">
             <img src="../../../Images/login.png" alt="Field Orbit Login">
         </md-card-title>
@@ -9,19 +8,29 @@
         <div fxLayout="column" class="padder">
 
             <md-form-field class="example-full-width" style="width:auto;">
-                <!-- <label>User Name</label> -->
-                <input #uname mdInput [(ngModel)]="user.username" autofocus name="UserName" placeholder="User Name">
+                <input mdInput [(ngModel)]="user.userName" autofocus name="UserName" placeholder="User Name" aria-label="User Name" formControlName="userName">
+                <md-error *ngIf="loginForm.hasError('maxLength', 'userName')">
+                    Please enter a valid User Name
+                  </md-error>
+                  <md-error *ngIf="loginForm.hasError('required','userName')">
+                    User Name is <strong>required</strong>
+                  </md-error>
             </md-form-field>
 
             <md-form-field class="example-full-width" style="width:auto;">
-                <!-- <label>Password</label> -->
-                <input #psw mdInput type="password" [(ngModel)]="user.password" name="Password" placeholder="Password">
+                <input mdInput type="password" [(ngModel)]="user.password" name="Password" placeholder="Password" formControlName="password">
+                <md-error *ngIf="loginForm.hasError('pattern', 'password')">
+                    Please enter a valid Password
+                  </md-error>
+                  <md-error *ngIf="loginForm.hasError('required','password')">
+                    Password is <strong>required</strong>
+                  </md-error>
             </md-form-field>
 
         </div>
         <div fxLayoutAlign="end end" fxLayout="row" style="margin-right: 0;" class="padder">
             <span style="color:red;" *ngIf="errorMessage">Invalid Username or Password</span>
-            <button class="mat-button mat-primary" md-raised-button (click)="OnSubmit()">Login</button>
+            <button type="submit" class="mat-button mat-primary" md-raised-button>Login</button>
         </div>
     </md-card>
 </form>

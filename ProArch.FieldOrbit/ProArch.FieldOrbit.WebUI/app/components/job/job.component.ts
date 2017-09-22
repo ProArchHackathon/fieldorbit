@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { StaticDataLoaderService } from "../../Services/staticDataLoader.service";
+import { FormBuilder } from "@angular/forms";
 
 
 @Component({
@@ -34,10 +35,10 @@ export class JobComponent implements OnInit{
     ErrorMessage: string;
     serviceRequestError: string;
     showButton: boolean;
-    Request: any;
     message = 'This is Job Component';
 
     constructor(public dialog: MdDialog,
+                private fb: FormBuilder,
                 private serviceRequestService: ServiceRequestService,
                 private jobService: JobService,
                 private _staticDataLoader: StaticDataLoaderService) { }

@@ -1,10 +1,10 @@
-﻿<form class="scrollable-form" name="servicerequestform">
+﻿<form class="scrollable-form" name="serviceRequestform" (ngSubmit)="onUpdate()" novalidate [formGroup]="serviceRequestForm">
     <md-card>
             <md-card-title><b>Service Request</b></md-card-title>
             <br>
         <div *ngIf="serviceRequest.SrNumber && serviceRequest.SrNumber!=0">
             <md-form-field>
-                <input #srNumber mdInput [(ngModel)]="serviceRequest.SrNumber" name="SrNumber" [disabled]="true" placeholder="SR Number">
+                <input mdInput [(ngModel)]="serviceRequest.SrNumber" name="SrNumber" [disabled]="true" placeholder="SR Number" [ngModelOptions]="{standalone: true}">
             </md-form-field>
         </div>
         <div class="padder">
@@ -12,41 +12,61 @@
             <md-form-field>
                 <input mdInput
                        autofocus
-                       #requestedBy
+                       formControlName="requestedBy" 
                        name="RequestedBy"
                        [(ngModel)]="serviceRequest.RequestedBy"
                        placeholder="Requested By">
+                <md-error *ngIf="serviceRequestForm.hasError('pattern', 'requestedBy')">
+                        Please enter a valid requester detail
+                </md-error>
+                <md-error *ngIf="serviceRequestForm.hasError('maxLength','requestedBy')">
+                        Max length exceeded
+                </md-error>
+                <md-error *ngIf="serviceRequestForm.hasError('required','requestedBy')">
+                        RequestedBy is <strong>required</strong>
+                </md-error>
             </md-form-field>
 
             <md-form-field>
-                <input  mdInput
-                        #customerId
-                        required 
+                <input  mdInput 
                         name="CustomerId"
+                        formControlName="customerId"
                         placeholder="Customer ID"
                         [(ngModel)]="serviceRequest.Customer.CustomerId">
+                <md-error *ngIf="serviceRequestForm.hasError('pattern', 'customerId')">
+                            Numbers are allowed
+                </md-error>
+                <md-error *ngIf="serviceRequestForm.hasError('maxLength', 'customerId')">
+                            Max length exceeded
+                </md-error>
+                <md-error *ngIf="serviceRequestForm.hasError('required', 'customerId')">
+                            Customer Id is <strong>required</strong>
+                </md-error>
             </md-form-field>
 
             <md-form-field>
-                <input #location mdInput [(ngModel)]="serviceRequest.Location" name="Location" placeholder="Location"> 
+                <input mdInput [(ngModel)]="serviceRequest.Location" name="Location" [ngModelOptions]="{standalone: true}" placeholder="Location"> 
             </md-form-field>
         </div>
 
         <div class="padder">
 
-            <md-select name="ServiceType" required placeholder="Service Type" [(ngModel)]="serviceRequest.ServiceType">
+            <md-select name="ServiceType" formControlName="serviceType" placeholder="Service Type" [(ngModel)]="serviceRequest.ServiceType">
                 <md-option *ngFor="let type of serviceType" [value]="type.value">
                     {{ type.viewValue }}
                 </md-option>
+                <md-error *ngIf="serviceRequestForm.hasError('required', 'serviceType')">
+                    Service Type is <strong>required</strong>
+                </md-error>
             </md-select>
 
-            <md-select name="Status" required placeholder="Status" [(ngModel)]="serviceRequest.Status">
+            <md-select name="Status" formControlName="status" placeholder="Status" [(ngModel)]="serviceRequest.Status">
                 <md-option *ngFor="let Status of statusList" [value]="Status.value">
                     {{ Status.viewValue }}
                 </md-option>
             </md-select>
 
-            <md-select placeholder="Request Type" required name="RequestType" [(ngModel)]="serviceRequest.RequestType">
+            <md-select placeholder="Request Type" formControlName="requestType" name="RequestType" [(ngModel)]="serviceRequest.RequestType">
                 <md-option *ngFor="let RType of requestType" [value]="RType.value">
                     {{ RType.viewValue }}
                 </md-option>
@@ -56,19 +76,22 @@
         <div class="padder">
 
             <md-form-field>
-                <input [mdDatepicker]="createdDate" required mdInput [(ngModel)]="serviceRequest.CreatedDate" name="CreatedDate" placeholder="Created Date">
+                <input [mdDatepicker]="createdDate" formControlName="createdDate" [min]="minDate" mdInput [(ngModel)]="serviceRequest.CreatedDate" name="CreatedDate" placeholder="Created Date">
                 <md-datepicker-toggle mdSuffix [for]="createdDate"></md-datepicker-toggle>
                 <md-datepicker #createdDate></md-datepicker>
+                <md-error *ngIf="serviceRequestForm.hasError('required', 'serviceType')">
+                    Created Date is <strong>required</strong>
+                </md-error>
             </md-form-field>
             
             <md-form-field>
-                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="serviceRequest.StartDate" (blur)="validateDate()" name="StartDate" placeholder="Start Date">
+                <input mdInput [mdDatepicker]="startDate" [ngModelOptions]="{standalone: true}" [(ngModel)]="serviceRequest.StartDate" [min]="minDate" (blur)="validateDate()" name="StartDate" placeholder="Start Date">
                 <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
                 <md-datepicker #startDate></md-datepicker>
             </md-form-field>
             
             <md-form-field>
-                <input mdInput [mdDatepicker]="endDate" (blur)="validateDate()" [(ngModel)]="serviceRequest.EndDate" name="EndDate" placeholder="End Date">
+                <input mdInput [mdDatepicker]="endDate" [ngModelOptions]="{standalone: true}" (blur)="validateDate()" [min]="minDate" [(ngModel)]="serviceRequest.EndDate" name="EndDate" placeholder="End Date">
                 <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
                 <md-datepicker #endDate></md-datepicker>
             </md-form-field>
@@ -76,7 +99,7 @@
         </div>
         <p style="text-align: right">
             <span style="color:red" *ngIf="ErrorMessage">{{ErrorMessage}}</span>
-            <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>{{Button}}</button>
+            <button class="mat-button mat-primary" type="submit" md-primary-button md-raised-button>{{Button}}</button>
         </p>
     </md-card>
 

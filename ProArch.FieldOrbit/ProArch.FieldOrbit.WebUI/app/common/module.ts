@@ -1,6 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import { RouterModule } from '@angular/router';
@@ -94,9 +94,10 @@ import { JobService } from "../Services/Job.service";
     MaterialModule,
     FlexLayoutModule,
     DetailsModule,
-    Routing
+    Routing,
+    ReactiveFormsModule
   ],
-  declarations: [AppComponent, LoginComponent, DialogResultDialog,DataClearerDirective],
+  declarations: [AppComponent, LoginComponent, DialogResultDialog, DataClearerDirective],
   exports: [MaterialModule],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultDialog],

@@ -11,7 +11,7 @@ export class LoginService {
 
     ValidateLoginInformation = (user: User) => {
         let params: URLSearchParams = new URLSearchParams();
-        params.set('username', user.username);
+        params.set('username', user.userName);
         params.set('password', user.password);
 
         let requestOptions = new RequestOptions();
