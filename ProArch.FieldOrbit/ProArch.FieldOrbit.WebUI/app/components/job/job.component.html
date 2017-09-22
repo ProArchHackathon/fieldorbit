@@ -17,9 +17,6 @@
         </div>
 
         <div class="padder">
-            <!-- <md-form-field class="example-full-width">
-                <input mdInput [(ngModel)]="estTime" name="estTime" placeholder="Est. Duration">
-            </md-form-field> -->
 
             <md-form-field class="example-full-width">
                 <input mdInput [mdDatepicker]="startDate" [(ngModel)]="job.StartTime" (blur)="validateDate()" name="StartTime" placeholder="Start Date">

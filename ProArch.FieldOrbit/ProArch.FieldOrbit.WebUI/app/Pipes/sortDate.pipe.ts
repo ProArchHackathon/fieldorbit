@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class SortDatePipe implements PipeTransform {
     transform(value: any, ...args: any[]): any {
-        
+
     }
 }
 
@@ -20,6 +20,7 @@ export class SortDatePipe implements PipeTransform {
 //  *   {{ 2 |  exponentialStrength:10}}
 //  *   formats to: 1024
 // */
+// new DatePipe().transform(myDate, 'yyyy-dd-MM');
 // @Pipe({name: 'exponentialStrength'})
 // export class ExponentialStrengthPipe implements PipeTransform {
 //     transform(value: number, exponent: string): number {
