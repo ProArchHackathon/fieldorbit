@@ -1,25 +1,25 @@
-﻿<form class="scrollable-form" name="workrequestform" (load)="onLoad()">
+﻿<form class="scrollable-form" name="workRequestForm" novalidate (ngSubmit)="onUpdate(Button)" [formGroup]="workRequestForm">
     <md-card>
         <md-card-title><b>Work Request</b></md-card-title>
         <br>
         <div *ngIf="workRequest.SrNumber && workRequest.SrNumber!=0" class="padder">
             <md-form-field>
-                <input #srNumber mdInput [(ngModel)]="workRequest.SrNumber" name="SrNumber" [disabled]="true" placeholder="SR Number">
+                <input mdInput [(ngModel)]="workRequest.SrNumber" name="SrNumber" [disabled]="true" placeholder="SR Number" [ngModelOptions]="{standalone: true}">
             </md-form-field>
         </div>
 
         <div class="padder">
-            <md-select name="ServiceType" required placeholder="Service Type" [(ngModel)]="workRequest.ServiceType">
+            <md-select name="ServiceType" placeholder="Service Type" [(ngModel)]="workRequest.ServiceType" formControlName="serviceType">
                 <md-option *ngFor="let type of serviceType" [value]="type.value">
                     {{ type.viewValue }}
                 </md-option>
             </md-select>
-            <md-select name="Status" required placeholder="Status" [(ngModel)]="workRequest.Status">
+            <md-select name="Status"  placeholder="Status" [(ngModel)]="workRequest.Status" formControlName="status">
                 <md-option *ngFor="let Status of statusList" [value]="Status.value">
                     {{ Status.viewValue }}
                 </md-option>
             </md-select>
-            <md-select placeholder="Request Type" required name="Request Type" [(ngModel)]="workRequest.RequestType">
+            <md-select placeholder="Request Type" name="Request Type" [(ngModel)]="workRequest.RequestType" formControlName="requestType">
                 <md-option *ngFor="let RType of requestType" [value]="RType.value">
                     {{ RType.viewValue }}
                 </md-option>
@@ -28,36 +28,57 @@
 
         <div class="padder">
             <md-form-field >                
-                <input #requestedBy mdInput [(ngModel)]="workRequest.RequestedBy" autofocus name="RequestedBy" placeholder="Requested By">
+                <input mdInput [(ngModel)]="workRequest.RequestedBy" autofocus name="RequestedBy" placeholder="Requested By" formControlName="requestedBy">
+                <md-error *ngIf="workRequestForm.hasError('pattern', 'requestedBy')">
+                    Please enter a valid requester detail
+                </md-error>
+                <md-error *ngIf="workRequestForm.hasError('maxLength','requestedBy')">
+                    Max length exceeded
+                </md-error>
+                <md-error *ngIf="workRequestForm.hasError('required','requestedBy')">
+                    RequestedBy is <strong>required</strong>
+                </md-error>
             </md-form-field>
 
             <md-form-field >
-                <input #customerId mdInput [(ngModel)]="workRequest.Customer.CustomerId" required name="CustomerId" placeholder="Customer ID">
+                <input mdInput [(ngModel)]="workRequest.Customer.CustomerId" name="CustomerId" placeholder="Customer ID" formControlName="customerId">
+                <md-error *ngIf="workRequestForm.hasError('pattern', 'customerId')">
+                    Please enter a valid Customer Id
+                </md-error>
+                <md-error *ngIf="workRequestForm.hasError('maxLength','customerId')">
+                    Max length exceeded
+                </md-error>
+                <md-error *ngIf="workRequestForm.hasError('required','customerId')">
+                    RequestedBy is <strong>required</strong>
+                </md-error>
             </md-form-field>
             
             <md-form-field >
-                <input #location mdInput [(ngModel)]="workRequest.Location" name="Location" placeholder="Location">
+                <input mdInput [(ngModel)]="workRequest.Location" name="Location" placeholder="Location" [ngModelOptions]="{standalone: true}">
             </md-form-field>
         </div>
 
         <div class="padder">
             <md-form-field >
                 
-                <input [mdDatepicker]="createdDate" mdInput required [(ngModel)]="workRequest.CreatedDate" name="CreatedDate" placeholder="Created Date">
+                <input [mdDatepicker]="createdDate" mdInput required [(ngModel)]="workRequest.CreatedDate" name="CreatedDate" placeholder="Created Date" formControlName="createdDate">
                 <md-datepicker-toggle mdSuffix [for]="createdDate"></md-datepicker-toggle>
                 <md-datepicker #createdDate></md-datepicker>
+                <md-error *ngIf="workRequestForm.hasError('required','createdDate')">
+                    RequestedBy is <strong>required</strong>
+                </md-error>
             </md-form-field>
             
             <md-form-field >
                 
-                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="workRequest.StartDate" (blur)="validateDate()" name="StartDate" placeholder="Start Date">
+                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="workRequest.StartDate" (blur)="validateDate()" name="StartDate" placeholder="Start Date" [ngModelOptions]="{standalone: true}">
                 <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
                 <md-datepicker #startDate></md-datepicker>
             </md-form-field>
             
             <md-form-field>
                 
-                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="workRequest.EndDate" (blur)="validateDate()" name="EndDate" placeholder="End Date">
+                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="workRequest.EndDate" (blur)="validateDate()" name="EndDate" placeholder="End Date" [ngModelOptions]="{standalone: true}">
                 <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
                 <md-datepicker #endDate></md-datepicker>
             </md-form-field>
@@ -66,7 +87,7 @@
 
         <p style="text-align: right">
             <span style="color:red" *ngIf="ErrorMessage">{{ErrorMessage}}</span>
-            <button class="mat-button mat-primary" (click)="onUpdate()" md-primary-button md-raised-button>{{Button}}</button>
+            <button class="mat-button mat-primary" md-primary-button md-raised-button>{{Button}}</button>
         </p>
     </md-card>
     <md-card>
@@ -79,7 +100,10 @@
                 <th>Start Date</th>
                 <th>End Date</th>
             </tr>
-            <tr *ngFor="let sr of workRequestList" (click)="onSelectedRow(sr)">
+            <tr *ngIf="failedToLoad;else workRequestTable">
+                <td colspan="6" style="text-align:center;"><h3>Failed to load work request details</h3></td>
+            </tr>
+            <tr *ngFor="let sr of workRequestList" (click)="onSelectedRow(sr)" #workRequestTable>
                 <td>{{sr.Customer.CustomerId }} </td>
                 <td>{{sr.ServiceType}} </td>
                 <td>{{sr.Status}} </td>

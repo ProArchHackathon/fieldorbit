@@ -1,27 +1,24 @@
 ﻿import { Job } from '../../Models/job.model';
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { JobService } from '../../Services/Job.service';
 import { MdDialog, MdDialogRef } from '@angular/material';
-import { Configuration } from '../../common/app.constants';
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { ServiceRequestService } from '../../Services/serviceRequest.service';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
-import { StaticDataLoaderService } from "../../Services/staticDataLoader.service";
-import { FormBuilder } from "@angular/forms";
+import { StaticDataLoaderService } from '../../Services/staticDataLoader.service';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
     selector: 'msg-app',
     templateUrl: 'job.component.html',
     styleUrls: ['job.component.scss'],
-    providers: [Configuration],
-    
 })
 
 export class JobComponent implements OnInit{
-    jobList: any;
+    jobList: Job[];
     job: Job;
     Statuses: any;
     Types: any;
@@ -35,6 +32,7 @@ export class JobComponent implements OnInit{
     ErrorMessage: string;
     serviceRequestError: string;
     showButton: boolean;
+    failedToLoad: Boolean = false;
     message = 'This is Job Component';
 
     constructor(public dialog: MdDialog,
@@ -82,6 +80,7 @@ export class JobComponent implements OnInit{
         let dialogRef = this.dialog.open(DialogResultDialog);
         dialogRef.afterClosed().subscribe(result => {
             this.getAllJobs();
+            this.failedToLoad = false;
         });
     }
 
@@ -91,7 +90,7 @@ export class JobComponent implements OnInit{
         .subscribe(response => {
             this.jobList = response;
         },
-            error => this.ErrorMessage = <any>error,
+            error => this.failedToLoad = true,
             () => console.log('Get all Items complete'));
     }
 
@@ -105,6 +104,7 @@ export class JobComponent implements OnInit{
                 this.showButton = true;
             },
                 error => {
+                    console.log(error);
                     this.ErrorMessage = <any>error;
                     this.showButton = false;
                 },
@@ -129,11 +129,11 @@ export class JobComponent implements OnInit{
                     this.openDialog();
                 },
                     error => this.ErrorMessage = <any>error,
-                    () => console.log('Job Updation complete'));
+                    () => console.log('Job Update complete'));
         }
     };
 
-    private onSelectedRow(sr): void {
+    onSelectedRow(sr): void {
         this.job = sr;
         this.Button = 'Update';
         console.log(this.job, 'job');

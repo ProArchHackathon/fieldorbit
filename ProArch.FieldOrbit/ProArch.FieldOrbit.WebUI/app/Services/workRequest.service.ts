@@ -23,7 +23,7 @@ export class WorkRequestService {
      /**
      * addWorkRequest
      */
-    public addWorkRequest(workRequest) {
+    addWorkRequest (workRequest) {
         // Gathering data
        let data = this._staticLoader.modifyData(workRequest, 'WorkRequest');
 
@@ -37,7 +37,7 @@ export class WorkRequestService {
      /**
      * addWorkRequest
      */
-    public updateWorkRequest(workRequest) {
+    updateWorkRequest(workRequest) {
         // Gathering data
        let data = this._staticLoader.modifyData(workRequest, 'WorkRequest');
 

@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LoginService } from './login.service';
 import { CookieService } from '../app.cookieManager';
 import { Router } from '@angular/router';
@@ -8,7 +8,8 @@ import { FormGroup, Validators, FormBuilder} from '@angular/forms';
 
 @Component({
     templateUrl: 'login.component.html',
-    styleUrls: ['login.component.scss']
+    styleUrls: ['login.component.scss'],
+    encapsulation: ViewEncapsulation.Native
 })
 
 export class LoginComponent implements OnInit{
@@ -44,6 +45,11 @@ export class LoginComponent implements OnInit{
         if (this._authService.logInStatus === true){
             this._route.navigate(['dashboard']);
         }
+    }
+
+    clearErrors () {
+        this.errorMessage = '';
+        console.log('hit');
     }
 
     OnSubmit = function() {

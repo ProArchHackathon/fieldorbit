@@ -113,7 +113,10 @@
                 <th>Start Date</th>
                 <th>End Date</th>
             </tr>
-            <tr *ngFor="let sr of serviceRequestList" (click)="onSelectedRow(sr)">
+            <tr *ngIf="failedToLoad;else serviceRequestTable">
+                <td colspan="5" style="text-align:center;"><h3>Failed to load available service requests</h3></td>
+            </tr>
+            <tr *ngFor="let sr of serviceRequestList" (click)="onSelectedRow(sr)" #serviceRequestTable>
                 <td>{{sr.Customer.CustomerId }} </td>
                 <td>{{sr.ServiceType}} </td>
                 <td>{{sr.Status}} </td>

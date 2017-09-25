@@ -8,7 +8,7 @@
         <div fxLayout="column" class="padder">
 
             <md-form-field class="example-full-width" style="width:auto;">
-                <input mdInput [(ngModel)]="user.userName" autofocus name="UserName" placeholder="User Name" aria-label="User Name" formControlName="userName">
+                <input mdInput [(ngModel)]="user.userName" autofocus name="UserName" (ngModelChange)="clearErrors()" placeholder="User Name" aria-label="User Name" formControlName="userName">
                 <md-error *ngIf="loginForm.hasError('maxLength', 'userName')">
                     Please enter a valid User Name
                   </md-error>
@@ -30,7 +30,7 @@
         </div>
         <div fxLayoutAlign="end end" fxLayout="row" style="margin-right: 0;" class="padder">
             <span style="color:red;" *ngIf="errorMessage">Invalid Username or Password</span>
-            <button type="submit" class="mat-button mat-primary" md-raised-button>Login</button>
+            <button type="submit" class="mat-button mat-primary" md-raised-button [disabled]="loginForm.invalid">Login</button>
         </div>
     </md-card>
 </form>

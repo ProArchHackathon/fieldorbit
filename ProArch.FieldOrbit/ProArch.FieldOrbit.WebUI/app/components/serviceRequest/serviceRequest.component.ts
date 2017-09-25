@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { ServiceRequest } from '../../Models/serviceRequest.model';
@@ -8,7 +8,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'service-request',
-    templateUrl: 'serviceRequest.component.html'
+    templateUrl: 'serviceRequest.component.html',
+    encapsulation: ViewEncapsulation.None
 })
 
 export class ServiceRequestComponent implements OnInit{
@@ -18,7 +19,8 @@ export class ServiceRequestComponent implements OnInit{
     serviceType: any;
     minDate = new Date();
     ErrorMessage: string;
-    serviceRequestList: any;
+    failedToLoad: Boolean = false;
+    serviceRequestList: ServiceRequest[];
     serviceRequest: ServiceRequest;
     serviceRequestForm: FormGroup;
 
@@ -31,10 +33,10 @@ export class ServiceRequestComponent implements OnInit{
 
                         requestedBy: ['', Validators.compose([Validators.required,
                                           Validators.pattern('/[^0-9]/g'),
-                                          Validators.maxLength(6)])],
+                                          Validators.maxLength(4)])],
                         customerId: ['',  Validators.compose([Validators.required,
                                           Validators.pattern('/[^0-9]/g'),
-                                          Validators.maxLength(6)])],
+                                          Validators.maxLength(4)])],
                         serviceType: ['', Validators.required],
                         status: ['', Validators.required],
                         requestType: ['', Validators.required],
@@ -71,8 +73,9 @@ export class ServiceRequestComponent implements OnInit{
             .getAllServiceRequestDetails()
             .subscribe(response => {
                 this.serviceRequestList = response;
+                console.log(this.serviceRequestList.length);
             },
-                error => this.ErrorMessage = <any>error,
+                error => this.failedToLoad = true,
                 () => console.log('Get all Items complete'));
     }
 
@@ -90,6 +93,7 @@ export class ServiceRequestComponent implements OnInit{
         dialogRef.afterClosed()
                  .subscribe(result => {
             this.getAllServiceRequests();
+            this.failedToLoad = false;
         });
     }
 
@@ -110,11 +114,16 @@ export class ServiceRequestComponent implements OnInit{
     }
 
     onUpdate(valid): void {
-      this.ErrorMessage = null;
-      if (this.Button === 'Create')  {
-        this.createServiceRequest();
+
+      if (this.serviceRequestForm.valid) {
+        this.ErrorMessage = null;
+        if (this.Button === 'Create')  {
+            this.createServiceRequest();
+          } else {
+            this.updateServiceRequest();
+          }
       } else {
-        this.updateServiceRequest();
+          this.ErrorMessage = 'Provide input to all the fields';
       }
     };
 

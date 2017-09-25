@@ -27,39 +27,6 @@ md-card {
     height:calc(100vh - 48px);
     overflow-y: auto;
 }
-/* 
-.designform md-input-container input {
-    background: rgb(255, 255, 255) none repeat scroll 0 0;
-    border-width: 1px;
-    min-height: 30px;
-    padding: 0 10px 0 10px;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-
-.designform md-input-container label:not(.md-container-ignore) {
-    position: initial;
-    font-size: 13px;
-    color: rgba(0,0,0,.38);
-}
-
-.designform md-select-value {
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
-    background: white !important;
-    padding: 5px 8px !important; 
-    border-radius: 5px;
-}
-
-.designform md-select {
-    border: 1px solid black;
-    border-radius: 5px;
-    min-height: 30px;
-    padding: 0 5px;
-}
-
-/* .inputMargin{
-    margin: 15px 15px 15px 15px;
-} */
 
 .table {
     max-width: 100%;
@@ -119,46 +86,19 @@ tr:hover, tr.alt:hover {
     border: 1px solid black !important;
     border-radius: 5px !important;
 }
-/* .mat-calendar-content {
-    background: white;
-}
-
-.mat-form-field-underline {
-    background-color: rgba(0,0,0,.42);
-}
-
-.mat-select-underline {
-    background-color: rgba(0,0,0,.42);
-}
-
-.mat-select-arrow {
-    color: rgba(0,0,0,.42);
-}
-
-.mat-select-placeholder {
-    color: black;
-}
 
 .padder {
     padding:10px;
 }
 
-.mat-form-field{
-    width:15%;
-    margin-left:10px;
-    margin-right:10px;
-} */
+.mat-form-field {
+    width:15% !important;
+} 
 
-/* .mat-select{
+.mat-select{
     width:15%;
-    margin-left:10px;
-    margin-right:10px;
-} */
+}
 
 .tab-background {
     background-color: #a2b7dc !important;
 }
-
-/* textarea {
-    padding: 0 5px !important;
-} */

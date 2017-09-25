@@ -74,7 +74,12 @@
                 <th>Status</th>
                 <th>Priority</th>
             </tr>
-            <tr *ngFor="let sr of jobList" (click)="onSelectedRow(sr)">
+            <tr *ngIf="failedToLoad;else jobsListTable">
+                <td colspan="6">
+                    <h3>Failed to load jobs details</h3>
+                </td>
+            </tr>
+            <tr *ngFor="let sr of jobList" (click)="onSelectedRow(sr)" #jobsListTable>
                 <td>{{sr.ServiceRequest.ServiceRequestId }} </td>
                 <td>{{sr.JobDescription}} </td>
                 <td>{{sr.StartTime}} </td>

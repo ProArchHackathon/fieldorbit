@@ -1,12 +1,12 @@
-﻿import { Component, ViewEncapsulation } from "@angular/core";
-import { Router, ActivatedRoute, NavigationEnd } from "@angular/router";
-import { Title } from "@angular/platform-browser";
-import { ComponentPageTitle } from "../Services/pageTitle.service";
+﻿import { Component, ViewEncapsulation } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ComponentPageTitle } from '../Services/pageTitle.service';
 
 @Component({
   selector: 'msg-app',
   template: `<router-outlet></router-outlet>`,
-  styleUrls:['app.component.scss'],
+  styleUrls: ['app.component.scss'],
   encapsulation: ViewEncapsulation.None
 
 })
@@ -16,8 +16,8 @@ export class AppComponent {
               private titleService: Title,
               private activatedRoute: ActivatedRoute,
               public _componentPageTitle: ComponentPageTitle) {
-    
   }
+
   ngOnInit() {
 
     this._route.events
@@ -31,13 +31,15 @@ export class AppComponent {
     .mergeMap((route) => route.data)
     .subscribe((event) => this._componentPageTitle.title = event['Title']);
   }
-  
-  navLinks = [{ route: 'servicerequest', label: 'Service Request' },
+
+  navLinks = [
+  { route: 'servicerequest', label: 'Service Request' },
   { route: 'workrequest', label: 'Work Request' },
-  { route: 'job', label: 'Job' }];
+  { route: 'job', label: 'Job' }
+  ];
 
   logout = function () {
     this._route.navigate(['login']);
     this.showNavBar = false;
-  }
+  };
 }

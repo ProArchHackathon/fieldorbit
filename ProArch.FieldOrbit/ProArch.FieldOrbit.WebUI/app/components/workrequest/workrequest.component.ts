@@ -1,7 +1,9 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+﻿import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { MdDialog, MdDialogRef,MdDatepickerModule, MdNativeDateModule} from '@angular/material';
+
 import { DialogResultDialog } from '../../common/dialog/dialog';
-import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
+import { viewer } from './../../Models/viewer.model';
 import { Customer } from '../../Models/customer.model';
 import { StaticDataLoaderService } from '../../Services/staticDataLoader.service';
 import { WorkRequest } from './../../Models/workRequest.model';
@@ -13,17 +15,30 @@ import { WorkRequestService } from '../../Services/workRequest.service';
 })
 
 export class WorkRequestComponent implements OnInit{
-    statusList: any;
-    requestType: any;
-    serviceType: any;
+    statusList: viewer[];
+    requestType: viewer[];
+    serviceType: viewer[];
+    minDate = new Date();
     workRequest: WorkRequest;
+    workRequestForm: FormGroup;
     Button: string;
     ErrorMessage: string;
-    workRequestList: any;
-
+    workRequestList: WorkRequest[];
+    failedToLoad: Boolean = false;
     constructor(public dialog: MdDialog,
+                private _formBuilder: FormBuilder,
                 private workRequestService: WorkRequestService,
-                private _staticDataLoader: StaticDataLoaderService) {};
+                private _staticDataLoader: StaticDataLoaderService) {
+
+                    this.workRequestForm = _formBuilder.group({
+                        serviceType: ['', Validators.required],
+                        status: ['', Validators.required],
+                        requestType: ['', Validators.required],
+                        requestedBy: ['', Validators.required],
+                        customerId: ['', Validators.required],
+                        createdDate: [null, Validators.required]
+                    });
+                };
 
     ngOnInit() {
         // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -62,7 +77,7 @@ export class WorkRequestComponent implements OnInit{
             .subscribe(response => {
                 this.workRequestList = response;
             },
-                error => this.ErrorMessage = <any>error,
+                error => this.failedToLoad = true,
                 () => console.log('Get all Items complete'));
     }
 
@@ -70,10 +85,12 @@ export class WorkRequestComponent implements OnInit{
         let dialogRef = this.dialog.open(DialogResultDialog);
         dialogRef.afterClosed().subscribe(result => {
             this.getAllWorkRequests();
+            this.failedToLoad = false;
         });
     }
 
-    createWorkRequest (){
+    createWorkRequest () {
+        console.log(this.workRequestService);
         this.workRequestService
             .addWorkRequest(this.workRequest)
             .subscribe(response => { this.openDialog(); },
@@ -82,6 +99,7 @@ export class WorkRequestComponent implements OnInit{
     }
 
     updateWorkRequest () {
+        console.log(this.workRequestService);
         this.workRequestService
             .updateWorkRequest(this.workRequest)
             .subscribe(response => { this.openDialog(); },
@@ -89,16 +107,21 @@ export class WorkRequestComponent implements OnInit{
                        () => console.log('Get all Items complete'));
     }
 
-    onUpdate(valid): void {
-        this.ErrorMessage = null;
-        if (this.Button === 'Create')  {
-          this.createWorkRequest();
-        } else {
-          this.updateWorkRequest();
+    onUpdate(button): void {
+        if (this.workRequestForm.valid) {
+         if (this.Button === 'Create')  {
+           this.createWorkRequest();
+         } else {
+            this.updateWorkRequest();
         }
+            this.ErrorMessage = null;
+        }else {
+            this.ErrorMessage = 'Enter all the required fields';
+        }
+
       };
 
-    private onSelectedRow(serviceRequest): void {
+    onSelectedRow(serviceRequest): void {
         this.workRequest.SrNumber = serviceRequest.ServiceRequestId;
         this.workRequest.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
         this.workRequest.ServiceType = serviceRequest.ServiceType;
@@ -110,8 +133,5 @@ export class WorkRequestComponent implements OnInit{
         this.workRequest.EndDate = new Date(serviceRequest.EndDate);
         this.workRequest.Status = serviceRequest.Status;
         this.Button = 'Update';
-    }
-    onLoad() {
-
     }
 }
