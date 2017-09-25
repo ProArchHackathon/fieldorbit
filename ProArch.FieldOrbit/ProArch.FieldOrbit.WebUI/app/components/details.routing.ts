@@ -12,11 +12,8 @@ const routes: Routes = [
              {path: '', redirectTo: 'servicerequest', pathMatch: 'full'},
             { path: 'servicerequest', component: ServiceRequestComponent, data: { Title: 'Service Request' } },
             { path: 'job', component: JobComponent , data: { Title: 'Job Details' } },
-            { path: 'workrequest', component: WorkRequestComponent, data: { Title: 'Work Request' } }
-            ]
+            { path: 'workrequest', component: WorkRequestComponent, data: { Title: 'Work Request' } }]
         }
-    // // this route should be the last one
-    // { path: '**', pathMatch: 'full', component: PathNotFoundComponent, data: { Title: '404' } }
 ];
 
 export const DetailsRouting: ModuleWithProviders = RouterModule.forRoot(routes);

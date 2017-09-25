@@ -47,11 +47,6 @@ export class LoginComponent implements OnInit{
         }
     }
 
-    clearErrors () {
-        this.errorMessage = '';
-        console.log('hit');
-    }
-
     OnSubmit = function() {
         this.errorMessage = null;
         // var cookie = this._cookieService.getCookie("filedOrbitAccess");

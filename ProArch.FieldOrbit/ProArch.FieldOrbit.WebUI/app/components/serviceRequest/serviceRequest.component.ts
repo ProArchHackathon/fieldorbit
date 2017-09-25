@@ -32,10 +32,10 @@ export class ServiceRequestComponent implements OnInit{
                     this.serviceRequestForm = formBuilder.group({
 
                         requestedBy: ['', Validators.compose([Validators.required,
-                                          Validators.pattern('/[^0-9]/g'),
+                                          Validators.pattern('/^\d+$/'),
                                           Validators.maxLength(4)])],
                         customerId: ['',  Validators.compose([Validators.required,
-                                          Validators.pattern('/[^0-9]/g'),
+                                          Validators.pattern('/^\d+$/'),
                                           Validators.maxLength(4)])],
                         serviceType: ['', Validators.required],
                         status: ['', Validators.required],
@@ -66,6 +66,13 @@ export class ServiceRequestComponent implements OnInit{
         this.serviceType = this.staticDataLoaderService.serviceType;
         this.statusList = this.staticDataLoaderService.statusList;
         this.requestType = this.staticDataLoaderService.requestType;
+    }
+
+
+    resetDetails() {
+        this.serviceRequestForm.reset();
+        this.Button = 'Create';
+        this.serviceRequest.SrNumber = null;
     }
 
     getAllServiceRequests() {

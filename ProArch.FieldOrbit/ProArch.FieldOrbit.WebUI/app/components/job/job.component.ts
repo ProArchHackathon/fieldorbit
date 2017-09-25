@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { StaticDataLoaderService } from '../../Services/staticDataLoader.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 
 @Component({
@@ -32,6 +32,7 @@ export class JobComponent implements OnInit{
     ErrorMessage: string;
     serviceRequestError: string;
     showButton: boolean;
+    jobDetailsForm: FormGroup;
     failedToLoad: Boolean = false;
     message = 'This is Job Component';
 
@@ -39,7 +40,18 @@ export class JobComponent implements OnInit{
                 private fb: FormBuilder,
                 private serviceRequestService: ServiceRequestService,
                 private jobService: JobService,
-                private _staticDataLoader: StaticDataLoaderService) { }
+                private _staticDataLoader: StaticDataLoaderService) {
+
+                    this.jobDetailsForm = fb.group({
+                      serviceRequestId: ['', Validators.compose([Validators.required,
+                                                                  Validators.pattern('/^\d+$/'),
+                                                                  Validators.maxLength(1)])],
+                      jobDescription: ['', Validators.required],
+                      status: ['', Validators.required],
+                      startDate: [null, Validators.required],
+                      endDate: [null, Validators.required]
+        });
+    }
 
     ngOnInit() {
         //  Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -63,6 +75,10 @@ export class JobComponent implements OnInit{
         this.Button = 'Create';
         this.getAllJobs();
         this.showButton = false;
+    }
+
+    resetDetails () {
+        this.jobDetailsForm.reset();
     }
 
     // validating the Date here

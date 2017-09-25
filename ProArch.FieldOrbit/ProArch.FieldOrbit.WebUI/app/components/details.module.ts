@@ -25,6 +25,7 @@ import { ServiceRequestService } from '../Services/serviceRequest.service';
 import { Configuration } from '../common/app.constants';
 import { WorkRequestService } from '../Services/workRequest.service';
 import { StaticDataLoaderService } from '../Services/staticDataLoader.service';
+import { PathNotFoundComponent } from './pathNotFound/pathNotFound.component';
 
 @NgModule({
   imports: [ 
@@ -40,7 +41,8 @@ import { StaticDataLoaderService } from '../Services/staticDataLoader.service';
     FlexLayoutModule,
     NoopAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   exports: [
     DetailsComponent,
@@ -57,7 +59,8 @@ import { StaticDataLoaderService } from '../Services/staticDataLoader.service';
     ServiceRequestComponent,
     WorkRequestComponent,
     SidenavComponent,
-    JobComponent
+    JobComponent,
+    PathNotFoundComponent
   ],
   providers: [AuthenticateService, AuthGuard, ServiceRequestService, Configuration, WorkRequestService, StaticDataLoaderService]
 })

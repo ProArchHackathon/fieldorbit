@@ -63,6 +63,12 @@ export class WorkRequestComponent implements OnInit{
         this.getAllWorkRequests();
     }
 
+    resetDetails() {
+        this.workRequestForm.reset();
+        this.Button = 'Create';
+        this.workRequest.SrNumber = null;
+    }
+
     validateDate() {
         if (!this.workRequest.StartDate) {
             this.ErrorMessage = 'Please Select Start Date';
