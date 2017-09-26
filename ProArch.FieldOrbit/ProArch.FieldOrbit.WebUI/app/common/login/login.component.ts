@@ -1,4 +1,5 @@
-﻿import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+﻿import { UserNamValidator } from './../../Validators/userName.validator';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LoginService } from './login.service';
 import { CookieService } from '../app.cookieManager';
 import { Router } from '@angular/router';
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit{
                    userName: ['',
                                 Validators.compose([Validators.required,
                                                     Validators.maxLength(10),
-                                                    Validators.minLength(5)])],
+                                                    Validators.minLength(5),
+                                                    UserNamValidator.cannotContainSpace])],
                    password: ['',
                                 Validators.compose([Validators.required,
                                                     Validators.minLength(6),

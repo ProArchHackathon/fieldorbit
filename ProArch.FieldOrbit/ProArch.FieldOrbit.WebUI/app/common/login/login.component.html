@@ -10,10 +10,13 @@
             <md-form-field class="example-full-width" style="width:auto;">
                 <input mdInput [(ngModel)]="user.userName" autofocus name="UserName" placeholder="User Name" aria-label="User Name" formControlName="userName">
                 <md-error *ngIf="loginForm.hasError('maxLength', 'userName')">
-                    Please enter a valid User Name
+                    Username should be maximum 6 charectars
                   </md-error>
                   <md-error *ngIf="loginForm.hasError('required','userName')">
                     User Name is <strong>required</strong>
+                  </md-error>
+                  <md-error *ngIf="loginForm.hasError('required','cannotContainSpace')">
+                    User Name cannot contain space
                   </md-error>
             </md-form-field>
 
