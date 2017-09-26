@@ -9,13 +9,16 @@
 
             <md-form-field class="example-full-width" style="width:auto;">
                 <input mdInput [(ngModel)]="user.userName" autofocus name="UserName" placeholder="User Name" aria-label="User Name" formControlName="userName">
-                <md-error *ngIf="loginForm.hasError('maxLength', 'userName')">
+                <md-error *ngIf="loginForm.hasError('maxlength', 'userName')">
                     Username should be maximum 6 charectars
+                  </md-error>
+                  <md-error *ngIf="loginForm.hasError('minlength', 'userName')">
+                    Username should be minimum 4 charectars
                   </md-error>
                   <md-error *ngIf="loginForm.hasError('required','userName')">
                     User Name is <strong>required</strong>
                   </md-error>
-                  <md-error *ngIf="loginForm.hasError('required','cannotContainSpace')">
+                  <md-error *ngIf="loginForm.hasError('cannotContainSpace','userName')">
                     User Name cannot contain space
                   </md-error>
             </md-form-field>
@@ -23,7 +26,7 @@
             <md-form-field class="example-full-width" style="width:auto;">
                 <input mdInput type="password" [(ngModel)]="user.password" name="Password" placeholder="Password" formControlName="password">
                 <md-error *ngIf="loginForm.hasError('pattern', 'password')">
-                    Please enter a valid Password
+                    Password doesn't match the criteria
                   </md-error>
                   <md-error *ngIf="loginForm.hasError('required','password')">
                     Password is <strong>required</strong>

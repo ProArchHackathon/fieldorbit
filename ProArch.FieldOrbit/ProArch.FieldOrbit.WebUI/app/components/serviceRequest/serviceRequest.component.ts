@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+﻿import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { ServiceRequest } from '../../Models/serviceRequest.model';
@@ -22,7 +22,7 @@ export class ServiceRequestComponent implements OnInit{
     failedToLoad: Boolean = false;
     serviceRequestList: ServiceRequest[];
     serviceRequest: ServiceRequest;
-    serviceRequestForm: FormGroup;
+    public serviceRequestForm: FormGroup;
 
     constructor(public dialog: MdDialog,
                 private formBuilder: FormBuilder,
@@ -32,15 +32,18 @@ export class ServiceRequestComponent implements OnInit{
                     this.serviceRequestForm = formBuilder.group({
 
                         requestedBy: ['', Validators.compose([Validators.required,
-                                          Validators.pattern('/^\d+$/'),
-                                          Validators.maxLength(4)])],
+                                          Validators.pattern('^[0-9]*$'),
+                                          Validators.minLength(4),
+                                          Validators.maxLength(6)])],
                         customerId: ['',  Validators.compose([Validators.required,
-                                          Validators.pattern('/^\d+$/'),
+                                          Validators.pattern('^[0-9]*$'),
                                           Validators.maxLength(4)])],
                         serviceType: ['', Validators.required],
                         status: ['', Validators.required],
                         requestType: ['', Validators.required],
-                        createdDate: [null, Validators.required]
+                        createdDate: [{ value: new Date(), disabled: true }, Validators.required],
+                        startDate: [null],
+                        endDate: [null]
                     });
     };
 
@@ -68,11 +71,19 @@ export class ServiceRequestComponent implements OnInit{
         this.requestType = this.staticDataLoaderService.requestType;
     }
 
+    clearDateDetails() {
+        this.serviceRequest.EndDate = null;
+        console.log( this.serviceRequest);
+    }
+
 
     resetDetails() {
         this.serviceRequestForm.reset();
         this.Button = 'Create';
         this.serviceRequest.SrNumber = null;
+        this.serviceRequest.Location = null;
+        this.ErrorMessage = null;
+        console.log(this.serviceRequest);
     }
 
     getAllServiceRequests() {

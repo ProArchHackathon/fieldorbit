@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { StaticDataLoaderService } from '../../Services/staticDataLoader.service';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -20,6 +20,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class JobComponent implements OnInit{
     jobList: Job[];
     job: Job;
+    minDate = new Date();
     Statuses: any;
     Types: any;
     Priorities: any;
@@ -44,10 +45,11 @@ export class JobComponent implements OnInit{
 
                     this.jobDetailsForm = fb.group({
                       serviceRequestId: ['', Validators.compose([Validators.required,
-                                                                  Validators.pattern('/^\d+$/'),
+                                                                  Validators.pattern('^(?:[1-9]|0[1-9])$'),
                                                                   Validators.maxLength(1)])],
                       jobDescription: ['', Validators.required],
                       status: ['', Validators.required],
+                      priority: ['', Validators.required],
                       startDate: [null, Validators.required],
                       endDate: [null, Validators.required]
         });
@@ -79,6 +81,7 @@ export class JobComponent implements OnInit{
 
     resetDetails () {
         this.jobDetailsForm.reset();
+        this.ErrorMessage = null;
     }
 
     // validating the Date here
@@ -128,24 +131,29 @@ export class JobComponent implements OnInit{
     };
 
     onSubmit() {
-        this.ErrorMessage = null;
-        this.serviceRequestError = null;
-        if (this.Button === 'Create') {
-            this.jobService
-                .createJob(this.job)
-                .subscribe(response => {
-                    this.openDialog();
-                },
-                    error => this.ErrorMessage = <any>error,
-                    () => console.log('Job Creation complete'));
+        console.log(' called');
+        if (this.jobDetailsForm.valid){
+            if (this.Button === 'Create') {
+                this.jobService
+                    .createJob(this.job)
+                    .subscribe(response => {
+                        this.openDialog();
+                    },
+                        error => this.ErrorMessage = <any>error,
+                        () => console.log('Job Creation complete'));
+            }else {
+                this.jobService
+                    .updateJob(this.job)
+                    .subscribe(response => {
+                        this.openDialog();
+                    },
+                        error => this.ErrorMessage = <any>error,
+                        () => console.log('Job Update complete'));
+            }
+            this.ErrorMessage = null;
+            this.serviceRequestError = null;
         }else {
-            this.jobService
-                .updateJob(this.job)
-                .subscribe(response => {
-                    this.openDialog();
-                },
-                    error => this.ErrorMessage = <any>error,
-                    () => console.log('Job Update complete'));
+            this.ErrorMessage = 'Provide input to all the fields';
         }
     };
 

@@ -42,7 +42,7 @@ export class WorkRequestService {
        let data = this._staticLoader.modifyData(workRequest, 'WorkRequest');
 
        return this.httpClient
-                  .post(this._config.ApiServer + this._config.UpdateServiceRequest, data)
+                  .put(this._config.ApiServer + this._config.UpdateServiceRequest, data)
                   .map(this.extractData)
                   .do((response) => console.log(response))
                   .catch(this.handleError);

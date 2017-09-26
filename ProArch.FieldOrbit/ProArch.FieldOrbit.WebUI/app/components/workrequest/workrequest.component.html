@@ -9,17 +9,17 @@
         </div>
 
         <div class="padder">
-            <md-select name="ServiceType" placeholder="Service Type" [(ngModel)]="workRequest.ServiceType" formControlName="serviceType">
+            <md-select placeholder="Service Type" [(ngModel)]="workRequest.ServiceType" formControlName="serviceType">
                 <md-option *ngFor="let type of serviceType" [value]="type.value">
                     {{ type.viewValue }}
                 </md-option>
             </md-select>
-            <md-select name="Status"  placeholder="Status" [(ngModel)]="workRequest.Status" formControlName="status">
+            <md-select   placeholder="Status" [(ngModel)]="workRequest.Status" formControlName="status">
                 <md-option *ngFor="let Status of statusList" [value]="Status.value">
                     {{ Status.viewValue }}
                 </md-option>
             </md-select>
-            <md-select placeholder="Request Type" name="Request Type" [(ngModel)]="workRequest.RequestType" formControlName="requestType">
+            <md-select placeholder="Request Type"  [(ngModel)]="workRequest.RequestType" formControlName="requestType">
                 <md-option *ngFor="let RType of requestType" [value]="RType.value">
                     {{ RType.viewValue }}
                 </md-option>
@@ -32,8 +32,11 @@
                 <md-error *ngIf="workRequestForm.hasError('pattern', 'requestedBy')">
                     Please enter a valid requester detail
                 </md-error>
-                <md-error *ngIf="workRequestForm.hasError('maxLength','requestedBy')">
-                    Max length exceeded
+                <md-error *ngIf="workRequestForm.hasError('maxlength','requestedBy')">
+                    Max length is 6 digits
+                </md-error>
+                <md-error *ngIf="workRequestForm.hasError('minlength','requestedBy')">
+                    Min length is minimum 4 digits
                 </md-error>
                 <md-error *ngIf="workRequestForm.hasError('required','requestedBy')">
                     RequestedBy is <strong>required</strong>
@@ -41,12 +44,15 @@
             </md-form-field>
 
             <md-form-field >
-                <input mdInput [(ngModel)]="workRequest.Customer.CustomerId" name="CustomerId" placeholder="Customer ID" formControlName="customerId">
+                <input mdInput [(ngModel)]="workRequest.Customer.CustomerId" placeholder="Customer ID" formControlName="customerId">
                 <md-error *ngIf="workRequestForm.hasError('pattern', 'customerId')">
                     Please enter a valid Customer Id
                 </md-error>
-                <md-error *ngIf="workRequestForm.hasError('maxLength','customerId')">
-                    Max length exceeded
+                <md-error *ngIf="workRequestForm.hasError('maxlength','customerId')">
+                    Max length is 6 digits
+                </md-error>
+                <md-error *ngIf="workRequestForm.hasError('minlength','customerId')">
+                    Customer Id is minimum 4 digits
                 </md-error>
                 <md-error *ngIf="workRequestForm.hasError('required','customerId')">
                     RequestedBy is <strong>required</strong>
@@ -54,33 +60,33 @@
             </md-form-field>
             
             <md-form-field >
-                <input mdInput [(ngModel)]="workRequest.Location" name="Location" placeholder="Location" [ngModelOptions]="{standalone: true}">
+                <input mdInput [(ngModel)]="workRequest.Location" placeholder="Location" [ngModelOptions]="{standalone: true}">
             </md-form-field>
         </div>
 
         <div class="padder">
-            <md-form-field >
-                
-                <input [mdDatepicker]="createdDate" mdInput [(ngModel)]="workRequest.CreatedDate" name="CreatedDate" placeholder="Created Date" formControlName="createdDate">
-                <md-datepicker-toggle mdSuffix [for]="createdDate"></md-datepicker-toggle>
-                <md-datepicker #createdDate></md-datepicker>
-                <md-error *ngIf="workRequestForm.hasError('required','createdDate')">
-                    RequestedBy is <strong>required</strong>
-                </md-error>
-            </md-form-field>
-            
-            <md-form-field >
-                
-                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="workRequest.StartDate" (blur)="validateDate()" name="StartDate" placeholder="Start Date" [ngModelOptions]="{standalone: true}">
-                <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
-                <md-datepicker #startDate></md-datepicker>
+            <md-form-field >    
+                <input [mdDatepicker]="createdDate" mdInput [(ngModel)]="workRequest.CreatedDate" placeholder="Created Date" [min]="minDate" formControlName="createdDate">
+                <md-datepicker-toggle mdSuffix  [for]="createdDate" [disabled]="true"></md-datepicker-toggle>
+                <md-datepicker #createdDate ></md-datepicker>
             </md-form-field>
             
             <md-form-field>
-                
-                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="workRequest.EndDate" (blur)="validateDate()" name="EndDate" placeholder="End Date" [ngModelOptions]="{standalone: true}">
+                <input mdInput [mdDatepicker]="startDate" [(ngModel)]="workRequest.StartDate" (blur)="validateDate()" placeholder="Start Date" [min]="minDate" formControlName="startDate">
+                <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
+                <md-datepicker #startDate></md-datepicker>
+                <md-error *ngIf="workRequestForm.hasError('min','startDate')">
+                    Provide proper date 
+                </md-error>
+            </md-form-field>
+            
+            <md-form-field>
+                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="workRequest.EndDate" (blur)="validateDate()" [min]="minDate" placeholder="End Date" formControlName="endDate">
                 <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
                 <md-datepicker #endDate></md-datepicker>
+                <md-error *ngIf="workRequestForm.hasError('min','endDate')">
+                    Provide proper date 
+                </md-error>
             </md-form-field>
             
         </div>

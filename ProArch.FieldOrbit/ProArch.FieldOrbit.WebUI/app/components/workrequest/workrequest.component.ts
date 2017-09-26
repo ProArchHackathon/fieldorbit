@@ -1,6 +1,6 @@
 ﻿import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef,MdDatepickerModule, MdNativeDateModule} from '@angular/material';
+import { MdDialog, MdDialogRef, MdDatepickerModule, MdNativeDateModule} from '@angular/material';
 
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { viewer } from './../../Models/viewer.model';
@@ -34,9 +34,17 @@ export class WorkRequestComponent implements OnInit{
                         serviceType: ['', Validators.required],
                         status: ['', Validators.required],
                         requestType: ['', Validators.required],
-                        requestedBy: ['', Validators.required],
-                        customerId: ['', Validators.required],
-                        createdDate: [null, Validators.required]
+                        requestedBy: [null, Validators.compose([Validators.required,
+                                          Validators.pattern('^[0-9]*$'),
+                                          Validators.minLength(4),
+                                          Validators.maxLength(6)])],
+                        customerId: [null, Validators.compose([Validators.required,
+                                         Validators.pattern('^[0-9]*$'),
+                                         Validators.minLength(4),
+                                         Validators.maxLength(6)])],
+                        createdDate: [{ value: new Date(), disabled: true }, Validators.required],
+                        startDate: [null],
+                        endDate: [null]
                     });
                 };
 
@@ -67,6 +75,7 @@ export class WorkRequestComponent implements OnInit{
         this.workRequestForm.reset();
         this.Button = 'Create';
         this.workRequest.SrNumber = null;
+        this.ErrorMessage = null;
     }
 
     validateDate() {
