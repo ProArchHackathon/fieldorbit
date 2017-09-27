@@ -47,11 +47,9 @@ export class ServiceRequestService {
      * updateServiceRequest
      */
     public updateServiceRequest(serviceRequest) {
-        // Gathering data
-       const data = this._staticLoader.modifyData(serviceRequest, 'ServiceRequest');
 
        return this.httpClient
-                  .put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, data)
+                  .put(this._configuration.ApiServer + this._configuration.UpdateServiceRequest, serviceRequest)
                   .map(this.extractData)
                   .do((response) => console.log(response))
                   .catch(this.handleError);
@@ -61,11 +59,9 @@ export class ServiceRequestService {
      * addServiceRequest
      */
     public addServiceRequest(serviceRequest) {
-        // Gathering data
-       let data = this._staticLoader.modifyData(serviceRequest, 'ServiceRequest');
 
        return this.httpClient
-                  .post(this._configuration.ApiServer + this._configuration.AddServiceRequest, data)
+                  .post(this._configuration.ApiServer + this._configuration.AddServiceRequest, serviceRequest)
                   .map(this.extractData)
                   .do((response) => console.log(response))
                   .catch(this.handleError);

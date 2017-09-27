@@ -14,7 +14,7 @@
                        autofocus
                        formControlName="requestedBy" 
                        name="RequestedBy"
-                       [(ngModel)]="serviceRequest.RequestedBy"
+                       [(ngModel)]="serviceRequest.CreatedBy.EmployeeId"
                        placeholder="Requested By">
                 <md-error *ngIf="serviceRequestForm.hasError('pattern', 'requestedBy')">
                         Please enter a valid requester detail
@@ -23,7 +23,7 @@
                         Max length exceeded
                 </md-error>
                 <md-error *ngIf="serviceRequestForm.hasError('minlength','requestedBy')">
-                    Min length of requester is {{serviceRequestForm}}
+                    Min length of requester is 6
                 </md-error>
                 <md-error *ngIf="serviceRequestForm.hasError('required','requestedBy')">
                         RequestedBy is <strong>required</strong>
@@ -85,7 +85,7 @@
             </md-form-field>
             
             <md-form-field>
-                <input mdInput [mdDatepicker]="startDate" formControlName="startDate" [(ngModel)]="serviceRequest.StartDate" (ngModelChange)="clearDateDetails()" [min]="minDate" (blur)="validateDate()" name="StartDate" placeholder="Start Date">
+                <input mdInput [mdDatepicker]="startDate" formControlName="startDate" [(ngModel)]="serviceRequest.StartDate" [min]="minDate" (blur)="validateDate()" name="StartDate" placeholder="Start Date">
                 <md-datepicker-toggle mdSuffix [for]="startDate"></md-datepicker-toggle>
                 <md-datepicker #startDate></md-datepicker>
             </md-form-field>
@@ -121,9 +121,9 @@
                 <td>{{sr.Customer.CustomerId }} </td>
                 <td>{{sr.ServiceType}} </td>
                 <td>{{sr.Status}} </td>
-                <td>{{sr.CreatedDate}} </td>
-                <td>{{sr.StartDate}} </td>
-                <td>{{sr.EndDate}} </td>
+                <td>{{sr.CreatedDate | date: 'dd/MM/yyyy'}} </td>
+                <td>{{sr.StartDate | date: 'dd/MM/yyyy'}} </td>
+                <td>{{sr.EndDate | date: 'dd/MM/yyyy'}} </td>
             </tr>
         </table>
     </md-card>

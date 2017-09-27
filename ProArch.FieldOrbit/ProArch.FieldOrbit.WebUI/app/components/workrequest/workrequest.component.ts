@@ -49,10 +49,16 @@ export class WorkRequestComponent implements OnInit{
                 };
 
     ngOnInit() {
-        // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        /**
+         *  Called after the constructor,
+         *  initializing input properties,
+         *  and the first call to ngOnChanges.
+         */
         this.workRequest = {
             SrNumber: null,
-            RequestedBy: '',
+            CreatedBy: {
+                EmployeeId: ''
+            },
             ServiceType: '',
             RequestType: '',
             CreatedDate: new Date(),
@@ -62,7 +68,8 @@ export class WorkRequestComponent implements OnInit{
                 CustomerId: null
             },
             Status: '',
-            Location: ''
+            Location: '',
+            Type: 'WorkRequest'
         };
         this.serviceType = this._staticDataLoader.serviceType;
         this.statusList = this._staticDataLoader.statusList;
@@ -76,6 +83,8 @@ export class WorkRequestComponent implements OnInit{
         this.Button = 'Create';
         this.workRequest.SrNumber = null;
         this.ErrorMessage = null;
+        this.workRequest.CreatedDate = new Date();
+        console.log(this.workRequest);
     }
 
     validateDate() {
@@ -105,7 +114,6 @@ export class WorkRequestComponent implements OnInit{
     }
 
     createWorkRequest () {
-        console.log(this.workRequestService);
         this.workRequestService
             .addWorkRequest(this.workRequest)
             .subscribe(response => { this.openDialog(); },
@@ -114,7 +122,6 @@ export class WorkRequestComponent implements OnInit{
     }
 
     updateWorkRequest () {
-        console.log(this.workRequestService);
         this.workRequestService
             .updateWorkRequest(this.workRequest)
             .subscribe(response => { this.openDialog(); },
@@ -136,17 +143,8 @@ export class WorkRequestComponent implements OnInit{
 
       };
 
-    onSelectedRow(serviceRequest): void {
-        this.workRequest.SrNumber = serviceRequest.ServiceRequestId;
-        this.workRequest.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
-        this.workRequest.ServiceType = serviceRequest.ServiceType;
-        this.workRequest.RequestType = serviceRequest.RequestType;
-        this.workRequest.Customer.CustomerId = serviceRequest.Customer.CustomerId;
-        this.workRequest.Location = serviceRequest.Location;
-        this.workRequest.CreatedDate = new Date(serviceRequest.CreatedDate);
-        this.workRequest.StartDate = new Date(serviceRequest.StartDate);
-        this.workRequest.EndDate = new Date(serviceRequest.EndDate);
-        this.workRequest.Status = serviceRequest.Status;
+    onSelectedRow(workRequest: WorkRequest): void {
+        this.workRequest = workRequest;
         this.Button = 'Update';
     }
 }

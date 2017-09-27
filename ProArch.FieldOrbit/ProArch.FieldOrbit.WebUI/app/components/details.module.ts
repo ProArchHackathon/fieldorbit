@@ -28,7 +28,7 @@ import { StaticDataLoaderService } from '../Services/staticDataLoader.service';
 import { PathNotFoundComponent } from './pathNotFound/pathNotFound.component';
 
 @NgModule({
-  imports: [ 
+  imports: [
     DetailsRouting,
     BrowserModule,
     MdDialogModule,
@@ -42,7 +42,6 @@ import { PathNotFoundComponent } from './pathNotFound/pathNotFound.component';
     NoopAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
   ],
   exports: [
     DetailsComponent,
@@ -62,6 +61,13 @@ import { PathNotFoundComponent } from './pathNotFound/pathNotFound.component';
     JobComponent,
     PathNotFoundComponent
   ],
-  providers: [AuthenticateService, AuthGuard, ServiceRequestService, Configuration, WorkRequestService, StaticDataLoaderService]
+  providers: [
+    AuthenticateService,
+    AuthGuard,
+    ServiceRequestService,
+    Configuration,
+    WorkRequestService,
+    StaticDataLoaderService
+  ]
 })
 export class DetailsModule {}

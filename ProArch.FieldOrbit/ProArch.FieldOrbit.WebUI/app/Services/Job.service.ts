@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Configuration } from '../common/app.constants';
 import { StaticDataLoaderService } from './staticDataLoader.service';
 import { Observable } from 'rxjs/Observable';
@@ -41,7 +41,8 @@ export class JobService {
         return body;
     };
 
-    private handleError(error: Response) {
+    private handleError(error: HttpErrorResponse) {
+        console.log(error);
         return Observable.throw(error || 'server error');
     };
 }

@@ -28,7 +28,7 @@
 
         <div class="padder">
             <md-form-field >                
-                <input mdInput [(ngModel)]="workRequest.RequestedBy" autofocus name="RequestedBy" placeholder="Requested By" formControlName="requestedBy">
+                <input mdInput [(ngModel)]="workRequest.CreatedBy.EmployeeId" autofocus name="RequestedBy" placeholder="Requested By" formControlName="requestedBy">
                 <md-error *ngIf="workRequestForm.hasError('pattern', 'requestedBy')">
                     Please enter a valid requester detail
                 </md-error>
@@ -114,9 +114,9 @@
                 <td>{{sr.Customer.CustomerId }} </td>
                 <td>{{sr.ServiceType}} </td>
                 <td>{{sr.Status}} </td>
-                <td>{{sr.CreatedDate}} </td>
-                <td>{{sr.StartDate}} </td>
-                <td>{{sr.EndDate}} </td>
+                <td>{{sr.CreatedDate | date: 'dd/MM/yyyy'}} </td>
+                <td>{{sr.StartDate | date: 'dd/MM/yyyy'}} </td>
+                <td>{{sr.EndDate | date: 'dd/MM/yyyy'}} </td>
             </tr>
         </table>
     </md-card>

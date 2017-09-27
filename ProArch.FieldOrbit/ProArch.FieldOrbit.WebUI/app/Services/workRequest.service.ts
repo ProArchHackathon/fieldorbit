@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Configuration } from '../common/app.constants';
 import { Observable } from 'rxjs/Observable';
 import { WorkRequest } from '../Models/workRequest.model';
@@ -23,12 +23,10 @@ export class WorkRequestService {
      /**
      * addWorkRequest
      */
-    addWorkRequest (workRequest) {
-        // Gathering data
-       let data = this._staticLoader.modifyData(workRequest, 'WorkRequest');
+    addWorkRequest (workRequest: WorkRequest) {
 
        return this.httpClient
-                  .post(this._config.ApiServer + this._config.AddServiceRequest, data)
+                  .post(this._config.ApiServer + this._config.AddServiceRequest, workRequest)
                   .map(this.extractData)
                   .do((response) => console.log(response))
                   .catch(this.handleError);
@@ -37,12 +35,10 @@ export class WorkRequestService {
      /**
      * addWorkRequest
      */
-    updateWorkRequest(workRequest) {
-        // Gathering data
-       let data = this._staticLoader.modifyData(workRequest, 'WorkRequest');
+    updateWorkRequest(workRequest: WorkRequest) {
 
        return this.httpClient
-                  .put(this._config.ApiServer + this._config.UpdateServiceRequest, data)
+                  .put(this._config.ApiServer + this._config.UpdateServiceRequest, workRequest)
                   .map(this.extractData)
                   .do((response) => console.log(response))
                   .catch(this.handleError);
@@ -54,7 +50,7 @@ export class WorkRequestService {
         return body;
     };
 
-    private handleError(error: Response) {
+    private handleError(error: HttpErrorResponse) {
         return Observable.throw(error || 'server error');
     };
 }

@@ -1,10 +1,12 @@
-﻿import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MdDialog, MdDialogRef } from '@angular/material';
+﻿import { MdDialog, MdDialogRef } from '@angular/material';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { ServiceRequest } from '../../Models/serviceRequest.model';
 import { ServiceRequestService } from '../../Services/serviceRequest.service';
 import { StaticDataLoaderService } from './../../Services/staticDataLoader.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
     selector: 'service-request',
@@ -42,7 +44,7 @@ export class ServiceRequestComponent implements OnInit{
                         status: ['', Validators.required],
                         requestType: ['', Validators.required],
                         createdDate: [{ value: new Date(), disabled: true }, Validators.required],
-                        startDate: [null],
+                        startDate: [new Date()],
                         endDate: [null]
                     });
     };
@@ -52,16 +54,19 @@ export class ServiceRequestComponent implements OnInit{
             ServiceRequestId: null,
             SrNumber: null,
             ServiceType: '',
-            RequestedBy: '',
+            CreatedBy: {
+                EmployeeId: ''
+            },
             RequestType: '',
             Customer: {
                 CustomerId: 0
             },
             CreatedDate: new Date(),
-            StartDate: null,
+            StartDate: new Date(),
             EndDate: null,
             Status: null,
-            Location: ''
+            Location: '',
+            Type: 'ServiceRequest'
         };
 
         this.Button = 'Create';
@@ -73,7 +78,6 @@ export class ServiceRequestComponent implements OnInit{
 
     clearDateDetails() {
         this.serviceRequest.EndDate = null;
-        console.log( this.serviceRequest);
     }
 
 
@@ -83,7 +87,6 @@ export class ServiceRequestComponent implements OnInit{
         this.serviceRequest.SrNumber = null;
         this.serviceRequest.Location = null;
         this.ErrorMessage = null;
-        console.log(this.serviceRequest);
     }
 
     getAllServiceRequests() {
@@ -91,7 +94,6 @@ export class ServiceRequestComponent implements OnInit{
             .getAllServiceRequestDetails()
             .subscribe(response => {
                 this.serviceRequestList = response;
-                console.log(this.serviceRequestList.length);
             },
                 error => this.failedToLoad = true,
                 () => console.log('Get all Items complete'));
@@ -131,7 +133,7 @@ export class ServiceRequestComponent implements OnInit{
                        () => console.log('Get all Items complete'));
     }
 
-    onUpdate(valid): void {
+    onUpdate(): void {
 
       if (this.serviceRequestForm.valid) {
         this.ErrorMessage = null;
@@ -145,18 +147,8 @@ export class ServiceRequestComponent implements OnInit{
       }
     };
 
-    private onSelectedRow(serviceRequest): void {
-        console.log(serviceRequest);
-        this.serviceRequest.SrNumber = serviceRequest.ServiceRequestId;
-        this.serviceRequest.RequestedBy = serviceRequest.CreatedBy == null ? 0 : serviceRequest.CreatedBy.EmployeeId;
-        this.serviceRequest.ServiceType = serviceRequest.ServiceType;
-        this.serviceRequest.RequestType = serviceRequest.RequestType;
-        this.serviceRequest.Customer.CustomerId = serviceRequest.Customer.CustomerId;
-        this.serviceRequest.Location = serviceRequest.Location;
-        this.serviceRequest.CreatedDate = new Date(serviceRequest.CreatedDate);
-        this.serviceRequest.StartDate = new Date(serviceRequest.StartDate);
-        this.serviceRequest.EndDate = new Date(serviceRequest.EndDate);
-        this.serviceRequest.Status = serviceRequest.Status;
+    onSelectedRow(serviceRequest): void {
+        this.serviceRequest = serviceRequest;
         this.Button = 'Update';
     }
 }

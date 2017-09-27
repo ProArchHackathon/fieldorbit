@@ -1,14 +1,13 @@
-﻿import { Job } from '../../Models/job.model';
-import { Component, OnInit } from '@angular/core';
-import { JobService } from '../../Services/Job.service';
+﻿import { Component, OnInit } from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Job } from '../../Models/job.model';
+import { JobService } from '../../Services/Job.service';
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { ServiceRequestService } from '../../Services/serviceRequest.service';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
 import { StaticDataLoaderService } from '../../Services/staticDataLoader.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -17,7 +16,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['job.component.scss'],
 })
 
-export class JobComponent implements OnInit{
+export class JobComponent implements OnInit {
     jobList: Job[];
     job: Job;
     minDate = new Date();
@@ -25,17 +24,12 @@ export class JobComponent implements OnInit{
     Types: any;
     Priorities: any;
     Category: any;
-    result: any;
-    showError: boolean;
-    showhighError: boolean;
-    showdateError: boolean;
     Button: string;
     ErrorMessage: string;
     serviceRequestError: string;
     showButton: boolean;
     jobDetailsForm: FormGroup;
     failedToLoad: Boolean = false;
-    message = 'This is Job Component';
 
     constructor(public dialog: MdDialog,
                 private fb: FormBuilder,
@@ -45,18 +39,25 @@ export class JobComponent implements OnInit{
 
                     this.jobDetailsForm = fb.group({
                       serviceRequestId: ['', Validators.compose([Validators.required,
-                                                                  Validators.pattern('^(?:[1-9]|0[1-9])$'),
-                                                                  Validators.maxLength(1)])],
-                      jobDescription: ['', Validators.required],
+                                                                 Validators.pattern('^[0-9]*$'),
+                                                                 Validators.maxLength(3)])],
                       status: ['', Validators.required],
                       priority: ['', Validators.required],
                       startDate: [null, Validators.required],
-                      endDate: [null, Validators.required]
+                      endDate: [null, Validators.required],
+                      jobDescription: ['', Validators.required],
+                      comments: [null],
+                      observations: [null]
+
         });
     }
 
     ngOnInit() {
-        //  Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        /**
+         *  Called after the constructor,
+         *  initializing input properties,
+         *  and the first call to ngOnChanges.
+         */
         this.job = {
             JobId: null,
             ServiceRequest : {
@@ -82,6 +83,8 @@ export class JobComponent implements OnInit{
     resetDetails () {
         this.jobDetailsForm.reset();
         this.ErrorMessage = null;
+        this.showButton = false;
+        this.job.JobId = null;
     }
 
     // validating the Date here
@@ -119,11 +122,16 @@ export class JobComponent implements OnInit{
         this.serviceRequestService
             .getServiceRequestDetails(this.job.ServiceRequest.ServiceRequestId.toString())
             .subscribe(response => {
-                this.job.ServiceRequest = response;
-                this.showButton = true;
+                if (response === null) {
+                    this.ErrorMessage = ' No service request id found';
+                } else {
+                    this.ErrorMessage = null;
+                    this.showButton = true;
+                    this.Button = 'Create';
+                    this.job.ServiceRequest = response;
+                }
             },
                 error => {
-                    console.log(error);
                     this.ErrorMessage = <any>error;
                     this.showButton = false;
                 },
@@ -131,7 +139,6 @@ export class JobComponent implements OnInit{
     };
 
     onSubmit() {
-        console.log(' called');
         if (this.jobDetailsForm.valid){
             if (this.Button === 'Create') {
                 this.jobService
@@ -157,10 +164,10 @@ export class JobComponent implements OnInit{
         }
     };
 
-    onSelectedRow(sr): void {
-        this.job = sr;
+    onSelectedRow(job: Job): void {
+        this.job = job;
         this.Button = 'Update';
-        console.log(this.job, 'job');
+        this.showButton = true;
     }
 }
 

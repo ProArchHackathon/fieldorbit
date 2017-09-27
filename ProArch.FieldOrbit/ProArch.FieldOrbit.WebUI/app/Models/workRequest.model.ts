@@ -1,10 +1,11 @@
-import { Customer } from "./customer.model";
+import { Customer } from './customer.model';
+import { Employee } from './employee.model';
 
 
 
 export interface WorkRequest {
     SrNumber: string;
-    RequestedBy: string;
+    CreatedBy: Employee;
     ServiceType: string;
     RequestType: string;
     CreatedDate: Date;
@@ -13,7 +14,5 @@ export interface WorkRequest {
     Customer: Customer;
     Status: any;
     Location: string;
-    // Button: string;
-    // ErrorMessage: string;
-  }
-  
+    Type?: string;
+}

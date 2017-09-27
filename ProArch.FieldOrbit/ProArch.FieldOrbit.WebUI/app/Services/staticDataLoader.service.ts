@@ -1,5 +1,7 @@
 import { viewer } from './../Models/viewer.model';
 import { Injectable } from '@angular/core';
+import { ServiceRequest } from '../Models/serviceRequest.model';
+import { WorkRequest } from "../Models/workRequest.model";
 
 @Injectable()
 export class StaticDataLoaderService {
@@ -59,21 +61,9 @@ export class StaticDataLoaderService {
 
     FormatDate (dataList) {
         dataList.forEach(element => {
-            element.StartDate = new Date(element.StartDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-');
-            element.CreatedDate = new Date(element.CreatedDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-');
-            element.EndDate = new Date(element.EndDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-');
+            element.StartDate = new Date(element.StartDate);
+            element.CreatedDate = new Date(element.CreatedDate);
+            element.EndDate = new Date(element.EndDate);
         });
 
         return dataList;
@@ -82,50 +72,11 @@ export class StaticDataLoaderService {
 
     formatJobDate(dataList) {
         dataList.forEach(element => {
-            element.StartTime = new Date(element.StartTime).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-');
-            element.EndTime = new Date(element.EndTime).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-');
+            element.StartTime = new Date(element.StartTime);
+            element.EndTime = new Date(element.EndTime);
         });
 
         return dataList;
-    }
-
-    modifyData(Request, type) {
-
-        let data = {
-            ServiceRequestId: Request.SrNumber,
-            CreatedBy: { EmployeeId: Request.RequestedBy },
-            ServiceType: Request.ServiceType,
-            RequestType: Request.RequestType,
-            CreatedDate: new Date(Request.CreatedDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-'),
-            StartDate: new Date(Request.StartDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-'),
-            EndDate: (Request.EndDate) ? new Date(Request.EndDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }).split(' ').join('-') : null,
-            Customer: Request.Customer,
-            Status: Request.Status,
-            Location: Request.Location,
-            Type: type
-        };
-
-        return data;
     }
 
 }

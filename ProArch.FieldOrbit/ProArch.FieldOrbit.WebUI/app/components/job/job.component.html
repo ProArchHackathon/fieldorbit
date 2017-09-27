@@ -5,7 +5,7 @@
         <div class="padder">
 
             <md-form-field *ngIf="job.JobId" class="example-full-width">
-                <input mdInput disabled required [(ngModel)]="job.JobId" name="JobId" placeholder="Job Id">
+                <input mdInput disabled required [(ngModel)]="job.JobId" [ngModelOptions]="{standalone: true}" name="JobId" placeholder="Job Id">
             </md-form-field>
 
             <md-form-field class="example-full-width">
@@ -47,13 +47,13 @@
         </div>
 
         <div class="padder">
-            <md-select placeholder="Status" [(ngModel)]="job.Status" formControlName="status">
+            <md-select placeholder="Status" [(ngModel)]="job.Status" formControlName="status" name="status">
                 <md-option *ngFor="let statusValue of Statuses" [value]="statusValue.value">
                     {{ statusValue.viewValue }}
                 </md-option>
             </md-select>
 
-            <md-select placeholder="Priority" [(ngModel)]="job.Priority" formControlName="priority">
+            <md-select placeholder="Priority" [(ngModel)]="job.Priority" formControlName="priority" name="priority">
                 <md-option *ngFor="let priorValue of Priorities" [value]="priorValue.value">
                     {{ priorValue.viewValue }}
                 </md-option> 
@@ -69,11 +69,11 @@
             </md-form-field>
             
             <md-form-field class="example-full-width">
-                <textarea mdInput [(ngModel)]="job.Comments" name="Comments" placeholder="Comments" [ngModelOptions]="{standalone: true}"></textarea>
+                <textarea mdInput [(ngModel)]="job.Comments" name="Comments" placeholder="Comments" formControlName="comments"></textarea>
             </md-form-field>
 
             <md-form-field class="example-full-width">
-                <textarea mdInput [(ngModel)]="job.Observations" name="Observations" placeholder="Observations" [ngModelOptions]="{standalone: true}"></textarea>
+                <textarea mdInput [(ngModel)]="job.Observations" name="Observations" placeholder="Observations" formControlName="observations"></textarea>
             </md-form-field>
         </div>
         <br />
@@ -101,12 +101,11 @@
             <tr *ngFor="let sr of jobList" (click)="onSelectedRow(sr)" #jobsListTable>
                 <td>{{sr.ServiceRequest.ServiceRequestId }} </td>
                 <td>{{sr.JobDescription}} </td>
-                <td>{{sr.StartTime}} </td>
-                <td>{{sr.EndTime}} </td>
+                <td>{{sr.StartTime | date: 'dd/MM/yyyy'}} </td>
+                <td>{{sr.EndTime | date: 'dd/MM/yyyy'}} </td>
                 <td>{{sr.Status}} </td>
                 <td>{{sr.Priority}} </td>
             </tr>
         </table>
     </md-card>
-
 </form>
