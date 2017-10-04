@@ -88,24 +88,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\common\login\login.component.css" />
     <Content Include="app\common\login\login.component.html" />
-    <Content Include="app\common\material\sidenav.css" />
     <Content Include="app\common\material\sidenav.html" />
     <Content Include="app\components\fileupload\fileupload.component.css" />
     <Content Include="app\components\fileupload\fileupload.component.html" />
     <Content Include="app\components\fileupload\fileuploaddetails.component.html" />
-    <Content Include="app\components\job\job.component.css" />
     <Content Include="app\components\job\job.component.html" />
     <Content Include="app\components\servicelist\srlist.component.html" />
     <Content Include="app\components\serviceRequest\serviceRequest.component.html" />
-    <Content Include="app\components\workrequest\workrequest.component.css" />
     <Content Include="app\components\workrequest\workrequest.component.html" />
     <Content Include="Content\deeppurple-amber.css" />
     <Content Include="Content\indigo-pink.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="dist\images\login.png" />
+    <Content Include="dist\js\app.ddc5070f054e1c49a4a9.js" />
+    <Content Include="dist\js\polyfills.ddc5070f054e1c49a4a9.js" />
+    <Content Include="dist\js\vendor.ddc5070f054e1c49a4a9.js" />
     <Content Include="Global.asax" />
-    <Content Include="systemjs.config.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +161,9 @@
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>npm run deploy</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
