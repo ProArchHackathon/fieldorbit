@@ -14,7 +14,7 @@ namespace ProArch.FieldOrbit.DataLayer.Repositories
         /// <summary>
         /// get device by id
         /// </summary>
-        /// <param name="deviceId"></param>
+        /// <param name="customerId"></param>
         /// <returns></returns>
         public Customer GetCustomerById(int customerId)
         {

@@ -248,7 +248,8 @@ namespace ProArch.FieldOrbit.DataLayer
         {
             IMongoClient _client = new MongoClient(Utilities.MongoServerUrl);
             IMongoDatabase _database = _client.GetDatabase(Utilities.MongoServerDB);
-            return _database.GetCollection<Customer>(collectionName).Find(dev => dev.CustomerId == customerId).FirstOrDefault();
+            var a= _database.GetCollection<Customer>(collectionName).Find(dev => dev.CustomerId == customerId).FirstOrDefault();
+            return a;
         }
     }
 }

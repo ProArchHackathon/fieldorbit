@@ -10,9 +10,9 @@ namespace ProArch.FieldOrbit.Contracts.Interfaces
     public interface ICustomerService
     {
         /// <summary>
-        /// Get Device by device id
+        /// Get Customer by customer id
         /// </summary>
-        /// <param name="deviceId"></param>
+        /// <param name="customerId"></param>
         /// <returns></returns>
         Customer GetCustomerById(int customerId);
     }

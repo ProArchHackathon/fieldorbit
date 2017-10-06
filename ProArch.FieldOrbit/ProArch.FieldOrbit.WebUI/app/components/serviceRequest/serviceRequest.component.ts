@@ -55,11 +55,11 @@ export class ServiceRequestComponent implements OnInit{
             SrNumber: null,
             ServiceType: '',
             CreatedBy: {
-                EmployeeId: ''
+                EmployeeId: 0
             },
             RequestType: '',
             Customer: {
-                CustomerId: 0
+                CustomerId: 0 
             },
             CreatedDate: new Date(),
             StartDate: new Date(),
@@ -147,8 +147,13 @@ export class ServiceRequestComponent implements OnInit{
       }
     };
 
-    onSelectedRow(serviceRequest): void {
+    onSelectedRow(serviceRequest: ServiceRequest): void {
+        console.log(serviceRequest);
         this.serviceRequest = serviceRequest;
+        if (this.serviceRequest.Customer.Address.length === 0){
+            this.serviceRequest.Customer.Address = null;
+        }
+        this.serviceRequest.Type = 'ServiceRequest';
         this.Button = 'Update';
     }
 }

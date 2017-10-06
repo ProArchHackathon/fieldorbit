@@ -100,10 +100,6 @@
     <Content Include="Content\deeppurple-amber.css" />
     <Content Include="Content\indigo-pink.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="dist\images\login.png" />
-    <Content Include="dist\js\app.ddc5070f054e1c49a4a9.js" />
-    <Content Include="dist\js\polyfills.ddc5070f054e1c49a4a9.js" />
-    <Content Include="dist\js\vendor.ddc5070f054e1c49a4a9.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>

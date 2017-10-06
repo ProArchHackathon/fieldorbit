@@ -29,7 +29,7 @@ export class JobService {
 
     updateJob(jobDetails) {
         return this.httpClient
-                   .post(this._config.ApiServer + this._config.AddJob, jobDetails)
+                   .put(this._config.ApiServer + this._config.UpdateJob, jobDetails)
                    .map(this.extractData)
                    .do((response) => console.log(response))
                    .catch(this.handleError);

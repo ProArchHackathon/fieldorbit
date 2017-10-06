@@ -57,7 +57,7 @@ export class WorkRequestComponent implements OnInit{
         this.workRequest = {
             SrNumber: null,
             CreatedBy: {
-                EmployeeId: ''
+                EmployeeId: 0
             },
             ServiceType: '',
             RequestType: '',
@@ -145,6 +145,10 @@ export class WorkRequestComponent implements OnInit{
 
     onSelectedRow(workRequest: WorkRequest): void {
         this.workRequest = workRequest;
+        if (this.workRequest.Customer.Address.length === 0){
+            this.workRequest.Customer.Address = null;
+        }
+        this.workRequest.Type = 'WorkRequest';
         this.Button = 'Update';
     }
 }

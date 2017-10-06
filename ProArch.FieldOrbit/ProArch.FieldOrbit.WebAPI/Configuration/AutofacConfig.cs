@@ -29,6 +29,8 @@ namespace ProArch.FieldOrbit.WebAPI.Configuration
             builder.RegisterType<ServiceRequestRepository>().As<IServiceRequestRepository>().InstancePerRequest();
             builder.RegisterType<DeviceService>().As<IDeviceService>().InstancePerRequest();
             builder.RegisterType<DeviceRepository>().As<IDeviceRepository>().InstancePerRequest();
+            builder.RegisterType<CustomerService>().As<ICustomerService>().InstancePerRequest();
+            builder.RegisterType<CustomerRepository>().As<ICustomerRepository>().InstancePerRequest();
             builder.RegisterType<JobRepository>().As<IJobRepository>().InstancePerRequest();
             builder.RegisterType<JobService>().As<IJobService>().InstancePerRequest();
 

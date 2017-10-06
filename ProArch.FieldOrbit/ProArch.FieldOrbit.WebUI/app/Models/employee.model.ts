@@ -1,3 +1,3 @@
 export interface Employee {
-    EmployeeId: string;
+    EmployeeId: number;
 }
