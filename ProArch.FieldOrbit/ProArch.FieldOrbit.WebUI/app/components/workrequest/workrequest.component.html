@@ -81,7 +81,7 @@
             </md-form-field>
             
             <md-form-field>
-                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="workRequest.EndDate" (blur)="validateDate()" [min]="minDate" placeholder="End Date" formControlName="endDate">
+                <input mdInput [mdDatepicker]="endDate" [(ngModel)]="workRequest.EndDate" (blur)="validateDate()" [min]="workRequest.StartDate" placeholder="End Date" formControlName="endDate">
                 <md-datepicker-toggle mdSuffix [for]="endDate"></md-datepicker-toggle>
                 <md-datepicker #endDate></md-datepicker>
                 <md-error *ngIf="workRequestForm.hasError('min','endDate')">
@@ -93,8 +93,8 @@
 
         <p style="text-align: right">
             <span style="color:red" *ngIf="ErrorMessage">{{ErrorMessage}}</span>
-            <button class="mat-button mat-primary" type="reset" md-primary-button md-raised-button (click)="resetDetails()">Reset</button>
-            <button class="mat-button mat-primary" type="submit" md-primary-button md-raised-button>{{Button}}</button>
+            <button class="mat-button mat-warn" type="reset" md-raised-button (click)="resetDetails()">Reset</button>
+            <button class="mat-button mat-primary" type="submit" md-raised-button>{{Button}}</button>
         </p>
     </md-card>
     <md-card>

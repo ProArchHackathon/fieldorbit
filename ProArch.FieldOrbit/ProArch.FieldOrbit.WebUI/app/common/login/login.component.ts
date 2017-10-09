@@ -1,11 +1,14 @@
-﻿import { UserNamValidator } from './../../Validators/userName.validator';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+﻿import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { User } from '../../Models/user.model';
 import { LoginService } from './login.service';
 import { CookieService } from '../app.cookieManager';
-import { Router } from '@angular/router';
 import { AuthenticateService } from '../../Services/auth.service';
-import { User } from '../../Models/user.model';
-import { FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { UserNameValidator } from './../../Validators/userName.validator';
+
+
 
 @Component({
     templateUrl: 'login.component.html',
@@ -29,7 +32,7 @@ export class LoginComponent implements OnInit{
                                 Validators.compose([Validators.required,
                                                     Validators.maxLength(10),
                                                     Validators.minLength(5),
-                                                    UserNamValidator.cannotContainSpace])],
+                                                    UserNameValidator.cannotContainSpace])],
                    password: ['',
                                 Validators.compose([Validators.required,
                                                     Validators.minLength(6),

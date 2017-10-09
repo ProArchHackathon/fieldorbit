@@ -78,16 +78,20 @@ export class WorkRequestComponent implements OnInit{
         this.getAllWorkRequests();
     }
 
-    resetDetails() {
+    resetDetails(): void {
         this.workRequestForm.reset();
+        setTimeout(() => {
+            this.workRequestForm.patchValue({
+                createdDate: new Date()
+            });
+        }, 100);
         this.Button = 'Create';
         this.workRequest.SrNumber = null;
         this.ErrorMessage = null;
-        this.workRequest.CreatedDate = new Date();
-        console.log(this.workRequest);
+        console.log(this.workRequestForm);
     }
 
-    validateDate() {
+    validateDate(): void {
         if (!this.workRequest.StartDate) {
             this.ErrorMessage = 'Please Select Start Date';
         }else if (this.workRequest.EndDate && (this.workRequest.EndDate <= this.workRequest.StartDate)) {
@@ -105,26 +109,33 @@ export class WorkRequestComponent implements OnInit{
                 () => console.log('Get all Items complete'));
     }
 
-    openDialog() {
+    openDialog(): void {
         let dialogRef = this.dialog.open(DialogResultDialog);
-        dialogRef.afterClosed().subscribe(result => {
-            this.getAllWorkRequests();
-            this.failedToLoad = false;
+        dialogRef.afterClosed()
+                 .subscribe(result => {
+                    this.getAllWorkRequests();
+                    this.failedToLoad = false;
         });
     }
 
-    createWorkRequest () {
+    createWorkRequest (): void {
         this.workRequestService
             .addWorkRequest(this.workRequest)
-            .subscribe(response => { this.openDialog(); },
+            .subscribe(response => {
+                         this.openDialog();
+                         this.resetDetails();
+                        },
                        error => this.ErrorMessage = <any>error,
                        () => console.log('Get all Items complete'));
     }
 
-    updateWorkRequest () {
+    updateWorkRequest (): void {
         this.workRequestService
             .updateWorkRequest(this.workRequest)
-            .subscribe(response => { this.openDialog(); },
+            .subscribe(response => {
+                           this.openDialog();
+                           this.resetDetails();
+                        },
                        error => this.ErrorMessage = <any>error,
                        () => console.log('Get all Items complete'));
     }

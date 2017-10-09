@@ -39,7 +39,8 @@ export class ServiceRequestComponent implements OnInit{
                                           Validators.maxLength(6)])],
                         customerId: ['',  Validators.compose([Validators.required,
                                           Validators.pattern('^[0-9]*$'),
-                                          Validators.maxLength(4)])],
+                                          Validators.minLength(4),
+                                          Validators.maxLength(6)])],
                         serviceType: ['', Validators.required],
                         status: ['', Validators.required],
                         requestType: ['', Validators.required],
@@ -59,7 +60,7 @@ export class ServiceRequestComponent implements OnInit{
             },
             RequestType: '',
             Customer: {
-                CustomerId: 0 
+                CustomerId: 0
             },
             CreatedDate: new Date(),
             StartDate: new Date(),
@@ -83,6 +84,11 @@ export class ServiceRequestComponent implements OnInit{
 
     resetDetails() {
         this.serviceRequestForm.reset();
+        setTimeout(() => {
+            this.serviceRequestForm.patchValue({
+                createdDate: new Date()
+            });
+        }, 100);
         this.Button = 'Create';
         this.serviceRequest.SrNumber = null;
         this.serviceRequest.Location = null;
@@ -120,7 +126,10 @@ export class ServiceRequestComponent implements OnInit{
     createServiceRequest() {
         this.serviceRequestService
             .addServiceRequest(this.serviceRequest)
-            .subscribe(response => { this.openDialog(); },
+            .subscribe(response => {
+                          this.openDialog();
+                          this.resetDetails();
+                      },
                        error => this.ErrorMessage = <any>error,
                        () => console.log('Get all Items complete'));
     }
@@ -128,7 +137,10 @@ export class ServiceRequestComponent implements OnInit{
     updateServiceRequest() {
         this.serviceRequestService
             .updateServiceRequest(this.serviceRequest)
-            .subscribe(response => { this.openDialog(); },
+            .subscribe(response => {
+                         this.openDialog();
+                         this.resetDetails();
+                        },
                        error => this.ErrorMessage = <any>error,
                        () => console.log('Get all Items complete'));
     }

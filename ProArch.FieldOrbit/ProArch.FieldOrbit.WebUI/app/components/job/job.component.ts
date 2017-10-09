@@ -49,7 +49,7 @@ export class JobComponent implements OnInit {
                       comments: [null],
                       observations: [null]
 
-        });
+        },{});
     }
 
     ngOnInit() {
@@ -138,24 +138,34 @@ export class JobComponent implements OnInit {
                 () => console.log('Get all Items complete'));
     };
 
+    private createJob(): void {
+        this.jobService
+        .createJob(this.job)
+        .subscribe(response => {
+            this.openDialog();
+            this.resetDetails();
+        },
+            error => this.ErrorMessage = <any>error,
+            () => console.log('Job Creation complete'));
+    }
+
+    private updateJob(): void {
+        this.jobService
+            .updateJob(this.job)
+            .subscribe(response => {
+                this.openDialog();
+                this.resetDetails();
+            },
+            error => this.ErrorMessage = <any>error,
+            () => console.log('Job Update complete'));
+    }
+
     onSubmit() {
         if (this.jobDetailsForm.valid){
             if (this.Button === 'Create') {
-                this.jobService
-                    .createJob(this.job)
-                    .subscribe(response => {
-                        this.openDialog();
-                    },
-                        error => this.ErrorMessage = <any>error,
-                        () => console.log('Job Creation complete'));
+                this.createJob();
             }else {
-                this.jobService
-                    .updateJob(this.job)
-                    .subscribe(response => {
-                        this.openDialog();
-                    },
-                        error => this.ErrorMessage = <any>error,
-                        () => console.log('Job Update complete'));
+                this.updateJob();
             }
             this.ErrorMessage = null;
             this.serviceRequestError = null;
