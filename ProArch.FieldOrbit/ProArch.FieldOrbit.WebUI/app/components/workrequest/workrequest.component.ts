@@ -71,6 +71,7 @@ export class WorkRequestComponent implements OnInit{
             Location: '',
             Type: 'WorkRequest'
         };
+        this.workRequestForm.valueChanges.subscribe(value => this.ErrorMessage = null);
         this.serviceType = this._staticDataLoader.serviceType;
         this.statusList = this._staticDataLoader.statusList;
         this.requestType = this._staticDataLoader.requestType;

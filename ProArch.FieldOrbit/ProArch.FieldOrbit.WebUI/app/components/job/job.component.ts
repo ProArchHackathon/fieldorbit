@@ -7,6 +7,7 @@ import { JobService } from '../../Services/Job.service';
 import { DialogResultDialog } from '../../common/dialog/dialog';
 import { ServiceRequestService } from '../../Services/serviceRequest.service';
 import { StaticDataLoaderService } from '../../Services/staticDataLoader.service';
+import { Logger } from '../../Services/logger.service';
 
 
 
@@ -35,6 +36,7 @@ export class JobComponent implements OnInit {
                 private fb: FormBuilder,
                 private serviceRequestService: ServiceRequestService,
                 private jobService: JobService,
+                private logger: Logger,
                 private _staticDataLoader: StaticDataLoaderService) {
 
                     this.jobDetailsForm = fb.group({
@@ -71,6 +73,7 @@ export class JobComponent implements OnInit {
             Comments: '',
             Observations: ''
         };
+        this.jobDetailsForm.valueChanges.subscribe(value => this.ErrorMessage = null);
         this.Types = this._staticDataLoader.Types;
         this.Statuses = this._staticDataLoader.Statuses;
         this.Category = this._staticDataLoader.Category;
@@ -135,7 +138,7 @@ export class JobComponent implements OnInit {
                     this.ErrorMessage = <any>error;
                     this.showButton = false;
                 },
-                () => console.log('Get all Items complete'));
+                () => this.logger.log('Get all Items complete'));
     };
 
     private createJob(): void {
@@ -146,7 +149,7 @@ export class JobComponent implements OnInit {
             this.resetDetails();
         },
             error => this.ErrorMessage = <any>error,
-            () => console.log('Job Creation complete'));
+            () => this.logger.log('Get all Items complete'));
     }
 
     private updateJob(): void {
@@ -157,7 +160,7 @@ export class JobComponent implements OnInit {
                 this.resetDetails();
             },
             error => this.ErrorMessage = <any>error,
-            () => console.log('Job Update complete'));
+            () => this.logger.log('Get all Items complete'));
     }
 
     onSubmit() {

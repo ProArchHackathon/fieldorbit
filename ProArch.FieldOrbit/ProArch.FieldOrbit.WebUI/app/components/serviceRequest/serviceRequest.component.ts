@@ -72,6 +72,7 @@ export class ServiceRequestComponent implements OnInit{
 
         this.Button = 'Create';
         this.getAllServiceRequests();
+        this.serviceRequestForm.valueChanges.subscribe(value => this.ErrorMessage = null);
         this.serviceType = this.staticDataLoaderService.serviceType;
         this.statusList = this.staticDataLoaderService.statusList;
         this.requestType = this.staticDataLoaderService.requestType;

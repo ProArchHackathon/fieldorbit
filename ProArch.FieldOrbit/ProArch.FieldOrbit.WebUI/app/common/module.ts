@@ -51,6 +51,7 @@ import { LoginService } from "./login/login.service";
 import { Routing } from "../Routing/app.routing";
 import { HeaderInterceptor } from "../Services/headerInterceptor.service";
 import { JobService } from "../Services/Job.service";
+import { Logger } from '../Services/logger.service';
 @NgModule({
   imports: [
     MdAutocompleteModule,
@@ -106,7 +107,8 @@ import { JobService } from "../Services/Job.service";
     LoginService,
     CookieService,
     HeaderInterceptor,
-    JobService
+    JobService,
+    Logger
   ]
 })
 export class AppModule {}

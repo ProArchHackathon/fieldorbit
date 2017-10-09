@@ -4,11 +4,13 @@ import { Configuration } from '../common/app.constants';
 import { Observable } from 'rxjs/Observable';
 import { WorkRequest } from '../Models/workRequest.model';
 import { StaticDataLoaderService } from './staticDataLoader.service';
+import { Logger } from './logger.service';
 
 @Injectable()
 export class WorkRequestService {
     constructor(private httpClient: HttpClient,
                 private _config: Configuration,
+                private logger: Logger,
                 private _staticLoader: StaticDataLoaderService) { }
 
     getAllWorkRequests = (): Observable<WorkRequest[]> => {
@@ -51,6 +53,7 @@ export class WorkRequestService {
     };
 
     private handleError(error: HttpErrorResponse) {
+        this.logger.error(error.message);
         return Observable.throw(error || 'server error');
     };
 }
