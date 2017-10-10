@@ -10,9 +10,9 @@ import { AppComponent } from '../common/app.component';
 import { DialogResultDialog } from './dialog/dialog';
 import 'hammerjs';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DetailsModule } from "../components/details.module";
-import { ComponentPageTitle } from "../Services/pageTitle.service";
-import { DataClearerDirective } from "../Directive/dataClearer.directive";
+import { DetailsModule } from '../components/details.module';
+import { ComponentPageTitle } from '../Services/pageTitle.service';
+import { DataClearerDirective } from '../Directive/dataClearer.directive';
 import {
   MdAutocompleteModule,
   MdButtonModule,
@@ -44,14 +44,16 @@ import {
   MdTableModule,
   MdTabsModule,
   MdToolbarModule,
-  MdTooltipModule,
+  MdTooltipModule
 } from '@angular/material';
-import { CookieService } from "./app.cookieManager";
-import { LoginService } from "./login/login.service";
-import { Routing } from "../Routing/app.routing";
-import { HeaderInterceptor } from "../Services/headerInterceptor.service";
-import { JobService } from "../Services/Job.service";
+import { CookieService } from './app.cookieManager';
+import { LoginService } from './login/login.service';
+import { Routing } from '../Routing/app.routing';
+import { HeaderInterceptor } from '../Services/headerInterceptor.service';
+import { JobService } from '../Services/Job.service';
 import { Logger } from '../Services/logger.service';
+import { LoaderService } from '../Services/loader.service';
+import { LoaderComponent } from './loader/loader.component';
 @NgModule({
   imports: [
     MdAutocompleteModule,
@@ -98,7 +100,13 @@ import { Logger } from '../Services/logger.service';
     Routing,
     ReactiveFormsModule
   ],
-  declarations: [AppComponent, LoginComponent, DialogResultDialog, DataClearerDirective],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    DialogResultDialog,
+    DataClearerDirective,
+    LoaderComponent
+  ],
   exports: [MaterialModule],
   bootstrap: [AppComponent],
   entryComponents: [DialogResultDialog],
@@ -108,7 +116,8 @@ import { Logger } from '../Services/logger.service';
     CookieService,
     HeaderInterceptor,
     JobService,
-    Logger
+    Logger,
+    LoaderService
   ]
 })
 export class AppModule {}

@@ -11,4 +11,4 @@ const routes: Routes = [
     { path: '**', pathMatch: 'full', component: PathNotFoundComponent, data: { Title: '404' } }
 ];
 
-export const Routing: ModuleWithProviders = RouterModule.forRoot(routes, {useHash: true});
+export const Routing: ModuleWithProviders = RouterModule.forRoot(routes);

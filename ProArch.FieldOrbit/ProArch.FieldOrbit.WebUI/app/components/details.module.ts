@@ -49,7 +49,8 @@ import { PathNotFoundComponent } from './pathNotFound/pathNotFound.component';
     ServiceRequestListComponent,
     ServiceRequestComponent,
     WorkRequestComponent,
-    SidenavComponent
+    SidenavComponent,
+    PathNotFoundComponent
   ],
   declarations: [
     DetailsComponent,

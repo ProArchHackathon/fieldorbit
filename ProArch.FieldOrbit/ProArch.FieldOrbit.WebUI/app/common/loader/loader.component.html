@@ -1,0 +1,8 @@
+<div [class.loader-hidden]="!show" fxFlex="30" fxFlexOffset="35">
+    <div class="loader-overlay">
+            <div>
+                <!-- <md-progress-bar mode="indeterminate" *ngIf="show"></md-progress-bar> -->
+                <mat-progress-spinner mode="indeterminate" color="color" *ngIf="show"></mat-progress-spinner>
+            </div>
+    </div>
+</div>

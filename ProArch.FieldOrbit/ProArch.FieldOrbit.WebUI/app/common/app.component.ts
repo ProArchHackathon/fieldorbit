@@ -5,7 +5,8 @@ import { ComponentPageTitle } from '../Services/pageTitle.service';
 
 @Component({
   selector: 'msg-app',
-  template: `<router-outlet></router-outlet>`,
+  template: `<angular-loader></angular-loader>
+              <router-outlet></router-outlet>`,
   styleUrls: ['app.component.scss'],
   encapsulation: ViewEncapsulation.None
 
@@ -24,7 +25,7 @@ export class AppComponent {
     .filter((event) => event instanceof NavigationEnd)
     .map(() => this.activatedRoute)
     .map((route) => {
-      while (route.firstChild) route = route.firstChild;
+      while (route.firstChild) { route = route.firstChild; }
       return route;
     })
     .filter((route) => route.outlet === 'primary')
