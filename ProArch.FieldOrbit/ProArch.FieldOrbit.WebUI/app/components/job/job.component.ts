@@ -40,7 +40,7 @@ export class JobComponent implements OnInit {
                 private _staticDataLoader: StaticDataLoaderService) {
 
                     this.jobDetailsForm = fb.group({
-                      serviceRequestId: ['', Validators.compose([Validators.required,
+                      serviceRequestId: [0, Validators.compose([Validators.required,
                                                                  Validators.pattern('^[0-9]*$'),
                                                                  Validators.maxLength(3)])],
                       status: ['', Validators.required],
