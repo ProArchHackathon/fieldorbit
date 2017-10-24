@@ -19,6 +19,7 @@ export class JobService {
                    .get(this._config.ApiServer + this._config.GetAllJobs)
                    .map(this.extractData)
                    .map(this._staticLoader.formatJobDate)
+                   .delay(3000)
                    .do((response) => console.log(response))
                    .catch(this.handleError)
                    .finally(() => this.onEnd() );

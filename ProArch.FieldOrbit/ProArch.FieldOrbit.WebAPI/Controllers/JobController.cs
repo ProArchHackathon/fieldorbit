@@ -24,7 +24,7 @@ namespace ProArch.FieldOrbit.WebAPI.Controllers
 
         [HttpPost]
         [TraceLogActionFilter]
-        [Route("Post")]
+        //[Route("Post")]
         public bool Post(Job job)
         {
             return _jobService.CreateJob(Mapper.Map<ProArch.FieldOrbit.Models.Job>(job));

@@ -10,3 +10,26 @@ $accent:  mat-palette($mat-pink, A200, A100, A400);
 $theme: mat-light-theme($primary, $accent);
 @include angular-material-theme($theme);
 // @include material-docs-app-theme($theme);
+
+angular-loader{
+    position: fixed;
+    top: 50%;
+    left:45%;
+    z-index: 500000;
+    // backface-visibility: hidden;
+    // opacity: 0.5;
+}
+
+.hider {
+    opacity: 0.5;
+    
+    //     /* overflow: hidden; */
+    // -webkit-filter: blur(13px);
+    // -moz-filter: blur(13px);
+    // -o-filter: blur(13px);
+    // -ms-filter: blur(13px);
+    // filter: blur(13px);
+}
+
+
+

@@ -5,8 +5,10 @@ import { ComponentPageTitle } from '../Services/pageTitle.service';
 
 @Component({
   selector: 'msg-app',
-  template: `<angular-loader></angular-loader>
-              <router-outlet></router-outlet>`,
+  template: `<div>
+                <angular-loader></angular-loader>
+                <router-outlet></router-outlet>
+              </div>`,
   styleUrls: ['app.component.scss'],
   encapsulation: ViewEncapsulation.None
 
